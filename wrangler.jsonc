@@ -1,0 +1,28 @@
+// Summit's staging copy of the page, for review before hand-over to LGTC.
+// A static-assets-only Worker (no script): it serves the staging export in
+// out/, built by `npm run build:staging` (base path /lgtc-summit-microsite,
+// noindex). Jan's hand-over build does not use this file.
+//
+// Deploy: the "Deploy staging" GitHub Action (manual dispatch only), or
+// `npm run deploy:staging` with CLOUDFLARE_API_TOKEN set.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "lgtc-summit-microsite-staging",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./out",
+    // /lgtc-summit-microsite -> /lgtc-summit-microsite/ -> index.html
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  // Route on go.summitestate.com: NOT attached. go.summitestate.com is live
+  // production, and Sergei approves this step. To attach it, uncomment the
+  // "routes" line below and run the deploy workflow. The pattern matches only
+  // /lgtc-summit-microsite*, which is more specific than the existing
+  // go.summitestate.com/* route, so /, /landing and /microsite are untouched.
+  // "routes": [{ "pattern": "go.summitestate.com/lgtc-summit-microsite*", "zone_name": "summitestate.com" }],
+
+  // Preview URL: https://lgtc-summit-microsite-staging.<subdomain>.workers.dev/lgtc-summit-microsite/
+  "workers_dev": true,
+  "preview_urls": false
+}

@@ -1,0 +1,42 @@
+name: CI
+
+# Builds the static export and checks it in a real browser: axe-core at phone
+# and desktop sizes (fails on serious or critical violations), exactly one H1,
+# no skipped heading levels, and the #programs / #treatment / #verify anchors.
+# Runs for Jan's build (no base path) and for Summit's staging build.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [handover, staging]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: node scripts/contrast.mjs
+      - name: Build (hand-over, no base path)
+        if: matrix.variant == 'handover'
+        run: npx next build
+      - name: Build (staging, /lgtc-summit-microsite, noindex)
+        if: matrix.variant == 'staging'
+        run: npm run build:staging
+      - run: npx playwright install --with-deps chromium
+      - name: Accessibility and heading checks
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ matrix.variant == 'staging' && '/lgtc-summit-microsite' || '' }}
+        run: node scripts/a11y-check.mjs

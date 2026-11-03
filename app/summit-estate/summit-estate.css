@@ -1,0 +1,63 @@
+/*
+ * Styles for the Summit Estate page only. No Tailwind preflight: LGTC's site
+ * keeps its own base styles, and the small reset below is scoped to .se-root
+ * so it cannot leak into LGTC's header or footer. The reset comes before the
+ * Tailwind directives so utility classes win over it.
+ */
+.se-root {
+  font-family: var(--font-se-montserrat), system-ui, sans-serif;
+  color: #2e2e2e;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.se-root *,
+.se-root *::before,
+.se-root *::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: currentColor;
+}
+.se-root :where(h1, h2, h3, p, ul, ol, figure) {
+  margin: 0;
+}
+.se-root :where(ul, ol) {
+  list-style: none;
+  padding: 0;
+}
+.se-root :where(h1, h2, h3) {
+  font-size: inherit;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.se-root :where(img, svg) {
+  display: block;
+  max-width: 100%;
+}
+.se-root :where(a) {
+  color: inherit;
+}
+.se-root :where(p) {
+  text-wrap: pretty;
+}
+/* One focus ring everywhere, visible on light and dark sections. */
+.se-root a:focus-visible {
+  outline: 3px solid #475f4f;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px #ffffff;
+}
+.se-root section.bg-se-green-800 a:focus-visible,
+.se-root .bg-se-green-800 a:focus-visible {
+  outline-color: #e3d8c9;
+  box-shadow: 0 0 0 3px #313d39;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:has(.se-root) {
+    scroll-behavior: smooth;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
