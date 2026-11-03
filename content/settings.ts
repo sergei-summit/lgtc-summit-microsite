@@ -1,0 +1,54 @@
+/**
+ * Every setting for the Summit Estate page in one place. Copy lives in
+ * content/page.ts; components read both and hard-code neither.
+ *
+ * Items marked TODO are still open and must be settled before launch.
+ */
+
+const env = (key: string): string | undefined => {
+  const value = process.env[key];
+  return value && value.trim() !== '' ? value.trim() : undefined;
+};
+
+export const settings = {
+  /**
+   * TODO (open): LGTC's intake phone number. This is a deliberately fake
+   * placeholder. `phoneHref` must be the same number in tel: form.
+   */
+  phone: '(000) 000-0000',
+  phoneHref: 'tel:+10000000000',
+
+  /** LGTC's EHR registration link ("Register online, we call you back"). */
+  registrationUrl:
+    'https://ncrv2.ehryourway.com/?eyJSb3drZXkiOiI1NzBjNjFjOS0wOTU1LTQzNTEtYmQzNy0yMTU1YzFiY2Y2YmUiLCJOQ1JrZXl0eXBlIjoxLCJOQ1JfUGF0aWVudFJlZmVycmVyRG9tYWluSW5mb0lEIjoxMDAxNH0=#!/homeLoading',
+
+  /** TODO (open): the group name used in the footer note's partnership line. */
+  groupName: 'LGTC Psychiatric Group',
+
+  /**
+   * TODO (open): whether the page links out to Summit's full site. The one
+   * outbound link on the page; set showFullSiteLink to false to remove it.
+   */
+  fullSiteUrl: 'https://summitestate.com/',
+  showFullSiteLink: true,
+
+  /**
+   * TODO (open): the final URL path. Empty when the page is mounted as a route
+   * inside LGTC's app or hosted at a domain root. Summit's staging build sets
+   * NEXT_PUBLIC_BASE_PATH=/lgtc-summit-microsite. No trailing slash.
+   */
+  basePath: env('NEXT_PUBLIC_BASE_PATH') ?? '',
+
+  /**
+   * Robots meta. LGTC decides indexing for its own URL. Summit's staging build
+   * sets NEXT_PUBLIC_ROBOTS="noindex, nofollow".
+   */
+  robots: env('NEXT_PUBLIC_ROBOTS') ?? 'index, follow',
+
+  /** Page title and meta description. */
+  metaTitle: 'Dual Diagnosis Treatment for Adults | Summit Estate Recovery Centers',
+  metaDescription:
+    'Mental health and substance use treated together, from medical detox and residential care in Palo Alto to PHP, IOP, Virtual IOP and outpatient care in San Jose. We accept most major insurances.',
+} as const;
+
+export type Settings = typeof settings;
