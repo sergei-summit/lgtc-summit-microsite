@@ -14,6 +14,7 @@
  */
 import type { StaticImageData } from 'next/image';
 import { settings } from './settings';
+import type { FeatureIconName } from '@/components/FeatureIcon';
 
 import heroPhoto from './images/hero-palo-alto-estate.webp';
 import paloAltoPhoto from './images/location-palo-alto.webp';
@@ -57,16 +58,17 @@ export const page = {
   skipLink: 'Skip to programs',
 
   hero: {
-    brand: 'Summit Estate Recovery Centers',
     title: 'Mental health and substance use,',
     titleAccent: 'treated together.',
     text: 'One clinical team across the full path: from Medical Detoxification and Stabilization, through Residential Care, Day Treatment & Intensive Outpatient, to Individual Therapy.',
+    /** Icons as on /microsite (Summit-Landing-Pages lib/microsite.ts heroPoints).
+     * Each line pairs a service with the proof point LGTC's old trust row carried. */
     features: [
-      'Mental health & substance use, one team',
-      'Detox, residential, PHP, IOP & OP',
-      'Private estate in Palo Alto',
-      'San Jose day, evening & virtual',
-    ],
+      { icon: 'brain', title: 'Mental Health & Substance Use Treatment', proof: 'Board-Certified Psychiatry and Addiction Medicine Team' },
+      { icon: 'layers', title: 'Detox, Residential, PHP, IOP & OP', proof: 'Individualized at Every Level' },
+      { icon: 'home', title: 'Private Estate in Palo Alto', proof: 'Comfortable Amenities' },
+      { icon: 'compass', title: 'San Jose Day, Evening & Virtual', proof: 'Evidence-Based Care (CBT, DBT)' },
+    ] satisfies { icon: FeatureIconName; title: string; proof: string }[],
     secondaryCta: { href: '#verify', label: 'Get started' },
     urgent: "Need detox or residential care? Call now, don't wait.",
     insuranceBadge: { label: 'We accept', value: 'Most major insurances' },
@@ -79,8 +81,6 @@ export const page = {
 
   trust: {
     label: 'Accreditations and reviews',
-    /** LGTC's trust row, as on its service pages. */
-    row: ['Evidence-based', 'Board-certified teams', 'Individualized care', 'Comfortable amenities'],
     badges: [
       { kind: 'image', src: jointCommissionBadge, alt: 'The Joint Commission Gold Seal of Approval' },
       { kind: 'image', src: carfBadge, alt: 'CARF Accredited' },

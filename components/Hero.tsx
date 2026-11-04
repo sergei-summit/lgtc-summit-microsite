@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { page } from '@/content/page';
 import { settings } from '@/content/settings';
-import { CallButton, CheckIcon, PhoneIcon, SecondaryLink } from './Actions';
+import { CallButton, PhoneIcon, SecondaryLink } from './Actions';
+import { FeatureIcon } from './FeatureIcon';
 
 /**
  * Hero, matched to go.summitestate.com/microsite: copy and actions on the
@@ -14,21 +15,26 @@ export default function Hero() {
     <section aria-labelledby="hero-title" className="bg-se-cream">
       <div className="mx-auto grid max-w-se-content items-center gap-10 px-4 py-12 sm:px-6 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-20">
         <div>
-          <p className="text-sm font-semibold text-se-green-700">{hero.brand}</p>
           <h1
             id="hero-title"
-            className="mt-4 text-[2.3rem] font-semibold leading-[1.08] text-se-green-700 sm:text-[2.9rem] lg:text-[3.3rem]"
+            className="text-[2.3rem] font-semibold leading-[1.08] text-se-green-700 sm:text-[2.9rem] lg:text-[3.3rem]"
           >
             {hero.title} <span className="text-se-accent-700">{hero.titleAccent}</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-se-ink">{hero.text}</p>
-          <ul className="mt-7 grid gap-x-6 gap-y-3 sm:grid-cols-2">
+          <ul className="mt-7 grid gap-x-6 gap-y-4 sm:grid-cols-2">
             {hero.features.map((feature) => (
-              <li key={feature} className="flex items-start gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-se-accent-100 text-se-green-700">
-                  <CheckIcon className="h-3.5 w-3.5" />
+              <li key={feature.title} className="flex items-start gap-3">
+                {/* One title line tall, so the badge centres on the title's first line. */}
+                <span className="flex h-[1.375em] shrink-0 items-center text-[0.95rem] leading-snug">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-se-accent-100 text-se-green-600">
+                    <FeatureIcon name={feature.icon} className="h-4 w-4" />
+                  </span>
                 </span>
-                <span className="pt-1 text-[0.95rem] font-semibold leading-snug text-se-ink">{feature}</span>
+                <span className="min-w-0">
+                  <span className="block text-[0.95rem] font-semibold leading-snug text-se-ink">{feature.title}</span>
+                  <span className="mt-0.5 block text-sm leading-snug text-se-ink-muted">{feature.proof}</span>
+                </span>
               </li>
             ))}
           </ul>
