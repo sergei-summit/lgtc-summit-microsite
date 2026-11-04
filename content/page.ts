@@ -5,10 +5,9 @@
  *
  * Source: sergei-summit/Summit-Landing-Pages, Astro/src/lib/microsite.ts and
  * Astro/src/lib/outpatient-auragen.ts (go.summitestate.com/microsite), cut to
- * the LGTC hand-over spec. Rules: "Summit Estate Recovery Centers" in the hero
- * and footer note, "Summit Estate" elsewhere; "psychiatry-guided", never
- * "psychiatry" alone, as a Summit service; no street addresses, licence
- * numbers or clock times; lengths of stay are "typically". No eyebrow labels
+ * the LGTC hand-over spec. Rules: "Summit Estate Recovery Centers" in the
+ * footer note and page title, "Summit Estate" elsewhere; no street addresses,
+ * licence numbers or clock times; lengths of stay are "typically". No eyebrow labels
  * and no pill chips. Detox and residential are call-only; "Register online"
  * appears only next to outpatient care. Never promise 24/7 or instant answers.
  */
@@ -72,7 +71,7 @@ export const page = {
     secondaryCta: { href: '#verify', label: 'Get started' },
     urgent: "Need detox or residential care? Call now, don't wait.",
     insuranceBadge: { label: 'We accept', value: 'Most major insurances' },
-    callCard: { note: 'Confidential' },
+    callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
       alt: 'A two-storey Mediterranean-style house above a landscaped garden with a stone fountain and patio chairs',
@@ -156,7 +155,7 @@ export const page = {
       {
         id: 'palo-alto',
         name: 'Palo Alto',
-        text: 'Private, Medically Integrated personalized Detoxification and Residential Treatment Care.',
+        text: 'Medically Integrated, personalized Detox and Residential Treatment in a private, comfortable setting.',
         photo: {
           src: paloAltoPhoto,
           alt: 'The Palo Alto estate: a two-storey Mediterranean-style house above a sloping lawn with sun loungers and mature trees',
@@ -301,6 +300,8 @@ export const page = {
   actions: {
     /** The visible label; the number follows it. */
     callPrefix: 'Call',
+    /** Short call link on each program tile; dials the same number without repeating it. */
+    callAdmissions: 'Call admissions',
     register: 'Register online, we call you back',
   },
 

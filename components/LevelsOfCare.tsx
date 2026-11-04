@@ -54,7 +54,7 @@ export default function LevelsOfCare() {
                     className="inline-flex items-center gap-1.5 text-se-green-700 underline underline-offset-2"
                   >
                     <PhoneIcon className="h-4 w-4" />
-                    {page.actions.callPrefix} {settings.phone}
+                    {page.actions.callAdmissions}
                   </a>
                   {level.cta === 'register' && (
                     <a href={settings.registrationUrl} className="text-se-accent-700 underline underline-offset-2">
