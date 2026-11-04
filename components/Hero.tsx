@@ -8,8 +8,7 @@ export default function Hero() {
     <section aria-labelledby="hero-title" className="bg-se-cream">
       <div className="mx-auto grid max-w-se-content items-center gap-10 px-4 py-10 sm:px-6 md:py-16 lg:grid-cols-2 lg:gap-14">
         <div>
-          <p className="text-sm font-semibold text-se-green-700">{hero.brand}</p>
-          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-se-accent-700">{hero.eyebrow}</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-se-accent-700">{hero.eyebrow}</p>
           <h1 id="hero-title" className="mt-4 text-4xl font-semibold leading-[1.1] text-se-green-700 sm:text-5xl">
             {hero.title}
           </h1>

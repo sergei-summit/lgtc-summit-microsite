@@ -5,8 +5,8 @@
  *
  * Source: sergei-summit/Summit-Landing-Pages, Astro/src/lib/microsite.ts and
  * Astro/src/lib/outpatient-auragen.ts (go.summitestate.com/microsite), cut to
- * the LGTC hand-over spec. Rules: "Summit Estate Recovery Centers" in the hero
- * and footer note, "Summit Estate" elsewhere; "psychiatry-guided", never
+ * the LGTC hand-over spec. Rules: "Summit Estate Recovery Centers" in the footer
+ * note (the sub-bar logo names it above the hero), "Summit Estate" elsewhere; "psychiatry-guided", never
  * "psychiatry" alone, as a Summit service; no street addresses, licence
  * numbers or clock times; lengths of stay are "typically".
  */
@@ -52,7 +52,6 @@ export const page = {
   skipLink: 'Skip to programs',
 
   hero: {
-    brand: 'Summit Estate Recovery Centers',
     eyebrow: 'Integrated recovery · Dual diagnosis · Psychiatric Oversight',
     title: 'Mental health and substance use, treated together.',
     text: 'One clinical team across the full path: from Medical Detoxification and Stabilization, through Residential Care, Day Treatment & Intensive Outpatient, to Individual Therapy.',
