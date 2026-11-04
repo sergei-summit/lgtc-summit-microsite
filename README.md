@@ -113,6 +113,19 @@ LGTC decides indexing for its own URL. Set `settings.robots` (or
 | `metaTitle` | `Dual Diagnosis Treatment for Adults \| Summit Estate Recovery Centers` | Set |
 | `metaDescription` | One sentence on the full path and insurance | Set |
 
+## Open items for LGTC's build
+
+Known, not blocking. Left for whoever mounts the page in LGTC's app:
+
+- **Phone call bar vs. keyboard focus (WCAG 2.2, 2.4.11).** On phones the
+  fixed bottom bar (`components/MobileCallBar.tsx`) can partly cover the hero's
+  Call and Get started buttons when they receive keyboard focus. The bar already
+  hides itself while the "Call or register" section is on screen; extend the
+  same `IntersectionObserver` to the hero's button row (give it a `data-` hook
+  and observe it too), or add `scroll-padding-bottom` equal to the bar's height
+  on `html` for small screens. Passes AA as it is (the buttons are never fully
+  hidden); this closes the AAA version (2.4.12).
+
 ## Accessibility checks (CI)
 
 `.github/workflows/ci.yml` runs on every pull request and on pushes to `main`.
