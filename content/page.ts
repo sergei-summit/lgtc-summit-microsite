@@ -78,7 +78,7 @@ export const page = {
   levels: {
     id: 'programs',
     title: 'Levels of care',
-    lead: 'Wherever you start, the first step is a psychiatric evaluation and integrated assessment, with rapid psychiatric and addictionology team evaluations at intake and continued psychiatry-guided medication management at every level.',
+    lead: 'Wherever you start, the first step is a complimentary, confidential assessment and an initial consultation with our integrated clinical team.',
     intro: 'You can enter at any level, and many people step down from one to the next.',
     items: [
       {
