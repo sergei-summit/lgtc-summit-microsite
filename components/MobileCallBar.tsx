@@ -4,24 +4,26 @@ import { useEffect, useState } from 'react';
 import { PhoneIcon } from './Actions';
 
 /**
- * Fixed bottom bar on phones with Call and Register. The only script hides the
- * bar while the "Call or register" section's own buttons are on screen, so the
- * two never stack. Hidden on md screens and up.
+ * Fixed bottom bar on phones with Call and Get started (a jump to the "Call or
+ * register" split, where outpatient care can register online; detox and
+ * residential are call-only). The only script hides the bar while that
+ * section's own buttons are on screen, so the two never stack. Hidden on md
+ * screens and up.
  */
 export default function MobileCallBar({
   label,
   phone,
   phoneHref,
   callPrefix,
-  registerLabel,
-  registrationUrl,
+  secondaryLabel,
+  secondaryHref,
 }: {
   label: string;
   phone: string;
   phoneHref: string;
   callPrefix: string;
-  registerLabel: string;
-  registrationUrl: string;
+  secondaryLabel: string;
+  secondaryHref: string;
 }) {
   const [hidden, setHidden] = useState(false);
 
@@ -52,10 +54,10 @@ export default function MobileCallBar({
           {callPrefix}
         </a>
         <a
-          href={registrationUrl}
+          href={secondaryHref}
           className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-se-accent-600 px-4 text-base font-semibold text-se-green-700 no-underline"
         >
-          {registerLabel}
+          {secondaryLabel}
         </a>
       </div>
     </aside>

@@ -12,11 +12,11 @@ const env = (key: string): string | undefined => {
 
 export const settings = {
   /**
-   * TODO (open): LGTC's intake phone number. This is a deliberately fake
-   * placeholder. `phoneHref` must be the same number in tel: form.
+   * LGTC's intake phone number. `phoneHref` must be the same number in tel:
+   * form. Always LGTC's number on this page, never Summit's own line.
    */
-  phone: '(000) 000-0000',
-  phoneHref: 'tel:+10000000000',
+  phone: '(408) 542-0434',
+  phoneHref: 'tel:+14085420434',
 
   /** LGTC's EHR registration link ("Register online, we call you back"). */
   registrationUrl:
