@@ -1,23 +1,15 @@
 import Image from 'next/image';
 import { page } from '@/content/page';
-import { CheckIcon } from './Actions';
 
-/** Trust row (LGTC's four points), then accreditation and review badges as a
- * plain list, with no heading. Each image's alt text names its credential. */
+/** Accreditation and review badges as a plain list, with no heading. Each
+ * image's alt text names its credential. LGTC's four trust points now sit in
+ * the hero feature lines. */
 export default function TrustBadges() {
   const { trust } = page;
   return (
     <section aria-label={trust.label} className="border-y border-se-line bg-se-paper">
       <div className="mx-auto max-w-se-content px-4 py-6 sm:px-6">
-        <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-b border-se-line pb-5">
-          {trust.row.map((item) => (
-            <li key={item} className="inline-flex items-center gap-2 font-semibold text-se-green-700">
-              <CheckIcon className="h-4 w-4 text-se-accent-600" />
-              {item}
-            </li>
-          ))}
-        </ul>
-        <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5 pt-5">
+        <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
           {trust.badges.map((badge) =>
             badge.kind === 'image' ? (
               <li key={badge.alt}>

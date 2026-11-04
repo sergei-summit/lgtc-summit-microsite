@@ -22,16 +22,19 @@ export default function Hero() {
             {hero.title} <span className="text-se-accent-700">{hero.titleAccent}</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-se-ink">{hero.text}</p>
-          <ul className="mt-7 grid gap-x-6 gap-y-3 sm:grid-cols-2">
+          <ul className="mt-7 grid gap-x-6 gap-y-4 sm:grid-cols-2">
             {hero.features.map((feature) => (
-              <li key={feature.label} className="flex items-start gap-3">
-                {/* One text line tall, so the badge centres on the label's first line. */}
+              <li key={feature.title} className="flex items-start gap-3">
+                {/* One title line tall, so the badge centres on the title's first line. */}
                 <span className="flex h-[1.375em] shrink-0 items-center text-[0.95rem] leading-snug">
                   <span className="flex h-7 w-7 items-center justify-center rounded-full bg-se-accent-100 text-se-green-600">
                     <FeatureIcon name={feature.icon} className="h-4 w-4" />
                   </span>
                 </span>
-                <span className="text-[0.95rem] font-semibold leading-snug text-se-ink">{feature.label}</span>
+                <span className="min-w-0">
+                  <span className="block text-[0.95rem] font-semibold leading-snug text-se-ink">{feature.title}</span>
+                  <span className="mt-0.5 block text-sm leading-snug text-se-ink-muted">{feature.proof}</span>
+                </span>
               </li>
             ))}
           </ul>
