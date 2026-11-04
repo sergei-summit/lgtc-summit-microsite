@@ -8,7 +8,9 @@
  * the LGTC hand-over spec. Rules: "Summit Estate Recovery Centers" in the hero
  * and footer note, "Summit Estate" elsewhere; "psychiatry-guided", never
  * "psychiatry" alone, as a Summit service; no street addresses, licence
- * numbers or clock times; lengths of stay are "typically".
+ * numbers or clock times; lengths of stay are "typically". No eyebrow labels
+ * and no pill chips. Detox and residential are call-only; "Register online"
+ * appears only next to outpatient care. Never promise 24/7 or instant answers.
  */
 import type { StaticImageData } from 'next/image';
 import { settings } from './settings';
@@ -32,6 +34,8 @@ export type Level = {
   text: string;
   /** Typical length; omitted where the source gives none. */
   length?: string;
+  /** "call": call-only (detox, residential). "register": outpatient, call or register online. */
+  cta: 'call' | 'register';
 };
 
 export type Badge =
@@ -44,6 +48,7 @@ export const page = {
     navLabel: 'Summit Estate',
     links: [
       { href: '#programs', label: 'Programs' },
+      { href: '#how-we-treat', label: 'How we treat' },
       { href: '#treatment', label: 'What we treat' },
     ],
     cta: { href: '#verify', label: 'Get started' },
@@ -53,10 +58,19 @@ export const page = {
 
   hero: {
     brand: 'Summit Estate Recovery Centers',
-    eyebrow: 'Integrated recovery · Dual diagnosis · Psychiatric Oversight',
-    title: 'Mental health and substance use, treated together.',
+    title: 'Mental health and substance use,',
+    titleAccent: 'treated together.',
     text: 'One clinical team across the full path: from Medical Detoxification and Stabilization, through Residential Care, Day Treatment & Intensive Outpatient, to Individual Therapy.',
-    pills: ['Confidential', 'Obligation-free insurance check'],
+    features: [
+      'Mental health & substance use, one team',
+      'Detox, residential, PHP, IOP & OP',
+      'Private estate in Palo Alto',
+      'San Jose day, evening & virtual',
+    ],
+    secondaryCta: { href: '#verify', label: 'Get started' },
+    urgent: "Need detox or residential care? Call now, don't wait.",
+    insuranceBadge: { label: 'We accept', value: 'Most major insurances' },
+    callCard: { note: 'Confidential' },
     photo: {
       src: heroPhoto,
       alt: 'A two-storey Mediterranean-style house above a landscaped garden with a stone fountain and patio chairs',
@@ -65,6 +79,8 @@ export const page = {
 
   trust: {
     label: 'Accreditations and reviews',
+    /** LGTC's trust row, as on its service pages. */
+    row: ['Evidence-based', 'Board-certified teams', 'Individualized care', 'Comfortable amenities'],
     badges: [
       { kind: 'image', src: jointCommissionBadge, alt: 'The Joint Commission Gold Seal of Approval' },
       { kind: 'image', src: carfBadge, alt: 'CARF Accredited' },
@@ -72,7 +88,6 @@ export const page = {
       { kind: 'image', src: legitScriptBadge, alt: 'LegitScript Certified' },
       { kind: 'google', label: 'Google reviews', rating: 4.5 },
     ] satisfies Badge[],
-    insurance: 'We accept most major insurances',
   },
 
   levels: {
@@ -87,6 +102,7 @@ export const page = {
         where: 'Palo Alto',
         text: 'Medically supervised withdrawal when stopping is not yet safe at home. Starts with a call.',
         length: 'Typically 7–10 days',
+        cta: 'call',
       },
       {
         id: 'residential',
@@ -94,6 +110,7 @@ export const page = {
         where: 'Palo Alto',
         text: 'Live-in treatment on a private estate. Starts with a call.',
         length: 'Typically 3–4 weeks',
+        cta: 'call',
       },
       {
         id: 'php',
@@ -102,6 +119,7 @@ export const page = {
         where: 'San Jose',
         text: 'Structured treatment several hours a day, then home each evening.',
         length: '20+ hours a week, typically 4–6 weeks',
+        cta: 'register',
       },
       {
         id: 'iop',
@@ -109,12 +127,14 @@ export const page = {
         where: 'San Jose',
         text: 'Day or evening care, 3–5 days a week. Most people keep working.',
         length: '9–19 hours a week, typically 8–12 weeks',
+        cta: 'register',
       },
       {
         id: 'virtual-iop',
         name: 'Virtual IOP',
         where: 'Anywhere in California',
         text: 'Intensive outpatient care over HIPAA-compliant video.',
+        cta: 'register',
       },
       {
         id: 'outpatient',
@@ -123,9 +143,14 @@ export const page = {
         where: 'San Jose or virtual',
         text: 'Ongoing therapy that fits around a full working week.',
         length: '1–9 hours a week, ongoing',
+        cta: 'register',
       },
     ] satisfies Level[],
     aliasPrefix: 'Also called',
+    urgent: {
+      title: 'Need detox or residential care?',
+      text: "Call now, don't wait. Detox and residential care in Palo Alto start with a call to admissions.",
+    },
     locationsLabel: 'Where we are',
     locations: [
       {
@@ -153,9 +178,85 @@ export const page = {
     },
   },
 
+  /** Ported from go.summitestate.com/microsite ("Core components" and "How we treat it"). */
+  howWeTreat: {
+    id: 'how-we-treat',
+    title: 'How we treat',
+    lead: 'Evidence-based therapy, in groups and one to one.',
+    intro:
+      'Treatment includes family therapy and a multi-family group. Loved ones learn the same skills at the same time, so the whole family is practising together rather than one person carrying the change alone.',
+    components: [
+      {
+        title: 'Dual Diagnosis Focus',
+        text: 'Mental health conditions and substance use treated at the same time, by the same team, to address the triggers they share.',
+      },
+      {
+        title: 'Relapse Prevention',
+        text: 'A personalized plan to recognize triggers, navigate high-risk situations and stay steady after treatment.',
+      },
+      {
+        title: 'CBT & DBT',
+        text: 'Evidence-based skills to regulate intense emotions, manage cravings and work through stress.',
+      },
+      {
+        title: 'Psychiatric Oversight',
+        text: 'A psychiatric evaluation and psychiatry-guided medication management, under a Medical Director.',
+      },
+      {
+        title: 'Relational Healing',
+        text: 'Family therapy and a multi-family group, so the people around you build the same skills.',
+      },
+      {
+        title: 'Flexible Scheduling',
+        text: 'Day, evening and virtual outpatient options, so you can return to work and home life step by step.',
+      },
+    ],
+    lists: [
+      {
+        label: 'Therapies',
+        items: [
+          'Cognitive Behavioral Therapy (CBT)',
+          'Dialectical Behavior Therapy (DBT)',
+          'Mindfulness-Based Relapse Prevention',
+          'Trauma-Informed Therapy',
+          'PTSD / PTSI Therapy',
+          'EMDR (Eye Movement Desensitization and Reprocessing)',
+          'Narrative Therapy',
+          'Attachment Therapy',
+          'Family Systems Therapy',
+          'Couples & Family Therapy',
+          'Art Therapy',
+          'Music Therapy',
+          'Breathwork',
+          'Psychiatry-Guided Medication Management',
+        ],
+      },
+      {
+        label: 'Group topics',
+        items: [
+          'Mindfulness & Nervous System Regulation',
+          'Relapse Prevention',
+          'Chemical Dependency Education',
+          'Stress Management',
+          'Anger Management & Conflict Resolution',
+          'Coping & Resilience Skills',
+          'Specialized Process Groups',
+          'Emotional Regulation (DBT)',
+          'Interpersonal Effectiveness (DBT)',
+          'Thought Shifting (CBT)',
+          'Trauma Stabilization',
+          'Somatic Awareness',
+          'Values, Identity & Meaning',
+          'Communication Skills',
+          'Family Roles & Dynamics',
+          'Functional Living Skills',
+        ],
+      },
+    ],
+  },
+
   treatment: {
     id: 'treatment',
-    eyebrow: 'What we treat',
     title: 'Substance use and mental health, together.',
     intro: 'Dual diagnosis is the program, not an add-on.',
     groups: [
@@ -212,6 +313,14 @@ export const page = {
     title: 'Call or register',
     subtitle: 'We can help you find the right program.',
     text: 'All communication is confidential.',
+    urgent: {
+      title: 'Detox or residential care',
+      text: "Need detox or residential care? Call now, don't wait. These programs start with a call.",
+    },
+    outpatient: {
+      title: 'Outpatient care',
+      text: 'For PHP, IOP, Virtual IOP or OP, call us, or register online and we call you back.',
+    },
     smallPrint: "Please don't include sensitive medical details. If you are in crisis, call or text 988.",
   },
 
@@ -219,7 +328,6 @@ export const page = {
     /** The visible label; the number follows it. */
     callPrefix: 'Call',
     register: 'Register online, we call you back',
-    registerShort: 'Register',
   },
 
   footerNote: {
@@ -227,7 +335,8 @@ export const page = {
     fullSiteLink: 'Explore the full Summit Estate site',
   },
 
-  mobileBar: { label: 'Call or register' },
+  /** Phone bar: Call, plus Get started, which jumps to the call-or-register split. */
+  mobileBar: { label: 'Call or get started', secondary: { href: '#verify', label: 'Get started' } },
 } as const;
 
 export type PageContent = typeof page;

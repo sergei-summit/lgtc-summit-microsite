@@ -28,7 +28,7 @@ for scripts, styles, fonts and images.
 |---|---|
 | `app/summit-estate/page.tsx` | The page route, its metadata (title, description, robots) and its CSS import |
 | `app/summit-estate/summit-estate.css` | Tailwind utilities plus a reset scoped to `.se-root`. No Tailwind preflight, so it cannot restyle LGTC's header or footer |
-| `components/` | `SubBar`, `Hero`, `TrustBadges`, `LevelsOfCare`, `LocationTile`, `WhatWeTreat`, `WhoItIsFor`, `GettingStarted`, `CallOrRegister`, `MobileCallBar`, `PageFooterNote`, plus `Actions` (call and register buttons), `Logo` and `fonts` |
+| `components/` | `SubBar`, `Hero`, `TrustBadges`, `LevelsOfCare`, `LocationTile`, `HowWeTreat`, `WhatWeTreat`, `WhoItIsFor`, `GettingStarted`, `CallOrRegister`, `MobileCallBar`, `PageFooterNote`, plus `Actions` (call, register and secondary-link buttons), `Logo` and `fonts` |
 | `content/page.ts` | Every word of visible copy, typed. Components hard-code none |
 | `content/settings.ts` | Every setting: phone, registration link, group name, outbound link, base path, robots, title and description |
 | `content/images/` | Photos and badges, pre-sized for their display size |
@@ -103,7 +103,7 @@ LGTC decides indexing for its own URL. Set `settings.robots` (or
 
 | Setting | Value | Status |
 |---|---|---|
-| `phone` / `phoneHref` | `(000) 000-0000` / `tel:+10000000000` | **TODO:** LGTC's intake number. A deliberately fake placeholder. Update both together |
+| `phone` / `phoneHref` | `(408) 542-0434` / `tel:+14085420434` | Set: LGTC's intake number. Never Summit's own line. Update both together |
 | `registrationUrl` | LGTC's EHR registration link (ehryourway.com) | Set. Used by "Register online, we call you back" |
 | `groupName` | `LGTC Psychiatric Group` | **TODO:** confirm. Used in the footer note's partnership line and the San Jose tile |
 | `fullSiteUrl` | `https://summitestate.com/` | **TODO:** confirm whether the page links out at all |
@@ -143,7 +143,8 @@ hand-over, on a separate Cloudflare Worker, `lgtc-summit-microsite-staging`.
   go.summitestate.com is written out but commented, so a deploy only reaches
   the `*.workers.dev` preview until Summit enables it.
 - `.github/workflows/deploy-staging.yml` builds, checks and runs
-  `wrangler deploy`. It runs only on manual dispatch and needs the repository
+  `wrangler deploy`. It runs on every push to `main` (docs-only changes skipped)
+  and on manual dispatch, and needs the repository
   secret `CLOUDFLARE_API_TOKEN` (and `CLOUDFLARE_ACCOUNT_ID` if the token can
   see more than one account).
 - `npm run preview:staging` runs the staging Worker locally with `wrangler dev`

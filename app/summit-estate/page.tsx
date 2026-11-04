@@ -7,6 +7,7 @@ import SubBar from '@/components/SubBar';
 import Hero from '@/components/Hero';
 import TrustBadges from '@/components/TrustBadges';
 import LevelsOfCare from '@/components/LevelsOfCare';
+import HowWeTreat from '@/components/HowWeTreat';
 import WhatWeTreat from '@/components/WhatWeTreat';
 import WhoItIsFor from '@/components/WhoItIsFor';
 import GettingStarted from '@/components/GettingStarted';
@@ -38,6 +39,7 @@ export default function SummitEstatePage() {
         <Hero />
         <TrustBadges />
         <LevelsOfCare />
+        <HowWeTreat />
         <WhatWeTreat />
         <WhoItIsFor />
         <GettingStarted />
@@ -49,8 +51,8 @@ export default function SummitEstatePage() {
         phone={settings.phone}
         phoneHref={settings.phoneHref}
         callPrefix={page.actions.callPrefix}
-        registerLabel={page.actions.registerShort}
-        registrationUrl={settings.registrationUrl}
+        secondaryLabel={page.mobileBar.secondary.label}
+        secondaryHref={page.mobileBar.secondary.href}
       />
     </div>
   );
