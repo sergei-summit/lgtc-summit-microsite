@@ -35,6 +35,7 @@ for scripts, styles, fonts and images.
 | `app/page.tsx`, `app/layout.tsx` | Only for running this repo on its own. Not needed inside LGTC's app |
 | `tailwind.config.ts` | Brand colours, all under one `se` key so they cannot clash with LGTC's theme |
 | `scripts/a11y-check.mjs` | The CI accessibility check (see below) |
+| `ACCESSIBILITY.md` | The WCAG 2.1 / 2.2 Level AA review: what was tested, the result, and what was not |
 | `scripts/contrast.mjs` | Prints the contrast ratio of every colour pair the page uses |
 | `wrangler.jsonc`, `scripts/prepare-staging.mjs` | Summit's Cloudflare staging copy only. Ignore for LGTC |
 
