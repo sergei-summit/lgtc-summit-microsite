@@ -7,6 +7,8 @@ import SubBar from '@/components/SubBar';
 import Hero from '@/components/Hero';
 import TrustBadges from '@/components/TrustBadges';
 import LevelsOfCare from '@/components/LevelsOfCare';
+import TypicalWeek from '@/components/TypicalWeek';
+import LgtcContinuum from '@/components/LgtcContinuum';
 import HowWeTreat from '@/components/HowWeTreat';
 import WhatWeTreat from '@/components/WhatWeTreat';
 import WhoItIsFor from '@/components/WhoItIsFor';
@@ -39,6 +41,8 @@ export default function SummitEstatePage() {
         <Hero />
         <TrustBadges />
         <LevelsOfCare />
+        <TypicalWeek />
+        <LgtcContinuum />
         <HowWeTreat />
         <WhatWeTreat />
         <WhoItIsFor />

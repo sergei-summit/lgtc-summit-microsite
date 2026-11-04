@@ -46,9 +46,9 @@ export const settings = {
   robots: env('NEXT_PUBLIC_ROBOTS') ?? 'index, follow',
 
   /** Page title and meta description. */
-  metaTitle: 'Dual Diagnosis Treatment for Adults | Summit Estate Recovery Centers',
+  metaTitle: 'Outpatient Mental Health and Substance Use Treatment in San Jose | Summit Estate Recovery Centers',
   metaDescription:
-    'Mental health and substance use treated together, from medical detox and residential care in Palo Alto to PHP, IOP, Virtual IOP and outpatient care in San Jose. We accept most major insurances.',
+    'PHP, IOP, Virtual IOP and outpatient therapy for mental health and substance use in San Jose and virtually across California, in-network with all major plans. Medical detox and residential care in Palo Alto when a higher level of care is needed.',
 } as const;
 
 export type Settings = typeof settings;

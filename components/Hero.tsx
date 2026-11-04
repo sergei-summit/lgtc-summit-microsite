@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import { page } from '@/content/page';
 import { settings } from '@/content/settings';
-import { CallButton, PhoneIcon, SecondaryLink } from './Actions';
+import { CallButton, PhoneIcon, RegisterButton } from './Actions';
 import { FeatureIcon } from './FeatureIcon';
 
 /**
- * Hero, matched to go.summitestate.com/microsite: copy and actions on the
- * left, a large framed photo on the right with the insurance badge on its top
- * right and a floating call card on its bottom left (sm screens and up).
+ * Hero, outpatient-first: copy and actions on the left, a framed photo of the
+ * San Jose outpatient center on the right with the in-network badge on its top
+ * right and a floating call card on its bottom left (sm screens and up). The
+ * assessment request is the primary action; the call button sits beside it.
  */
 export default function Hero() {
   const { hero } = page;
@@ -17,7 +18,7 @@ export default function Hero() {
         <div>
           <h1
             id="hero-title"
-            className="text-[2.3rem] font-semibold leading-[1.08] text-se-green-700 sm:text-[2.9rem] lg:text-[3.3rem]"
+            className="text-[2.3rem] font-semibold leading-[1.08] text-se-green-700 sm:text-[2.9rem] lg:text-[3rem]"
           >
             {hero.title} <span className="text-se-accent-700">{hero.titleAccent}</span>
           </h1>
@@ -39,14 +40,14 @@ export default function Hero() {
             ))}
           </ul>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <CallButton className="min-h-14 px-8 text-lg" />
-            <SecondaryLink href={hero.secondaryCta.href}>{hero.secondaryCta.label}</SecondaryLink>
+            <RegisterButton className="min-h-14 px-8 text-lg" />
+            <CallButton variant="outline" className="min-h-14 px-8 text-lg" />
           </div>
-          <p className="mt-5 max-w-xl font-semibold leading-relaxed text-se-green-800">{hero.urgent}</p>
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-se-ink-muted">{hero.higherLevel}</p>
         </div>
 
         <div className="relative">
-          <div className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded-[2rem] shadow-se-card lg:aspect-[5/6]">
+          <div className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded-[2rem] shadow-se-card">
             <Image
               src={hero.photo.src}
               alt={hero.photo.alt}
@@ -54,12 +55,11 @@ export default function Hero() {
               sizes="(min-width: 1024px) 540px, 100vw"
               priority
               className="object-cover"
-              style={{ objectPosition: 'center 35%' }}
             />
           </div>
-          <div className="absolute -right-2 top-6 rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card sm:-right-4">
+          <div className="absolute -right-2 top-6 max-w-[16rem] rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card sm:-right-4">
             <p className="text-sm text-se-sand">{hero.insuranceBadge.label}</p>
-            <p className="text-xl font-semibold leading-tight text-white">{hero.insuranceBadge.value}</p>
+            <p className="text-lg font-semibold leading-tight text-white">{hero.insuranceBadge.value}</p>
           </div>
           <a
             href={settings.phoneHref}

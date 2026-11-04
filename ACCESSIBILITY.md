@@ -2,8 +2,13 @@
 
 **Result: passes Level AA** on everything that can be tested without a person
 using assistive technology. Reviewed 4 November 2026 against the page as it is
-in this commit (the version with the "How we treat" section, the icon feature
-lines in the hero and the per-program Call and Register links).
+in this commit (the outpatient-first version: in-network outpatient tiles with
+a text label and a check icon, the dashed detox/residential strip, the
+"A typical week" and LGTC continuum sections, and the two assessment-request
+prompts). The automated part was re-run on this version at all three widths
+with 0 violations; the manual table below still holds, since the controls,
+colours and focus styles are unchanged and the in-network and higher-level
+markers carry text labels, not colour alone (1.4.1).
 
 CI re-runs the automated part on every pull request and every push to `main`
 (see "Accessibility checks (CI)" in the README). The manual part below should

@@ -1,8 +1,9 @@
 import { page } from '@/content/page';
 import { CheckIcon } from './Actions';
 
-/** How we treat: therapies and group topics, ported from
- * go.summitestate.com/microsite. */
+/** How we treat: the six things every program shares (carried over from
+ * LGTC's recovery-program page), then the therapies and group topics ported
+ * from go.summitestate.com/microsite. */
 export default function HowWeTreat() {
   const { howWeTreat } = page;
   return (
@@ -11,8 +12,18 @@ export default function HowWeTreat() {
         <h2 id="how-title" className="text-3xl font-semibold text-se-green-700 sm:text-4xl">
           {howWeTreat.title}
         </h2>
+        <p className="mt-5 max-w-3xl text-lg font-semibold leading-relaxed text-se-green-800">{howWeTreat.coreLabel}</p>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
+        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {howWeTreat.core.map((item) => (
+            <li key={item.title} className="rounded-3xl border border-se-line bg-se-paper p-5">
+              <h3 className="text-lg font-semibold text-se-green-700">{item.title}</h3>
+              <p className="mt-1.5 leading-relaxed text-se-ink">{item.text}</p>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
           {howWeTreat.lists.map((list) => {
             const id = `how-${list.label.toLowerCase().replace(/\W+/g, '-')}`;
             return (

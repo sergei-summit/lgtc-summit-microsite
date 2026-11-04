@@ -5,14 +5,24 @@ import { settings } from '@/content/settings';
 const base =
   'inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold no-underline transition-colors';
 
-/** Primary action: a tel: link whose accessible name includes the number. */
-export function CallButton({ className = '', tone = 'light' }: { className?: string; tone?: 'light' | 'dark' }) {
-  const colours =
-    tone === 'dark'
+type ButtonProps = { className?: string; tone?: 'light' | 'dark'; variant?: 'solid' | 'outline' };
+
+function colours(tone: 'light' | 'dark', variant: 'solid' | 'outline') {
+  if (tone === 'dark') {
+    return variant === 'solid'
       ? 'bg-se-sand text-se-green-900 hover:bg-se-sand-light'
-      : 'bg-se-accent-600 text-white hover:bg-se-accent-700';
+      : 'border-2 border-se-sand text-se-sand hover:bg-se-green-700';
+  }
+  return variant === 'solid'
+    ? 'bg-se-accent-600 text-white hover:bg-se-accent-700'
+    : 'border-2 border-se-accent-600 bg-se-paper text-se-green-700 hover:bg-se-accent-100';
+}
+
+/** Call: a tel: link whose accessible name includes the number. Solid by
+ * default; outline where the assessment request is the primary action. */
+export function CallButton({ className = '', tone = 'light', variant = 'solid' }: ButtonProps) {
   return (
-    <a href={settings.phoneHref} className={`${base} ${colours} ${className}`}>
+    <a href={settings.phoneHref} className={`${base} ${colours(tone, variant)} ${className}`}>
       <PhoneIcon />
       {page.actions.callPrefix} {settings.phone}
     </a>
@@ -20,17 +30,14 @@ export function CallButton({ className = '', tone = 'light' }: { className?: str
 }
 
 /**
- * Secondary action: LGTC's EHR registration link. The page collects no data.
- * Outpatient care only (PHP, IOP, Virtual IOP, OP); detox and residential are
- * call-only, so never place this next to them.
+ * The assessment request: LGTC's EHR registration link. The page collects no
+ * data. Outpatient care only (PHP, IOP, Virtual IOP, OP); detox and
+ * residential are call-only, so never place this next to them. Solid by
+ * default: on this page it is the primary action.
  */
-export function RegisterButton({ className = '', tone = 'light' }: { className?: string; tone?: 'light' | 'dark' }) {
-  const colours =
-    tone === 'dark'
-      ? 'border-2 border-se-sand text-se-sand hover:bg-se-green-700'
-      : 'border-2 border-se-accent-600 bg-se-paper text-se-green-700 hover:bg-se-accent-100';
+export function RegisterButton({ className = '', tone = 'light', variant = 'solid' }: ButtonProps) {
   return (
-    <a href={settings.registrationUrl} className={`${base} ${colours} ${className}`}>
+    <a href={settings.registrationUrl} className={`${base} ${colours(tone, variant)} ${className}`}>
       {page.actions.register}
     </a>
   );
