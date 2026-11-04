@@ -8,6 +8,9 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "lgtc-summit-microsite-staging",
+  // Summit's Cloudflare account. An account ID is an identifier, not a secret;
+  // the account API token needs it to pick the account.
+  "account_id": "634cdbe11e941e17e60cac1104b84003",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./out",
