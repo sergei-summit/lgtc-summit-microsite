@@ -68,6 +68,9 @@ export default function Hero() {
             <span className="flex items-center gap-2 text-lg font-semibold leading-snug text-se-green-700">
               <PhoneIcon className="h-4 w-4 text-se-accent-700" />
               {hero.callCard.title}
+              <span className="sr-only">
+                : {page.actions.callPrefix} {settings.phone}
+              </span>
             </span>
             <span className="mt-1 block text-sm text-se-ink-muted">{hero.callCard.note}</span>
           </a>
