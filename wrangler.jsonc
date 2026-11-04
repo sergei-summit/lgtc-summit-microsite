@@ -23,7 +23,7 @@
   // "routes" line below and run the deploy workflow. The pattern matches only
   // /lgtc-summit-microsite*, which is more specific than the existing
   // go.summitestate.com/* route, so /, /landing and /microsite are untouched.
-  // "routes": [{ "pattern": "go.summitestate.com/lgtc-summit-microsite*", "zone_name": "summitestate.com" }],
+  "routes": [{ "pattern": "go.summitestate.com/lgtc-summit-microsite*", "zone_name": "summitestate.com" }],
 
   // Preview URL: https://lgtc-summit-microsite-staging.<subdomain>.workers.dev/lgtc-summit-microsite/
   "workers_dev": true,
