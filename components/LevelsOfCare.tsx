@@ -1,7 +1,13 @@
 import { page } from '@/content/page';
-import { CallButton } from './Actions';
+import { settings } from '@/content/settings';
+import { CallButton, PhoneIcon } from './Actions';
 import LocationTile from './LocationTile';
 
+/**
+ * Levels of care. Detox and residential are call-only, framed as urgent;
+ * outpatient levels (PHP, IOP, Virtual IOP, OP) offer a call or online
+ * registration.
+ */
 export default function LevelsOfCare() {
   const { levels } = page;
   return (
@@ -13,7 +19,15 @@ export default function LevelsOfCare() {
         <p className="mt-5 max-w-3xl text-lg font-semibold leading-relaxed text-se-green-800">{levels.lead}</p>
         <p className="mt-3 max-w-3xl leading-relaxed text-se-ink">{levels.intro}</p>
 
-        <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 flex flex-col items-start gap-4 rounded-3xl border-2 border-se-accent-600 bg-se-cream p-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="text-xl font-semibold text-se-green-700">{levels.urgent.title}</p>
+            <p className="mt-1 max-w-2xl leading-relaxed text-se-ink">{levels.urgent.text}</p>
+          </div>
+          <CallButton className="shrink-0" />
+        </div>
+
+        <ol className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {levels.items.map((level, i) => (
             <li key={level.id} className="flex flex-col rounded-3xl border border-se-line bg-se-cream p-6">
               <div className="flex items-center justify-between gap-3">
@@ -23,9 +37,7 @@ export default function LevelsOfCare() {
                 >
                   {i + 1}
                 </span>
-                <span className="rounded-full bg-se-paper px-3 py-1 text-xs font-semibold text-se-green-700">
-                  {level.where}
-                </span>
+                <span className="text-sm font-semibold text-se-green-700">{level.where}</span>
               </div>
               <h3 className="mt-4 text-xl font-semibold text-se-green-700">{level.name}</h3>
               {level.alias && (
@@ -34,7 +46,23 @@ export default function LevelsOfCare() {
                 </p>
               )}
               <p className="mt-3 leading-relaxed text-se-ink">{level.text}</p>
-              {level.length && <p className="mt-auto pt-4 text-sm text-se-ink-muted">{level.length}</p>}
+              <div className="mt-auto pt-4">
+                {level.length && <p className="text-sm text-se-ink-muted">{level.length}</p>}
+                <div className="mt-3 flex flex-col gap-1.5 text-sm font-semibold">
+                  <a
+                    href={settings.phoneHref}
+                    className="inline-flex items-center gap-1.5 text-se-green-700 underline underline-offset-2"
+                  >
+                    <PhoneIcon className="h-4 w-4" />
+                    {page.actions.callPrefix} {settings.phone}
+                  </a>
+                  {level.cta === 'register' && (
+                    <a href={settings.registrationUrl} className="text-se-accent-700 underline underline-offset-2">
+                      {page.actions.register}
+                    </a>
+                  )}
+                </div>
+              </div>
             </li>
           ))}
         </ol>
