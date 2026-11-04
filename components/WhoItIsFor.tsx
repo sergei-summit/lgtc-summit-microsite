@@ -4,7 +4,7 @@ import { CheckIcon } from './Actions';
 export default function WhoItIsFor() {
   const { whoFor } = page;
   return (
-    <section aria-labelledby="who-title" className="bg-se-paper">
+    <section aria-labelledby="who-title" className="bg-se-cream">
       <div className="mx-auto max-w-se-content px-4 py-14 sm:px-6 md:py-20">
         <h2 id="who-title" className="text-3xl font-semibold text-se-green-700 sm:text-4xl">
           {whoFor.title}
