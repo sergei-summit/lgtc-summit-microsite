@@ -2,14 +2,22 @@ name: Deploy staging
 
 # Builds the staging variant (base path /lgtc-summit-microsite, noindex) and
 # deploys it to the Cloudflare Worker `lgtc-summit-microsite-staging` defined in
-# wrangler.jsonc. Manual dispatch only: it never runs on push.
+# wrangler.jsonc.
 #
-# Needs the repository secret CLOUDFLARE_API_TOKEN (Workers Scripts: Edit; plus
-# Workers Routes: Edit on summitestate.com once the route block in
-# wrangler.jsonc is enabled) and CLOUDFLARE_ACCOUNT_ID if the token can see
-# more than one account.
+# Runs on every push to main (docs-only changes skipped) and on manual dispatch.
+# The route go.summitestate.com/lgtc-summit-microsite* is attached in
+# wrangler.jsonc, so a push to main updates that live production path.
+# The build and accessibility checks run first; if they fail, nothing deploys.
+#
+# Needs the repository secret CLOUDFLARE_API_TOKEN (Workers Scripts: Edit;
+# Workers Routes: Edit on summitestate.com) and CLOUDFLARE_ACCOUNT_ID if the
+# token can see more than one account (account_id is also set in wrangler.jsonc).
 
 on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
   workflow_dispatch:
 
 permissions:
