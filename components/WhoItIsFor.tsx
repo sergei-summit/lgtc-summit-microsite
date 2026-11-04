@@ -9,7 +9,7 @@ export default function WhoItIsFor() {
         <h2 id="who-title" className="text-3xl font-semibold text-se-green-700 sm:text-4xl">
           {whoFor.title}
         </h2>
-        <p className="mt-4 text-lg leading-relaxed text-se-ink">{whoFor.intro}</p>
+        <p className="mt-5 max-w-3xl text-lg font-semibold leading-relaxed text-se-green-800">{whoFor.intro}</p>
         <ul className="mt-8 grid gap-3 md:grid-cols-2">
           {whoFor.items.map((item) => (
             <li key={item} className="flex items-start gap-3 leading-snug text-se-ink">
@@ -20,6 +20,7 @@ export default function WhoItIsFor() {
             </li>
           ))}
         </ul>
+        <p className="mt-8 max-w-3xl leading-relaxed text-se-ink">{whoFor.family}</p>
       </div>
     </section>
   );

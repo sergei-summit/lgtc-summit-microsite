@@ -17,7 +17,6 @@ export default function LevelsOfCare() {
           {levels.title}
         </h2>
         <p className="mt-5 max-w-3xl text-lg font-semibold leading-relaxed text-se-green-800">{levels.lead}</p>
-        <p className="mt-3 max-w-3xl leading-relaxed text-se-ink">{levels.intro}</p>
 
         <div className="mt-8 flex flex-col items-start gap-4 rounded-3xl border-2 border-se-accent-600 bg-se-cream p-6 md:flex-row md:items-center md:justify-between">
           <div>
@@ -48,16 +47,20 @@ export default function LevelsOfCare() {
               <p className="mt-3 leading-relaxed text-se-ink">{level.text}</p>
               <div className="mt-auto pt-4">
                 {level.length && <p className="text-sm text-se-ink-muted">{level.length}</p>}
-                <div className="mt-3 flex flex-col gap-1.5 text-sm font-semibold">
+                {/* Each link is at least 24px tall (WCAG 2.2 target size, 2.5.8). */}
+                <div className="mt-2 flex flex-col items-start gap-1 text-sm font-semibold">
                   <a
                     href={settings.phoneHref}
-                    className="inline-flex items-center gap-1.5 text-se-green-700 underline underline-offset-2"
+                    className="inline-flex min-h-6 items-center gap-1.5 text-se-green-700 underline underline-offset-2"
                   >
                     <PhoneIcon className="h-4 w-4" />
-                    {page.actions.callPrefix} {settings.phone}
+                    {page.actions.callAdmissions}
                   </a>
                   {level.cta === 'register' && (
-                    <a href={settings.registrationUrl} className="text-se-accent-700 underline underline-offset-2">
+                    <a
+                      href={settings.registrationUrl}
+                      className="inline-flex min-h-6 items-center text-se-accent-700 underline underline-offset-2"
+                    >
                       {page.actions.register}
                     </a>
                   )}

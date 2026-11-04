@@ -20,7 +20,7 @@ export const settings = {
 
   /** LGTC's EHR registration link ("Register online, we call you back"). */
   registrationUrl:
-    'https://ncrv2.ehryourway.com/?eyJSb3drZXkiOiI1NzBjNjFjOS0wOTU1LTQzNTEtYmQzNy0yMTU1YzFiY2Y2YmUiLCJOQ1JrZXl0eXBlIjoxLCJOQ1JfUGF0aWVudFJlZmVycmVyRG9tYWluSW5mb0lEIjoxMDAxNH0=#!/homeLoading',
+    'https://ncrv2.ehryourway.com/?eyJSb3drZXkiOiI1NzBjNjFjOS0wOTU1LTQzNTEtYmQzNy0yMTU1YzFiY2Y2YmUiLCJOQ1JrZXl0eXBlIjoxLCJOQ1JfUGF0aWVudFJlZmVycmVyRG9tYWluSW5mb0lEIjoxMDAxNH0=#!/ClientRegFormat2FromPortal',
 
   /** TODO (open): the group name used in the footer note's partnership line. */
   groupName: 'LGTC Psychiatric Group',

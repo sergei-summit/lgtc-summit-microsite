@@ -35,6 +35,7 @@ for scripts, styles, fonts and images.
 | `app/page.tsx`, `app/layout.tsx` | Only for running this repo on its own. Not needed inside LGTC's app |
 | `tailwind.config.ts` | Brand colours, all under one `se` key so they cannot clash with LGTC's theme |
 | `scripts/a11y-check.mjs` | The CI accessibility check (see below) |
+| `ACCESSIBILITY.md` | The WCAG 2.1 / 2.2 Level AA review: what was tested, the result, and what was not |
 | `scripts/contrast.mjs` | Prints the contrast ratio of every colour pair the page uses |
 | `wrangler.jsonc`, `scripts/prepare-staging.mjs` | Summit's Cloudflare staging copy only. Ignore for LGTC |
 
@@ -113,6 +114,19 @@ LGTC decides indexing for its own URL. Set `settings.robots` (or
 | `metaTitle` | `Dual Diagnosis Treatment for Adults \| Summit Estate Recovery Centers` | Set |
 | `metaDescription` | One sentence on the full path and insurance | Set |
 
+## Open items for LGTC's build
+
+Known, not blocking. Left for whoever mounts the page in LGTC's app:
+
+- **Phone call bar vs. keyboard focus (WCAG 2.2, 2.4.11).** On phones the
+  fixed bottom bar (`components/MobileCallBar.tsx`) can partly cover the hero's
+  Call and Get started buttons when they receive keyboard focus. The bar already
+  hides itself while the "Call or register" section is on screen; extend the
+  same `IntersectionObserver` to the hero's button row (give it a `data-` hook
+  and observe it too), or add `scroll-padding-bottom` equal to the bar's height
+  on `html` for small screens. Passes AA as it is (the buttons are never fully
+  hidden); this closes the AAA version (2.4.12).
+
 ## Accessibility checks (CI)
 
 `.github/workflows/ci.yml` runs on every pull request and on pushes to `main`.
@@ -139,9 +153,9 @@ hand-over, on a separate Cloudflare Worker, `lgtc-summit-microsite-staging`.
   files under `out/lgtc-summit-microsite/` (so the Worker's asset paths match
   the URLs) and writes `out/_headers`, which sends
   `X-Robots-Tag: noindex, nofollow` on every response. No sitemap is generated.
-- `wrangler.jsonc` defines the static-assets Worker. The route on
-  go.summitestate.com is written out but commented, so a deploy only reaches
-  the `*.workers.dev` preview until Summit enables it.
+- `wrangler.jsonc` defines the static-assets Worker. The route
+  `go.summitestate.com/lgtc-summit-microsite*` is attached, so every push to
+  `main` updates the live page within a few minutes.
 - `.github/workflows/deploy-staging.yml` builds, checks and runs
   `wrangler deploy`. It runs on every push to `main` (docs-only changes skipped)
   and on manual dispatch, and needs the repository

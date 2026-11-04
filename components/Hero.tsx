@@ -65,11 +65,14 @@ export default function Hero() {
             href={settings.phoneHref}
             className="absolute -bottom-8 -left-3 hidden max-w-[21rem] rounded-2xl bg-se-paper p-5 no-underline shadow-se-card sm:-left-6 sm:block"
           >
-            <span className="flex items-center gap-2 text-sm font-semibold text-se-accent-700">
-              <PhoneIcon className="h-4 w-4" />
-              {page.actions.callPrefix} {settings.phone}
+            <span className="flex items-center gap-2 text-lg font-semibold leading-snug text-se-green-700">
+              <PhoneIcon className="h-4 w-4 text-se-accent-700" />
+              {hero.callCard.title}
+              <span className="sr-only">
+                : {page.actions.callPrefix} {settings.phone}
+              </span>
             </span>
-            <span className="mt-2 block text-lg font-semibold leading-snug text-se-green-700">{hero.callCard.note}</span>
+            <span className="mt-1 block text-sm text-se-ink-muted">{hero.callCard.note}</span>
           </a>
         </div>
       </div>

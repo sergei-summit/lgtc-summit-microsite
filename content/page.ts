@@ -5,10 +5,9 @@
  *
  * Source: sergei-summit/Summit-Landing-Pages, Astro/src/lib/microsite.ts and
  * Astro/src/lib/outpatient-auragen.ts (go.summitestate.com/microsite), cut to
- * the LGTC hand-over spec. Rules: "Summit Estate Recovery Centers" in the hero
- * and footer note, "Summit Estate" elsewhere; "psychiatry-guided", never
- * "psychiatry" alone, as a Summit service; no street addresses, licence
- * numbers or clock times; lengths of stay are "typically". No eyebrow labels
+ * the LGTC hand-over spec. Rules: "Summit Estate Recovery Centers" in the
+ * footer note and page title, "Summit Estate" elsewhere; no street addresses,
+ * licence numbers or clock times; lengths of stay are "typically". No eyebrow labels
  * and no pill chips. Detox and residential are call-only; "Register online"
  * appears only next to outpatient care. Never promise 24/7 or instant answers.
  */
@@ -66,13 +65,13 @@ export const page = {
     features: [
       { icon: 'brain', title: 'Mental Health & Substance Use Treatment', proof: 'Board-Certified Psychiatry and Addiction Medicine Team' },
       { icon: 'layers', title: 'Detox, Residential, PHP, IOP & OP, MAT', proof: 'Individualized at Every Level' },
-      { icon: 'home', title: 'Private Estate in Palo Alto', proof: 'Comfortable Amenities' },
-      { icon: 'compass', title: 'San Jose Day, Evening & Virtual', proof: 'CBT, DBT, non-12-step groups, and EMDR' },
+      { icon: 'home', title: 'Private Estate in Palo Alto', proof: 'Medically Integrated, personalized Detox and Residential Treatment in a private, comfortable setting' },
+      { icon: 'compass', title: 'San Jose Day, Evening & Virtual', proof: 'PHP, IOP and Individual Therapy services on a schedule that fits your life, work and school' },
     ] satisfies { icon: FeatureIconName; title: string; proof: string }[],
     secondaryCta: { href: '#verify', label: 'Get started' },
     urgent: "Need detox or residential care? Call now, don't wait.",
     insuranceBadge: { label: 'We accept', value: 'Most major insurances' },
-    callCard: { note: 'Confidential' },
+    callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
       alt: 'A two-storey Mediterranean-style house above a landscaped garden with a stone fountain and patio chairs',
@@ -94,7 +93,6 @@ export const page = {
     id: 'programs',
     title: 'Levels of care',
     lead: 'Wherever you start, the first step is a complimentary, confidential assessment and an initial consultation with our integrated clinical team.',
-    intro: 'You can enter at any level, and many people step down from one to the next.',
     items: [
       {
         id: 'detox',
@@ -156,7 +154,7 @@ export const page = {
       {
         id: 'palo-alto',
         name: 'Palo Alto',
-        text: 'Private, Medically Integrated personalized Detoxification and Residential Treatment Care.',
+        text: 'Medically Integrated, personalized Detox and Residential Treatment in a private, comfortable setting.',
         photo: {
           src: paloAltoPhoto,
           alt: 'The Palo Alto estate: a two-storey Mediterranean-style house above a sloping lawn with sun loungers and mature trees',
@@ -165,7 +163,7 @@ export const page = {
       {
         id: 'san-jose',
         name: 'San Jose',
-        text: `A comprehensive outpatient program (PHP, IOP, OP and Virtual IOP), family therapy and a multi-family group, psychiatry-guided medication management and case management.`,
+        text: `A comprehensive outpatient program (PHP, IOP, OP and Virtual IOP), family therapy and a multi-family group, psychiatry-guided medication management and case management. Day, evening and virtual schedules are work-compatible.`,
         photo: {
           src: sanJosePhoto,
           alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
@@ -182,9 +180,6 @@ export const page = {
   howWeTreat: {
     id: 'how-we-treat',
     title: 'How we treat',
-    lead: 'We provide structured, evidence-based care for adults navigating both psychiatric disorders and co-occurring substance use challenges.',
-    intro:
-      'Treatment includes family therapy and a multi-family group. Loved ones learn the same skills at the same time, so the whole family is practising together rather than one person carrying the change alone.',
     lists: [
       {
         label: 'Therapies',
@@ -253,7 +248,8 @@ export const page = {
 
   whoFor: {
     title: 'Who it is for',
-    intro: 'Adults who need support for both.',
+    intro:
+      'We provide structured, evidence-based care for adults navigating both psychiatric disorders and co-occurring substance use challenges, including:',
     items: [
       'Anxiety, depression or other mood conditions alongside substance use',
       'Active substance use, or early recovery',
@@ -261,7 +257,10 @@ export const page = {
       'Stress or trauma triggers',
       'Wanting structured support to stay sober',
       'Wanting a peer group going through the same thing',
+      'Professionals who need privacy and a schedule that fits their career',
     ],
+    family:
+      'Treatment includes family therapy and a multi-family group. Loved ones learn the same skills at the same time, so the whole family is practising together rather than one person carrying the change alone.',
   },
 
   gettingStarted: {
@@ -301,6 +300,8 @@ export const page = {
   actions: {
     /** The visible label; the number follows it. */
     callPrefix: 'Call',
+    /** Short call link on each program tile; dials the same number without repeating it. */
+    callAdmissions: 'Call admissions',
     register: 'Register online, we call you back',
   },
 
