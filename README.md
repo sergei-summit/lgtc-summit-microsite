@@ -139,9 +139,9 @@ hand-over, on a separate Cloudflare Worker, `lgtc-summit-microsite-staging`.
   files under `out/lgtc-summit-microsite/` (so the Worker's asset paths match
   the URLs) and writes `out/_headers`, which sends
   `X-Robots-Tag: noindex, nofollow` on every response. No sitemap is generated.
-- `wrangler.jsonc` defines the static-assets Worker. The route on
-  go.summitestate.com is written out but commented, so a deploy only reaches
-  the `*.workers.dev` preview until Summit enables it.
+- `wrangler.jsonc` defines the static-assets Worker. The route
+  `go.summitestate.com/lgtc-summit-microsite*` is attached, so every push to
+  `main` updates the live page within a few minutes.
 - `.github/workflows/deploy-staging.yml` builds, checks and runs
   `wrangler deploy`. It runs on every push to `main` (docs-only changes skipped)
   and on manual dispatch, and needs the repository
