@@ -5,10 +5,12 @@
  *
  * Outpatient-first version (Nov 2026). The page is hosted by LGTC for people
  * who are already LGTC patients or are referred inside LGTC, so it leads with
- * the in-network outpatient programs in San Jose (PHP, IOP, Virtual IOP, OP).
- * Detox and residential in Palo Alto stay on the page as a quieter "higher
- * level of care" strip. The earlier full-continuum version is kept on the
- * branch lgtc-summit-microsite-full-continuum.
+ * the in-network outpatient programs in San Jose: PHP, IOP (in person or
+ * hybrid) and OP. Detox and residential in Palo Alto stay on the page as a
+ * quieter "higher level of care" card under the San Jose card. The earlier
+ * full-continuum version is kept on the branch
+ * lgtc-summit-microsite-full-continuum. The framed mock-up blocks on the page
+ * come from content/mockup.ts, not from here.
  *
  * Rules: "Summit Estate Recovery Centers" in the footer note and page title,
  * "Summit Estate" elsewhere; no street addresses, licence numbers or clock
@@ -18,6 +20,8 @@
  * core: "mental health, substance use, or both", never mental health alone.
  * Never promise 24/7 or instant answers. Colour is never the only signal:
  * every in-network or higher-level marker also carries a text label.
+ * "Complimentary" appears once, in the "Not sure which program fits?" band,
+ * pending LGTC's confirmation.
  */
 import type { StaticImageData } from 'next/image';
 import { settings } from './settings';
@@ -25,6 +29,7 @@ import type { FeatureIconName } from '@/components/FeatureIcon';
 
 import heroPhoto from './images/location-san-jose.webp';
 import sanJosePhoto from './images/location-san-jose.webp';
+import paloAltoPhoto from './images/hero-palo-alto-estate.webp';
 import jointCommissionBadge from './images/badge-joint-commission.png';
 import carfBadge from './images/badge-carf.png';
 import dhcsBadge from './images/badge-dhcs.png';
@@ -37,7 +42,6 @@ export type Level = {
   name: string;
   /** Approved alias, shown as "Also called …". */
   alias?: string;
-  where: string;
   /** Benefit line: why someone would choose this level, not just what it is. */
   text: string;
   /** Typical length; omitted where the source gives none. */
@@ -54,7 +58,6 @@ export const page = {
     navLabel: 'Summit Estate',
     links: [
       { href: '#programs', label: 'Programs' },
-      { href: '#how-we-treat', label: 'How we treat' },
       { href: '#treatment', label: 'What we treat' },
     ],
     cta: { href: '#verify', label: 'Get started' },
@@ -63,7 +66,7 @@ export const page = {
   skipLink: 'Skip to programs',
 
   hero: {
-    title: 'More support than weekly appointments,',
+    title: 'The right level of care,',
     titleAccent: 'without putting your life on hold.',
     text: 'Day treatment, intensive outpatient and individual therapy for mental health and substance use, in San Jose and virtually across California, with one psychiatry-led team.',
     /** One line per outpatient level, then the team. Each pairs the service with its proof point. */
@@ -73,7 +76,7 @@ export const page = {
       { icon: 'brain', title: 'Outpatient Therapy (OP)', proof: 'Ongoing individual therapy and medication management' },
       { icon: 'shield', title: 'Board-Certified Team', proof: 'Psychiatry and addiction medicine, in-network with all major plans' },
     ] satisfies { icon: FeatureIconName; title: string; proof: string }[],
-    /** Quiet pointer to the higher levels of care; the strip under the programs carries the detail. */
+    /** Quiet pointer to the higher levels of care; the Palo Alto card under the programs carries the detail. */
     higherLevel: 'Need detox or residential care first? Those start with a call to admissions.',
     insuranceBadge: { label: 'Outpatient care', value: 'In-network with all major plans' },
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
@@ -97,56 +100,51 @@ export const page = {
   levels: {
     id: 'programs',
     title: 'Outpatient programs',
-    lead: 'PHP, IOP, Virtual IOP and outpatient therapy in San Jose and virtually across California. Wherever you start, the first step is a complimentary, confidential assessment with our integrated clinical team.',
-    /** Text label on every outpatient tile. Colour alone never carries this. */
-    inNetwork: 'In-network with all major plans',
+    /** The in-network statement is made once, here, not on every tile. */
+    lead: 'PHP, IOP and outpatient therapy in San Jose, in-network with all major plans. Wherever you start, the first step is a confidential assessment with our integrated clinical team.',
     items: [
       {
         id: 'php',
         name: 'Partial Hospitalization (PHP)',
         alias: 'Day Treatment',
-        where: 'San Jose',
         text: 'Intensive mental health and substance use treatment several hours a day, then home each evening.',
         length: '20+ hours a week, typically 4–6 weeks',
       },
       {
         id: 'iop',
         name: 'Intensive Outpatient (IOP)',
-        where: 'San Jose',
-        text: 'Structured support around work, school and family, 3–5 days a week. Day or evening groups; most people keep working.',
+        text: 'Structured support around work, school and family, 3–5 days a week, day or evening. In person, or hybrid with virtual sessions when clinically appropriate. Most people keep working.',
         length: '9–19 hours a week, typically 8–12 weeks',
-      },
-      {
-        id: 'virtual-iop',
-        name: 'Virtual IOP',
-        where: 'Anywhere in California',
-        text: 'The same structured intensive outpatient care over HIPAA-compliant video, from home.',
       },
       {
         id: 'outpatient',
         name: 'Outpatient (OP)',
         alias: 'Individual Therapy',
-        where: 'San Jose or virtual',
         text: 'Ongoing individual therapy and medication management that fit around a full working week.',
         length: '1–9 hours a week, ongoing',
       },
     ] satisfies Level[],
     aliasPrefix: 'Also called',
-    /** Detox and residential, kept visible but quiet. Call-only. */
-    higher: {
-      label: 'Higher level of care · Palo Alto',
-      title: 'Need detox or residential first?',
-      text: 'Medical detox (typically 7–10 days) and residential treatment (typically 3–4 weeks) on our private Palo Alto estate, when the assessment calls for it. Both start with a call to admissions, and both step down into the outpatient programs above with the same team.',
-      network: 'In-network agreements for Palo Alto are in progress; we check your benefits before anything is decided.',
-    },
     locationsLabel: 'Where we are',
     location: {
       id: 'san-jose',
       name: 'San Jose outpatient center',
-      text: 'PHP, IOP, OP and Virtual IOP, family therapy and a multi-family group, psychiatry-guided medication management and case management. Day, evening and virtual schedules are work-compatible.',
+      text: 'PHP, IOP and OP, family therapy and a multi-family group, psychiatry-guided medication management and case management. Day and evening schedules are work-compatible, with hybrid IOP when clinically appropriate.',
       photo: {
         src: sanJosePhoto,
         alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
+      } satisfies Photo,
+    },
+    /** Detox and residential: a photo card below the San Jose card, labelled as a higher level of care. Call-only. */
+    higher: {
+      label: 'Higher level of care · Palo Alto',
+      title: 'Need detox or residential first?',
+      text: 'Private, confidential medical detox (typically 7–10 days) and residential treatment (typically 3–4 weeks) on our Palo Alto estate, when the assessment calls for it. Both start with a call to admissions, and both step down into the San Jose programs with the same team.',
+      network:
+        'In-network agreements for detox and residential in Palo Alto are in progress and expected in 2027; today they are out of network, and a single case agreement may be possible. We check your benefits before anything is decided.',
+      photo: {
+        src: paloAltoPhoto,
+        alt: 'A two-storey Mediterranean-style house above a landscaped garden with a stone fountain and patio chairs',
       } satisfies Photo,
     },
     /** First of the two assessment prompts; the second is the closing section. */
@@ -156,80 +154,49 @@ export const page = {
     },
   },
 
-  /** Day, evening and virtual, so the schedule question is answered before anyone calls. */
+  /** One card per program, with Summit's weekly hours and LGTC's framing of
+   * PHP and IOP ("Structure Without Isolation"). Weekdays only; no clock times. */
   schedule: {
     id: 'schedule',
     title: 'A typical week',
-    lead: 'Hours step down as you progress, from PHP to IOP to weekly therapy, with the same team throughout.',
+    lead: 'PHP and IOP bridge the gap between weekly therapy and residential care: structured days, your own bed at night. Hours step down as you progress, with the same team throughout.',
     options: [
       {
-        title: 'Day',
-        text: 'PHP runs on weekdays, several hours a day, 20 or more hours a week, and you are home every evening. Day IOP groups meet 3–5 days a week.',
+        title: 'Partial Hospitalization (PHP)',
+        text: '5 days a week, about 6 hours a day, 20 or more hours in total; typically 4–6 weeks. You live at home and spend most of the day with the program. For people who need more structure than IOP but not 24-hour medical supervision.',
       },
       {
-        title: 'Evening',
-        text: 'IOP after the working day, 3–5 evenings a week, 9–19 hours in total. Most people keep their job, their studies and their routine.',
+        title: 'Intensive Outpatient (IOP)',
+        text: '3–5 days a week in three-hour blocks, day or evening, 9–19 hours in total; typically 8–12 weeks. Group therapy is the core, with individual therapy and skill-building. In person, or hybrid with virtual sessions when clinically appropriate. Most people keep working.',
       },
       {
-        title: 'Virtual',
-        text: 'IOP and individual therapy over HIPAA-compliant video, anywhere in California. The same groups and the same team as in San Jose.',
+        title: 'Outpatient (OP)',
+        text: '1–9 hours a week, ongoing. Individual therapy and medication management, in person or virtual, that fit around a full working week.',
       },
     ],
   },
 
-  /** Why an LGTC patient is here: one registration, psychiatry built in, one team across levels. */
-  lgtc: {
-    id: 'lgtc',
-    title: `Part of ${settings.groupName}'s continuum of care`,
-    lead: 'Summit Estate runs these programs in partnership with LGTC. Whether you are new to LGTC or already see an LGTC psychiatrist, the path is the same.',
-    points: [
+  treatment: {
+    id: 'treatment',
+    title: 'Mental health and substance use, together.',
+    intro: 'Mental health, substance use, or both: dual diagnosis is the program, not an add-on.',
+    groups: [
+      { label: 'Mental health', items: ['Anxiety', 'Depression', 'Trauma', 'PTSD / PTSI'] },
       {
-        title: 'One registration',
-        text: 'Register online or call admissions and you are an LGTC patient. The same admissions team handles every program on this page.',
-      },
-      {
-        title: 'Psychiatry is built in',
-        text: 'Psychiatric evaluation and medication management are part of the program, not a separate referral.',
-      },
-      {
-        title: 'Step up or down without starting over',
-        text: 'PHP, IOP and therapy share one clinical team, so your plan moves with you. The assessment decides where you begin.',
-      },
-    ],
-  },
-
-  /** Ported from go.summitestate.com/microsite ("How we treat it"), plus the
-   * core components carried over from LGTC's own recovery-program page. */
-  howWeTreat: {
-    id: 'how-we-treat',
-    title: 'How we treat',
-    coreLabel: 'What every program shares',
-    core: [
-      {
-        title: 'Dual diagnosis focus',
-        text: 'Mental health and substance use treated at the same time, by the same team, including the triggers that link them.',
-      },
-      {
-        title: 'Relapse prevention',
-        text: 'A personal plan for triggers and high-risk situations, built and rehearsed in group.',
-      },
-      {
-        title: 'CBT and DBT',
-        text: 'Skills for emotion regulation, cravings and stress, used at every level of care.',
-      },
-      {
-        title: 'Psychiatric oversight',
-        text: 'Evaluation and medication management, adjusted as recovery progresses.',
-      },
-      {
-        title: 'Family alignment',
-        text: 'Family therapy and a multi-family group, so the people around you learn the same skills.',
-      },
-      {
-        title: 'Flexible scheduling',
-        text: 'Day, evening and virtual options, so work, school and home life keep running.',
+        label: 'Substance use',
+        items: [
+          'Alcohol',
+          'Opioids & Heroin',
+          'Prescription Drugs',
+          'Benzodiazepines',
+          'Cocaine',
+          'Methamphetamine',
+          'Kratom / 7-OH',
+          'Inhalants / Nitrous',
+        ],
       },
     ],
+    /** Ported from go.summitestate.com/microsite ("How we treat it"); shown under the conditions. */
     lists: [
       {
         label: 'Therapies',
@@ -274,31 +241,10 @@ export const page = {
     ],
   },
 
-  treatment: {
-    id: 'treatment',
-    title: 'Mental health and substance use, together.',
-    intro: 'Mental health, substance use, or both: dual diagnosis is the program, not an add-on.',
-    groups: [
-      { label: 'Mental health', items: ['Anxiety', 'Depression', 'Trauma', 'PTSD / PTSI'] },
-      {
-        label: 'Substance use',
-        items: [
-          'Alcohol',
-          'Opioids & Heroin',
-          'Prescription Drugs',
-          'Benzodiazepines',
-          'Cocaine',
-          'Methamphetamine',
-          'Kratom / 7-OH',
-          'Inhalants / Nitrous',
-        ],
-      },
-    ],
-  },
-
   /**
-   * Two versions shown one after the other, on purpose, so they can be
-   * compared on the live page. Keep one and delete the other once chosen.
+   * Two versions shown side by side, on purpose, so they can be compared on
+   * the live page (a third, LGTC's original list, sits beside them as a
+   * framed mock-up). Keep one and delete the others once chosen.
    */
   whoFor: {
     title: 'Who it is for',
@@ -335,33 +281,32 @@ export const page = {
       'Treatment includes family therapy and a multi-family group. Loved ones learn the same skills at the same time, so the whole family is practising together rather than one person carrying the change alone.',
   },
 
+  /**
+   * Closing section, on the dark band: the three steps carry the LGTC points
+   * (one registration, psychiatry built in, one team across levels), then the
+   * primary pair of buttons, one quiet line for detox and residential, and
+   * the small print. #verify is where "Get started" jumps.
+   */
   gettingStarted: {
+    id: 'verify',
     title: 'Getting started is easy',
+    lead: 'One registration, one team, the right level of care.',
     steps: [
       {
         title: 'Register or call',
-        text: 'Request a confidential assessment online in a few minutes, or talk it through with admissions. Either way you become an LGTC patient and the same team takes it from there.',
+        text: 'Request a confidential assessment online in a few minutes, or call admissions. Either way the same team handles every program on this page.',
       },
       {
         title: 'We verify your benefits',
-        text: 'Outpatient care is in-network with all major plans. Costs upfront, with no obligation.',
+        text: 'Outpatient care is in-network with all major plans. Costs upfront, with no obligation. Detox and residential care in Palo Alto: PPO policies accepted, in-network agreements in progress, single case agreement possible.',
       },
       {
         title: 'Assessment and consultation',
-        text: 'A complimentary, confidential assessment using the ASAM criteria, reviewed by our Clinical Director, sets your level of care. The assessment decides placement, not the program you clicked.',
+        text: 'A confidential assessment using the ASAM criteria, reviewed by our Clinical Director, sets your level of care: PHP, IOP or therapy, with psychiatric evaluation in conjunction with medication management.',
       },
     ],
-  },
-
-  /** Closing prompt: one primary action, phone beside it, higher levels of care one line below. */
-  callOrRegister: {
-    id: 'verify',
-    title: 'Not sure where to start?',
-    subtitle: "Let's find the right level of care.",
-    text: 'Speak with our integrated psychiatry and addiction medicine team to find the right starting point. Complimentary, confidential assessment and insurance benefits check. No obligation to enroll.',
     higherLevel: 'Need detox or residential care? Those programs start with a call to admissions.',
-    smallPrint:
-      "All communication is confidential. Please don't include sensitive medical details. A benefits check does not guarantee coverage or payment. If you are in crisis, call or text 988.",
+    smallPrint: "All communication is confidential. Please don't include sensitive medical details. If you are in crisis, call or text 988.",
   },
 
   actions: {
@@ -378,7 +323,7 @@ export const page = {
     fullSiteLink: 'Explore the full Summit Estate site',
   },
 
-  /** Phone bar: Call, plus Get started, which jumps to the closing prompt. */
+  /** Phone bar: Call, plus Get started, which jumps to the closing section. */
   mobileBar: { label: 'Call or get started', secondary: { href: '#verify', label: 'Get started' } },
 } as const;
 

@@ -1,10 +1,12 @@
 import { page } from '@/content/page';
 import { CheckIcon } from './Actions';
+import { MockBenefit } from './Mockups';
 
 /**
- * Who it is for. Two versions are rendered one after the other, on purpose,
- * so they can be compared on the live page; delete one from content/page.ts
- * once chosen and the labels disappear with it.
+ * Who it is for. Versions A and B are rendered side by side, on purpose, so
+ * they can be compared on the live page, with LGTC's original list beside
+ * them as a framed mock-up (Version C). Delete the others from
+ * content/page.ts once one is chosen and the labels disappear with them.
  */
 export default function WhoItIsFor() {
   const { whoFor } = page;
@@ -15,7 +17,7 @@ export default function WhoItIsFor() {
         <h2 id="who-title" className="text-3xl font-semibold text-se-green-700 sm:text-4xl">
           {whoFor.title}
         </h2>
-        <div className={compare ? 'mt-6 grid gap-5 lg:grid-cols-2' : 'mt-2'}>
+        <div className={compare ? 'mt-6 grid gap-5 lg:grid-cols-3' : 'mt-2'}>
           {whoFor.versions.map((version) => (
             <div key={version.label} className={compare ? 'rounded-3xl border border-se-line bg-se-cream p-6' : ''}>
               {compare && <p className="text-sm font-semibold text-se-accent-700">{version.label}</p>}
@@ -32,6 +34,7 @@ export default function WhoItIsFor() {
               </ul>
             </div>
           ))}
+          <MockBenefit />
         </div>
         <p className="mt-8 max-w-3xl leading-relaxed text-se-ink">{whoFor.family}</p>
       </div>

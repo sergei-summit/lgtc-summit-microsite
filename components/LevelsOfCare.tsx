@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import { page } from '@/content/page';
 import { settings } from '@/content/settings';
-import { CallButton, CheckIcon, PhoneIcon, RegisterButton } from './Actions';
+import { CallButton, PhoneIcon, RegisterButton } from './Actions';
 
 /**
- * Outpatient programs first: PHP, IOP, Virtual IOP and OP as the main tiles,
- * each marked in-network (text label plus tint, never colour alone) with the
- * assessment request and a call link. Detox and residential follow as one
- * quieter, call-only strip, then the San Jose location card and the first of
- * the two assessment prompts.
+ * Outpatient programs first: PHP, IOP (in person or hybrid) and OP as three
+ * tiles, each with the assessment request and a call link. The in-network
+ * statement is made once, in the lead. Then the San Jose location card, the
+ * Palo Alto detox/residential card (the same shape, labelled as a higher
+ * level of care, call-only) and the first of the two assessment prompts.
  */
 export default function LevelsOfCare() {
   const { levels } = page;
@@ -20,25 +20,15 @@ export default function LevelsOfCare() {
         </h2>
         <p className="mt-5 max-w-3xl text-lg font-semibold leading-relaxed text-se-green-800">{levels.lead}</p>
 
-        <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-8 grid gap-5 md:grid-cols-3">
           {levels.items.map((level) => (
-            <li
-              key={level.id}
-              className="flex flex-col rounded-3xl border-2 border-se-accent-600 bg-se-cream p-6"
-            >
-              <p className="flex items-center gap-1.5 text-sm font-semibold text-se-green-800">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-se-accent-600 text-white">
-                  <CheckIcon className="h-3 w-3" />
-                </span>
-                {levels.inNetwork}
-              </p>
-              <h3 className="mt-4 text-xl font-semibold text-se-green-700">{level.name}</h3>
+            <li key={level.id} className="flex flex-col rounded-3xl border-2 border-se-accent-600 bg-se-cream p-6">
+              <h3 className="text-xl font-semibold text-se-green-700">{level.name}</h3>
               {level.alias && (
                 <p className="mt-1 text-sm font-semibold text-se-accent-700">
                   {levels.aliasPrefix} {level.alias}
                 </p>
               )}
-              <p className="mt-1 text-sm font-semibold text-se-green-700">{level.where}</p>
               <p className="mt-3 leading-relaxed text-se-ink">{level.text}</p>
               <div className="mt-auto pt-4">
                 {level.length && <p className="text-sm text-se-ink-muted">{level.length}</p>}
@@ -63,24 +53,6 @@ export default function LevelsOfCare() {
           ))}
         </ul>
 
-        {/* Detox and residential: visible, quiet, call-only. A dashed outline
-            and a text label, so it reads as a different kind of programme
-            without looking disabled. */}
-        <aside
-          aria-labelledby="higher-title"
-          className="mt-6 flex flex-col gap-4 rounded-3xl border border-dashed border-se-green-600 bg-se-paper p-6 md:flex-row md:items-center md:justify-between"
-        >
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold text-se-ink-muted">{levels.higher.label}</p>
-            <h3 id="higher-title" className="mt-1 text-xl font-semibold text-se-green-700">
-              {levels.higher.title}
-            </h3>
-            <p className="mt-2 leading-relaxed text-se-ink">{levels.higher.text}</p>
-            <p className="mt-2 text-sm leading-relaxed text-se-ink-muted">{levels.higher.network}</p>
-          </div>
-          <CallButton variant="outline" className="shrink-0" />
-        </aside>
-
         <article
           aria-label={levels.locationsLabel}
           className="mt-10 grid overflow-hidden rounded-3xl border border-se-line bg-se-cream md:grid-cols-[1fr_1.2fr]"
@@ -96,6 +68,32 @@ export default function LevelsOfCare() {
           <div className="p-6 md:p-8">
             <h3 className="text-xl font-semibold text-se-green-700">{levels.location.name}</h3>
             <p className="mt-2 leading-relaxed text-se-ink">{levels.location.text}</p>
+          </div>
+        </article>
+
+        {/* Detox and residential: the same card shape as San Jose, with a
+            dashed outline and a text label, so it reads as a different kind
+            of programme without looking disabled. Call-only. */}
+        <article
+          aria-labelledby="higher-title"
+          className="mt-6 grid overflow-hidden rounded-3xl border border-dashed border-se-green-600 bg-se-paper md:grid-cols-[1fr_1.2fr]"
+        >
+          <Image
+            src={levels.higher.photo.src}
+            alt={levels.higher.photo.alt}
+            width={560}
+            height={373}
+            sizes="(min-width: 768px) 480px, 100vw"
+            className="aspect-[3/2] h-full w-full object-cover"
+          />
+          <div className="flex flex-col items-start p-6 md:p-8">
+            <p className="text-sm font-semibold text-se-ink-muted">{levels.higher.label}</p>
+            <h3 id="higher-title" className="mt-1 text-xl font-semibold text-se-green-700">
+              {levels.higher.title}
+            </h3>
+            <p className="mt-2 leading-relaxed text-se-ink">{levels.higher.text}</p>
+            <p className="mt-2 text-sm leading-relaxed text-se-ink-muted">{levels.higher.network}</p>
+            <CallButton variant="outline" className="mt-5" />
           </div>
         </article>
 

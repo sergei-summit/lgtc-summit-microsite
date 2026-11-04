@@ -31,7 +31,7 @@ export function CallButton({ className = '', tone = 'light', variant = 'solid' }
 
 /**
  * The assessment request: LGTC's EHR registration link. The page collects no
- * data. Outpatient care only (PHP, IOP, Virtual IOP, OP); detox and
+ * data. Outpatient care only (PHP, IOP, OP); detox and
  * residential are call-only, so never place this next to them. Solid by
  * default: on this page it is the primary action.
  */
