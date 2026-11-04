@@ -67,7 +67,7 @@ export const page = {
       { icon: 'brain', title: 'Mental Health & Substance Use Treatment', proof: 'Board-Certified Psychiatry and Addiction Medicine Team' },
       { icon: 'layers', title: 'Detox, Residential, PHP, IOP & OP, MAT', proof: 'Individualized at Every Level' },
       { icon: 'home', title: 'Private Estate in Palo Alto', proof: 'Comfortable Amenities' },
-      { icon: 'compass', title: 'San Jose Day, Evening & Virtual', proof: 'Evidence-Based Care (CBT, DBT)' },
+      { icon: 'compass', title: 'San Jose Day, Evening & Virtual', proof: 'CBT, DBT, non-12-step groups, and EMDR' },
     ] satisfies { icon: FeatureIconName; title: string; proof: string }[],
     secondaryCta: { href: '#verify', label: 'Get started' },
     urgent: "Need detox or residential care? Call now, don't wait.",
@@ -156,7 +156,7 @@ export const page = {
       {
         id: 'palo-alto',
         name: 'Palo Alto',
-        text: 'Medical detox and residential treatment on a private estate.',
+        text: 'Private, Medically Integrated personalized Detoxification and Residential Treatment Care.',
         photo: {
           src: paloAltoPhoto,
           alt: 'The Palo Alto estate: a two-storey Mediterranean-style house above a sloping lawn with sun loungers and mature trees',
@@ -165,7 +165,7 @@ export const page = {
       {
         id: 'san-jose',
         name: 'San Jose',
-        text: `A comprehensive outpatient program (PHP, IOP, OP and Virtual IOP), family therapy and a multi-family group, psychiatry-guided medication management and case management, under psychiatric guidance from the psychiatrists of ${settings.groupName}.`,
+        text: `A comprehensive outpatient program (PHP, IOP, OP and Virtual IOP), family therapy and a multi-family group, psychiatry-guided medication management and case management.`,
         photo: {
           src: sanJosePhoto,
           alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
@@ -178,39 +178,13 @@ export const page = {
     },
   },
 
-  /** Ported from go.summitestate.com/microsite ("Core components" and "How we treat it"). */
+  /** Ported from go.summitestate.com/microsite ("How we treat it"). */
   howWeTreat: {
     id: 'how-we-treat',
     title: 'How we treat',
     lead: 'We provide structured, evidence-based care for adults navigating both psychiatric disorders and co-occurring substance use challenges.',
     intro:
       'Treatment includes family therapy and a multi-family group. Loved ones learn the same skills at the same time, so the whole family is practising together rather than one person carrying the change alone.',
-    components: [
-      {
-        title: 'Dual Diagnosis Focus',
-        text: 'Mental health conditions and substance use treated at the same time, by the same team, to address the triggers they share.',
-      },
-      {
-        title: 'Relapse Prevention',
-        text: 'A personalized plan to recognize triggers, navigate high-risk situations and stay steady after treatment.',
-      },
-      {
-        title: 'CBT & DBT',
-        text: 'Evidence-based skills to regulate intense emotions, manage cravings and work through stress.',
-      },
-      {
-        title: 'Psychiatric Oversight',
-        text: 'A psychiatric evaluation and psychiatry-guided medication management, under a Medical Director.',
-      },
-      {
-        title: 'Relational Healing',
-        text: 'Family therapy and a multi-family group, so the people around you build the same skills.',
-      },
-      {
-        title: 'Flexible Scheduling',
-        text: 'Day, evening and virtual outpatient options, so you can return to work and home life step by step.',
-      },
-    ],
     lists: [
       {
         label: 'Therapies',
