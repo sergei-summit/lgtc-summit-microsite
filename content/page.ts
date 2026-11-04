@@ -94,7 +94,6 @@ export const page = {
     id: 'programs',
     title: 'Levels of care',
     lead: 'Wherever you start, the first step is a complimentary, confidential assessment and an initial consultation with our integrated clinical team.',
-    intro: 'You can enter at any level, and many people step down from one to the next.',
     items: [
       {
         id: 'detox',
@@ -156,7 +155,7 @@ export const page = {
       {
         id: 'palo-alto',
         name: 'Palo Alto',
-        text: 'Private, Medically Integrated personalized Detoxification and Residential Treatment Care.',
+        text: 'Private, Medically Integrated personalized Detoxification and Residential Treatment Care in a small, private setting.',
         photo: {
           src: paloAltoPhoto,
           alt: 'The Palo Alto estate: a two-storey Mediterranean-style house above a sloping lawn with sun loungers and mature trees',
@@ -165,7 +164,7 @@ export const page = {
       {
         id: 'san-jose',
         name: 'San Jose',
-        text: `A comprehensive outpatient program (PHP, IOP, OP and Virtual IOP), family therapy and a multi-family group, psychiatry-guided medication management and case management.`,
+        text: `A comprehensive outpatient program (PHP, IOP, OP and Virtual IOP), family therapy and a multi-family group, psychiatry-guided medication management and case management. Day, evening and virtual schedules are work-compatible.`,
         photo: {
           src: sanJosePhoto,
           alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
@@ -182,9 +181,6 @@ export const page = {
   howWeTreat: {
     id: 'how-we-treat',
     title: 'How we treat',
-    lead: 'We provide structured, evidence-based care for adults navigating both psychiatric disorders and co-occurring substance use challenges.',
-    intro:
-      'Treatment includes family therapy and a multi-family group. Loved ones learn the same skills at the same time, so the whole family is practising together rather than one person carrying the change alone.',
     lists: [
       {
         label: 'Therapies',
@@ -253,7 +249,8 @@ export const page = {
 
   whoFor: {
     title: 'Who it is for',
-    intro: 'Adults who need support for both.',
+    intro:
+      'We provide structured, evidence-based care for adults navigating both psychiatric disorders and co-occurring substance use challenges, including:',
     items: [
       'Anxiety, depression or other mood conditions alongside substance use',
       'Active substance use, or early recovery',
@@ -261,7 +258,10 @@ export const page = {
       'Stress or trauma triggers',
       'Wanting structured support to stay sober',
       'Wanting a peer group going through the same thing',
+      'Professionals who need privacy and a schedule that fits their career',
     ],
+    family:
+      'Treatment includes family therapy and a multi-family group. Loved ones learn the same skills at the same time, so the whole family is practising together rather than one person carrying the change alone.',
   },
 
   gettingStarted: {

@@ -17,7 +17,6 @@ export default function LevelsOfCare() {
           {levels.title}
         </h2>
         <p className="mt-5 max-w-3xl text-lg font-semibold leading-relaxed text-se-green-800">{levels.lead}</p>
-        <p className="mt-3 max-w-3xl leading-relaxed text-se-ink">{levels.intro}</p>
 
         <div className="mt-8 flex flex-col items-start gap-4 rounded-3xl border-2 border-se-accent-600 bg-se-cream p-6 md:flex-row md:items-center md:justify-between">
           <div>
