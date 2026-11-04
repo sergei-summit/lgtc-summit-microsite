@@ -65,7 +65,7 @@ export const page = {
      * Each line pairs a service with the proof point LGTC's old trust row carried. */
     features: [
       { icon: 'brain', title: 'Mental Health & Substance Use Treatment', proof: 'Board-Certified Psychiatry and Addiction Medicine Team' },
-      { icon: 'layers', title: 'Detox, Residential, PHP, IOP & OP', proof: 'Individualized at Every Level' },
+      { icon: 'layers', title: 'Detox, Residential, PHP, IOP & OP, MAT', proof: 'Individualized at Every Level' },
       { icon: 'home', title: 'Private Estate in Palo Alto', proof: 'Comfortable Amenities' },
       { icon: 'compass', title: 'San Jose Day, Evening & Virtual', proof: 'Evidence-Based Care (CBT, DBT)' },
     ] satisfies { icon: FeatureIconName; title: string; proof: string }[],
@@ -182,7 +182,7 @@ export const page = {
   howWeTreat: {
     id: 'how-we-treat',
     title: 'How we treat',
-    lead: 'Evidence-based therapy, in groups and one to one.',
+    lead: 'We provide structured, evidence-based care for adults navigating both psychiatric disorders and co-occurring substance use challenges.',
     intro:
       'Treatment includes family therapy and a multi-family group. Loved ones learn the same skills at the same time, so the whole family is practising together rather than one person carrying the change alone.',
     components: [
