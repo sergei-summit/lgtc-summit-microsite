@@ -1,7 +1,7 @@
 import { page } from '@/content/page';
 import { CheckIcon } from './Actions';
 
-/** How we treat: core components, therapies and group topics, ported from
+/** How we treat: lead, intro, therapies and group topics, ported from
  * go.summitestate.com/microsite. */
 export default function HowWeTreat() {
   const { howWeTreat } = page;
@@ -13,15 +13,6 @@ export default function HowWeTreat() {
         </h2>
         <p className="mt-5 max-w-3xl text-lg font-semibold leading-relaxed text-se-green-800">{howWeTreat.lead}</p>
         <p className="mt-3 max-w-3xl leading-relaxed text-se-ink">{howWeTreat.intro}</p>
-
-        <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {howWeTreat.components.map((c) => (
-            <li key={c.title} className="rounded-3xl border border-se-line bg-se-paper p-6">
-              <h3 className="text-xl font-semibold text-se-green-700">{c.title}</h3>
-              <p className="mt-2 leading-relaxed text-se-ink">{c.text}</p>
-            </li>
-          ))}
-        </ul>
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {howWeTreat.lists.map((list) => {
