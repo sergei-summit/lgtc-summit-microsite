@@ -14,6 +14,7 @@
  */
 import type { StaticImageData } from 'next/image';
 import { settings } from './settings';
+import type { FeatureIconName } from '@/components/FeatureIcon';
 
 import heroPhoto from './images/hero-palo-alto-estate.webp';
 import paloAltoPhoto from './images/location-palo-alto.webp';
@@ -57,16 +58,16 @@ export const page = {
   skipLink: 'Skip to programs',
 
   hero: {
-    brand: 'Summit Estate Recovery Centers',
     title: 'Mental health and substance use,',
     titleAccent: 'treated together.',
     text: 'One clinical team across the full path: from Medical Detoxification and Stabilization, through Residential Care, Day Treatment & Intensive Outpatient, to Individual Therapy.',
+    /** Icons as on /microsite (Summit-Landing-Pages lib/microsite.ts heroPoints). */
     features: [
-      'Mental health & substance use, one team',
-      'Detox, residential, PHP, IOP & OP',
-      'Private estate in Palo Alto',
-      'San Jose day, evening & virtual',
-    ],
+      { icon: 'brain', label: 'Mental health & substance use, one team' },
+      { icon: 'layers', label: 'Detox, residential, PHP, IOP & OP' },
+      { icon: 'home', label: 'Private estate in Palo Alto' },
+      { icon: 'compass', label: 'San Jose day, evening & virtual' },
+    ] satisfies { icon: FeatureIconName; label: string }[],
     secondaryCta: { href: '#verify', label: 'Get started' },
     urgent: "Need detox or residential care? Call now, don't wait.",
     insuranceBadge: { label: 'We accept', value: 'Most major insurances' },
