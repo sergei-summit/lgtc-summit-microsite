@@ -65,8 +65,8 @@ export const page = {
     features: [
       { icon: 'brain', title: 'Mental Health & Substance Use Treatment', proof: 'Board-Certified Psychiatry and Addiction Medicine Team' },
       { icon: 'layers', title: 'Detox, Residential, PHP, IOP & OP, MAT', proof: 'Individualized at Every Level' },
-      { icon: 'home', title: 'Private Estate in Palo Alto', proof: 'Comfortable Amenities' },
-      { icon: 'compass', title: 'San Jose Day, Evening & Virtual', proof: 'CBT, DBT, non-12-step groups, and EMDR' },
+      { icon: 'home', title: 'Private Estate in Palo Alto', proof: 'Medically Integrated, personalized Detox and Residential Treatment in a private, comfortable setting' },
+      { icon: 'compass', title: 'San Jose Day, Evening & Virtual', proof: 'PHP, IOP and Individual Therapy services on a schedule that fits your life, work and school' },
     ] satisfies { icon: FeatureIconName; title: string; proof: string }[],
     secondaryCta: { href: '#verify', label: 'Get started' },
     urgent: "Need detox or residential care? Call now, don't wait.",
