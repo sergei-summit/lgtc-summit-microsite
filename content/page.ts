@@ -165,7 +165,7 @@ export const page = {
    * Levels of Care: two groups under one title, each headed with its place.
    * Outpatient (San Jose): three tiles. Higher Level of Care (Palo Alto): the
    * estate photo beside two tiles of the same shape, Medical Detox and
-   * Residential Treatment, with the insurance note beneath them. All tiles are
+   * Residential Treatment, with the insurance position on an info card over the photo. All tiles are
    * in LGTC's format (labelled rows, no hours line, no links). Detox and
    * residential are call-only.
    */
@@ -242,9 +242,6 @@ export const page = {
         value: 'Most major PPO policies accepted',
         note: 'In-network agreements are in progress and expected in 2027',
       },
-      networkLabel: 'Insurance:',
-      network:
-        'In-network agreements for Detox and Residential in Palo Alto are in progress and expected in 2027; today they are out of network, and a single case agreement may be possible. We check your benefits before anything is decided.',
       photo: {
         src: paloAltoPhoto,
         alt: 'A two-storey Mediterranean-style house above a landscaped garden with a stone fountain and patio chairs',

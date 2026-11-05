@@ -7,9 +7,10 @@ import CompareLevelCards from './CompareLevelCards';
  * Levels of Care. One title, then two groups, each headed with its place:
  * "Outpatient Programs · San Jose" over three tiles (PHP, IOP in person or
  * hybrid, OP) and "Higher Level of Care · Palo Alto" over the estate photo and
- * two tiles of the same shape (Medical Detox, Residential Treatment), with the
- * insurance note beneath them. Tiles are in LGTC's format: labelled rows, no
- * hours line, no links. Then the first of the two assessment prompts, with the
+ * two tiles of the same shape (Medical Detox, Residential Treatment); the
+ * insurance position sits on an info card over the photo (the line beneath
+ * the tiles was deleted Nov 5 2026). Tiles are in LGTC's format: labelled
+ * rows, no hours line, no links. Then the first of the two assessment prompts, with the
  * call as the primary action.
  */
 function Tile({ level }: { level: Level }) {
@@ -71,10 +72,6 @@ export default function LevelsOfCare() {
             ))}
           </ul>
         </div>
-        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-se-ink-muted">
-          <strong className="font-semibold text-se-green-800">{levels.higher.networkLabel}</strong> {levels.higher.network}
-        </p>
-
         <CompareLevelCards />
 
         <div className="mt-12 flex flex-col items-start gap-5 rounded-3xl bg-se-green-800 p-7 text-se-sand md:flex-row md:items-center md:justify-between">
