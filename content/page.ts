@@ -133,7 +133,7 @@ export const page = {
     title: 'Levels of Care',
     aliasPrefix: 'Also called',
     outpatient: {
-      title: 'Outpatient Programs · San Jose',
+      title: 'Outpatient Programs · San Jose Outpatient Center',
       items: [
         {
           id: 'php',
@@ -218,7 +218,7 @@ export const page = {
   gettingStarted: {
     id: 'verify',
     title: 'Getting started is easy',
-    lead: 'One registration, one team, the right level of care.',
+    lead: 'One registration and one team for the right level of care',
     steps: [
       {
         title: 'Call or register',
