@@ -43,8 +43,8 @@ import dhcsBadge from './images/badge-dhcs.png';
 import legitScriptBadge from './images/badge-legitscript.png';
 
 export type Photo = { src: StaticImageData; alt: string };
-/** `title` is optional: the care-team card is its label and list only (Sergei, Nov 5 2026). */
-export type Card = { eyebrow: string; title?: string; points: string[] };
+/** A labelled card: small label (kicker), heading and ticked list. */
+export type Card = { eyebrow: string; title: string; points: string[] };
 /** A card in the comparison set copied from the microsite's Levels of Care. */
 /** A level card: tag chip, name, clock line and blurb; its "What to expect" rows are a Level's rows. */
 export type LevelCard = { tag: string; name: string; meta: string; blurb: string };
@@ -143,8 +143,9 @@ export const page = {
     label: 'Who can benefit and your care team',
     items: [
       {
-        /** Sergei's five lines (Nov 5 2026) in place of "A team, not a single clinician." and the microsite's six. */
         eyebrow: 'Your care team',
+        title: 'A team, not a single clinician.',
+        /** Sergei's five lines (Nov 5 2026) in place of the microsite's six. */
         points: [
           'Medical supervision by Addictionologists and Psychiatric Mental Health Practitioners',
           'Clinical Director providing clinical guidance',
@@ -318,7 +319,7 @@ export const page = {
       {
         title: 'We verify your benefits',
         /** Two lines (Sergei, Nov 5 2026): outpatient, then Palo Alto on its own line. */
-        text: 'Outpatient Care is in-network with all major plans. Costs upfront, with no obligation.\nDetox and Residential Care in Palo Alto for Adults 28+: PPO policies accepted, in-network agreements in progress, and single case agreement possible.',
+        text: 'Outpatient Care is in-network with all major plans. Costs upfront, with no obligation.\nDetox and Residential Care in Palo Alto: PPO policies accepted, in-network agreements in progress, and single case agreement possible.',
       },
       {
         title: 'Assessment and consultation',
@@ -345,9 +346,10 @@ export const page = {
 
   /**
    * "Where we are" from go.summitestate.com/outpatient (Sergei, Nov 5 2026),
-   * under the footer note at the very bottom. Copy as on that page, with two
-   * changes: capitalization per the house rule, and no "Virtual IOP anywhere
-   * in California" (this page names telehealth only as part of Hybrid IOP).
+   * after Getting started. Copy as on that page, with three changes:
+   * capitalization per the house rule, no "Virtual IOP anywhere in
+   * California" (this page names telehealth only as part of Hybrid IOP), and
+   * no "Adults 28+" (Sergei, Nov 5 2026).
    */
   whereWeAre: {
     eyebrow: 'Where we are',
@@ -362,9 +364,10 @@ export const page = {
       },
       {
         icon: 'home',
-        eyebrow: 'Adults 28+',
+        /** The source card says "Adults 28+" here and in the text; Sergei removed both (Nov 5 2026). */
+        eyebrow: 'Palo Alto',
         title: 'Summit Estate',
-        text: "Silicon Valley's finest rehab for adults 28+. Detox and Residential Care on a private estate in the rolling hills.",
+        text: "Silicon Valley's finest rehab: Detox and Residential Care on a private estate in the rolling hills.",
         points: ['Palo Alto, CA', 'Detox & Residential'],
       },
     ] satisfies LocationCard[],

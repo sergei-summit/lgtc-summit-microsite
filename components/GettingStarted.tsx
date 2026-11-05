@@ -14,10 +14,12 @@ export default function GettingStarted() {
   return (
     <section id={start.id} aria-labelledby="start-title" className="scroll-mt-20 bg-se-green-800 text-se-sand">
       <div className="mx-auto max-w-se-content px-4 py-14 sm:px-6 md:py-20">
-        <h2 id="start-title" className="text-3xl font-semibold text-white sm:text-4xl">
-          {start.title}
-        </h2>
-        <p className="mt-4 text-xl font-semibold text-se-sand">{start.lead}</p>
+        <hgroup>
+          <h2 id="start-title" className="text-3xl font-semibold text-white sm:text-4xl">
+            {start.title}
+          </h2>
+          <p className="mt-4 text-xl font-semibold text-se-sand">{start.lead}</p>
+        </hgroup>
         <ol className="mt-8 grid gap-5 md:grid-cols-3">
           {start.steps.map((step, i) => (
             <li key={step.title} className="rounded-3xl border border-se-green-600 p-6">
