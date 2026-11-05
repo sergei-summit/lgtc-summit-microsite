@@ -28,7 +28,7 @@ for scripts, styles, fonts and images.
 |---|---|
 | `app/summit-estate/page.tsx` | The page route, its metadata (title, description, robots) and its CSS import |
 | `app/summit-estate/summit-estate.css` | Tailwind utilities plus a reset scoped to `.se-root`. No Tailwind preflight, so it cannot restyle LGTC's header or footer |
-| `components/` | `SubBar`, `Hero`, `TrustBadges`, `LevelsOfCare` (Levels of Care: the three outpatient tiles, the Palo Alto photo with the Medical Detox and Residential Treatment tiles, the insurance note, the assessment band), `GettingStarted` (the closing section), `MobileCallBar`, `PageFooterNote`, plus `Actions` (call, assessment-request and secondary-link buttons), `Logo` and `fonts` |
+| `components/` | `SubBar`, `Hero`, `TrustBadges`, `BenefitAndTeam` (the "Who can benefit" and "Your care team" cards from the Summit Estate microsite), `LevelsOfCare` (Levels of Care: the three outpatient tiles, the Palo Alto photo with the Medical Detox and Residential Treatment tiles, the insurance note, the assessment band), `GettingStarted` (the closing section), `MobileCallBar`, `PageFooterNote`, plus `Actions` (call, assessment-request and secondary-link buttons), `Logo` and `fonts` |
 | `content/page.ts` | Every word of visible copy, typed. Components hard-code none |
 | `content/settings.ts` | Every setting: phone, registration link, group name, outbound link, base path, robots, title and description |
 | `content/images/` | Photos and badges, pre-sized for their display size |

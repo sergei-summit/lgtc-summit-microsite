@@ -13,7 +13,9 @@
  *
  * Rules: "Summit Estate Recovery Centers" in the footer note and page title,
  * "Summit Estate" elsewhere; no street addresses, licence numbers or clock
- * times; lengths of stay are "typically". No eyebrow labels and no pill chips.
+ * times; lengths of stay are "typically". No eyebrow labels and no pill chips,
+ * except the two cards copied from go.summitestate.com/microsite (Sergei,
+ * Nov 5 2026), which keep their small labels.
  * Detox and residential are call-only; the assessment / registration link
  * appears only next to outpatient care. Dual diagnosis stays the clinical
  * core: "mental health, substance use, or both", never mental health alone.
@@ -34,6 +36,7 @@ import dhcsBadge from './images/badge-dhcs.png';
 import legitScriptBadge from './images/badge-legitscript.png';
 
 export type Photo = { src: StaticImageData; alt: string };
+export type Card = { eyebrow: string; title: string; points: string[] };
 
 export type Level = {
   id: string;
@@ -118,6 +121,42 @@ export const page = {
       },
       { kind: 'google', label: 'Google reviews', rating: 4.5 },
     ] satisfies Badge[],
+  },
+
+  /**
+   * Two cards under the badge strip, copied from the Summit Estate microsite
+   * (go.summitestate.com/microsite) at Sergei's request, Nov 5 2026: who the
+   * programs are for, and the team behind them. Role titles are capitalized
+   * per the copy rule; the lists are otherwise the microsite's.
+   */
+  cards: {
+    label: 'Who can benefit and your care team',
+    items: [
+      {
+        eyebrow: 'Who can benefit',
+        title: 'Adults who need support for both.',
+        points: [
+          'Anxiety, depression or other mood conditions alongside substance use',
+          'Active substance use, or early recovery',
+          'A history of relapse',
+          'Stress or trauma triggers',
+          'Wanting structured support to stay sober',
+          'Wanting a peer group going through the same thing',
+        ],
+      },
+      {
+        eyebrow: 'Your care team',
+        title: 'A team, not a single clinician.',
+        points: [
+          'Medical Director providing psychiatric oversight',
+          'Clinical Director providing clinical guidance',
+          'Supervision by an Addictionologist and Psychiatric Mental Health Practitioners',
+          'Individual Therapist',
+          'Group Facilitators',
+          'Case Manager',
+        ],
+      },
+    ] satisfies Card[],
   },
 
   /**
