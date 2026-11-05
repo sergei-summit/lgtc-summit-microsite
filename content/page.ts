@@ -235,6 +235,13 @@ export const page = {
         },
       ] satisfies Level[],
       /** Sergei's approved wording (Nov 4 2026); shown under the two tiles. */
+      /** Info card over the estate photo, like the hero badge over the San
+       * Jose photo (Sergei, Nov 5 2026, his wording). */
+      badge: {
+        label: 'Detox and Residential',
+        value: 'Most major PPO policies accepted',
+        note: 'In-network agreements are in progress and expected in 2027',
+      },
       networkLabel: 'Insurance:',
       network:
         'In-network agreements for Detox and Residential in Palo Alto are in progress and expected in 2027; today they are out of network, and a single case agreement may be possible. We check your benefits before anything is decided.',

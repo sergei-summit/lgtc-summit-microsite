@@ -59,6 +59,11 @@ export default function LevelsOfCare() {
               sizes="(min-width: 768px) 400px, 100vw"
               className="object-cover"
             />
+            <div className="absolute right-4 top-4 max-w-[16rem] rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card">
+              <p className="text-sm text-se-sand">{levels.higher.badge.label}</p>
+              <p className="text-lg font-semibold leading-tight text-white">{levels.higher.badge.value}</p>
+              <p className="mt-1 text-sm leading-snug text-se-sand">{levels.higher.badge.note}</p>
+            </div>
           </div>
           <ul className="grid gap-5 sm:grid-cols-2 md:col-span-2">
             {levels.higher.items.map((level) => (
