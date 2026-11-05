@@ -1,13 +1,13 @@
 import { page } from '@/content/page';
-import { CallButton, RegisterButton, SiteLink } from './Actions';
+import { CallButton } from './Actions';
 
 /**
  * Closing section, on the dark band: three steps (call or register, benefits,
- * assessment) that carry the LGTC continuum points, the button pair (call
- * first), the link to the full Summit Estate site, one quiet line for detox
- * and residential (call-only) and the small print. #verify is the target of the sub-bar's and the phone bar's
- * "Get started"; the phone bar hides itself once [data-verify-actions] is on
- * screen.
+ * assessment) that carry the LGTC continuum points, then the call button.
+ * The assessment button, the site link, the detox line and the small print
+ * came out on Nov 5 2026 (Sergei); the small print now sits in the footer
+ * note. #verify is the target of the phone bar's "Get started"; the phone bar
+ * hides itself once [data-verify-actions] is on screen.
  */
 export default function GettingStarted() {
   const { gettingStarted: start } = page;
@@ -28,17 +28,13 @@ export default function GettingStarted() {
                 {i + 1}
               </span>
               <h3 className="mt-4 text-xl font-semibold text-white">{step.title}</h3>
-              <p className="mt-2 leading-relaxed">{step.text}</p>
+              <p className="mt-2 whitespace-pre-line leading-relaxed">{step.text}</p>
             </li>
           ))}
         </ol>
         <div data-verify-actions className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <CallButton tone="dark" className="min-h-14 px-8 text-lg" />
-          <RegisterButton tone="dark" variant="outline" className="min-h-14 px-8 text-lg" />
         </div>
-        <SiteLink tone="dark" className="mt-5" />
-        <p className="mt-6 max-w-2xl leading-relaxed">{start.higherLevel}</p>
-        <p className="mt-5 max-w-2xl text-sm leading-relaxed">{start.smallPrint}</p>
       </div>
     </section>
   );

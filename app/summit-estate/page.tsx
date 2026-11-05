@@ -39,8 +39,8 @@ export default function SummitEstatePage() {
         <LevelsOfCare />
         <BenefitAndTeam />
         <GettingStarted />
-        <PageFooterNote />
         <WhereWeAre />
+        <PageFooterNote />
       </main>
       <MobileCallBar
         label={page.mobileBar.label}

@@ -2,8 +2,7 @@ import { page } from '@/content/page';
 
 /**
  * "Where we are": the two location cards from go.summitestate.com/outpatient
- * (Sergei, Nov 5 2026), placed under the footer note at the very bottom of the
- * page. Each card: icon tile, small label, name, one line of text and chips.
+ * (Sergei, Nov 5 2026), after Getting started and above the footer note. Each card: icon tile, small label, name, one line of text and chips.
  * The source page's "Virtual IOP anywhere in California" is not repeated:
  * this page names telehealth only as part of Hybrid IOP.
  */
