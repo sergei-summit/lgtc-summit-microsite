@@ -28,7 +28,7 @@ for scripts, styles, fonts and images.
 |---|---|
 | `app/summit-estate/page.tsx` | The page route, its metadata (title, description, robots) and its CSS import |
 | `app/summit-estate/summit-estate.css` | Tailwind utilities plus a reset scoped to `.se-root`. No Tailwind preflight, so it cannot restyle LGTC's header or footer |
-| `components/` | `SubBar`, `Hero`, `TrustBadges`, `LevelsOfCare` (outpatient tiles, the San Jose card, the Palo Alto detox/residential card, the assessment band), `TypicalWeek`, `WhatWeTreat`, `WhoItIsFor`, `GettingStarted` (the closing section), `Mockups` (framed LGTC mock-up blocks under review, temporary), `MobileCallBar`, `PageFooterNote`, plus `Actions` (call, assessment-request and secondary-link buttons), `Logo` and `fonts` |
+| `components/` | `SubBar`, `Hero` (H1, intro, feature lines and site link, then the San Jose common-room photo), `TrustBadges`, `LevelsOfCare` (the title and `LevelCards`: the San Jose card with the lounge photo and description, the three San Jose cards, then the estate photo with its info card, one combined Detox & Residential card and the "Not sure" card; each card has a "What to expect" disclosure), `BenefitAndTeam` (the "Your care team" and "Who can benefit" cards from the Summit Estate microsite, just above the closing section), `GettingStarted` (the closing section), `MobileCallBar`, `PageFooterNote`, `WhereWeAre` (the two location cards from go.summitestate.com/outpatient, at the very bottom), plus `Actions` (call, assessment-request and secondary-link buttons), `Logo` and `fonts` |
 | `content/page.ts` | Every word of visible copy, typed. Components hard-code none |
 | `content/settings.ts` | Every setting: phone, registration link, group name, outbound link, base path, robots, title and description |
 | `content/images/` | Photos and badges, pre-sized for their display size |
@@ -78,8 +78,8 @@ details come from LGTC's layout.
 
 ### Base path
 
-The page itself uses only in-page anchors (`#programs`, `#treatment`,
-`#verify`), so it works at any URL.
+The page itself uses only in-page anchors (`#programs`, `#verify`), so it
+works at any URL.
 
 - **Mounted as a route** (for example `lgtcgroup.com/summit-estate`): leave
   `basePath` empty. The folder name under `app/` sets the URL.
@@ -106,7 +106,7 @@ LGTC decides indexing for its own URL. Set `settings.robots` (or
 |---|---|---|
 | `phone` / `phoneHref` | `(408) 542-0434` / `tel:+14085420434` | Set: LGTC's intake number. Never Summit's own line. Update both together |
 | `registrationUrl` | LGTC's EHR registration link (ehryourway.com) | Set. Used by "Register online, we call you back" |
-| `groupName` | `LGTC Psychiatric Group` | **TODO:** confirm. Used in the footer note's partnership line and the San Jose tile |
+| `groupName` | `LGTC Psychiatric Group` | **TODO:** confirm. Used in the footer note's partnership line |
 | `fullSiteUrl` | `https://summitestate.com/` | **TODO:** confirm whether the page links out at all |
 | `showFullSiteLink` | `true` | **TODO:** set to `false` to drop the "Explore the full Summit Estate site" link, the page's one outbound link |
 | `basePath` | `''` (from `NEXT_PUBLIC_BASE_PATH`) | **TODO:** final URL or base path. See "Base path" above |
@@ -126,6 +126,11 @@ Known, not blocking. Left for whoever mounts the page in LGTC's app:
   and observe it too), or add `scroll-padding-bottom` equal to the bar's height
   on `html` for small screens. Passes AA as it is (the buttons are never fully
   hidden); this closes the AAA version (2.4.12).
+- **Call-back form next to the levels of care.** Jan is testing a short
+  self-registration form for a call back on lgtcgroup.com's mental health page
+  (Nov 5 2026); its scheduling does not work yet. When it does, it could sit
+  beside the Levels of Care tiles here in place of, or next to, the
+  registration link.
 
 ## Accessibility checks (CI)
 
@@ -136,7 +141,7 @@ then `scripts/a11y-check.mjs` opens the page in Chromium at 390x844 and
 
 - any axe-core violation with impact serious or critical
 - anything other than exactly one visible H1, or a skipped heading level
-- a missing `#programs`, `#treatment` or `#verify` anchor
+- a missing `#programs` or `#verify` anchor
 - a viewport meta that locks zoom, or a missing `lang="en"`
 
 Run it locally after a build with `npm run test:a11y`. If Playwright's

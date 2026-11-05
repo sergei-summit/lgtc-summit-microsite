@@ -19,7 +19,7 @@ function colours(tone: 'light' | 'dark', variant: 'solid' | 'outline') {
 }
 
 /** Call: a tel: link whose accessible name includes the number. Solid by
- * default; outline where the assessment request is the primary action. */
+ * default: the call to admissions is the primary action on this page (Nov 5 2026). */
 export function CallButton({ className = '', tone = 'light', variant = 'solid' }: ButtonProps) {
   return (
     <a href={settings.phoneHref} className={`${base} ${colours(tone, variant)} ${className}`}>
@@ -32,14 +32,33 @@ export function CallButton({ className = '', tone = 'light', variant = 'solid' }
 /**
  * The assessment request: LGTC's EHR registration link. The page collects no
  * data. Outpatient care only (PHP, IOP, OP); detox and
- * residential are call-only, so never place this next to them. Solid by
- * default: on this page it is the primary action.
+ * residential are call-only, so never place this next to them. Shown as the
+ * outline (secondary) button beside the call.
  */
 export function RegisterButton({ className = '', tone = 'light', variant = 'solid' }: ButtonProps) {
   return (
     <a href={settings.registrationUrl} className={`${base} ${colours(tone, variant)} ${className}`}>
       {page.actions.register}
     </a>
+  );
+}
+
+/**
+ * Jan's preferred click-through (Nov 5 2026): the full Summit Estate site, as
+ * a quiet text link under the button pairs. settings.showFullSiteLink hides it
+ * (and the footer link) in one place.
+ */
+export function SiteLink({ className = '', tone = 'light' }: { className?: string; tone?: 'light' | 'dark' }) {
+  if (!settings.showFullSiteLink) return null;
+  return (
+    <p className={`text-sm ${className}`}>
+      <a
+        href={settings.fullSiteUrl}
+        className={`font-semibold underline ${tone === 'dark' ? 'text-se-sand' : 'text-se-green-700'}`}
+      >
+        {page.actions.siteLink}
+      </a>
+    </p>
   );
 }
 

@@ -7,13 +7,11 @@ import SubBar from '@/components/SubBar';
 import Hero from '@/components/Hero';
 import TrustBadges from '@/components/TrustBadges';
 import LevelsOfCare from '@/components/LevelsOfCare';
-import TypicalWeek from '@/components/TypicalWeek';
-import WhatWeTreat from '@/components/WhatWeTreat';
-import WhoItIsFor from '@/components/WhoItIsFor';
+import BenefitAndTeam from '@/components/BenefitAndTeam';
 import GettingStarted from '@/components/GettingStarted';
 import PageFooterNote from '@/components/PageFooterNote';
+import WhereWeAre from '@/components/WhereWeAre';
 import MobileCallBar from '@/components/MobileCallBar';
-import { MockCore, MockPhilosophy, MockStart, MockStructure } from '@/components/Mockups';
 
 export const metadata: Metadata = {
   title: settings.metaTitle,
@@ -23,9 +21,7 @@ export const metadata: Metadata = {
 
 /**
  * The Summit Estate page. LGTC's site header and footer wrap it; it renders
- * only the Summit sub-bar, the page content and its own footer note. The
- * <Mock…/> blocks are framed mock-ups under review (see components/Mockups.tsx);
- * two more sit inside WhatWeTreat and WhoItIsFor.
+ * only the Summit sub-bar, the page content and its own footer note.
  */
 export default function SummitEstatePage() {
   return (
@@ -41,15 +37,10 @@ export default function SummitEstatePage() {
         <Hero />
         <TrustBadges />
         <LevelsOfCare />
-        <MockPhilosophy />
-        <TypicalWeek />
-        <MockStructure />
-        <WhatWeTreat />
-        <MockCore />
-        <WhoItIsFor />
-        <MockStart />
+        <BenefitAndTeam />
         <GettingStarted />
         <PageFooterNote />
+        <WhereWeAre />
       </main>
       <MobileCallBar
         label={page.mobileBar.label}

@@ -2,8 +2,9 @@ import Image from 'next/image';
 import { page } from '@/content/page';
 
 /** Accreditation and review badges as a plain list, with no heading. Each
- * image's alt text names its credential. LGTC's four trust points now sit in
- * the hero feature lines. */
+ * accreditation image is a link to the accreditor's own listing or lookup for
+ * Summit Estate (new tab); its alt text names the credential and so names the
+ * link. The Google reviews chip is not a link. */
 export default function TrustBadges() {
   const { trust } = page;
   return (
@@ -13,13 +14,21 @@ export default function TrustBadges() {
           {trust.badges.map((badge) =>
             badge.kind === 'image' ? (
               <li key={badge.alt}>
-                <Image
-                  src={badge.src}
-                  alt={badge.alt}
-                  height={56}
-                  width={Math.round((badge.src.width / badge.src.height) * 56)}
-                  className="h-14 w-auto"
-                />
+                <a
+                  href={badge.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-se-accent-700"
+                >
+                  <Image
+                    src={badge.src}
+                    alt={badge.alt}
+                    height={56}
+                    width={Math.round((badge.src.width / badge.src.height) * 56)}
+                    className="h-14 w-auto"
+                  />
+                  <span className="sr-only">, {trust.newTab}</span>
+                </a>
               </li>
             ) : (
               <li

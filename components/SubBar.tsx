@@ -3,10 +3,11 @@
 import { useEffect, useState } from 'react';
 import Logo from './Logo';
 import { page } from '@/content/page';
+import { CallButton } from './Actions';
 
 /**
- * Summit sub-bar under LGTC's own site header: logo, two in-page links and the
- * Get started button. Sticky. The only script here adds a shadow once the page
+ * Summit sub-bar under LGTC's own site header: logo, the in-page link and the
+ * call button (moved here from the hero on Nov 5 2026, Sergei). Sticky. The only script here adds a shadow once the page
  * has scrolled, so the bar reads as separate from the content beneath it.
  */
 export default function SubBar() {
@@ -38,12 +39,7 @@ export default function SubBar() {
             </li>
           ))}
           <li>
-            <a
-              href={subBar.cta.href}
-              className="inline-flex min-h-11 items-center rounded-full bg-se-accent-600 px-5 text-sm font-semibold text-white no-underline hover:bg-se-accent-700"
-            >
-              {subBar.cta.label}
-            </a>
+            <CallButton className="min-h-11 whitespace-nowrap px-4 py-2 text-sm sm:px-5" />
           </li>
         </ul>
       </div>

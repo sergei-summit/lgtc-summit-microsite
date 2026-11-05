@@ -26,8 +26,9 @@ export const settings = {
   groupName: 'LGTC Psychiatric Group',
 
   /**
-   * TODO (open): whether the page links out to Summit's full site. The one
-   * outbound link on the page; set showFullSiteLink to false to remove it.
+   * The link out to Summit's full site: Jan's preferred click-through (Nov 5
+   * 2026), shown as a text line under the hero and closing buttons and in the
+   * footer note. Set showFullSiteLink to false to remove all three.
    */
   fullSiteUrl: 'https://summitestate.com/',
   showFullSiteLink: true,
@@ -48,7 +49,7 @@ export const settings = {
   /** Page title and meta description. */
   metaTitle: 'Outpatient Mental Health and Substance Use Treatment in San Jose | Summit Estate Recovery Centers',
   metaDescription:
-    'PHP, IOP (in person or hybrid) and outpatient therapy for mental health and substance use in San Jose, in-network with all major plans. Medical detox and residential care in Palo Alto when a higher level of care is needed.',
+    'PHP, IOP (in person or hybrid) and Outpatient Therapy for Mental Health and Substance Use in San Jose, in-network with all major plans. Medical Detox and Residential Care in Palo Alto when a higher level of care is needed.',
 } as const;
 
 export type Settings = typeof settings;
