@@ -173,7 +173,7 @@ export const page = {
     title: 'Levels of Care',
     aliasPrefix: 'Also called',
     outpatient: {
-      title: 'Outpatient Programs · San Jose Outpatient Center, a mile from Cupertino and Saratoga',
+      title: 'San Jose Outpatient Center, a mile from Cupertino and Saratoga',
       items: [
         {
           id: 'php',
