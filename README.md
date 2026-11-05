@@ -28,7 +28,7 @@ for scripts, styles, fonts and images.
 |---|---|
 | `app/summit-estate/page.tsx` | The page route, its metadata (title, description, robots) and its CSS import |
 | `app/summit-estate/summit-estate.css` | Tailwind utilities plus a reset scoped to `.se-root`. No Tailwind preflight, so it cannot restyle LGTC's header or footer |
-| `components/` | `SubBar`, `Hero`, `TrustBadges`, `LevelsOfCare` (the three program tiles, the Palo Alto detox/residential card, the assessment band), `Philosophy`, `WhatWeTreat`, `WhoItIsFor`, `GettingStarted` (the closing section), `Mockups` (framed LGTC mock-up blocks under review, temporary), `MobileCallBar`, `PageFooterNote`, plus `Actions` (call, assessment-request and secondary-link buttons), `Logo` and `fonts` |
+| `components/` | `SubBar`, `Hero`, `TrustBadges`, `LevelsOfCare` (the three program tiles, the Palo Alto detox/residential card, the assessment band), `Philosophy`, `WhoItIsFor`, `GettingStarted` (the closing section), `Mockups` (framed LGTC mock-up blocks under review, temporary), `MobileCallBar`, `PageFooterNote`, plus `Actions` (call, assessment-request and secondary-link buttons), `Logo` and `fonts` |
 | `content/page.ts` | Every word of visible copy, typed. Components hard-code none |
 | `content/settings.ts` | Every setting: phone, registration link, group name, outbound link, base path, robots, title and description |
 | `content/images/` | Photos and badges, pre-sized for their display size |
@@ -78,8 +78,8 @@ details come from LGTC's layout.
 
 ### Base path
 
-The page itself uses only in-page anchors (`#programs`, `#treatment`,
-`#verify`), so it works at any URL.
+The page itself uses only in-page anchors (`#programs`, `#verify`), so it
+works at any URL.
 
 - **Mounted as a route** (for example `lgtcgroup.com/summit-estate`): leave
   `basePath` empty. The folder name under `app/` sets the URL.
@@ -136,7 +136,7 @@ then `scripts/a11y-check.mjs` opens the page in Chromium at 390x844 and
 
 - any axe-core violation with impact serious or critical
 - anything other than exactly one visible H1, or a skipped heading level
-- a missing `#programs`, `#treatment` or `#verify` anchor
+- a missing `#programs` or `#verify` anchor
 - a viewport meta that locks zoom, or a missing `lang="en"`
 
 Run it locally after a build with `npm run test:a11y`. If Playwright's

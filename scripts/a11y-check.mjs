@@ -4,7 +4,7 @@
 // 1366x900, and fails on:
 //   - any axe-core violation with impact "serious" or "critical"
 //   - anything other than exactly one H1, or an H1 that is not visible
-//   - a skipped heading level, or a missing #programs / #treatment / #verify
+//   - a skipped heading level, or a missing #programs / #verify
 //   - a viewport meta that locks zoom
 //
 // Usage: node scripts/a11y-check.mjs [path ...]
@@ -27,7 +27,7 @@ const VIEWPORTS = [
   { width: 390, height: 844, name: 'phone 390x844' },
   { width: 1366, height: 900, name: 'desktop 1366x900' },
 ];
-const ANCHORS = ['programs', 'treatment', 'verify'];
+const ANCHORS = ['programs', 'verify'];
 const TYPES = {
   '.html': 'text/html; charset=utf-8',
   '.js': 'text/javascript',
