@@ -7,10 +7,10 @@
  * who are already LGTC patients or are referred inside LGTC, so it leads with
  * the in-network outpatient programs in San Jose: PHP, IOP (in person or
  * hybrid) and OP. Detox and residential in Palo Alto stay on the page as a
- * quieter "higher level of care" card under the San Jose card. The earlier
+ * quieter "higher level of care" card under the tiles. The earlier
  * full-continuum version is kept on the branch
- * lgtc-summit-microsite-full-continuum. The framed mock-up blocks on the page
- * come from content/mockup.ts, not from here.
+ * lgtc-summit-microsite-full-continuum. The framed mock-up blocks still under
+ * review come from content/mockup.ts, not from here.
  *
  * Rules: "Summit Estate Recovery Centers" in the footer note and page title,
  * "Summit Estate" elsewhere; no street addresses, licence numbers or clock
@@ -42,10 +42,10 @@ export type Level = {
   name: string;
   /** Approved alias, shown as "Also called …". */
   alias?: string;
-  /** Benefit line: why someone would choose this level, not just what it is. */
-  text: string;
-  /** Typical length; omitted where the source gives none. */
-  length?: string;
+  /** Days and hours line, in LGTC's format ("5 days a week · about 6 hours a day"). No clock times. */
+  meta: string;
+  /** Labelled rows, from LGTC's "Structure Without Isolation" block: time commitment, intensity, treatment, who it suits. */
+  rows: [string, string][];
 };
 
 export type Badge =
@@ -107,28 +107,43 @@ export const page = {
         id: 'php',
         name: 'Partial Hospitalization (PHP)',
         alias: 'Day Treatment',
-        text: 'Intensive mental health and substance use treatment several hours a day, then home each evening.',
-        length: '20+ hours a week, typically 4–6 weeks',
+        meta: '5 days a week · about 6 hours a day',
+        rows: [
+          ['Time commitment', '20 or more hours a week, typically 4–6 weeks.'],
+          ['Intensity', 'More intensive than IOP: a structured day similar to residential care, without the overnight stay.'],
+          ['Treatment', 'Group and individual therapy, psychiatry-guided medication management, skill-building and psychoeducation.'],
+          ['Suitable for', 'People who need more structure than IOP but not 24-hour medical supervision, including the step down from residential care.'],
+        ],
       },
       {
         id: 'iop',
         name: 'Intensive Outpatient (IOP)',
-        text: 'Structured support around work, school and family, 3–5 days a week, day or evening. In person, or hybrid with virtual sessions when clinically appropriate. Most people keep working.',
-        length: '9–19 hours a week, typically 8–12 weeks',
+        meta: '3–5 days a week · 3-hour blocks, day or evening',
+        rows: [
+          ['Time commitment', '9–19 hours a week, typically 8–12 weeks.'],
+          ['Intensity', 'Less intensive than PHP, more than weekly therapy. Most people keep working.'],
+          ['Treatment', 'Group therapy is the core, with individual therapy and skill-building sessions. In person, or hybrid with virtual sessions when clinically appropriate.'],
+          ['Suitable for', 'People with a stable home and support system who need more structure than weekly therapy.'],
+        ],
       },
       {
         id: 'outpatient',
         name: 'Outpatient (OP)',
         alias: 'Individual Therapy',
-        text: 'Ongoing individual therapy and medication management that fit around a full working week.',
-        length: '1–9 hours a week, ongoing',
+        meta: '1–9 hours a week · ongoing',
+        rows: [
+          ['Time commitment', 'From one session a week, for as long as it is useful.'],
+          ['Intensity', 'The lightest level of care: sessions that fit around a full working week.'],
+          ['Treatment', 'Individual therapy and psychiatry-guided medication management, in person or virtual.'],
+          ['Suitable for', 'People stepping down from IOP, or whose needs are met by regular individual care.'],
+        ],
       },
     ] satisfies Level[],
     aliasPrefix: 'Also called',
-    locationsLabel: 'Where we are',
+    /** Sits at the top of the section: the name and text on the left, the lounge photo top right, the tiles below. */
     location: {
       id: 'san-jose',
-      name: 'San Jose outpatient center',
+      name: 'San Jose Outpatient Center',
       text: 'PHP, IOP and OP, family therapy and a multi-family group, psychiatry-guided medication management and case management. Day and evening schedules are work-compatible, with hybrid IOP when clinically appropriate.',
       photo: {
         src: sanJosePhoto,
@@ -154,24 +169,27 @@ export const page = {
     },
   },
 
-  /** One card per program, with Summit's weekly hours and LGTC's framing of
-   * PHP and IOP ("Structure Without Isolation"). Weekdays only; no clock times. */
-  schedule: {
-    id: 'schedule',
-    title: 'A typical week',
-    lead: 'PHP and IOP bridge the gap between weekly therapy and residential care: structured days, your own bed at night. Hours step down as you progress, with the same team throughout.',
-    options: [
+  /** Adapted from LGTC's "Our Treatment Philosophy" (lgtcgroup.com/services/mental-health-programs); chosen from the mock-ups on Nov 4 2026. */
+  philosophy: {
+    id: 'philosophy',
+    title: 'Our treatment philosophy',
+    lead: 'We built these programs around four principles, each grounded in clinical evidence.',
+    items: [
       {
-        title: 'Partial Hospitalization (PHP)',
-        text: '5 days a week, about 6 hours a day, 20 or more hours in total; typically 4–6 weeks. You live at home and spend most of the day with the program. For people who need more structure than IOP but not 24-hour medical supervision.',
+        title: 'Intensity that matches need',
+        text: 'Some challenges cannot be resolved in one hour a week. PHP and IOP provide the concentrated, structured treatment that moderate-to-severe symptoms require, at the level clinical necessity calls for, and step you down as you stabilize.',
       },
       {
-        title: 'Intensive Outpatient (IOP)',
-        text: '3–5 days a week in three-hour blocks, day or evening, 9–19 hours in total; typically 8–12 weeks. Group therapy is the core, with individual therapy and skill-building. In person, or hybrid with virtual sessions when clinically appropriate. Most people keep working.',
+        title: 'Proven therapies, practiced daily',
+        text: 'Every group is grounded in trauma-informed care and the evidence base: CBT, DBT and mindfulness-based relapse prevention, so a skill learned in the morning is safe to practice in real life the same day.',
       },
       {
-        title: 'Outpatient (OP)',
-        text: '1–9 hours a week, ongoing. Individual therapy and medication management, in person or virtual, that fit around a full working week.',
+        title: 'Progress you can see',
+        text: 'We track symptoms weekly with validated measures and adjust your treatment plan on data, not guesswork.',
+      },
+      {
+        title: 'Families heal together',
+        text: 'Caregivers are part of treatment, not spectators. Weekly family therapy and a multi-family group mean the people around you learn the same skills at the same time, and alumni tune-ups keep the door open after treatment.',
       },
     ],
   },
@@ -312,8 +330,6 @@ export const page = {
   actions: {
     /** The visible label; the number follows it. */
     callPrefix: 'Call',
-    /** Short call link on each program tile; dials the same number without repeating it. */
-    callAdmissions: 'Call admissions',
     /** LGTC's online registration form, framed as the assessment request. */
     register: 'Request a confidential assessment',
   },

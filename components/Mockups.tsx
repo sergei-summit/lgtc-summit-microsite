@@ -3,12 +3,13 @@ import { mockup } from '@/content/mockup';
 import { CheckIcon } from './Actions';
 
 /**
- * MOCK-UP BLOCKS (temporary). Six sections adapted from LGTC's own pages,
- * each shown on the page inside a thin dashed frame with a one-line label, so
- * it reads as a mock-up and not as page content, and placed next to the
- * section it would join or replace. Text in content/mockup.ts. Once chosen,
- * move the text into content/page.ts and delete this file, content/mockup.ts
- * and the <Mock…/> uses in app/summit-estate/page.tsx.
+ * MOCK-UP BLOCKS (temporary). Sections adapted from LGTC's own pages, each
+ * shown on the page inside a thin dashed frame with a one-line label, so it
+ * reads as a mock-up and not as page content, and placed next to the section
+ * it would join or replace. Three of the original six are decided (see
+ * content/mockup.ts); 2, 5 and 6 remain, keeping their original numbers. Once
+ * chosen, move the text into content/page.ts and delete this file,
+ * content/mockup.ts and the <Mock…/> uses in app/summit-estate/page.tsx.
  */
 
 const TOTAL = 6;
@@ -30,9 +31,9 @@ type Standalone = { id: string; placement: string; title: string; lead: string }
 /** A framed block that stands on its own as a page section (H2). Its landmark
  * name carries the mock-up label, so it stays distinct from the real section
  * of the same title. */
-function MockSection({ n, s, children }: { n: number; s: Standalone; children: ReactNode }) {
+function MockSection({ n, s, tone = 'cream', children }: { n: number; s: Standalone; tone?: 'cream' | 'paper'; children: ReactNode }) {
   return (
-    <section id={`mock-${s.id}`} aria-label={`${mockup.frameLabel} ${n}: ${s.title}`} className="bg-se-cream">
+    <section id={`mock-${s.id}`} aria-label={`${mockup.frameLabel} ${n}: ${s.title}`} className={tone === 'paper' ? 'bg-se-paper' : 'bg-se-cream'}>
       <div className="mx-auto max-w-se-content px-4 py-10 sm:px-6 md:py-14">
         <Frame n={n} placement={s.placement}>
           <h2 id={`mock-${s.id}-title`} className="mt-3 text-3xl font-semibold text-se-green-700 sm:text-4xl">
@@ -43,31 +44,6 @@ function MockSection({ n, s, children }: { n: number; s: Standalone; children: R
         </Frame>
       </div>
     </section>
-  );
-}
-
-/** 1. Our treatment philosophy: after the programs section. */
-export function MockPhilosophy() {
-  const s = mockup.philosophy;
-  return (
-    <MockSection n={1} s={s}>
-      <ol className="mt-8 grid gap-5 md:grid-cols-2">
-        {s.items.map((item, i) => (
-          <li key={item.title} className="flex gap-4 rounded-3xl border border-se-line bg-se-paper p-6">
-            <span
-              aria-hidden="true"
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-se-green-700 font-semibold text-white"
-            >
-              {i + 1}
-            </span>
-            <div>
-              <h3 className="text-xl font-semibold text-se-green-700">{item.title}</h3>
-              <p className="mt-2 leading-relaxed text-se-ink">{item.text}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </MockSection>
   );
 }
 
@@ -92,54 +68,11 @@ export function MockCurriculum() {
   );
 }
 
-/** 3. Structure without isolation: after "A typical week", which it would replace. */
-export function MockStructure() {
-  const s = mockup.structure;
-  return (
-    <MockSection n={3} s={s}>
-      <div className="mt-8 grid gap-5 lg:grid-cols-2">
-        {s.programs.map((program) => (
-          <article key={program.title} className="rounded-3xl border-2 border-se-accent-600 bg-se-paper p-6 md:p-8">
-            <h3 className="text-2xl font-semibold text-se-green-700">{program.title}</h3>
-            <p className="mt-1 font-semibold text-se-accent-700">{program.meta}</p>
-            <dl className="mt-5 grid gap-3">
-              {program.rows.map(([label, text]) => (
-                <div key={label} className="grid gap-0.5 sm:grid-cols-[9.5rem_1fr] sm:gap-4">
-                  <dt className="font-semibold text-se-green-800">{label}</dt>
-                  <dd className="leading-relaxed text-se-ink">{text}</dd>
-                </div>
-              ))}
-            </dl>
-          </article>
-        ))}
-      </div>
-      <p className="mt-6 max-w-3xl leading-relaxed text-se-ink">{s.after}</p>
-    </MockSection>
-  );
-}
-
-/** 4. Core components of recovery: after "Mental health and substance use, together". */
-export function MockCore() {
-  const s = mockup.core;
-  return (
-    <MockSection n={4} s={s}>
-      <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {s.items.map((item) => (
-          <li key={item.title} className="rounded-3xl border border-se-line bg-se-paper p-5">
-            <h3 className="text-lg font-semibold text-se-green-700">{item.title}</h3>
-            <p className="mt-1.5 leading-relaxed text-se-ink">{item.text}</p>
-          </li>
-        ))}
-      </ul>
-    </MockSection>
-  );
-}
-
 /** 5. Who can benefit: the third column of "Who it is for" (Version C). */
 export function MockBenefit() {
   const s = mockup.benefit;
   return (
-    <Frame n={5} placement={s.placement} className="bg-se-cream">
+    <Frame n={5} placement={s.placement} className="bg-se-paper">
       <p className="mt-3 text-sm font-semibold text-se-accent-700">{s.title}</p>
       <p className="mt-3 max-w-3xl text-lg font-semibold leading-relaxed text-se-green-800">{s.lead}</p>
       <ul className="mt-6 grid gap-3">
@@ -160,10 +93,10 @@ export function MockBenefit() {
 export function MockStart() {
   const s = mockup.start;
   return (
-    <MockSection n={6} s={s}>
+    <MockSection n={6} s={s} tone="paper">
       <ol className="mt-8 grid gap-5 md:grid-cols-3">
         {s.steps.map((step, i) => (
-          <li key={step.title} className="rounded-3xl border border-se-line bg-se-paper p-6">
+          <li key={step.title} className="rounded-3xl border border-se-line bg-se-cream p-6">
             <span
               aria-hidden="true"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-se-accent-600 font-semibold text-white"

@@ -12,14 +12,14 @@ export default function WhoItIsFor() {
   const { whoFor } = page;
   const compare = whoFor.versions.length > 1;
   return (
-    <section aria-labelledby="who-title" className="bg-se-paper">
+    <section aria-labelledby="who-title" className="bg-se-cream">
       <div className="mx-auto max-w-se-content px-4 py-14 sm:px-6 md:py-20">
         <h2 id="who-title" className="text-3xl font-semibold text-se-green-700 sm:text-4xl">
           {whoFor.title}
         </h2>
         <div className={compare ? 'mt-6 grid gap-5 lg:grid-cols-3' : 'mt-2'}>
           {whoFor.versions.map((version) => (
-            <div key={version.label} className={compare ? 'rounded-3xl border border-se-line bg-se-cream p-6' : ''}>
+            <div key={version.label} className={compare ? 'rounded-3xl border border-se-line bg-se-paper p-6' : ''}>
               {compare && <p className="text-sm font-semibold text-se-accent-700">{version.label}</p>}
               <p className="mt-3 max-w-3xl text-lg font-semibold leading-relaxed text-se-green-800">{version.intro}</p>
               <ul className={`mt-6 grid gap-3 ${compare ? '' : 'md:grid-cols-2'}`}>
