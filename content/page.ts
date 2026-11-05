@@ -45,7 +45,8 @@ export type Level = {
 };
 
 export type Badge =
-  | { kind: 'image'; src: StaticImageData; alt: string }
+  /** An accreditation image that links to the accreditor's own listing or lookup for Summit Estate. */
+  | { kind: 'image'; src: StaticImageData; alt: string; href: string }
   | { kind: 'google'; label: string; rating: number };
 
 export const page = {
@@ -82,13 +83,39 @@ export const page = {
     } satisfies Photo,
   },
 
+  /**
+   * Each accreditation badge links to the accreditor's page for Summit Estate
+   * (Sergei, Nov 5 2026); the Google reviews chip does not link. Links open in
+   * a new tab. Sources: The Joint Commission provider locator entry for
+   * "Summit Estate Recovery Centers LLC"; CARF provider 413635 (the San Jose
+   * outpatient programs: PHP, IOP, OP, three-year accreditation); DHCS's
+   * directories of licensed and certified SUD facilities (DHCS has no
+   * per-provider page); LegitScript's website-certification lookup for
+   * summitestate.com.
+   */
   trust: {
     label: 'Accreditations and reviews',
+    newTab: 'opens in a new tab',
     badges: [
-      { kind: 'image', src: jointCommissionBadge, alt: 'The Joint Commission Gold Seal of Approval' },
-      { kind: 'image', src: carfBadge, alt: 'CARF Accredited' },
-      { kind: 'image', src: dhcsBadge, alt: 'California Department of Health Care Services (DHCS) Certified' },
-      { kind: 'image', src: legitScriptBadge, alt: 'LegitScript Certified' },
+      {
+        kind: 'image',
+        src: jointCommissionBadge,
+        alt: 'The Joint Commission Gold Seal of Approval',
+        href: 'https://www.jointcommission.org/en-us/accreditation/behavioral-health-care-and-human-services/provider-locator/596075/612069',
+      },
+      { kind: 'image', src: carfBadge, alt: 'CARF Accredited', href: 'https://carf.org/provider/summit-estate-recovery-413635/' },
+      {
+        kind: 'image',
+        src: dhcsBadge,
+        alt: 'California Department of Health Care Services (DHCS) Certified',
+        href: 'https://www.dhcs.ca.gov/providers-partners/directories-for-substance-use-disorder-services/',
+      },
+      {
+        kind: 'image',
+        src: legitScriptBadge,
+        alt: 'LegitScript Certified',
+        href: 'https://www.legitscript.com/websites/?checker_keywords=summitestate.com',
+      },
       { kind: 'google', label: 'Google reviews', rating: 4.5 },
     ] satisfies Badge[],
   },
