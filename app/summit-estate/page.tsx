@@ -7,8 +7,6 @@ import SubBar from '@/components/SubBar';
 import Hero from '@/components/Hero';
 import TrustBadges from '@/components/TrustBadges';
 import LevelsOfCare from '@/components/LevelsOfCare';
-import Philosophy from '@/components/Philosophy';
-import WhoItIsFor from '@/components/WhoItIsFor';
 import GettingStarted from '@/components/GettingStarted';
 import PageFooterNote from '@/components/PageFooterNote';
 import MobileCallBar from '@/components/MobileCallBar';
@@ -24,7 +22,7 @@ export const metadata: Metadata = {
  * The Summit Estate page. LGTC's site header and footer wrap it; it renders
  * only the Summit sub-bar, the page content and its own footer note. The
  * <Mock…/> blocks are framed mock-ups under review (see components/Mockups.tsx):
- * one here, one more inside WhoItIsFor.
+ * only mock-up 6 remains, just above the closing section.
  */
 export default function SummitEstatePage() {
   return (
@@ -40,8 +38,6 @@ export default function SummitEstatePage() {
         <Hero />
         <TrustBadges />
         <LevelsOfCare />
-        <Philosophy />
-        <WhoItIsFor />
         <MockStart />
         <GettingStarted />
         <PageFooterNote />

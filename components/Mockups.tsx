@@ -1,13 +1,12 @@
 import type { ReactNode } from 'react';
 import { mockup } from '@/content/mockup';
-import { CheckIcon } from './Actions';
 
 /**
  * MOCK-UP BLOCKS (temporary). Sections adapted from LGTC's own pages, each
  * shown on the page inside a thin dashed frame with a one-line label, so it
  * reads as a mock-up and not as page content, and placed next to the section
- * it would join or replace. Three of the original six are decided (see
- * content/mockup.ts); 5 and 6 remain, keeping their original numbers. Once
+ * it would join or replace. Five of the original six are decided (see
+ * content/mockup.ts); only 6 remains, keeping its original number. Once
  * chosen, move the text into content/page.ts and delete this file,
  * content/mockup.ts and the <Mock…/> uses in app/summit-estate/page.tsx.
  */
@@ -44,27 +43,6 @@ function MockSection({ n, s, tone = 'cream', children }: { n: number; s: Standal
         </Frame>
       </div>
     </section>
-  );
-}
-
-/** 5. Who can benefit: the third column of "Who it is for" (Version C). */
-export function MockBenefit() {
-  const s = mockup.benefit;
-  return (
-    <Frame n={5} placement={s.placement} className="bg-se-paper">
-      <p className="mt-3 text-sm font-semibold text-se-accent-700">{s.title}</p>
-      <p className="mt-3 max-w-3xl text-lg font-semibold leading-relaxed text-se-green-800">{s.lead}</p>
-      <ul className="mt-6 grid gap-3">
-        {s.items.map((item) => (
-          <li key={item} className="flex items-start gap-3 leading-snug text-se-ink">
-            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-se-accent-600 text-white">
-              <CheckIcon className="h-3 w-3" />
-            </span>
-            {item}
-          </li>
-        ))}
-      </ul>
-    </Frame>
   );
 }
 

@@ -2,13 +2,13 @@
  * MOCK-UP BLOCKS (temporary). Sections adapted from LGTC's own pages,
  * rendered on the page inside a thin dashed frame, each next to the section
  * it would join or replace, so Sergei can judge them in place. Of the six,
- * four are decided (Nov 4 2026): 1 "Our treatment philosophy" is now a real
- * section in content/page.ts, 3 "Structure without isolation" was folded into
- * the program tiles, 2 "Curated curriculum" and 4 "Core components" were
- * dropped. Numbers 5 and 6 stay here, with their original numbers, until
- * Sergei decides. Source:
- *   5, 6. lgtcgroup.com/services/mental-health-and-substance-use-recovery-program
- *      ("Who Can Benefit", "Getting Started is Easy")
+ * five are decided (Nov 4–5 2026): 3 "Structure without isolation" was folded
+ * into the program tiles; 1 "Our treatment philosophy" became a real section
+ * and was then removed with it; 2 "Curated curriculum", 4 "Core components"
+ * and 5 "Who can benefit" were dropped. Number 6 stays here, with its original
+ * number, until Sergei decides. Source:
+ *   6. lgtcgroup.com/services/mental-health-and-substance-use-recovery-program
+ *      ("Getting Started is Easy")
  * Adapted to this page's rules: adults, mental health and substance use
  * together, PHP / IOP (in person or hybrid) / OP, Summit's hours, no clock
  * times. Lines under `check` are LGTC claims to confirm before a block is
@@ -30,22 +30,6 @@ export type MockSection = {
 
 export const mockup = {
   frameLabel: 'Mock-up',
-
-  benefit: {
-    id: 'benefit',
-    placement: 'Version C of “Who it is for”: LGTC’s original list, which Version A was built from.',
-    source: 'From lgtcgroup.com/services/mental-health-and-substance-use-recovery-program, “Who Can Benefit From This Program?”.',
-    title: 'Version C',
-    lead: 'Adults seeking structured support to manage Substance Use alongside mood instability, anxiety or traumatic stress, in a safe, respectful environment to rebuild life goals.',
-    items: [
-      'Co-occurring mood disorders',
-      'Active Substance Use recovery',
-      'History of relapse',
-      'Stress or trauma triggers',
-      'Seeking structured sobriety support',
-      'Desiring peer group connection',
-    ],
-  } satisfies MockSection & { items: string[] },
 
   start: {
     id: 'start',
