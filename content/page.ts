@@ -64,13 +64,13 @@ export const page = {
     /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
     title: 'The right level of care',
     titleAccent: 'without putting your life on hold',
-    text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy for Mental Health and Substance Use Disorder Care, in person in San Jose and virtually across California, with one Psychiatry-led team.',
+    text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy for Mental Health and Substance Use Disorder Care, in person in San Jose, with one Psychiatry-led team.',
     /** Second line under the intro; moved here from the San Jose block on Nov 5 2026. */
-    schedule: 'Day and evening schedules are work-compatible, with hybrid IOP when clinically appropriate.',
+    schedule: 'Day and evening schedules are work-compatible, with hybrid IOP (in person and telehealth) when clinically appropriate.',
     /** One line per outpatient level, then the team. Each pairs the service with its proof point. */
     features: [
       { icon: 'layers', title: 'Partial Hospitalization (PHP)', proof: 'Structured Day Treatment, home every evening' },
-      { icon: 'calendar', title: 'Intensive Outpatient (IOP)', proof: 'Day, evening or virtual, around work, school and family' },
+      { icon: 'calendar', title: 'Intensive Outpatient (IOP)', proof: 'Day, evening or hybrid, around work, school and family' },
       { icon: 'brain', title: 'Outpatient Therapy (OP)', proof: 'Ongoing Individual Therapy and Medication Management' },
       { icon: 'shield', title: 'Board-Certified Team', proof: 'Psychiatry and Addiction Medicine, in-network with all major plans' },
     ] satisfies { icon: FeatureIconName; title: string; proof: string }[],
@@ -125,7 +125,7 @@ export const page = {
           rows: [
             ['Time commitment', '9–19 hours a week, typically 8–12 weeks.'],
             ['Intensity', 'Less intensive than PHP, more than weekly therapy. Most people keep working.'],
-            ['Treatment', 'Group Therapy is the core, with Individual Therapy and skill-building sessions. In person, or hybrid with virtual sessions when clinically appropriate.'],
+            ['Treatment', 'Group Therapy is the core, with Individual Therapy and skill-building sessions. In person, or hybrid with telehealth sessions when clinically appropriate.'],
             ['Suitable for', 'People with a stable home and support system who need more structure than weekly therapy.'],
           ],
         },
@@ -136,7 +136,7 @@ export const page = {
           rows: [
             ['Time commitment', 'From one session a week, for as long as it is useful.'],
             ['Intensity', 'The lightest level of care: sessions that fit around a full working week.'],
-            ['Treatment', 'Individual Therapy and Psychiatry-guided Medication Management, in person or virtual.'],
+            ['Treatment', 'Individual Therapy and Psychiatry-guided Medication Management.'],
             ['Suitable for', 'People stepping down from IOP, or whose needs are met by regular individual care.'],
           ],
         },
