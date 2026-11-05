@@ -1,39 +1,14 @@
-import Image from 'next/image';
-import { page, type Level } from '@/content/page';
+import { page } from '@/content/page';
 import { CallButton, RegisterButton } from './Actions';
-import CompareLevelCards from './CompareLevelCards';
+import LevelCards from './LevelCards';
 
 /**
- * Levels of Care. One title, then two groups, each headed with its place:
- * "Outpatient Programs · San Jose" over three tiles (PHP, IOP in person or
- * hybrid, OP) and "Higher Level of Care · Palo Alto" over the estate photo and
- * two tiles of the same shape (Medical Detox, Residential Treatment); the
- * insurance position sits on an info card over the photo (the line beneath
- * the tiles was deleted Nov 5 2026). Tiles are in LGTC's format: labelled
- * rows, no hours line, no links. Then the first of the two assessment prompts, with the
- * call as the primary action.
+ * Levels of Care: the title, the microsite's card set (five levels in care
+ * order, Palo Alto first, plus the dark "Not sure" card) and the first of the
+ * two assessment prompts, with the call as the primary action. The earlier
+ * tile set (three outpatient tiles, Palo Alto photo with Detox and Residential
+ * tiles) was deleted on Nov 5 2026 after Sergei compared the two formats.
  */
-function Tile({ level }: { level: Level }) {
-  return (
-    <li className="rounded-3xl border-2 border-se-accent-600 bg-se-cream p-6">
-      <h4 className="text-xl font-semibold text-se-green-700">{level.name}</h4>
-      {level.alias && (
-        <p className="mt-1 text-sm font-semibold text-se-accent-700">
-          {page.levels.aliasPrefix} {level.alias}
-        </p>
-      )}
-      <dl className="mt-4 grid gap-3 leading-relaxed text-se-ink">
-        {level.rows.map(([label, text]) => (
-          <div key={label}>
-            <dt className="inline font-semibold text-se-green-800">{label}: </dt>
-            <dd className="ml-0 inline">{text}</dd>
-          </div>
-        ))}
-      </dl>
-    </li>
-  );
-}
-
 export default function LevelsOfCare() {
   const { levels } = page;
   return (
@@ -43,36 +18,7 @@ export default function LevelsOfCare() {
           {levels.title}
         </h2>
 
-        <h3 className="mt-8 text-2xl font-semibold text-se-green-700">{levels.outpatient.title}</h3>
-        <ul className="mt-5 grid gap-5 md:grid-cols-3">
-          {levels.outpatient.items.map((level) => (
-            <Tile key={level.id} level={level} />
-          ))}
-        </ul>
-
-        <h3 className="mt-12 text-2xl font-semibold text-se-green-700">{levels.higher.title}</h3>
-        <div className="mt-5 grid gap-5 md:grid-cols-3">
-          <div className="relative min-h-[16rem] overflow-hidden rounded-3xl shadow-se-card">
-            <Image
-              src={levels.higher.photo.src}
-              alt={levels.higher.photo.alt}
-              fill
-              sizes="(min-width: 768px) 400px, 100vw"
-              className="object-cover"
-            />
-            <div className="absolute right-4 top-4 max-w-[16rem] rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card">
-              <p className="text-sm text-se-sand">{levels.higher.badge.label}</p>
-              <p className="text-lg font-semibold leading-tight text-white">{levels.higher.badge.value}</p>
-              <p className="mt-1 text-sm leading-snug text-se-sand">{levels.higher.badge.note}</p>
-            </div>
-          </div>
-          <ul className="grid gap-5 sm:grid-cols-2 md:col-span-2">
-            {levels.higher.items.map((level) => (
-              <Tile key={level.id} level={level} />
-            ))}
-          </ul>
-        </div>
-        <CompareLevelCards />
+        <LevelCards />
 
         <div className="mt-12 flex flex-col items-start gap-5 rounded-3xl bg-se-green-800 p-7 text-se-sand md:flex-row md:items-center md:justify-between">
           <div>

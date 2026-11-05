@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { page } from '@/content/page';
 import { settings } from '@/content/settings';
-import { CallButton, PhoneIcon, SiteLink } from './Actions';
+import { PhoneIcon, SiteLink } from './Actions';
 import { FeatureIcon } from './FeatureIcon';
 
 /**
@@ -42,10 +42,7 @@ export default function Hero() {
               </li>
             ))}
           </ul>
-          <div className="mt-8">
-            <CallButton className="min-h-14 px-8 text-lg" />
-          </div>
-          <SiteLink className="mt-5" />
+          <SiteLink className="mt-8" />
         </div>
 
         <div className="relative">

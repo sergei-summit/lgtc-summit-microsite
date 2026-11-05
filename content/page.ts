@@ -4,11 +4,11 @@
  * content/settings.ts.
  *
  * Outpatient-first version (Nov 2026). The page is hosted by LGTC for people
- * who are already LGTC patients or are referred inside LGTC, so it leads with
- * the in-network outpatient programs in San Jose: PHP, IOP (in person or
- * hybrid) and OP. Detox and residential in Palo Alto stay on the page as a
- * quieter "higher level of care" card under the tiles. The earlier
- * full-continuum version is kept on the branch
+ * who are already LGTC patients or are referred inside LGTC. The hero leads
+ * with the in-network outpatient programs in San Jose (PHP, IOP, OP); the
+ * Levels of Care cards then run in care order from Palo Alto detox and
+ * residential to OP, in the microsite's card format (adopted Nov 5 2026).
+ * The earlier full-continuum version is kept on the branch
  * lgtc-summit-microsite-full-continuum.
  *
  * Rules: "Summit Estate Recovery Centers" in the footer note and page title,
@@ -29,7 +29,6 @@ import { settings } from './settings';
 import type { FeatureIconName } from '@/components/FeatureIcon';
 
 import heroPhoto from './images/location-san-jose.webp';
-import paloAltoPhoto from './images/hero-palo-alto-estate.webp';
 import jointCommissionBadge from './images/badge-joint-commission.png';
 import carfBadge from './images/badge-carf.png';
 import dhcsBadge from './images/badge-dhcs.png';
@@ -39,15 +38,6 @@ export type Photo = { src: StaticImageData; alt: string };
 export type Card = { eyebrow: string; title: string; points: string[] };
 /** A card in the comparison set copied from the microsite's Levels of Care. */
 export type CompareCard = { name: string; short: string; blurb: string; meta: string; expect: string[] };
-
-export type Level = {
-  id: string;
-  name: string;
-  /** Approved alias, shown as "Also called …". */
-  alias?: string;
-  /** Labelled rows, from LGTC's "Structure Without Isolation" block: time commitment, intensity, treatment, who it suits. */
-  rows: [string, string][];
-};
 
 export type Badge =
   /** An accreditation image that links to the accreditor's own listing or lookup for Summit Estate. */
@@ -61,7 +51,6 @@ export const page = {
     links: [
       { href: '#programs', label: 'Levels of care' },
     ],
-    cta: { href: '#verify', label: 'Get started' },
   },
 
   skipLink: 'Skip to programs',
@@ -160,107 +149,24 @@ export const page = {
   },
 
   /**
-   * Levels of Care: two groups under one title, each headed with its place.
-   * Outpatient (San Jose): three tiles. Higher Level of Care (Palo Alto): the
-   * estate photo beside two tiles of the same shape, Medical Detox and
-   * Residential Treatment, with the insurance position on an info card over the photo. All tiles are
-   * in LGTC's format (labelled rows, no hours line, no links). Detox and
-   * residential are call-only.
+   * Levels of Care: one title, the microsite's card set (`compare`) and the
+   * first assessment prompt. Detox and residential are call-only.
    */
   levels: {
     id: 'programs',
     title: 'Levels of Care',
-    aliasPrefix: 'Also called',
-    outpatient: {
-      title: 'Outpatient Programs · San Jose Outpatient Center, a mile from Cupertino and Saratoga',
-      items: [
-        {
-          id: 'php',
-          name: 'Partial Hospitalization (PHP)',
-          alias: 'Day Treatment',
-          rows: [
-            ['Time commitment', '20 or more hours a week, typically 4–6 weeks.'],
-            ['Intensity', 'More intensive than IOP: a structured day similar to Residential Care, without the overnight stay.'],
-            ['Treatment', 'Group and Individual Therapy, Psychiatry-guided Medication Management, skill-building and psychoeducation.'],
-            ['Suitable for', 'People who need more structure than IOP but not 24-hour medical supervision, including the step down from Residential Care.'],
-          ],
-        },
-        {
-          id: 'iop',
-          name: 'Intensive Outpatient (IOP)',
-          rows: [
-            ['Time commitment', '9–19 hours a week, typically 8–12 weeks.'],
-            ['Intensity', 'Less intensive than PHP, more than weekly therapy. Most people keep working.'],
-            ['Treatment', 'Group Therapy is the core, with Individual Therapy and skill-building sessions. In person, or hybrid with telehealth sessions when clinically appropriate.'],
-            ['Suitable for', 'People with a stable home and support system who need more structure than weekly therapy.'],
-          ],
-        },
-        {
-          id: 'outpatient',
-          name: 'Outpatient (OP)',
-          alias: 'Individual Therapy',
-          rows: [
-            ['Time commitment', 'From one session a week, for as long as it is useful.'],
-            ['Intensity', 'The lightest level of care: sessions that fit around a full working week.'],
-            ['Treatment', 'Individual Therapy and Psychiatry-guided Medication Management.'],
-            ['Suitable for', 'People stepping down from IOP, or whose needs are met by regular individual care.'],
-          ],
-        },
-      ] satisfies Level[],
-    },
-    higher: {
-      title: 'Higher Level of Care · Palo Alto',
-      items: [
-        {
-          id: 'detox',
-          name: 'Medical Detox',
-          rows: [
-            ['Time commitment', 'Typically 7–10 days, with 24-hour care on the private Palo Alto estate.'],
-            ['Intensity', 'The highest level of care: Medically supervised withdrawal when stopping is not yet safe at home.'],
-            ['Treatment', 'Withdrawal management with psychiatric evaluation and Medication Management; Mental Health and Substance Use treated together from the first day.'],
-            ['Suitable for', 'People who need medical support to stop safely before Residential or Outpatient treatment can begin.'],
-          ],
-        },
-        {
-          id: 'residential',
-          name: 'Residential Treatment',
-          rows: [
-            ['Time commitment', 'Typically 3–4 weeks, living on the private Palo Alto estate.'],
-            ['Intensity', 'Live-in treatment with structure and support around the clock, when home is not yet the right place to recover.'],
-            ['Treatment', 'Individual and Group Therapy with Psychiatry-guided Medication Management: Medically Integrated, personalized Mental Health and Substance Use Disorder Care in a private, comfortable setting.'],
-            ['Suitable for', 'People stepping down from Medical Detox, or who need more than a day program can give, before continuing in the San Jose programs with the same team.'],
-          ],
-        },
-      ] satisfies Level[],
-      /** Sergei's approved wording (Nov 4 2026); shown under the two tiles. */
-      /** Info card over the estate photo, like the hero badge over the San
-       * Jose photo (Sergei, Nov 5 2026, his wording). */
-      badge: {
-        label: 'Detox and Residential',
-        value: 'Most major PPO policies accepted',
-        note: 'In-network agreements are in progress and expected in 2027',
-      },
-      photo: {
-        src: paloAltoPhoto,
-        alt: 'A two-storey Mediterranean-style house above a landscaped garden with a stone fountain and patio chairs',
-      } satisfies Photo,
-    },
-    /** First of the two assessment prompts; the second is the closing section. The call comes first. */
     notSure: {
       title: 'Not sure which level of care fits?',
       text: 'A complimentary, confidential assessment sets the right level of care. Call admissions, or request one online and we call you back.',
     },
     /**
-     * For comparison only (Sergei, Nov 5 2026): the card set from
-     * go.summitestate.com/microsite, in a dashed frame under the tiles so he
-     * and Jan can judge the two formats side by side. The copy is the
-     * microsite's, verbatim, except the phone number, which is LGTC's. If this
-     * format is chosen, the copy still needs this page's rules applied (no
-     * statewide telehealth claim, no hours lines, capitalization).
+     * The card set from go.summitestate.com/microsite, added for comparison
+     * on Nov 5 2026 and adopted the same evening when Sergei deleted the tile
+     * set. The copy is the microsite's, verbatim, except the phone number,
+     * which is LGTC's. Still to apply here: this page's rules (no statewide
+     * telehealth claim, no hours lines, capitalization), once Sergei confirms.
      */
     compare: {
-      title: 'For comparison: the card set from go.summitestate.com/microsite',
-      note: 'Shown here only so the two formats can be judged side by side. The copy is the microsite\u2019s, the phone number is LGTC\u2019s.',
       expectLabel: 'What to expect',
       cards: [
         {
