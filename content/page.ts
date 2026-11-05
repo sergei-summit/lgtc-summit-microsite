@@ -66,6 +66,8 @@ export const page = {
     title: 'The right level of care,',
     titleAccent: 'without putting your life on hold.',
     text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy for Mental Health and Substance Use Disorder Care, in person in San Jose and virtually across California, with one Psychiatry-led team.',
+    /** Second line under the intro; moved here from the San Jose block on Nov 5 2026. */
+    schedule: 'Day and evening schedules are work-compatible, with hybrid IOP when clinically appropriate.',
     /** One line per outpatient level, then the team. Each pairs the service with its proof point. */
     features: [
       { icon: 'layers', title: 'Partial Hospitalization (PHP)', proof: 'Structured Day Treatment, home every evening' },
@@ -73,7 +75,7 @@ export const page = {
       { icon: 'brain', title: 'Outpatient Therapy (OP)', proof: 'Ongoing Individual Therapy and Medication Management' },
       { icon: 'shield', title: 'Board-Certified Team', proof: 'Psychiatry and Addiction Medicine, in-network with all major plans' },
     ] satisfies { icon: FeatureIconName; title: string; proof: string }[],
-    insuranceBadge: { label: 'Outpatient Care', value: 'In-network with all major plans' },
+    insuranceBadge: { label: 'San Jose Outpatient Center', value: 'In-network with all major plans' },
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
@@ -130,12 +132,6 @@ export const page = {
       },
     ] satisfies Level[],
     aliasPrefix: 'Also called',
-    /** Sits at the top of the section, under the title; the tiles follow. No photo (removed Nov 5 2026). */
-    location: {
-      id: 'san-jose',
-      name: 'San Jose Outpatient Center',
-      text: 'PHP, IOP and OP, Family Therapy and a Multi-Family Group, Psychiatry-guided Medication Management and Case Management. Day and evening schedules are work-compatible, with hybrid IOP when clinically appropriate.',
-    },
     /** Detox and residential: a photo card below the San Jose card, labelled as a higher level of care. Call-only. */
     higher: {
       label: 'Higher Level of Care · Palo Alto',

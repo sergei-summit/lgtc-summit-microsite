@@ -5,10 +5,10 @@ import { PhoneIcon } from './Actions';
 import { FeatureIcon } from './FeatureIcon';
 
 /**
- * Hero, outpatient-first: copy and the four feature lines on the left, a
- * framed photo of the San Jose outpatient center on the right with the
- * in-network badge on its top right and a floating call card on its bottom
- * left (sm screens and up). No buttons here (removed Nov 5 2026): the actions
+ * Hero, outpatient-first: intro, schedule line and the four feature lines on
+ * the left, a framed photo of the San Jose Outpatient Center on the right with
+ * the centre's name and in-network badge on its top right and a floating call
+ * card on its bottom left (sm screens and up). No buttons here (removed Nov 5 2026): the actions
  * live in the sub-bar, the "Not sure" band and the closing section.
  */
 export default function Hero() {
@@ -24,6 +24,7 @@ export default function Hero() {
             {hero.title} <span className="text-se-accent-700">{hero.titleAccent}</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-se-ink">{hero.text}</p>
+          <p className="mt-3 max-w-xl text-lg leading-relaxed text-se-ink">{hero.schedule}</p>
           <ul className="mt-7 grid gap-x-6 gap-y-4 sm:grid-cols-2">
             {hero.features.map((feature) => (
               <li key={feature.title} className="flex items-start gap-3">

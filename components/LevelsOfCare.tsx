@@ -3,9 +3,9 @@ import { page } from '@/content/page';
 import { CallButton, RegisterButton } from './Actions';
 
 /**
- * Outpatient programs. The section opens with the San Jose Outpatient Center
- * (name and text, no photo). Below it, three tiles (PHP, IOP in person or
- * hybrid, OP) in LGTC's format: labelled rows only, no days-and-hours line and
+ * Outpatient programs: the title, then three tiles (PHP, IOP in person or
+ * hybrid, OP) in LGTC's format (the San Jose Outpatient Center block that sat
+ * here moved into the hero on Nov 5 2026): labelled rows only, no days-and-hours line and
  * no links on the tiles. Then the Palo Alto detox/residential card (labelled
  * as a higher level of care, call-only) and the first of the two assessment
  * prompts.
@@ -18,10 +18,7 @@ export default function LevelsOfCare() {
         <h2 id="programs-title" className="text-3xl font-semibold text-se-green-700 sm:text-4xl">
           {levels.title}
         </h2>
-        <h3 className="mt-6 text-xl font-semibold text-se-green-700">{levels.location.name}</h3>
-        <p className="mt-2 max-w-3xl leading-relaxed text-se-ink">{levels.location.text}</p>
-
-        <ul className="mt-10 grid gap-5 md:grid-cols-3">
+        <ul className="mt-8 grid gap-5 md:grid-cols-3">
           {levels.items.map((level) => (
             <li key={level.id} className="rounded-3xl border-2 border-se-accent-600 bg-se-cream p-6">
               <h3 className="text-xl font-semibold text-se-green-700">{level.name}</h3>

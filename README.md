@@ -28,7 +28,7 @@ for scripts, styles, fonts and images.
 |---|---|
 | `app/summit-estate/page.tsx` | The page route, its metadata (title, description, robots) and its CSS import |
 | `app/summit-estate/summit-estate.css` | Tailwind utilities plus a reset scoped to `.se-root`. No Tailwind preflight, so it cannot restyle LGTC's header or footer |
-| `components/` | `SubBar`, `Hero`, `TrustBadges`, `LevelsOfCare` (San Jose Outpatient Center, the three program tiles, the Palo Alto detox/residential card, the assessment band), `Philosophy`, `WhatWeTreat`, `WhoItIsFor`, `GettingStarted` (the closing section), `Mockups` (framed LGTC mock-up blocks under review, temporary), `MobileCallBar`, `PageFooterNote`, plus `Actions` (call, assessment-request and secondary-link buttons), `Logo` and `fonts` |
+| `components/` | `SubBar`, `Hero`, `TrustBadges`, `LevelsOfCare` (the three program tiles, the Palo Alto detox/residential card, the assessment band), `Philosophy`, `WhatWeTreat`, `WhoItIsFor`, `GettingStarted` (the closing section), `Mockups` (framed LGTC mock-up blocks under review, temporary), `MobileCallBar`, `PageFooterNote`, plus `Actions` (call, assessment-request and secondary-link buttons), `Logo` and `fonts` |
 | `content/page.ts` | Every word of visible copy, typed. Components hard-code none |
 | `content/settings.ts` | Every setting: phone, registration link, group name, outbound link, base path, robots, title and description |
 | `content/images/` | Photos and badges, pre-sized for their display size |
@@ -106,7 +106,7 @@ LGTC decides indexing for its own URL. Set `settings.robots` (or
 |---|---|---|
 | `phone` / `phoneHref` | `(408) 542-0434` / `tel:+14085420434` | Set: LGTC's intake number. Never Summit's own line. Update both together |
 | `registrationUrl` | LGTC's EHR registration link (ehryourway.com) | Set. Used by "Register online, we call you back" |
-| `groupName` | `LGTC Psychiatric Group` | **TODO:** confirm. Used in the footer note's partnership line and the San Jose tile |
+| `groupName` | `LGTC Psychiatric Group` | **TODO:** confirm. Used in the footer note's partnership line |
 | `fullSiteUrl` | `https://summitestate.com/` | **TODO:** confirm whether the page links out at all |
 | `showFullSiteLink` | `true` | **TODO:** set to `false` to drop the "Explore the full Summit Estate site" link, the page's one outbound link |
 | `basePath` | `''` (from `NEXT_PUBLIC_BASE_PATH`) | **TODO:** final URL or base path. See "Base path" above |
