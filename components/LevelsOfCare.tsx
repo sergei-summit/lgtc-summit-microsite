@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { page, type Level } from '@/content/page';
 import CompareLevelCards from './CompareLevelCards';
+import ProposalLevelCards from './ProposalLevelCards';
 
 /**
  * Levels of Care. One title, then two groups, each headed with its place:
@@ -72,6 +73,7 @@ export default function LevelsOfCare() {
           </ul>
         </div>
         <CompareLevelCards />
+        <ProposalLevelCards />
 
       </div>
     </section>

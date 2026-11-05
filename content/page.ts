@@ -39,6 +39,8 @@ export type Photo = { src: StaticImageData; alt: string };
 export type Card = { eyebrow: string; title: string; points: string[] };
 /** A card in the comparison set copied from the microsite's Levels of Care. */
 export type CompareCard = { name: string; short: string; blurb: string; meta: string; expect: string[] };
+/** A card in proposal 3: name, tag chip, clock line and blurb; the rows come from the tiles. */
+export type ProposalCard = { tag: string; name: string; meta: string; blurb: string };
 
 export type Level = {
   id: string;
@@ -325,6 +327,50 @@ export const page = {
         title: 'Not sure what you need?',
         text: 'The level of care is set after an assessment with a therapist and a review by our Clinical Director. One call starts it, and admissions can check what your insurance covers.',
       },
+    },
+
+    /**
+     * Proposal 3 (Sergei, Nov 5 2026, 06:46 UTC): the microsite's card format
+     * with the current block's headings and positions. Top row: the three
+     * San Jose programs; bottom row: the estate photo, one combined Detox +
+     * Residential card and the "Not sure" card. Time commitment sits right
+     * under the name in the microsite's clock-line style; Intensity,
+     * Treatment and Suitable for (the current tiles' rows) are inside a
+     * "What to expect" disclosure. Rows are read from the tiles above, so the
+     * two stay in step; only name, tag, clock line and blurb live here.
+     */
+    proposal: {
+      title: 'Proposal: the microsite card format with the current headings and positions',
+      note: 'Third option, for comparison with the two sets above. Time commitment under the name; Intensity, Treatment and Suitable for inside "What to expect".',
+      outpatientTitle: 'San Jose Outpatient Center (a mile from Cupertino and Saratoga)',
+      higherTitle: 'Higher Level of Care \u00b7 Palo Alto',
+      expectLabel: 'What to expect',
+      cards: {
+        php: {
+          tag: 'PHP',
+          name: 'Partial Hospitalization Program',
+          meta: '20+ hrs/week \u00b7 typically 4\u20136 weeks',
+          blurb: 'Also called Day Treatment. Structured treatment most weekdays, home every evening: the highest level of Outpatient Care.',
+        },
+        iop: {
+          tag: 'IOP',
+          name: 'Intensive Outpatient Program',
+          meta: '9\u201319 hrs/week \u00b7 typically 8\u201312 weeks',
+          blurb: 'Day, evening or Hybrid IOP (In person and telehealth). Structured clinical care that fits around work, school and family.',
+        },
+        outpatient: {
+          tag: 'OP',
+          name: 'Outpatient Program',
+          meta: 'From one session a week \u00b7 for as long as it is useful',
+          blurb: 'Also called Individual Therapy. Ongoing Individual Therapy and Medication Management for people who are stable and want to stay on track.',
+        },
+      } as Record<string, ProposalCard>,
+      combined: {
+        tag: 'Palo Alto',
+        name: 'Detox & Residential',
+        meta: 'Detox typically 7\u201310 days \u00b7 Residential typically 3\u20134 weeks',
+        blurb: 'Medically supervised Detox and Residential Treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
+      } satisfies ProposalCard,
     },
   },
 
