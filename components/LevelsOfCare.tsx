@@ -3,38 +3,23 @@ import { page } from '@/content/page';
 import { CallButton, RegisterButton } from './Actions';
 
 /**
- * Outpatient programs. The section opens with the San Jose Outpatient Center:
- * its name and text on the left, the lounge photo top right. Below it, three
- * tiles (PHP, IOP in person or hybrid, OP) in LGTC's format: a days-and-hours
- * line and labelled rows, no links on the tiles. The in-network statement is
- * made once, in the lead. Then the Palo Alto detox/residential card (same
- * shape, labelled as a higher level of care, call-only) and the first of the
- * two assessment prompts.
+ * Outpatient programs. The section opens with the San Jose Outpatient Center
+ * (name and text, no photo). Below it, three tiles (PHP, IOP in person or
+ * hybrid, OP) in LGTC's format: labelled rows only, no days-and-hours line and
+ * no links on the tiles. Then the Palo Alto detox/residential card (labelled
+ * as a higher level of care, call-only) and the first of the two assessment
+ * prompts.
  */
 export default function LevelsOfCare() {
   const { levels } = page;
   return (
     <section id={levels.id} aria-labelledby="programs-title" className="scroll-mt-20 bg-se-paper">
       <div className="mx-auto max-w-se-content px-4 py-14 sm:px-6 md:py-20">
-        <div className="grid items-start gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
-          <div>
-            <h2 id="programs-title" className="text-3xl font-semibold text-se-green-700 sm:text-4xl">
-              {levels.title}
-            </h2>
-            <p className="mt-5 max-w-3xl text-lg font-semibold leading-relaxed text-se-green-800">{levels.lead}</p>
-            <h3 className="mt-8 text-xl font-semibold text-se-green-700">{levels.location.name}</h3>
-            <p className="mt-2 max-w-2xl leading-relaxed text-se-ink">{levels.location.text}</p>
-          </div>
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-se-card lg:mt-2">
-            <Image
-              src={levels.location.photo.src}
-              alt={levels.location.photo.alt}
-              fill
-              sizes="(min-width: 1024px) 480px, 100vw"
-              className="object-cover"
-            />
-          </div>
-        </div>
+        <h2 id="programs-title" className="text-3xl font-semibold text-se-green-700 sm:text-4xl">
+          {levels.title}
+        </h2>
+        <h3 className="mt-6 text-xl font-semibold text-se-green-700">{levels.location.name}</h3>
+        <p className="mt-2 max-w-3xl leading-relaxed text-se-ink">{levels.location.text}</p>
 
         <ul className="mt-10 grid gap-5 md:grid-cols-3">
           {levels.items.map((level) => (
@@ -45,7 +30,6 @@ export default function LevelsOfCare() {
                   {levels.aliasPrefix} {level.alias}
                 </p>
               )}
-              <p className="mt-3 font-semibold text-se-green-800">{level.meta}</p>
               <dl className="mt-4 grid gap-3 leading-relaxed text-se-ink">
                 {level.rows.map(([label, text]) => (
                   <div key={label}>

@@ -28,7 +28,6 @@ import { settings } from './settings';
 import type { FeatureIconName } from '@/components/FeatureIcon';
 
 import heroPhoto from './images/location-san-jose.webp';
-import sanJosePhoto from './images/location-san-jose.webp';
 import paloAltoPhoto from './images/hero-palo-alto-estate.webp';
 import jointCommissionBadge from './images/badge-joint-commission.png';
 import carfBadge from './images/badge-carf.png';
@@ -42,8 +41,6 @@ export type Level = {
   name: string;
   /** Approved alias, shown as "Also called …". */
   alias?: string;
-  /** Days and hours line, in LGTC's format ("5 days a week · about 6 hours a day"). No clock times. */
-  meta: string;
   /** Labelled rows, from LGTC's "Structure Without Isolation" block: time commitment, intensity, treatment, who it suits. */
   rows: [string, string][];
 };
@@ -68,7 +65,7 @@ export const page = {
   hero: {
     title: 'The right level of care,',
     titleAccent: 'without putting your life on hold.',
-    text: 'Day treatment, intensive outpatient and individual therapy for mental health and substance use, in San Jose and virtually across California, with one psychiatry-led team.',
+    text: 'Day treatment (PHP), intensive outpatient (IOP) and individual therapy for mental health and substance use disorder care, in person in San Jose and virtually across California, with one psychiatry-led team.',
     /** One line per outpatient level, then the team. Each pairs the service with its proof point. */
     features: [
       { icon: 'layers', title: 'Partial Hospitalization (PHP)', proof: 'Structured day treatment, home every evening' },
@@ -76,8 +73,6 @@ export const page = {
       { icon: 'brain', title: 'Outpatient Therapy (OP)', proof: 'Ongoing individual therapy and medication management' },
       { icon: 'shield', title: 'Board-Certified Team', proof: 'Psychiatry and addiction medicine, in-network with all major plans' },
     ] satisfies { icon: FeatureIconName; title: string; proof: string }[],
-    /** Quiet pointer to the higher levels of care; the Palo Alto card under the programs carries the detail. */
-    higherLevel: 'Need detox or residential care first? Those start with a call to admissions.',
     insuranceBadge: { label: 'Outpatient care', value: 'In-network with all major plans' },
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
@@ -100,14 +95,11 @@ export const page = {
   levels: {
     id: 'programs',
     title: 'Outpatient programs',
-    /** The in-network statement is made once, here, not on every tile. */
-    lead: 'PHP, IOP and outpatient therapy in San Jose, in-network with all major plans. Wherever you start, the first step is a confidential assessment with our integrated clinical team.',
     items: [
       {
         id: 'php',
         name: 'Partial Hospitalization (PHP)',
         alias: 'Day Treatment',
-        meta: '5 days a week · about 6 hours a day',
         rows: [
           ['Time commitment', '20 or more hours a week, typically 4–6 weeks.'],
           ['Intensity', 'More intensive than IOP: a structured day similar to residential care, without the overnight stay.'],
@@ -118,7 +110,6 @@ export const page = {
       {
         id: 'iop',
         name: 'Intensive Outpatient (IOP)',
-        meta: '3–5 days a week · 3-hour blocks, day or evening',
         rows: [
           ['Time commitment', '9–19 hours a week, typically 8–12 weeks.'],
           ['Intensity', 'Less intensive than PHP, more than weekly therapy. Most people keep working.'],
@@ -130,7 +121,6 @@ export const page = {
         id: 'outpatient',
         name: 'Outpatient (OP)',
         alias: 'Individual Therapy',
-        meta: '1–9 hours a week · ongoing',
         rows: [
           ['Time commitment', 'From one session a week, for as long as it is useful.'],
           ['Intensity', 'The lightest level of care: sessions that fit around a full working week.'],
@@ -140,15 +130,11 @@ export const page = {
       },
     ] satisfies Level[],
     aliasPrefix: 'Also called',
-    /** Sits at the top of the section: the name and text on the left, the lounge photo top right, the tiles below. */
+    /** Sits at the top of the section, under the title; the tiles follow. No photo (removed Nov 5 2026). */
     location: {
       id: 'san-jose',
       name: 'San Jose Outpatient Center',
       text: 'PHP, IOP and OP, family therapy and a multi-family group, psychiatry-guided medication management and case management. Day and evening schedules are work-compatible, with hybrid IOP when clinically appropriate.',
-      photo: {
-        src: sanJosePhoto,
-        alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
-      } satisfies Photo,
     },
     /** Detox and residential: a photo card below the San Jose card, labelled as a higher level of care. Call-only. */
     higher: {
