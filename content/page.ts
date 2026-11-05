@@ -71,12 +71,10 @@ export const page = {
     title: 'The right level of care',
     titleAccent: 'without putting your life on hold',
     text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy for Mental Health and Substance Use Disorder Care, in person in San Jose, with one Psychiatry-led team.',
-    /** Second line under the intro; moved here from the San Jose block on Nov 5 2026. */
-    schedule: 'Day and evening schedules are work-compatible, with hybrid IOP (in person and telehealth) when clinically appropriate.',
     /** One line per outpatient level, then the team. Each pairs the service with its proof point. */
     features: [
       { icon: 'layers', title: 'Partial Hospitalization (PHP)', proof: 'Structured Day Treatment, home every evening' },
-      { icon: 'calendar', title: 'Intensive Outpatient (IOP)', proof: 'Day, evening or hybrid, around work, school and family' },
+      { icon: 'calendar', title: 'Intensive Outpatient (IOP)', proof: 'Day, evening or Hybrid IOP (In person and telehealth), around work, school and family' },
       { icon: 'brain', title: 'Outpatient Therapy (OP)', proof: 'Ongoing Individual Therapy and Medication Management' },
       { icon: 'shield', title: 'Board-Certified Team', proof: 'Psychiatry and Addiction Medicine, in-network with all major plans' },
     ] satisfies { icon: FeatureIconName; title: string; proof: string }[],
