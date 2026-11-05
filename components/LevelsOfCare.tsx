@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { page, type Level } from '@/content/page';
 import { CallButton, RegisterButton } from './Actions';
+import CompareLevelCards from './CompareLevelCards';
 
 /**
  * Levels of Care. One title, then two groups, each headed with its place:
@@ -68,6 +69,8 @@ export default function LevelsOfCare() {
         <p className="mt-6 max-w-3xl text-sm leading-relaxed text-se-ink-muted">
           <strong className="font-semibold text-se-green-800">{levels.higher.networkLabel}</strong> {levels.higher.network}
         </p>
+
+        <CompareLevelCards />
 
         <div className="mt-12 flex flex-col items-start gap-5 rounded-3xl bg-se-green-800 p-7 text-se-sand md:flex-row md:items-center md:justify-between">
           <div>

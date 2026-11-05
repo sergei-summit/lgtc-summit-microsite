@@ -37,6 +37,8 @@ import legitScriptBadge from './images/badge-legitscript.png';
 
 export type Photo = { src: StaticImageData; alt: string };
 export type Card = { eyebrow: string; title: string; points: string[] };
+/** A card in the comparison set copied from the microsite's Levels of Care. */
+export type CompareCard = { name: string; short: string; blurb: string; meta: string; expect: string[] };
 
 export type Level = {
   id: string;
@@ -245,6 +247,87 @@ export const page = {
     notSure: {
       title: 'Not sure which level of care fits?',
       text: 'A complimentary, confidential assessment sets the right level of care. Call admissions, or request one online and we call you back.',
+    },
+    /**
+     * For comparison only (Sergei, Nov 5 2026): the card set from
+     * go.summitestate.com/microsite, in a dashed frame under the tiles so he
+     * and Jan can judge the two formats side by side. The copy is the
+     * microsite's, verbatim, except the phone number, which is LGTC's. If this
+     * format is chosen, the copy still needs this page's rules applied (no
+     * statewide telehealth claim, no hours lines, capitalization).
+     */
+    compare: {
+      title: 'For comparison: the card set from go.summitestate.com/microsite',
+      note: 'Shown here only so the two formats can be judged side by side. The copy is the microsite\u2019s, the phone number is LGTC\u2019s.',
+      expectLabel: 'What to expect',
+      cards: [
+        {
+          name: 'Detox & Residential',
+          short: 'Palo Alto',
+          blurb: 'Medically supervised detox and residential treatment at a private estate in Palo Alto, for when recovery is not yet safe at home.',
+          meta: 'Detox 7\u201310 days \u00b7 residential 3\u20134 weeks',
+          expect: [
+            'Medical detox, then residential treatment on a private estate.',
+            'Substance use and mental health treated together from day one.',
+            'Step down into PHP or IOP in San Jose afterwards.',
+          ],
+        },
+        {
+          name: 'Partial Hospitalization',
+          short: 'PHP',
+          blurb: 'Structured day treatment, most weekdays. The highest level of outpatient care, ideal when stepping down from inpatient or needing intensive daily support.',
+          meta: '20+ hrs/week \u00b7 typically 4\u20136 weeks',
+          expect: [
+            'Several hours a day, most weekdays, then home each evening.',
+            'Group and Individual Therapy, a psychiatric evaluation with psychiatry-guided support as clinically indicated, and peer support.',
+            'Often a step down from residential treatment, or a step up when IOP is not enough.',
+            'Some people take leave or reduce their work schedule for these weeks.',
+            'Case management and personalized recovery planning, based on clinical necessity.',
+            'We accept most major insurances.',
+          ],
+        },
+        {
+          name: 'Intensive Outpatient',
+          short: 'IOP',
+          blurb: 'Flexible scheduling: day, evening or virtual. Maintain work and family life while receiving structured clinical care 3\u20135 days a week.',
+          meta: '9\u201319 hrs/week \u00b7 typically 8\u201312 weeks',
+          expect: [
+            'Three-hour blocks, 3\u20135 days a week.',
+            'Group and Individual Therapy, with psychiatry-guided support as clinically indicated.',
+            'Most people keep working full- or part-time.',
+            'Case management and personalized recovery planning, based on clinical necessity.',
+            'We accept most major insurances.',
+          ],
+        },
+        {
+          name: 'Virtual IOP',
+          short: 'Telehealth',
+          blurb: 'Outpatient treatment over HIPAA-compliant Zoom for Healthcare, from anywhere in California.',
+          meta: 'Statewide in California',
+          expect: [
+            'Sessions with California-licensed staff on Zoom for Healthcare, which is HIPAA compliant.',
+            'Group and individual sessions.',
+            'Drug and alcohol testing through Quest Diagnostics.',
+          ],
+        },
+        {
+          name: 'Outpatient',
+          short: 'OP',
+          blurb: 'Routine therapy for people who are stable and want to keep their recovery on track.',
+          meta: '1\u20139 hrs/week \u00b7 ongoing',
+          expect: [
+            'Usually the next step after IOP.',
+            'Individual Therapy, in person or virtual.',
+            'Fits around a full working week.',
+            'Recovery coaching, continuing care planning and long-term recovery support.',
+            'After treatment, tune-ups are available to all alumni.',
+          ],
+        },
+      ] satisfies CompareCard[],
+      notSure: {
+        title: 'Not sure what you need?',
+        text: 'The level of care is set after an assessment with a therapist and a review by our Clinical Director. One call starts it, and admissions can check what your insurance covers.',
+      },
     },
   },
 
