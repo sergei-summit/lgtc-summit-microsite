@@ -36,10 +36,10 @@ export const mockup = {
     placement: 'Version C of “Who it is for”: LGTC’s original list, which Version A was built from.',
     source: 'From lgtcgroup.com/services/mental-health-and-substance-use-recovery-program, “Who Can Benefit From This Program?”.',
     title: 'Version C',
-    lead: 'Adults seeking structured support to manage substance use alongside mood instability, anxiety or traumatic stress, in a safe, respectful environment to rebuild life goals.',
+    lead: 'Adults seeking structured support to manage Substance Use alongside mood instability, anxiety or traumatic stress, in a safe, respectful environment to rebuild life goals.',
     items: [
       'Co-occurring mood disorders',
-      'Active substance use recovery',
+      'Active Substance Use recovery',
       'History of relapse',
       'Stress or trauma triggers',
       'Seeking structured sobriety support',
@@ -54,7 +54,7 @@ export const mockup = {
     title: 'Getting started is easy',
     lead: 'A structured, predictable onboarding, so you know what happens at every step.',
     steps: [
-      { title: 'Register online', text: 'Answer a brief questionnaire about your physical and mental health history and goals. It takes about five minutes.' },
+      { title: 'Register online', text: 'Answer a brief questionnaire about your physical and Mental Health history and goals. It takes about five minutes.' },
       { title: 'Phone intake', text: 'Our admissions coordinator calls you to verify your insurance coverage and schedule your initial consultation.' },
       { title: 'Initial consultation', text: 'Meet our integrated clinical team to build your customized treatment roadmap.' },
     ],

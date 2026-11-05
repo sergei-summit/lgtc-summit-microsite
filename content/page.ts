@@ -65,15 +65,15 @@ export const page = {
   hero: {
     title: 'The right level of care,',
     titleAccent: 'without putting your life on hold.',
-    text: 'Day treatment (PHP), intensive outpatient (IOP) and individual therapy for mental health and substance use disorder care, in person in San Jose and virtually across California, with one psychiatry-led team.',
+    text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy for Mental Health and Substance Use Disorder Care, in person in San Jose and virtually across California, with one Psychiatry-led team.',
     /** One line per outpatient level, then the team. Each pairs the service with its proof point. */
     features: [
-      { icon: 'layers', title: 'Partial Hospitalization (PHP)', proof: 'Structured day treatment, home every evening' },
+      { icon: 'layers', title: 'Partial Hospitalization (PHP)', proof: 'Structured Day Treatment, home every evening' },
       { icon: 'calendar', title: 'Intensive Outpatient (IOP)', proof: 'Day, evening or virtual, around work, school and family' },
-      { icon: 'brain', title: 'Outpatient Therapy (OP)', proof: 'Ongoing individual therapy and medication management' },
-      { icon: 'shield', title: 'Board-Certified Team', proof: 'Psychiatry and addiction medicine, in-network with all major plans' },
+      { icon: 'brain', title: 'Outpatient Therapy (OP)', proof: 'Ongoing Individual Therapy and Medication Management' },
+      { icon: 'shield', title: 'Board-Certified Team', proof: 'Psychiatry and Addiction Medicine, in-network with all major plans' },
     ] satisfies { icon: FeatureIconName; title: string; proof: string }[],
-    insuranceBadge: { label: 'Outpatient care', value: 'In-network with all major plans' },
+    insuranceBadge: { label: 'Outpatient Care', value: 'In-network with all major plans' },
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
@@ -94,7 +94,7 @@ export const page = {
 
   levels: {
     id: 'programs',
-    title: 'Outpatient programs',
+    title: 'Outpatient Programs',
     items: [
       {
         id: 'php',
@@ -102,9 +102,9 @@ export const page = {
         alias: 'Day Treatment',
         rows: [
           ['Time commitment', '20 or more hours a week, typically 4–6 weeks.'],
-          ['Intensity', 'More intensive than IOP: a structured day similar to residential care, without the overnight stay.'],
-          ['Treatment', 'Group and individual therapy, psychiatry-guided medication management, skill-building and psychoeducation.'],
-          ['Suitable for', 'People who need more structure than IOP but not 24-hour medical supervision, including the step down from residential care.'],
+          ['Intensity', 'More intensive than IOP: a structured day similar to Residential Care, without the overnight stay.'],
+          ['Treatment', 'Group and Individual Therapy, Psychiatry-guided Medication Management, skill-building and psychoeducation.'],
+          ['Suitable for', 'People who need more structure than IOP but not 24-hour medical supervision, including the step down from Residential Care.'],
         ],
       },
       {
@@ -113,7 +113,7 @@ export const page = {
         rows: [
           ['Time commitment', '9–19 hours a week, typically 8–12 weeks.'],
           ['Intensity', 'Less intensive than PHP, more than weekly therapy. Most people keep working.'],
-          ['Treatment', 'Group therapy is the core, with individual therapy and skill-building sessions. In person, or hybrid with virtual sessions when clinically appropriate.'],
+          ['Treatment', 'Group Therapy is the core, with Individual Therapy and skill-building sessions. In person, or hybrid with virtual sessions when clinically appropriate.'],
           ['Suitable for', 'People with a stable home and support system who need more structure than weekly therapy.'],
         ],
       },
@@ -124,7 +124,7 @@ export const page = {
         rows: [
           ['Time commitment', 'From one session a week, for as long as it is useful.'],
           ['Intensity', 'The lightest level of care: sessions that fit around a full working week.'],
-          ['Treatment', 'Individual therapy and psychiatry-guided medication management, in person or virtual.'],
+          ['Treatment', 'Individual Therapy and Psychiatry-guided Medication Management, in person or virtual.'],
           ['Suitable for', 'People stepping down from IOP, or whose needs are met by regular individual care.'],
         ],
       },
@@ -134,15 +134,15 @@ export const page = {
     location: {
       id: 'san-jose',
       name: 'San Jose Outpatient Center',
-      text: 'PHP, IOP and OP, family therapy and a multi-family group, psychiatry-guided medication management and case management. Day and evening schedules are work-compatible, with hybrid IOP when clinically appropriate.',
+      text: 'PHP, IOP and OP, Family Therapy and a Multi-Family Group, Psychiatry-guided Medication Management and Case Management. Day and evening schedules are work-compatible, with hybrid IOP when clinically appropriate.',
     },
     /** Detox and residential: a photo card below the San Jose card, labelled as a higher level of care. Call-only. */
     higher: {
-      label: 'Higher level of care · Palo Alto',
-      title: 'Need detox or residential first?',
-      text: 'Private, confidential medical detox (typically 7–10 days) and residential treatment (typically 3–4 weeks) on our Palo Alto estate, when the assessment calls for it. Both start with a call to admissions, and both step down into the San Jose programs with the same team.',
+      label: 'Higher Level of Care · Palo Alto',
+      title: 'Need Detox or Residential Treatment first?',
+      text: 'Private, confidential Medical Detox (typically 7–10 days) and Residential Treatment (typically 3–4 weeks) on our Palo Alto estate, when the assessment calls for it. Both start with a call to admissions, and both step down into the San Jose programs with the same team.',
       network:
-        'In-network agreements for detox and residential in Palo Alto are in progress and expected in 2027; today they are out of network, and a single case agreement may be possible. We check your benefits before anything is decided.',
+        'In-network agreements for Detox and Residential in Palo Alto are in progress and expected in 2027; today they are out of network, and a single case agreement may be possible. We check your benefits before anything is decided.',
       photo: {
         src: paloAltoPhoto,
         alt: 'A two-storey Mediterranean-style house above a landscaped garden with a stone fountain and patio chairs',
@@ -167,7 +167,7 @@ export const page = {
       },
       {
         title: 'Proven therapies, practiced daily',
-        text: 'Every group is grounded in trauma-informed care and the evidence base: CBT, DBT and mindfulness-based relapse prevention, so a skill learned in the morning is safe to practice in real life the same day.',
+        text: 'Every group is grounded in Trauma-Informed Care and the evidence base: CBT, DBT and Mindfulness-Based Relapse Prevention, so a skill learned in the morning is safe to practice in real life the same day.',
       },
       {
         title: 'Progress you can see',
@@ -175,19 +175,19 @@ export const page = {
       },
       {
         title: 'Families heal together',
-        text: 'Caregivers are part of treatment, not spectators. Weekly family therapy and a multi-family group mean the people around you learn the same skills at the same time, and alumni tune-ups keep the door open after treatment.',
+        text: 'Caregivers are part of treatment, not spectators. Weekly Family Therapy and a Multi-Family Group mean the people around you learn the same skills at the same time, and alumni tune-ups keep the door open after treatment.',
       },
     ],
   },
 
   treatment: {
     id: 'treatment',
-    title: 'Mental health and substance use, together.',
-    intro: 'Mental health, substance use, or both: dual diagnosis is the program, not an add-on.',
+    title: 'Mental Health and Substance Use, together.',
+    intro: 'Mental Health, Substance Use, or both: Dual Diagnosis is the program, not an add-on.',
     groups: [
-      { label: 'Mental health', items: ['Anxiety', 'Depression', 'Trauma', 'PTSD / PTSI'] },
+      { label: 'Mental Health', items: ['Anxiety', 'Depression', 'Trauma', 'PTSD / PTSI'] },
       {
-        label: 'Substance use',
+        label: 'Substance Use',
         items: [
           'Alcohol',
           'Opioids & Heroin',
@@ -256,10 +256,10 @@ export const page = {
       {
         label: 'Version A',
         intro:
-          'We provide structured, evidence-based care for adults navigating both psychiatric disorders and co-occurring substance use challenges, including:',
+          'We provide structured, evidence-based care for adults navigating both psychiatric disorders and co-occurring Substance Use challenges, including:',
         items: [
-          'Anxiety, depression or other mood conditions alongside substance use',
-          'Active substance use, or early recovery',
+          'Anxiety, depression or other mood conditions alongside Substance Use',
+          'Active Substance Use, or early recovery',
           'A history of relapse',
           'Stress or trauma triggers',
           'Wanting structured support to stay sober',
@@ -270,11 +270,11 @@ export const page = {
       {
         label: 'Version B',
         intro:
-          'Structured, evidence-based care for adults with mental health and substance use challenges, when:',
+          'Structured, evidence-based care for adults with Mental Health and Substance Use challenges, when:',
         items: [
           'Weekly therapy or medication alone is not enough right now',
-          'Anxiety, depression or trauma and substance use are feeding each other',
-          'You are leaving a hospital stay or stepping down from residential care',
+          'Anxiety, depression or trauma and Substance Use are feeding each other',
+          'You are leaving a hospital stay or stepping down from Residential Care',
           'A relapse, or the risk of one, needs more structure than once a week',
           'You want a peer group going through the same thing',
           'You need privacy and a schedule that fits your career',
@@ -282,7 +282,7 @@ export const page = {
       },
     ],
     family:
-      'Treatment includes family therapy and a multi-family group. Loved ones learn the same skills at the same time, so the whole family is practising together rather than one person carrying the change alone.',
+      'Treatment includes Family Therapy and a Multi-Family Group. Loved ones learn the same skills at the same time, so the whole family is practising together rather than one person carrying the change alone.',
   },
 
   /**
@@ -302,14 +302,14 @@ export const page = {
       },
       {
         title: 'We verify your benefits',
-        text: 'Outpatient care is in-network with all major plans. Costs upfront, with no obligation. Detox and residential care in Palo Alto: PPO policies accepted, in-network agreements in progress, single case agreement possible.',
+        text: 'Outpatient Care is in-network with all major plans. Costs upfront, with no obligation. Detox and Residential Care in Palo Alto: PPO policies accepted, in-network agreements in progress, single case agreement possible.',
       },
       {
         title: 'Assessment and consultation',
-        text: 'A confidential assessment using the ASAM criteria, reviewed by our Clinical Director, sets your level of care: PHP, IOP or therapy, with psychiatric evaluation in conjunction with medication management.',
+        text: 'A confidential assessment using the ASAM criteria, reviewed by our Clinical Director, sets your level of care: PHP, IOP or therapy, with Psychiatric Evaluation in conjunction with Medication Management.',
       },
     ],
-    higherLevel: 'Need detox or residential care? Those programs start with a call to admissions.',
+    higherLevel: 'Need Detox or Residential Care? Those programs start with a call to admissions.',
     smallPrint: "All communication is confidential. Please don't include sensitive medical details. If you are in crisis, call or text 988.",
   },
 
