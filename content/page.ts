@@ -61,8 +61,9 @@ export const page = {
   skipLink: 'Skip to programs',
 
   hero: {
-    title: 'The right level of care,',
-    titleAccent: 'without putting your life on hold.',
+    /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
+    title: 'The right level of care',
+    titleAccent: 'without putting your life on hold',
     text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy for Mental Health and Substance Use Disorder Care, in person in San Jose and virtually across California, with one Psychiatry-led team.',
     /** Second line under the intro; moved here from the San Jose block on Nov 5 2026. */
     schedule: 'Day and evening schedules are work-compatible, with hybrid IOP when clinically appropriate.',
