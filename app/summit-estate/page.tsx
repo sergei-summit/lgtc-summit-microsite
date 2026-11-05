@@ -10,7 +10,6 @@ import LevelsOfCare from '@/components/LevelsOfCare';
 import GettingStarted from '@/components/GettingStarted';
 import PageFooterNote from '@/components/PageFooterNote';
 import MobileCallBar from '@/components/MobileCallBar';
-import { MockStart } from '@/components/Mockups';
 
 export const metadata: Metadata = {
   title: settings.metaTitle,
@@ -20,9 +19,7 @@ export const metadata: Metadata = {
 
 /**
  * The Summit Estate page. LGTC's site header and footer wrap it; it renders
- * only the Summit sub-bar, the page content and its own footer note. The
- * <Mock…/> blocks are framed mock-ups under review (see components/Mockups.tsx):
- * only mock-up 6 remains, just above the closing section.
+ * only the Summit sub-bar, the page content and its own footer note.
  */
 export default function SummitEstatePage() {
   return (
@@ -38,7 +35,6 @@ export default function SummitEstatePage() {
         <Hero />
         <TrustBadges />
         <LevelsOfCare />
-        <MockStart />
         <GettingStarted />
         <PageFooterNote />
       </main>

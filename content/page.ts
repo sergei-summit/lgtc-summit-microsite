@@ -9,8 +9,7 @@
  * hybrid) and OP. Detox and residential in Palo Alto stay on the page as a
  * quieter "higher level of care" card under the tiles. The earlier
  * full-continuum version is kept on the branch
- * lgtc-summit-microsite-full-continuum. The framed mock-up blocks still under
- * review come from content/mockup.ts, not from here.
+ * lgtc-summit-microsite-full-continuum.
  *
  * Rules: "Summit Estate Recovery Centers" in the footer note and page title,
  * "Summit Estate" elsewhere; no street addresses, licence numbers or clock
