@@ -6,7 +6,6 @@ import { settings } from '@/content/settings';
 import SubBar from '@/components/SubBar';
 import Hero from '@/components/Hero';
 import TrustBadges from '@/components/TrustBadges';
-import BenefitAndTeam from '@/components/BenefitAndTeam';
 import LevelsOfCare from '@/components/LevelsOfCare';
 import GettingStarted from '@/components/GettingStarted';
 import PageFooterNote from '@/components/PageFooterNote';
@@ -35,7 +34,6 @@ export default function SummitEstatePage() {
       <main>
         <Hero />
         <TrustBadges />
-        <BenefitAndTeam />
         <LevelsOfCare />
         <GettingStarted />
         <PageFooterNote />

@@ -4,18 +4,19 @@
  * content/settings.ts.
  *
  * Outpatient-first version (Nov 2026). The page is hosted by LGTC for people
- * who are already LGTC patients or are referred inside LGTC, so it leads with
- * the in-network outpatient programs in San Jose: PHP, IOP (in person or
- * hybrid) and OP. Detox and residential in Palo Alto stay on the page as a
- * quieter "higher level of care" card under the tiles. The earlier
- * full-continuum version is kept on the branch
+ * who are already LGTC patients or are referred inside LGTC. Order (Sergei,
+ * Nov 5 2026): H1, the care-team and who-can-benefit cards, the San Jose
+ * photo, then the intro, the four feature lines and the summitestate.com
+ * link; the badges; Levels of Care as cards (San Jose row, then the Palo Alto
+ * row with one combined Detox + Residential card); Getting started. The
+ * earlier full-continuum version is kept on the branch
  * lgtc-summit-microsite-full-continuum.
  *
  * Rules: "Summit Estate Recovery Centers" in the footer note and page title,
  * "Summit Estate" elsewhere; no street addresses, licence numbers or clock
  * times; lengths of stay are "typically". No eyebrow labels and no pill chips,
- * except the two cards copied from go.summitestate.com/microsite (Sergei,
- * Nov 5 2026), which keep their small labels.
+ * except what came from go.summitestate.com/microsite (Sergei, Nov 5 2026):
+ * the small labels on the two cards and the tag chips on the level cards.
  * Detox and residential are call-only; the assessment / registration link
  * appears only next to outpatient care. Dual diagnosis stays the clinical
  * core: "mental health, substance use, or both", never mental health alone.
@@ -38,9 +39,8 @@ import legitScriptBadge from './images/badge-legitscript.png';
 export type Photo = { src: StaticImageData; alt: string };
 export type Card = { eyebrow: string; title: string; points: string[] };
 /** A card in the comparison set copied from the microsite's Levels of Care. */
-export type CompareCard = { name: string; short: string; blurb: string; meta: string; expect: string[] };
-/** A card in proposal 3: name, tag chip, clock line and blurb; the rows come from the tiles. */
-export type ProposalCard = { tag: string; name: string; meta: string; blurb: string };
+/** A level card: tag chip, name, clock line and blurb; its "What to expect" rows are a Level's rows. */
+export type LevelCard = { tag: string; name: string; meta: string; blurb: string };
 
 export type Level = {
   id: string;
@@ -125,26 +125,14 @@ export const page = {
   },
 
   /**
-   * Two cards under the badge strip, copied from the Summit Estate microsite
-   * (go.summitestate.com/microsite) at Sergei's request, Nov 5 2026: who the
-   * programs are for, and the team behind them. Role titles are capitalized
-   * per the copy rule; the lists are otherwise the microsite's.
+   * Two cards between the H1 and the hero photo (Sergei, Nov 5 2026): the
+   * team behind the programs first, then who they are for. Copied from the
+   * Summit Estate microsite (go.summitestate.com/microsite); role titles are
+   * capitalized per the copy rule, the lists are otherwise the microsite's.
    */
   cards: {
     label: 'Who can benefit and your care team',
     items: [
-      {
-        eyebrow: 'Who can benefit',
-        title: 'Adults who need support for both.',
-        points: [
-          'Anxiety, depression or other mood conditions alongside substance use',
-          'Active substance use, or early recovery',
-          'A history of relapse',
-          'Stress or trauma triggers',
-          'Wanting structured support to stay sober',
-          'Wanting a peer group going through the same thing',
-        ],
-      },
       {
         eyebrow: 'Your care team',
         title: 'A team, not a single clinician.',
@@ -157,30 +145,36 @@ export const page = {
           'Case Manager',
         ],
       },
+      {
+        eyebrow: 'Who can benefit',
+        title: 'Adults who need support for both.',
+        points: [
+          'Anxiety, depression or other mood conditions alongside substance use',
+          'Active substance use, or early recovery',
+          'A history of relapse',
+          'Stress or trauma triggers',
+          'Wanting structured support to stay sober',
+          'Wanting a peer group going through the same thing',
+        ],
+      },
     ] satisfies Card[],
   },
 
   /**
-   * Levels of Care: two groups under one title, each headed with its place.
-   * Outpatient (San Jose): three tiles. Higher Level of Care (Palo Alto): the
-   * estate photo beside two tiles of the same shape, Medical Detox and
-   * Residential Treatment, with the insurance position on an info card over the photo. All tiles are
-   * in LGTC's format (labelled rows, no hours line, no links). Detox and
-   * residential are call-only.
+   * Levels of Care: one title and the level cards. `outpatient.items` and
+   * `higher.items` hold the Intensity / Treatment / Suitable for rows that
+   * open under "What to expect"; `cards` holds the rest. Detox and residential
+   * are call-only.
    */
   levels: {
     id: 'programs',
     title: 'Levels of Care',
-    aliasPrefix: 'Also called',
     outpatient: {
-      title: 'San Jose Outpatient Center, a mile from Cupertino and Saratoga',
       items: [
         {
           id: 'php',
           name: 'Partial Hospitalization (PHP)',
-          alias: 'Day Treatment',
           rows: [
-            ['Time commitment', '20 or more hours a week, typically 4–6 weeks.'],
             ['Intensity', 'More intensive than IOP: a structured day similar to Residential Care, without the overnight stay.'],
             ['Treatment', 'Group and Individual Therapy, Psychiatry-guided Medication Management, skill-building and psychoeducation.'],
             ['Suitable for', 'People who need more structure than IOP but not 24-hour medical supervision, including the step down from Residential Care.'],
@@ -190,7 +184,6 @@ export const page = {
           id: 'iop',
           name: 'Intensive Outpatient (IOP)',
           rows: [
-            ['Time commitment', '9–19 hours a week, typically 8–12 weeks.'],
             ['Intensity', 'Less intensive than PHP, more than weekly therapy. Most people keep working.'],
             ['Treatment', 'Group Therapy is the core, with Individual Therapy and skill-building sessions. In person, or hybrid with telehealth sessions when clinically appropriate.'],
             ['Suitable for', 'People with a stable home and support system who need more structure than weekly therapy.'],
@@ -199,9 +192,7 @@ export const page = {
         {
           id: 'outpatient',
           name: 'Outpatient (OP)',
-          alias: 'Individual Therapy',
           rows: [
-            ['Time commitment', 'From one session a week, for as long as it is useful.'],
             ['Intensity', 'The lightest level of care: sessions that fit around a full working week.'],
             ['Treatment', 'Individual Therapy and Psychiatry-guided Medication Management.'],
             ['Suitable for', 'People stepping down from IOP, or whose needs are met by regular individual care.'],
@@ -210,13 +201,11 @@ export const page = {
       ] satisfies Level[],
     },
     higher: {
-      title: 'Higher Level of Care · Palo Alto',
       items: [
         {
           id: 'detox',
           name: 'Medical Detox',
           rows: [
-            ['Time commitment', 'Typically 7–10 days, with 24-hour care on the private Palo Alto estate.'],
             ['Intensity', 'The highest level of care: Medically supervised withdrawal when stopping is not yet safe at home.'],
             ['Treatment', 'Withdrawal management with psychiatric evaluation and Medication Management; Mental Health and Substance Use treated together from the first day.'],
             ['Suitable for', 'People who need medical support to stop safely before Residential or Outpatient treatment can begin.'],
@@ -226,7 +215,6 @@ export const page = {
           id: 'residential',
           name: 'Residential Treatment',
           rows: [
-            ['Time commitment', 'Typically 3–4 weeks, living on the private Palo Alto estate.'],
             ['Intensity', 'Live-in treatment with structure and support around the clock, when home is not yet the right place to recover.'],
             ['Treatment', 'Individual and Group Therapy with Psychiatry-guided Medication Management: Medically Integrated, personalized Mental Health and Substance Use Disorder Care in a private, comfortable setting.'],
             ['Suitable for', 'People stepping down from Medical Detox, or who need more than a day program can give, before continuing in the San Jose programs with the same team.'],
@@ -248,101 +236,17 @@ export const page = {
     },
     /** First of the two assessment prompts; the second is the closing section. The call comes first. */
     /**
-     * For comparison only (Sergei, Nov 5 2026): the card set from
-     * go.summitestate.com/microsite, in a dashed frame under the tiles so he
-     * and Jan can judge the two formats side by side. The copy is the
-     * microsite's, verbatim, except the phone number, which is LGTC's. If this
-     * format is chosen, the copy still needs this page's rules applied (no
-     * statewide telehealth claim, no hours lines, capitalization).
+     * The level cards (Sergei's brief of Nov 5 2026, adopted the same night):
+     * the microsite's card format with this page's headings and positions.
+     * Top row: the three San Jose programs; bottom row: the estate photo with
+     * its info card, one combined Detox + Residential card and the "Not sure"
+     * card. Time commitment sits right under the name as a clock line;
+     * Intensity, Treatment and Suitable for (`outpatient.items` and
+     * `higher.items` above) open under "What to expect". Only name, tag, clock
+     * line and blurb live here.
      */
-    compare: {
-      title: 'For comparison: the card set from go.summitestate.com/microsite',
-      note: 'Shown here only so the two formats can be judged side by side. The copy is the microsite\u2019s, the phone number is LGTC\u2019s.',
-      expectLabel: 'What to expect',
-      cards: [
-        {
-          name: 'Detox & Residential',
-          short: 'Palo Alto',
-          blurb: 'Medically supervised detox and residential treatment at a private estate in Palo Alto, for when recovery is not yet safe at home.',
-          meta: 'Detox 7\u201310 days \u00b7 residential 3\u20134 weeks',
-          expect: [
-            'Medical detox, then residential treatment on a private estate.',
-            'Substance use and mental health treated together from day one.',
-            'Step down into PHP or IOP in San Jose afterwards.',
-          ],
-        },
-        {
-          name: 'Partial Hospitalization',
-          short: 'PHP',
-          blurb: 'Structured day treatment, most weekdays. The highest level of outpatient care, ideal when stepping down from inpatient or needing intensive daily support.',
-          meta: '20+ hrs/week \u00b7 typically 4\u20136 weeks',
-          expect: [
-            'Several hours a day, most weekdays, then home each evening.',
-            'Group and Individual Therapy, a psychiatric evaluation with psychiatry-guided support as clinically indicated, and peer support.',
-            'Often a step down from residential treatment, or a step up when IOP is not enough.',
-            'Some people take leave or reduce their work schedule for these weeks.',
-            'Case management and personalized recovery planning, based on clinical necessity.',
-            'We accept most major insurances.',
-          ],
-        },
-        {
-          name: 'Intensive Outpatient',
-          short: 'IOP',
-          blurb: 'Flexible scheduling: day, evening or virtual. Maintain work and family life while receiving structured clinical care 3\u20135 days a week.',
-          meta: '9\u201319 hrs/week \u00b7 typically 8\u201312 weeks',
-          expect: [
-            'Three-hour blocks, 3\u20135 days a week.',
-            'Group and Individual Therapy, with psychiatry-guided support as clinically indicated.',
-            'Most people keep working full- or part-time.',
-            'Case management and personalized recovery planning, based on clinical necessity.',
-            'We accept most major insurances.',
-          ],
-        },
-        {
-          name: 'Virtual IOP',
-          short: 'Telehealth',
-          blurb: 'Outpatient treatment over HIPAA-compliant Zoom for Healthcare, from anywhere in California.',
-          meta: 'Statewide in California',
-          expect: [
-            'Sessions with California-licensed staff on Zoom for Healthcare, which is HIPAA compliant.',
-            'Group and individual sessions.',
-            'Drug and alcohol testing through Quest Diagnostics.',
-          ],
-        },
-        {
-          name: 'Outpatient',
-          short: 'OP',
-          blurb: 'Routine therapy for people who are stable and want to keep their recovery on track.',
-          meta: '1\u20139 hrs/week \u00b7 ongoing',
-          expect: [
-            'Usually the next step after IOP.',
-            'Individual Therapy, in person or virtual.',
-            'Fits around a full working week.',
-            'Recovery coaching, continuing care planning and long-term recovery support.',
-            'After treatment, tune-ups are available to all alumni.',
-          ],
-        },
-      ] satisfies CompareCard[],
-      notSure: {
-        title: 'Not sure what you need?',
-        text: 'The level of care is set after an assessment with a therapist and a review by our Clinical Director. One call starts it, and admissions can check what your insurance covers.',
-      },
-    },
-
-    /**
-     * Proposal 3 (Sergei, Nov 5 2026, 06:46 UTC): the microsite's card format
-     * with the current block's headings and positions. Top row: the three
-     * San Jose programs; bottom row: the estate photo, one combined Detox +
-     * Residential card and the "Not sure" card. Time commitment sits right
-     * under the name in the microsite's clock-line style; Intensity,
-     * Treatment and Suitable for (the current tiles' rows) are inside a
-     * "What to expect" disclosure. Rows are read from the tiles above, so the
-     * two stay in step; only name, tag, clock line and blurb live here.
-     */
-    proposal: {
-      title: 'Proposal: the microsite card format with the current headings and positions',
-      note: 'Third option, for comparison with the two sets above. Time commitment under the name; Intensity, Treatment and Suitable for inside "What to expect".',
-      outpatientTitle: 'San Jose Outpatient Center (a mile from Cupertino and Saratoga)',
+    cards: {
+      outpatientTitle: 'San Jose Outpatient Center, a mile from Cupertino and Saratoga',
       higherTitle: 'Higher Level of Care \u00b7 Palo Alto',
       expectLabel: 'What to expect',
       cards: {
@@ -364,13 +268,17 @@ export const page = {
           meta: 'From one session a week \u00b7 for as long as it is useful',
           blurb: 'Also called Individual Therapy. Ongoing Individual Therapy and Medication Management for people who are stable and want to stay on track.',
         },
-      } as Record<string, ProposalCard>,
+      } as Record<string, LevelCard>,
       combined: {
         tag: 'Palo Alto',
         name: 'Detox & Residential',
         meta: 'Detox typically 7\u201310 days \u00b7 Residential typically 3\u20134 weeks',
         blurb: 'Medically supervised Detox and Residential Treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
-      } satisfies ProposalCard,
+      } satisfies LevelCard,
+      notSure: {
+        title: 'Not sure what you need?',
+        text: 'The level of care is set after an assessment with a therapist and a review by our Clinical Director. One call starts it, and admissions can check what your insurance covers.',
+      },
     },
   },
 
