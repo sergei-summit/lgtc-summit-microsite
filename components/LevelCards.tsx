@@ -4,8 +4,8 @@ import { ArrowIcon, CallButton } from './Actions';
 
 /**
  * The level cards (Sergei's brief, Nov 5 2026): the microsite's card format
- * with this page's headings and positions. Top row: PHP, IOP, OP under the
- * San Jose heading. Bottom row, under "Higher Level of Care": the estate
+ * with this page's headings and positions. First the San Jose card from the
+ * live page (lounge photo, heading, description), then PHP, IOP, OP. Bottom row, under "Higher Level of Care": the estate
  * photo with its info card, one combined Detox + Residential card and the
  * "Not sure" card with LGTC's number. Each card: tag chip, name, clock line,
  * blurb and a "What to expect" disclosure holding the Intensity / Treatment /
@@ -16,7 +16,27 @@ export default function LevelCards() {
   const { cards, outpatient, higher } = page.levels;
   return (
     <div>
-      <h3 className="mt-8 text-2xl font-semibold text-se-green-700">{cards.outpatientTitle}</h3>
+      {/* The San Jose card from the live page, above the three program cards:
+          photo left, the row's heading and the centre's description right. */}
+      <article
+        aria-labelledby="san-jose-title"
+        className="mt-8 grid overflow-hidden rounded-3xl border border-se-line bg-se-cream shadow-se-card md:grid-cols-[1fr_1.2fr]"
+      >
+        <Image
+          src={cards.outpatientCard.photo.src}
+          alt={cards.outpatientCard.photo.alt}
+          width={560}
+          height={373}
+          sizes="(min-width: 768px) 480px, 100vw"
+          className="aspect-[3/2] h-full w-full object-cover"
+        />
+        <div className="p-6 md:p-8">
+          <h3 id="san-jose-title" className="text-2xl font-semibold leading-snug text-se-green-700">
+            {cards.outpatientTitle}
+          </h3>
+          <p className="mt-3 leading-relaxed text-se-ink">{cards.outpatientCard.text}</p>
+        </div>
+      </article>
       <ul className="mt-5 grid gap-5 md:grid-cols-3">
         {outpatient.items.map((level) => (
           <Card key={level.id} card={cards.cards[level.id]} groups={[{ rows: level.rows }]} expectLabel={cards.expectLabel} />

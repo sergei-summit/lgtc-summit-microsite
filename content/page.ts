@@ -6,17 +6,20 @@
  * Outpatient-first version (Nov 2026). The page is hosted by LGTC for people
  * who are already LGTC patients or are referred inside LGTC. Order (Sergei,
  * Nov 5 2026): H1, intro, the four feature lines and the summitestate.com
- * link, then the San Jose photo; the badges; Levels of Care as cards (San
- * Jose row, then the Palo Alto row with one combined Detox + Residential
- * card); the care-team and who-can-benefit cards; Getting started. The
- * earlier full-continuum version is kept on the branch
+ * link, then the San Jose common-room photo (from go.summitestate.com/outpatient);
+ * the badges; Levels of Care as cards (the San Jose card with the lounge
+ * photo, the three San Jose cards, then the Palo Alto row with one combined
+ * Detox + Residential card); the care-team and who-can-benefit cards;
+ * Getting started; the footer note; "Where we are" with the two location
+ * cards. The earlier full-continuum version is kept on the branch
  * lgtc-summit-microsite-full-continuum.
  *
  * Rules: "Summit Estate Recovery Centers" in the footer note and page title,
  * "Summit Estate" elsewhere; no street addresses, licence numbers or clock
  * times; lengths of stay are "typically". No eyebrow labels and no pill chips,
- * except what came from go.summitestate.com/microsite (Sergei, Nov 5 2026):
- * the small labels on the two cards and the tag chips on the level cards.
+ * except what came from go.summitestate.com (Sergei, Nov 5 2026): the small
+ * labels on the two cards, the tag chips on the level cards, and the labels
+ * and chips on the two "Where we are" cards.
  * Detox and residential are call-only; the assessment / registration link
  * appears only next to outpatient care. Dual diagnosis stays the clinical
  * core: "mental health, substance use, or both", never mental health alone.
@@ -28,8 +31,10 @@
 import type { StaticImageData } from 'next/image';
 import { settings } from './settings';
 import type { FeatureIconName } from '@/components/FeatureIcon';
+import type { LocationIconName } from '@/components/WhereWeAre';
 
-import heroPhoto from './images/location-san-jose.webp';
+import heroPhoto from './images/hero-san-jose-common-room.webp';
+import sanJosePhoto from './images/location-san-jose.webp';
 import paloAltoPhoto from './images/hero-palo-alto-estate.webp';
 import jointCommissionBadge from './images/badge-joint-commission.png';
 import carfBadge from './images/badge-carf.png';
@@ -41,6 +46,8 @@ export type Card = { eyebrow: string; title: string; points: string[] };
 /** A card in the comparison set copied from the microsite's Levels of Care. */
 /** A level card: tag chip, name, clock line and blurb; its "What to expect" rows are a Level's rows. */
 export type LevelCard = { tag: string; name: string; meta: string; blurb: string };
+/** A "Where we are" card from go.summitestate.com/outpatient: icon, small label, name, one line and chips. */
+export type LocationCard = { icon: LocationIconName; eyebrow: string; title: string; text: string; points: string[] };
 
 export type Level = {
   id: string;
@@ -83,7 +90,7 @@ export const page = {
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
-      alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
+      alt: 'An open common area with sofas, a glass side table with a potted bromeliad, and a kitchenette behind',
     } satisfies Photo,
   },
 
@@ -247,6 +254,16 @@ export const page = {
      */
     cards: {
       outpatientTitle: 'San Jose Outpatient Center, a mile from Cupertino and Saratoga',
+      /** The San Jose card from the live page (go.summitestate.com/lgtc-summit-microsite),
+       * placed above the three cards (Sergei, Nov 5 2026): the lounge photo,
+       * the heading above as its name, and the live page's description. */
+      outpatientCard: {
+        text: 'PHP, IOP and OP, Family Therapy and a Multi-Family Group, Psychiatry-guided Medication Management and Case Management. Day and evening schedules are work-compatible, with Hybrid IOP when clinically appropriate.',
+        photo: {
+          src: sanJosePhoto,
+          alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
+        } satisfies Photo,
+      },
       higherTitle: 'Higher Level of Care \u00b7 Palo Alto',
       expectLabel: 'What to expect',
       cards: {
@@ -322,6 +339,33 @@ export const page = {
   footerNote: {
     text: `Summit Estate Recovery Centers. Dual-diagnosis care for adults, a collaborative partnership under the guidance and oversight of ${settings.groupName}.`,
     fullSiteLink: 'Explore the full Summit Estate site',
+  },
+
+  /**
+   * "Where we are" from go.summitestate.com/outpatient (Sergei, Nov 5 2026),
+   * under the footer note at the very bottom. Copy as on that page, with two
+   * changes: capitalization per the house rule, and no "Virtual IOP anywhere
+   * in California" (this page names telehealth only as part of Hybrid IOP).
+   */
+  whereWeAre: {
+    eyebrow: 'Where we are',
+    title: 'In the heart of Silicon Valley.',
+    items: [
+      {
+        icon: 'pin',
+        eyebrow: 'San Jose',
+        title: 'Summit Estate Recovery Outpatient',
+        text: 'In San Jose, a mile from Cupertino and Saratoga.',
+        points: ['PHP', 'IOP', 'OP', 'Hybrid IOP'],
+      },
+      {
+        icon: 'home',
+        eyebrow: 'Adults 28+',
+        title: 'Summit Estate',
+        text: "Silicon Valley's finest rehab for adults 28+. Detox and Residential Care on a private estate in the rolling hills.",
+        points: ['Palo Alto, CA', 'Detox & Residential'],
+      },
+    ] satisfies LocationCard[],
   },
 
   /** Phone bar: Call, plus Get started, which jumps to the closing section. */

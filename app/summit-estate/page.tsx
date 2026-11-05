@@ -10,6 +10,7 @@ import LevelsOfCare from '@/components/LevelsOfCare';
 import BenefitAndTeam from '@/components/BenefitAndTeam';
 import GettingStarted from '@/components/GettingStarted';
 import PageFooterNote from '@/components/PageFooterNote';
+import WhereWeAre from '@/components/WhereWeAre';
 import MobileCallBar from '@/components/MobileCallBar';
 
 export const metadata: Metadata = {
@@ -39,6 +40,7 @@ export default function SummitEstatePage() {
         <BenefitAndTeam />
         <GettingStarted />
         <PageFooterNote />
+        <WhereWeAre />
       </main>
       <MobileCallBar
         label={page.mobileBar.label}
