@@ -1,9 +1,7 @@
 import { page } from '@/content/page';
 import { CheckIcon } from './Actions';
-import { MockCurriculum } from './Mockups';
 
-/** What we treat: the two condition groups, then (while the mock-ups are
- * under review) the framed curriculum block, then the Therapies and Group
+/** What we treat: the two condition groups, then the Therapies and Group
  * topics lists ported from go.summitestate.com/microsite. */
 export default function WhatWeTreat() {
   const { treatment } = page;
@@ -36,7 +34,6 @@ export default function WhatWeTreat() {
           ))}
         </div>
 
-        <MockCurriculum />
 
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {treatment.lists.map((list) => (

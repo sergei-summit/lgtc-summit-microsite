@@ -7,7 +7,7 @@ import { CheckIcon } from './Actions';
  * shown on the page inside a thin dashed frame with a one-line label, so it
  * reads as a mock-up and not as page content, and placed next to the section
  * it would join or replace. Three of the original six are decided (see
- * content/mockup.ts); 2, 5 and 6 remain, keeping their original numbers. Once
+ * content/mockup.ts); 5 and 6 remain, keeping their original numbers. Once
  * chosen, move the text into content/page.ts and delete this file,
  * content/mockup.ts and the <Mock…/> uses in app/summit-estate/page.tsx.
  */
@@ -44,27 +44,6 @@ function MockSection({ n, s, tone = 'cream', children }: { n: number; s: Standal
         </Frame>
       </div>
     </section>
-  );
-}
-
-/** 2. A curated curriculum: inside "Mental health and substance use, together" (H3 under its H2). */
-export function MockCurriculum() {
-  const s = mockup.curriculum;
-  return (
-    <Frame n={2} placement={s.placement} className="mt-8">
-      <h3 id={`mock-${s.id}-title`} className="mt-3 text-2xl font-semibold text-se-green-700">
-        {s.title}
-      </h3>
-      <p className="mt-3 max-w-3xl text-lg font-semibold leading-relaxed text-se-green-800">{s.lead}</p>
-      <ul className="mt-6 grid gap-5 md:grid-cols-3">
-        {s.items.map((item) => (
-          <li key={item.title} className="rounded-3xl border border-se-line bg-se-cream p-6">
-            <h4 className="text-xl font-semibold text-se-green-700">{item.title}</h4>
-            <p className="mt-2 leading-relaxed text-se-ink">{item.text}</p>
-          </li>
-        ))}
-      </ul>
-    </Frame>
   );
 }
 

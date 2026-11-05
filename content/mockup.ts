@@ -2,11 +2,11 @@
  * MOCK-UP BLOCKS (temporary). Sections adapted from LGTC's own pages,
  * rendered on the page inside a thin dashed frame, each next to the section
  * it would join or replace, so Sergei can judge them in place. Of the six,
- * three are decided (Nov 4 2026): 1 "Our treatment philosophy" is now a real
+ * four are decided (Nov 4 2026): 1 "Our treatment philosophy" is now a real
  * section in content/page.ts, 3 "Structure without isolation" was folded into
- * the program tiles, 4 "Core components" was dropped. Numbers 2, 5 and 6 stay
- * here, with their original numbers, until Sergei decides. Sources:
- *   2. lgtcgroup.com/day-programs ("A Curated Curriculum of Healing Modalities")
+ * the program tiles, 2 "Curated curriculum" and 4 "Core components" were
+ * dropped. Numbers 5 and 6 stay here, with their original numbers, until
+ * Sergei decides. Source:
  *   5, 6. lgtcgroup.com/services/mental-health-and-substance-use-recovery-program
  *      ("Who Can Benefit", "Getting Started is Easy")
  * Adapted to this page's rules: adults, mental health and substance use
@@ -30,32 +30,6 @@ export type MockSection = {
 
 export const mockup = {
   frameLabel: 'Mock-up',
-
-  curriculum: {
-    id: 'curriculum',
-    placement: 'Sits inside “Mental health and substance use, together”, above the Therapies and Group topics lists (or in place of them).',
-    source: 'From lgtcgroup.com/day-programs, “A Curated Curriculum of Healing Modalities”.',
-    title: 'A curated curriculum of healing modalities',
-    lead: 'Healing does not happen in a vacuum. Our day programs blend a multi-disciplinary clinical approach with real interpersonal connection.',
-    check: [
-      'LGTC names yoga; this page’s list has breathwork, art and music therapy and no yoga. Add yoga only if San Jose runs it.',
-      '“Medication-assisted treatment when indicated” is added from the old hero line (MAT); cut it if you would rather not name MAT here.',
-    ],
-    items: [
-      {
-        title: 'Psychiatric oversight',
-        text: 'Weekly or bi-weekly medication management and clinical assessment by board-certified psychiatrists, including medication-assisted treatment when indicated.',
-      },
-      {
-        title: 'Group synergy',
-        text: 'Skill-building and process groups built on Cognitive Behavioral and Dialectical Behavior frameworks, with relapse prevention woven through.',
-      },
-      {
-        title: 'Mind-body integration',
-        text: 'Mindfulness, breathwork, and art and music therapy, to work with what stress and trauma leave in the body.',
-      },
-    ],
-  } satisfies MockSection & { items: { title: string; text: string }[] },
 
   benefit: {
     id: 'benefit',
