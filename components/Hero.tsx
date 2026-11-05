@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import { page } from '@/content/page';
 import { settings } from '@/content/settings';
-import { PhoneIcon } from './Actions';
+import { CallButton, PhoneIcon, RegisterButton } from './Actions';
 import { FeatureIcon } from './FeatureIcon';
 
 /**
  * Hero, outpatient-first: intro, schedule line and the four feature lines on
  * the left, a framed photo of the San Jose Outpatient Center on the right with
  * the centre's name and in-network badge on its top right and a floating call
- * card on its bottom left (sm screens and up). No buttons here (removed Nov 5 2026): the actions
- * live in the sub-bar, the "Not sure" band and the closing section.
+ * card on its bottom left (sm screens and up). The assessment request is the
+ * primary action; the call button with the phone number sits beside it.
  */
 export default function Hero() {
   const { hero } = page;
@@ -41,6 +41,10 @@ export default function Hero() {
               </li>
             ))}
           </ul>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <RegisterButton className="min-h-14 px-8 text-lg" />
+            <CallButton variant="outline" className="min-h-14 px-8 text-lg" />
+          </div>
         </div>
 
         <div className="relative">
