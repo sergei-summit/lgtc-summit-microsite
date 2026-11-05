@@ -89,9 +89,9 @@ export const page = {
    * a new tab. Sources: The Joint Commission provider locator entry for
    * "Summit Estate Recovery Centers LLC"; CARF provider 413635 (the San Jose
    * outpatient programs: PHP, IOP, OP, three-year accreditation); DHCS's
-   * directories of licensed and certified SUD facilities (DHCS has no
-   * per-provider page); LegitScript's website-certification lookup for
-   * summitestate.com.
+   * GeoHub map of SUD recovery treatment facilities, opened on the San Jose
+   * center (link supplied by Sergei, Nov 5 2026; DHCS has no per-provider
+   * page); LegitScript's website-certification lookup for summitestate.com.
    */
   trust: {
     label: 'Accreditations and reviews',
@@ -108,7 +108,7 @@ export const page = {
         kind: 'image',
         src: dhcsBadge,
         alt: 'California Department of Health Care Services (DHCS) Certified',
-        href: 'https://www.dhcs.ca.gov/providers-partners/directories-for-substance-use-disorder-services/',
+        href: 'https://geohub-cadhcs.hub.arcgis.com/datasets/CADHCS::sud-recovery-treatment-facilities/explore?location=37.301953%2C-122.023584%2C15',
       },
       {
         kind: 'image',
