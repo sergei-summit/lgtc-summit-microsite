@@ -1,15 +1,16 @@
 import Image from 'next/image';
 import { page } from '@/content/page';
 import { settings } from '@/content/settings';
-import { CallButton, PhoneIcon, RegisterButton } from './Actions';
+import { CallButton, PhoneIcon, RegisterButton, SiteLink } from './Actions';
 import { FeatureIcon } from './FeatureIcon';
 
 /**
  * Hero, outpatient-first: intro, schedule line and the four feature lines on
  * the left, a framed photo of the San Jose Outpatient Center on the right with
  * the centre's name and in-network badge on its top right and a floating call
- * card on its bottom left (sm screens and up). The assessment request is the
- * primary action; the call button with the phone number sits beside it.
+ * card on its bottom left (sm screens and up). The call to admissions is the
+ * primary action; the assessment request sits beside it as the outline button,
+ * and the link to the full Summit Estate site is a text line beneath.
  */
 export default function Hero() {
   const { hero } = page;
@@ -42,9 +43,10 @@ export default function Hero() {
             ))}
           </ul>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <RegisterButton className="min-h-14 px-8 text-lg" />
-            <CallButton variant="outline" className="min-h-14 px-8 text-lg" />
+            <CallButton className="min-h-14 px-8 text-lg" />
+            <RegisterButton variant="outline" className="min-h-14 px-8 text-lg" />
           </div>
+          <SiteLink className="mt-5" />
         </div>
 
         <div className="relative">

@@ -28,7 +28,7 @@ for scripts, styles, fonts and images.
 |---|---|
 | `app/summit-estate/page.tsx` | The page route, its metadata (title, description, robots) and its CSS import |
 | `app/summit-estate/summit-estate.css` | Tailwind utilities plus a reset scoped to `.se-root`. No Tailwind preflight, so it cannot restyle LGTC's header or footer |
-| `components/` | `SubBar`, `Hero`, `TrustBadges`, `LevelsOfCare` (the three program tiles, the Palo Alto detox/residential card, the assessment band), `GettingStarted` (the closing section), `MobileCallBar`, `PageFooterNote`, plus `Actions` (call, assessment-request and secondary-link buttons), `Logo` and `fonts` |
+| `components/` | `SubBar`, `Hero`, `TrustBadges`, `LevelsOfCare` (Levels of Care: the three outpatient tiles, the Palo Alto photo with the Medical Detox and Residential Treatment tiles, the insurance note, the assessment band), `GettingStarted` (the closing section), `MobileCallBar`, `PageFooterNote`, plus `Actions` (call, assessment-request and secondary-link buttons), `Logo` and `fonts` |
 | `content/page.ts` | Every word of visible copy, typed. Components hard-code none |
 | `content/settings.ts` | Every setting: phone, registration link, group name, outbound link, base path, robots, title and description |
 | `content/images/` | Photos and badges, pre-sized for their display size |
@@ -126,6 +126,11 @@ Known, not blocking. Left for whoever mounts the page in LGTC's app:
   and observe it too), or add `scroll-padding-bottom` equal to the bar's height
   on `html` for small screens. Passes AA as it is (the buttons are never fully
   hidden); this closes the AAA version (2.4.12).
+- **Call-back form next to the levels of care.** Jan is testing a short
+  self-registration form for a call back on lgtcgroup.com's mental health page
+  (Nov 5 2026); its scheduling does not work yet. When it does, it could sit
+  beside the Levels of Care tiles here in place of, or next to, the
+  registration link.
 
 ## Accessibility checks (CI)
 

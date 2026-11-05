@@ -1,15 +1,37 @@
 import Image from 'next/image';
-import { page } from '@/content/page';
+import { page, type Level } from '@/content/page';
 import { CallButton, RegisterButton } from './Actions';
 
 /**
- * Outpatient programs: the title, then three tiles (PHP, IOP in person or
- * hybrid, OP) in LGTC's format (the San Jose Outpatient Center block that sat
- * here moved into the hero on Nov 5 2026): labelled rows only, no days-and-hours line and
- * no links on the tiles. Then the Palo Alto detox/residential card (labelled
- * as a higher level of care, call-only) and the first of the two assessment
- * prompts.
+ * Levels of Care. One title, then two groups, each headed with its place:
+ * "Outpatient Programs · San Jose" over three tiles (PHP, IOP in person or
+ * hybrid, OP) and "Higher Level of Care · Palo Alto" over the estate photo and
+ * two tiles of the same shape (Medical Detox, Residential Treatment), with the
+ * insurance note beneath them. Tiles are in LGTC's format: labelled rows, no
+ * hours line, no links. Then the first of the two assessment prompts, with the
+ * call as the primary action.
  */
+function Tile({ level }: { level: Level }) {
+  return (
+    <li className="rounded-3xl border-2 border-se-accent-600 bg-se-cream p-6">
+      <h4 className="text-xl font-semibold text-se-green-700">{level.name}</h4>
+      {level.alias && (
+        <p className="mt-1 text-sm font-semibold text-se-accent-700">
+          {page.levels.aliasPrefix} {level.alias}
+        </p>
+      )}
+      <dl className="mt-4 grid gap-3 leading-relaxed text-se-ink">
+        {level.rows.map(([label, text]) => (
+          <div key={label}>
+            <dt className="inline font-semibold text-se-green-800">{label}: </dt>
+            <dd className="ml-0 inline">{text}</dd>
+          </div>
+        ))}
+      </dl>
+    </li>
+  );
+}
+
 export default function LevelsOfCare() {
   const { levels } = page;
   return (
@@ -18,61 +40,43 @@ export default function LevelsOfCare() {
         <h2 id="programs-title" className="text-3xl font-semibold text-se-green-700 sm:text-4xl">
           {levels.title}
         </h2>
-        <ul className="mt-8 grid gap-5 md:grid-cols-3">
-          {levels.items.map((level) => (
-            <li key={level.id} className="rounded-3xl border-2 border-se-accent-600 bg-se-cream p-6">
-              <h3 className="text-xl font-semibold text-se-green-700">{level.name}</h3>
-              {level.alias && (
-                <p className="mt-1 text-sm font-semibold text-se-accent-700">
-                  {levels.aliasPrefix} {level.alias}
-                </p>
-              )}
-              <dl className="mt-4 grid gap-3 leading-relaxed text-se-ink">
-                {level.rows.map(([label, text]) => (
-                  <div key={label}>
-                    <dt className="inline font-semibold text-se-green-800">{label}: </dt>
-                    <dd className="ml-0 inline">{text}</dd>
-                  </div>
-                ))}
-              </dl>
-            </li>
+
+        <h3 className="mt-8 text-2xl font-semibold text-se-green-700">{levels.outpatient.title}</h3>
+        <ul className="mt-5 grid gap-5 md:grid-cols-3">
+          {levels.outpatient.items.map((level) => (
+            <Tile key={level.id} level={level} />
           ))}
         </ul>
 
-        {/* Detox and residential: a photo card with a dashed outline and a
-            text label, so it reads as a different kind of programme without
-            looking disabled. Call-only. */}
-        <article
-          aria-labelledby="higher-title"
-          className="mt-10 grid overflow-hidden rounded-3xl border border-dashed border-se-green-600 bg-se-paper md:grid-cols-[1fr_1.2fr]"
-        >
-          <Image
-            src={levels.higher.photo.src}
-            alt={levels.higher.photo.alt}
-            width={560}
-            height={373}
-            sizes="(min-width: 768px) 480px, 100vw"
-            className="aspect-[3/2] h-full w-full object-cover"
-          />
-          <div className="flex flex-col items-start p-6 md:p-8">
-            <p className="text-sm font-semibold text-se-ink-muted">{levels.higher.label}</p>
-            <h3 id="higher-title" className="mt-1 text-xl font-semibold text-se-green-700">
-              {levels.higher.title}
-            </h3>
-            <p className="mt-2 leading-relaxed text-se-ink">{levels.higher.text}</p>
-            <p className="mt-2 text-sm leading-relaxed text-se-ink-muted">{levels.higher.network}</p>
-            <CallButton variant="outline" className="mt-5" />
+        <h3 className="mt-12 text-2xl font-semibold text-se-green-700">{levels.higher.title}</h3>
+        <div className="mt-5 grid gap-5 md:grid-cols-3">
+          <div className="relative min-h-[16rem] overflow-hidden rounded-3xl shadow-se-card">
+            <Image
+              src={levels.higher.photo.src}
+              alt={levels.higher.photo.alt}
+              fill
+              sizes="(min-width: 768px) 400px, 100vw"
+              className="object-cover"
+            />
           </div>
-        </article>
+          <ul className="grid gap-5 sm:grid-cols-2 md:col-span-2">
+            {levels.higher.items.map((level) => (
+              <Tile key={level.id} level={level} />
+            ))}
+          </ul>
+        </div>
+        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-se-ink-muted">
+          <strong className="font-semibold text-se-green-800">{levels.higher.networkLabel}</strong> {levels.higher.network}
+        </p>
 
-        <div className="mt-10 flex flex-col items-start gap-5 rounded-3xl bg-se-green-800 p-7 text-se-sand md:flex-row md:items-center md:justify-between">
+        <div className="mt-12 flex flex-col items-start gap-5 rounded-3xl bg-se-green-800 p-7 text-se-sand md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-xl font-semibold text-white">{levels.notSure.title}</p>
             <p className="mt-2 max-w-2xl leading-relaxed">{levels.notSure.text}</p>
           </div>
           <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-            <RegisterButton tone="dark" />
-            <CallButton tone="dark" variant="outline" />
+            <CallButton tone="dark" />
+            <RegisterButton tone="dark" variant="outline" />
           </div>
         </div>
       </div>

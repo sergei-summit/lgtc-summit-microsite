@@ -53,7 +53,7 @@ export const page = {
     logoLabel: 'Summit Estate',
     navLabel: 'Summit Estate',
     links: [
-      { href: '#programs', label: 'Programs' },
+      { href: '#programs', label: 'Levels of care' },
     ],
     cta: { href: '#verify', label: 'Get started' },
   },
@@ -92,49 +92,81 @@ export const page = {
     ] satisfies Badge[],
   },
 
+  /**
+   * Levels of Care: two groups under one title, each headed with its place.
+   * Outpatient (San Jose): three tiles. Higher Level of Care (Palo Alto): the
+   * estate photo beside two tiles of the same shape, Medical Detox and
+   * Residential Treatment, with the insurance note beneath them. All tiles are
+   * in LGTC's format (labelled rows, no hours line, no links). Detox and
+   * residential are call-only.
+   */
   levels: {
     id: 'programs',
-    title: 'Outpatient Programs',
-    items: [
-      {
-        id: 'php',
-        name: 'Partial Hospitalization (PHP)',
-        alias: 'Day Treatment',
-        rows: [
-          ['Time commitment', '20 or more hours a week, typically 4–6 weeks.'],
-          ['Intensity', 'More intensive than IOP: a structured day similar to Residential Care, without the overnight stay.'],
-          ['Treatment', 'Group and Individual Therapy, Psychiatry-guided Medication Management, skill-building and psychoeducation.'],
-          ['Suitable for', 'People who need more structure than IOP but not 24-hour medical supervision, including the step down from Residential Care.'],
-        ],
-      },
-      {
-        id: 'iop',
-        name: 'Intensive Outpatient (IOP)',
-        rows: [
-          ['Time commitment', '9–19 hours a week, typically 8–12 weeks.'],
-          ['Intensity', 'Less intensive than PHP, more than weekly therapy. Most people keep working.'],
-          ['Treatment', 'Group Therapy is the core, with Individual Therapy and skill-building sessions. In person, or hybrid with virtual sessions when clinically appropriate.'],
-          ['Suitable for', 'People with a stable home and support system who need more structure than weekly therapy.'],
-        ],
-      },
-      {
-        id: 'outpatient',
-        name: 'Outpatient (OP)',
-        alias: 'Individual Therapy',
-        rows: [
-          ['Time commitment', 'From one session a week, for as long as it is useful.'],
-          ['Intensity', 'The lightest level of care: sessions that fit around a full working week.'],
-          ['Treatment', 'Individual Therapy and Psychiatry-guided Medication Management, in person or virtual.'],
-          ['Suitable for', 'People stepping down from IOP, or whose needs are met by regular individual care.'],
-        ],
-      },
-    ] satisfies Level[],
+    title: 'Levels of Care',
     aliasPrefix: 'Also called',
-    /** Detox and residential: a photo card below the San Jose card, labelled as a higher level of care. Call-only. */
+    outpatient: {
+      title: 'Outpatient Programs · San Jose',
+      items: [
+        {
+          id: 'php',
+          name: 'Partial Hospitalization (PHP)',
+          alias: 'Day Treatment',
+          rows: [
+            ['Time commitment', '20 or more hours a week, typically 4–6 weeks.'],
+            ['Intensity', 'More intensive than IOP: a structured day similar to Residential Care, without the overnight stay.'],
+            ['Treatment', 'Group and Individual Therapy, Psychiatry-guided Medication Management, skill-building and psychoeducation.'],
+            ['Suitable for', 'People who need more structure than IOP but not 24-hour medical supervision, including the step down from Residential Care.'],
+          ],
+        },
+        {
+          id: 'iop',
+          name: 'Intensive Outpatient (IOP)',
+          rows: [
+            ['Time commitment', '9–19 hours a week, typically 8–12 weeks.'],
+            ['Intensity', 'Less intensive than PHP, more than weekly therapy. Most people keep working.'],
+            ['Treatment', 'Group Therapy is the core, with Individual Therapy and skill-building sessions. In person, or hybrid with virtual sessions when clinically appropriate.'],
+            ['Suitable for', 'People with a stable home and support system who need more structure than weekly therapy.'],
+          ],
+        },
+        {
+          id: 'outpatient',
+          name: 'Outpatient (OP)',
+          alias: 'Individual Therapy',
+          rows: [
+            ['Time commitment', 'From one session a week, for as long as it is useful.'],
+            ['Intensity', 'The lightest level of care: sessions that fit around a full working week.'],
+            ['Treatment', 'Individual Therapy and Psychiatry-guided Medication Management, in person or virtual.'],
+            ['Suitable for', 'People stepping down from IOP, or whose needs are met by regular individual care.'],
+          ],
+        },
+      ] satisfies Level[],
+    },
     higher: {
-      label: 'Higher Level of Care · Palo Alto',
-      title: 'Need Detox or Residential Treatment first?',
-      text: 'Private, confidential Medical Detox (typically 7–10 days) and Residential Treatment (typically 3–4 weeks) on our Palo Alto estate, when the assessment calls for it. Both start with a call to admissions, and both step down into the San Jose programs with the same team.',
+      title: 'Higher Level of Care · Palo Alto',
+      items: [
+        {
+          id: 'detox',
+          name: 'Medical Detox',
+          rows: [
+            ['Time commitment', 'Typically 7–10 days, with 24-hour care on the private Palo Alto estate.'],
+            ['Intensity', 'The highest level of care: Medically supervised withdrawal when stopping is not yet safe at home.'],
+            ['Treatment', 'Withdrawal management with psychiatric evaluation and Medication Management; Mental Health and Substance Use treated together from the first day.'],
+            ['Suitable for', 'People who need medical support to stop safely before Residential or Outpatient treatment can begin.'],
+          ],
+        },
+        {
+          id: 'residential',
+          name: 'Residential Treatment',
+          rows: [
+            ['Time commitment', 'Typically 3–4 weeks, living on the private Palo Alto estate.'],
+            ['Intensity', 'Live-in treatment with structure and support around the clock, when home is not yet the right place to recover.'],
+            ['Treatment', 'Individual and Group Therapy with Psychiatry-guided Medication Management: Medically Integrated, personalized Mental Health and Substance Use Disorder Care in a private, comfortable setting.'],
+            ['Suitable for', 'People stepping down from Medical Detox, or who need more than a day program can give, before continuing in the San Jose programs with the same team.'],
+          ],
+        },
+      ] satisfies Level[],
+      /** Sergei's approved wording (Nov 4 2026); shown under the two tiles. */
+      networkLabel: 'Insurance:',
       network:
         'In-network agreements for Detox and Residential in Palo Alto are in progress and expected in 2027; today they are out of network, and a single case agreement may be possible. We check your benefits before anything is decided.',
       photo: {
@@ -142,10 +174,10 @@ export const page = {
         alt: 'A two-storey Mediterranean-style house above a landscaped garden with a stone fountain and patio chairs',
       } satisfies Photo,
     },
-    /** First of the two assessment prompts; the second is the closing section. */
+    /** First of the two assessment prompts; the second is the closing section. The call comes first. */
     notSure: {
-      title: 'Not sure which program fits?',
-      text: 'A complimentary, confidential assessment sets the right level of care. Request one online and we call you back, or call admissions.',
+      title: 'Not sure which level of care fits?',
+      text: 'A complimentary, confidential assessment sets the right level of care. Call admissions, or request one online and we call you back.',
     },
   },
 
@@ -161,8 +193,8 @@ export const page = {
     lead: 'One registration, one team, the right level of care.',
     steps: [
       {
-        title: 'Register or call',
-        text: 'Request a confidential assessment online in a few minutes, or call admissions. Either way the same team handles every program on this page.',
+        title: 'Call or register',
+        text: 'Call admissions, or request a confidential assessment online in a few minutes. Either way the same team handles every level of care on this page.',
       },
       {
         title: 'We verify your benefits',
@@ -182,6 +214,8 @@ export const page = {
     callPrefix: 'Call',
     /** LGTC's online registration form, framed as the assessment request. */
     register: 'Request a confidential assessment',
+    /** Jan's preferred click-through (Nov 5 2026): a quiet text link under the button pairs. */
+    siteLink: 'Learn more about Summit Estate at summitestate.com',
   },
 
   footerNote: {

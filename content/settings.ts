@@ -26,8 +26,9 @@ export const settings = {
   groupName: 'LGTC Psychiatric Group',
 
   /**
-   * TODO (open): whether the page links out to Summit's full site. The one
-   * outbound link on the page; set showFullSiteLink to false to remove it.
+   * The link out to Summit's full site: Jan's preferred click-through (Nov 5
+   * 2026), shown as a text line under the hero and closing buttons and in the
+   * footer note. Set showFullSiteLink to false to remove all three.
    */
   fullSiteUrl: 'https://summitestate.com/',
   showFullSiteLink: true,
