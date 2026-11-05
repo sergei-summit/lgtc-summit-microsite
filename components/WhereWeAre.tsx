@@ -2,8 +2,7 @@ import { page } from '@/content/page';
 
 /**
  * "Where we are": the two location cards from go.summitestate.com/outpatient
- * (Sergei, Nov 5 2026), placed under the footer note at the very bottom of the
- * page. Each card: icon tile, small label, name, one line of text and chips.
+ * (Sergei, Nov 5 2026), after Getting started and above the footer note. Each card: icon tile, small label, name, one line of text and chips.
  * The source page's "Virtual IOP anywhere in California" is not repeated:
  * this page names telehealth only as part of Hybrid IOP.
  */
@@ -12,18 +11,22 @@ export default function WhereWeAre() {
   return (
     <section aria-labelledby="where-title" className="border-t border-se-line bg-se-cream">
       <div className="mx-auto max-w-se-content px-4 py-14 sm:px-6 md:py-20">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-se-green-700">{whereWeAre.eyebrow}</p>
-        <h2 id="where-title" className="mt-3 text-3xl font-semibold text-se-green-700 sm:text-4xl">
-          {whereWeAre.title}
-        </h2>
+        <hgroup>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-se-green-700">{whereWeAre.eyebrow}</p>
+          <h2 id="where-title" className="mt-3 text-3xl font-semibold text-se-green-700 sm:text-4xl">
+            {whereWeAre.title}
+          </h2>
+        </hgroup>
         <ul className="mx-auto mt-10 grid max-w-4xl gap-5 md:grid-cols-2">
           {whereWeAre.items.map((item) => (
             <li key={item.title} className="flex flex-col rounded-3xl border border-se-line bg-se-paper p-7 shadow-se-card">
               <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-se-accent-100 text-se-green-700">
                 <LocationIcon name={item.icon} className="h-5 w-5" />
               </span>
-              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-se-green-700">{item.eyebrow}</p>
-              <h3 className="mt-2 text-2xl font-semibold leading-snug text-se-green-700">{item.title}</h3>
+              <hgroup className="mt-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-se-green-700">{item.eyebrow}</p>
+                <h3 className="mt-2 text-2xl font-semibold leading-snug text-se-green-700">{item.title}</h3>
+              </hgroup>
               <p className="mt-2.5 flex-1 text-sm leading-relaxed text-se-ink-muted">{item.text}</p>
               <ul className="mt-5 flex flex-wrap gap-2">
                 {item.points.map((point) => (

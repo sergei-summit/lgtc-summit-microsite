@@ -93,7 +93,7 @@ function Card({ card, groups, expectLabel }: { card: LevelCard; groups: RowGroup
         <div className="mt-4 grid gap-5">
           {groups.map((group, i) => (
             <div key={group.name ?? i}>
-              {group.name && <p className="mb-2 font-semibold text-se-green-700">{group.name}</p>}
+              {group.name && <h5 className="mb-2 font-semibold text-se-green-700">{group.name}</h5>}
               <dl className="grid gap-2.5 text-sm leading-relaxed text-se-ink">
                 {group.rows.map(([label, text]) => (
                   <div key={label}>

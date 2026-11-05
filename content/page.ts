@@ -10,8 +10,9 @@
  * the badges; Levels of Care as cards (the San Jose card with the lounge
  * photo, the three San Jose cards, then the Palo Alto row with one combined
  * Detox + Residential card); the care-team and who-can-benefit cards;
- * Getting started; the footer note; "Where we are" with the two location
- * cards. The earlier full-continuum version is kept on the branch
+ * Getting started (steps and the call button); "Where we are" with the two
+ * location cards; the footer note (confidentiality line, note, site link).
+ * The earlier full-continuum version is kept on the branch
  * lgtc-summit-microsite-full-continuum.
  *
  * Rules: "Summit Estate Recovery Centers" in the footer note and page title,
@@ -21,7 +22,7 @@
  * labels on the two cards, the tag chips on the level cards, and the labels
  * and chips on the two "Where we are" cards.
  * Detox and residential are call-only; the assessment / registration link
- * appears only next to outpatient care. Dual diagnosis stays the clinical
+ * no longer appears on the page (Sergei, Nov 5 2026). Dual diagnosis stays the clinical
  * core: "mental health, substance use, or both", never mental health alone.
  * Never promise 24/7 or instant answers. Colour is never the only signal:
  * every in-network or higher-level marker also carries a text label.
@@ -42,6 +43,7 @@ import dhcsBadge from './images/badge-dhcs.png';
 import legitScriptBadge from './images/badge-legitscript.png';
 
 export type Photo = { src: StaticImageData; alt: string };
+/** A labelled card: small label (kicker), heading and ticked list. */
 export type Card = { eyebrow: string; title: string; points: string[] };
 /** A card in the comparison set copied from the microsite's Levels of Care. */
 /** A level card: tag chip, name, clock line and blurb; its "What to expect" rows are a Level's rows. */
@@ -143,10 +145,10 @@ export const page = {
       {
         eyebrow: 'Your care team',
         title: 'A team, not a single clinician.',
+        /** Sergei's five lines (Nov 5 2026) in place of the microsite's six. */
         points: [
-          'Medical Director providing psychiatric oversight',
+          'Medical supervision by Addictionologists and Psychiatric Mental Health Practitioners',
           'Clinical Director providing clinical guidance',
-          'Supervision by an Addictionologist and Psychiatric Mental Health Practitioners',
           'Individual Therapist',
           'Group Facilitators',
           'Case Manager',
@@ -316,36 +318,38 @@ export const page = {
       },
       {
         title: 'We verify your benefits',
-        text: 'Outpatient Care is in-network with all major plans. Costs upfront, with no obligation. Detox and Residential Care in Palo Alto: PPO policies accepted, in-network agreements in progress, single case agreement possible.',
+        /** Two lines (Sergei, Nov 5 2026): outpatient, then Palo Alto on its own line. */
+        text: 'Outpatient Care is in-network with all major plans. Costs upfront, with no obligation.\nDetox and Residential Care in Palo Alto: PPO policies accepted, in-network agreements in progress, and single case agreement possible.',
       },
       {
         title: 'Assessment and consultation',
         text: 'A confidential assessment using the ASAM criteria, reviewed by our Clinical Director, sets your level of care: PHP, IOP or therapy, with Psychiatric Evaluation in conjunction with Medication Management.',
       },
     ],
-    higherLevel: 'Need Detox or Residential Care? Those programs start with a call to admissions.',
-    smallPrint: "All communication is confidential. Please don't include sensitive medical details. If you are in crisis, call or text 988.",
   },
 
   actions: {
     /** The visible label; the number follows it. */
     callPrefix: 'Call',
-    /** LGTC's online registration form, framed as the assessment request. */
+    /** LGTC's online registration form, framed as the assessment request. Not shown since Nov 5 2026 (Sergei removed the button from the closing section); kept for the RegisterButton. */
     register: 'Request a confidential assessment',
-    /** Jan's preferred click-through (Nov 5 2026): a quiet text link under the button pairs. */
+    /** Jan's preferred click-through (Nov 5 2026): the quiet text link in the hero. */
     siteLink: 'Learn more about Summit Estate at summitestate.com',
   },
 
+  /** The very bottom of the page, under "Where we are" (Sergei, Nov 5 2026): the confidentiality line, the note and the link. */
   footerNote: {
+    smallPrint: "All communication is confidential. Please don't include sensitive medical details. If you are in crisis, call or text 988.",
     text: `Summit Estate Recovery Centers. Dual-diagnosis care for adults, a collaborative partnership under the guidance and oversight of ${settings.groupName}.`,
     fullSiteLink: 'Explore the full Summit Estate site',
   },
 
   /**
    * "Where we are" from go.summitestate.com/outpatient (Sergei, Nov 5 2026),
-   * under the footer note at the very bottom. Copy as on that page, with two
-   * changes: capitalization per the house rule, and no "Virtual IOP anywhere
-   * in California" (this page names telehealth only as part of Hybrid IOP).
+   * after Getting started. Copy as on that page, with three changes:
+   * capitalization per the house rule, no "Virtual IOP anywhere in
+   * California" (this page names telehealth only as part of Hybrid IOP), and
+   * no "Adults 28+" (Sergei, Nov 5 2026).
    */
   whereWeAre: {
     eyebrow: 'Where we are',
@@ -360,9 +364,10 @@ export const page = {
       },
       {
         icon: 'home',
-        eyebrow: 'Adults 28+',
+        /** The source card says "Adults 28+" here and in the text; Sergei removed both (Nov 5 2026). */
+        eyebrow: 'Palo Alto',
         title: 'Summit Estate',
-        text: "Silicon Valley's finest rehab for adults 28+. Detox and Residential Care on a private estate in the rolling hills.",
+        text: "Silicon Valley's finest rehab: Detox and Residential Care on a private estate in the rolling hills.",
         points: ['Palo Alto, CA', 'Detox & Residential'],
       },
     ] satisfies LocationCard[],
