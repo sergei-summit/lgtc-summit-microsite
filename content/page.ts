@@ -215,6 +215,8 @@ export const page = {
     callPrefix: 'Call',
     /** LGTC's online registration form, framed as the assessment request. */
     register: 'Request a confidential assessment',
+    /** Text-link form of the registration link, under the hero's single Call button (Sergei, Nov 5 2026: the phone call is the primary call to action, not the assessment). */
+    registerLink: 'Or request a confidential assessment online',
     /** Jan's preferred click-through (Nov 5 2026): a quiet text link under the button pairs. */
     siteLink: 'Learn more about Summit Estate at summitestate.com',
   },

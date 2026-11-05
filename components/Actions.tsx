@@ -43,6 +43,20 @@ export function RegisterButton({ className = '', tone = 'light', variant = 'soli
   );
 }
 
+/** The registration link as a quiet text line, where the Call button stands alone (the hero). */
+export function RegisterLink({ className = '', tone = 'light' }: { className?: string; tone?: 'light' | 'dark' }) {
+  return (
+    <p className={`text-sm ${className}`}>
+      <a
+        href={settings.registrationUrl}
+        className={`font-semibold underline ${tone === 'dark' ? 'text-se-sand' : 'text-se-green-700'}`}
+      >
+        {page.actions.registerLink}
+      </a>
+    </p>
+  );
+}
+
 /**
  * Jan's preferred click-through (Nov 5 2026): the full Summit Estate site, as
  * a quiet text link under the button pairs. settings.showFullSiteLink hides it

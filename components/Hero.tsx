@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { page } from '@/content/page';
 import { settings } from '@/content/settings';
-import { CallButton, PhoneIcon, RegisterButton, SiteLink } from './Actions';
+import { CallButton, PhoneIcon, RegisterLink, SiteLink } from './Actions';
 import { FeatureIcon } from './FeatureIcon';
 
 /**
@@ -9,8 +9,9 @@ import { FeatureIcon } from './FeatureIcon';
  * the left, a framed photo of the San Jose Outpatient Center on the right with
  * the centre's name and in-network badge on its top right and a floating call
  * card on its bottom left (sm screens and up). The call to admissions is the
- * primary action; the assessment request sits beside it as the outline button,
- * and the link to the full Summit Estate site is a text line beneath.
+ * only button (Sergei: the primary call to action is the phone call, not the
+ * assessment); the registration link and the link to the full Summit Estate
+ * site are text lines beneath it.
  */
 export default function Hero() {
   const { hero } = page;
@@ -42,11 +43,11 @@ export default function Hero() {
               </li>
             ))}
           </ul>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mt-8">
             <CallButton className="min-h-14 px-8 text-lg" />
-            <RegisterButton variant="outline" className="min-h-14 px-8 text-lg" />
           </div>
-          <SiteLink className="mt-5" />
+          <RegisterLink className="mt-5" />
+          <SiteLink className="mt-2" />
         </div>
 
         <div className="relative">
