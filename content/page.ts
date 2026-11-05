@@ -21,8 +21,8 @@
  * core: "mental health, substance use, or both", never mental health alone.
  * Never promise 24/7 or instant answers. Colour is never the only signal:
  * every in-network or higher-level marker also carries a text label.
- * "Complimentary" appears once, in the "Not sure which program fits?" band,
- * pending LGTC's confirmation.
+ * "Complimentary" no longer appears: the band that carried it was deleted on
+ * Nov 5 2026.
  */
 import type { StaticImageData } from 'next/image';
 import { settings } from './settings';
@@ -245,10 +245,6 @@ export const page = {
       } satisfies Photo,
     },
     /** First of the two assessment prompts; the second is the closing section. The call comes first. */
-    notSure: {
-      title: 'Not sure which level of care fits?',
-      text: 'A complimentary, confidential assessment sets the right level of care. Call admissions, or request one online and we call you back.',
-    },
     /**
      * For comparison only (Sergei, Nov 5 2026): the card set from
      * go.summitestate.com/microsite, in a dashed frame under the tiles so he

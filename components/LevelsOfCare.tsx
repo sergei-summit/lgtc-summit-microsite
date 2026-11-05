@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { page, type Level } from '@/content/page';
-import { CallButton, RegisterButton } from './Actions';
 import CompareLevelCards from './CompareLevelCards';
 
 /**
@@ -74,16 +73,6 @@ export default function LevelsOfCare() {
         </div>
         <CompareLevelCards />
 
-        <div className="mt-12 flex flex-col items-start gap-5 rounded-3xl bg-se-green-800 p-7 text-se-sand md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="text-xl font-semibold text-white">{levels.notSure.title}</p>
-            <p className="mt-2 max-w-2xl leading-relaxed">{levels.notSure.text}</p>
-          </div>
-          <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-            <CallButton tone="dark" />
-            <RegisterButton tone="dark" variant="outline" />
-          </div>
-        </div>
       </div>
     </section>
   );
