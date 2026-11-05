@@ -5,10 +5,10 @@
  *
  * Outpatient-first version (Nov 2026). The page is hosted by LGTC for people
  * who are already LGTC patients or are referred inside LGTC. Order (Sergei,
- * Nov 5 2026): H1, the care-team and who-can-benefit cards, the San Jose
- * photo, then the intro, the four feature lines and the summitestate.com
- * link; the badges; Levels of Care as cards (San Jose row, then the Palo Alto
- * row with one combined Detox + Residential card); Getting started. The
+ * Nov 5 2026): H1, intro, the four feature lines and the summitestate.com
+ * link, then the San Jose photo; the badges; Levels of Care as cards (San
+ * Jose row, then the Palo Alto row with one combined Detox + Residential
+ * card); the care-team and who-can-benefit cards; Getting started. The
  * earlier full-continuum version is kept on the branch
  * lgtc-summit-microsite-full-continuum.
  *
@@ -125,8 +125,8 @@ export const page = {
   },
 
   /**
-   * Two cards between the H1 and the hero photo (Sergei, Nov 5 2026): the
-   * team behind the programs first, then who they are for. Copied from the
+   * Two cards just above Getting started (Sergei, Nov 5 2026): the team
+   * behind the programs first, then who they are for. Copied from the
    * Summit Estate microsite (go.summitestate.com/microsite); role titles are
    * capitalized per the copy rule, the lists are otherwise the microsite's.
    */

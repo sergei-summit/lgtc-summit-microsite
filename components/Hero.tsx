@@ -3,16 +3,15 @@ import { page } from '@/content/page';
 import { settings } from '@/content/settings';
 import { PhoneIcon, SiteLink } from './Actions';
 import { FeatureIcon } from './FeatureIcon';
-import BenefitAndTeam from './BenefitAndTeam';
 
 /**
- * Hero, in Sergei's order of Nov 5 2026: the H1; the care-team and
- * who-can-benefit cards; the San Jose Outpatient Center photo, full width,
- * with the centre's name and in-network badge on its top right and a floating
- * call card on its bottom left (sm screens and up); then the intro, the four
- * feature lines and the text link to the full Summit Estate site. No button:
- * the call to admissions sits in the sub-bar (and the mobile bar), and the
- * registration link appears only in the closing section.
+ * Hero, in Sergei's order of Nov 5 2026 (late evening): the H1, the intro,
+ * the four feature lines and the text link to the full Summit Estate site,
+ * then the San Jose Outpatient Center photo, full width, with the centre's
+ * name and in-network badge on its top right and a floating call card on its
+ * bottom left (sm screens and up). No button: the call to admissions sits in
+ * the sub-bar (and the mobile bar), and the registration link appears only in
+ * the closing section.
  */
 export default function Hero() {
   const { hero } = page;
@@ -26,9 +25,28 @@ export default function Hero() {
           {hero.title} <span className="text-se-accent-700">{hero.titleAccent}</span>
         </h1>
 
-        <BenefitAndTeam className="mt-10" />
 
-        <div className="relative mt-10">
+        <div className="mt-6">
+          <p className="max-w-3xl text-lg leading-relaxed text-se-ink">{hero.text}</p>
+          <ul className="mt-7 grid gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
+            {hero.features.map((feature) => (
+              <li key={feature.title} className="flex items-start gap-3">
+                {/* One title line tall, so the badge centres on the title's first line. */}
+                <span className="flex h-[1.375em] shrink-0 items-center text-[0.95rem] leading-snug">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-se-accent-100 text-se-green-600">
+                    <FeatureIcon name={feature.icon} className="h-4 w-4" />
+                  </span>
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-[0.95rem] font-semibold leading-snug text-se-ink">{feature.title}</span>
+                  <span className="mt-0.5 block text-sm leading-snug text-se-ink-muted">{feature.proof}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+          <SiteLink className="mt-8" />
+        </div>
+        <div className="relative mt-10 sm:mb-8">
           <div className="relative h-[16rem] w-full overflow-hidden rounded-[2rem] shadow-se-card sm:h-[22rem] lg:h-[28rem]">
             <Image
               src={hero.photo.src}
@@ -58,26 +76,6 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="mt-10 sm:mt-16">
-          <p className="max-w-3xl text-lg leading-relaxed text-se-ink">{hero.text}</p>
-          <ul className="mt-7 grid gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
-            {hero.features.map((feature) => (
-              <li key={feature.title} className="flex items-start gap-3">
-                {/* One title line tall, so the badge centres on the title's first line. */}
-                <span className="flex h-[1.375em] shrink-0 items-center text-[0.95rem] leading-snug">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-se-accent-100 text-se-green-600">
-                    <FeatureIcon name={feature.icon} className="h-4 w-4" />
-                  </span>
-                </span>
-                <span className="min-w-0">
-                  <span className="block text-[0.95rem] font-semibold leading-snug text-se-ink">{feature.title}</span>
-                  <span className="mt-0.5 block text-sm leading-snug text-se-ink-muted">{feature.proof}</span>
-                </span>
-              </li>
-            ))}
-          </ul>
-          <SiteLink className="mt-8" />
-        </div>
       </div>
     </section>
   );
