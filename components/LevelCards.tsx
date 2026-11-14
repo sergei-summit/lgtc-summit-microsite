@@ -5,8 +5,8 @@ import { ArrowIcon, CallButton } from './Actions';
 /**
  * The level cards (Sergei's brief, Nov 5 2026): the microsite's card format
  * with this page's headings and positions. First the San Jose card from the
- * live page (lounge photo, heading, description), then PHP, IOP, OP. Next row, under "Higher Level of Care": the estate
- * photo with its info card and one combined Detox + Residential card. Under
+ * live page (lounge photo, heading, description), then PHP, IOP, OP. Next row, under "Higher Level of Care": one
+ * combined Detox + Residential card, then the estate photo with its info card. Under
  * both rows, one long "Not sure" card with LGTC's number. Each card: tag chip, name, clock line,
  * blurb and a "What to expect" disclosure holding the Intensity / Treatment /
  * Suitable for rows. No number circles: the order is by setting, not a path
@@ -73,19 +73,19 @@ export default function LevelCards() {
 
       <h3 className="mt-12 text-2xl font-semibold text-se-green-700">{cards.higherTitle}</h3>
       <ul className="mt-5 grid gap-5 md:grid-cols-2">
-        <li className="relative min-h-[16rem] overflow-hidden rounded-3xl shadow-se-card">
-          <Image src={higher.photo.src} alt={higher.photo.alt} fill sizes="(min-width: 768px) 600px, 100vw" className="object-cover" />
-          <div className="absolute left-4 top-4 max-w-[16rem] rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card">
-            <p className="text-sm text-se-sand">{higher.badge.label}</p>
-            <p className="text-lg font-semibold leading-tight text-white">{higher.badge.value}</p>
-            <p className="mt-1 text-sm leading-snug text-se-sand">{higher.badge.note}</p>
-          </div>
-        </li>
         <Card
           card={cards.combined}
           groups={higher.items.map((level) => ({ name: level.name, rows: level.rows }))}
           expectLabel={cards.expectLabel}
         />
+        <li className="relative min-h-[16rem] overflow-hidden rounded-3xl shadow-se-card">
+          <Image src={higher.photo.src} alt={higher.photo.alt} fill sizes="(min-width: 768px) 600px, 100vw" className="object-cover" />
+          <div className="absolute right-4 top-4 max-w-[16rem] rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card">
+            <p className="text-sm text-se-sand">{higher.badge.label}</p>
+            <p className="text-lg font-semibold leading-tight text-white">{higher.badge.value}</p>
+            <p className="mt-1 text-sm leading-snug text-se-sand">{higher.badge.note}</p>
+          </div>
+        </li>
       </ul>
 
       {/* "Not sure" is about choosing a placement across every level, not about
