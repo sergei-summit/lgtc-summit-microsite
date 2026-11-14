@@ -319,7 +319,7 @@ export const page = {
         },
         outpatient: {
           tag: 'OP',
-          name: 'Outpatient Program',
+          name: 'Outpatient Therapy Program (OP)',
           meta: 'From one session a week \u00b7 for as long as it is useful',
           blurb: 'Also called Individual Therapy. Ongoing Individual Therapy and Medication Management for people who are stable and want to stay on track.',
         },
