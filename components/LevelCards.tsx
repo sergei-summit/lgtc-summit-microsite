@@ -75,7 +75,7 @@ export default function LevelCards() {
       <ul className="mt-5 grid gap-5 md:grid-cols-3">
         <li className="relative min-h-[16rem] overflow-hidden rounded-3xl shadow-se-card">
           <Image src={higher.photo.src} alt={higher.photo.alt} fill sizes="(min-width: 768px) 400px, 100vw" className="object-cover" />
-          <div className="absolute right-4 top-4 max-w-[16rem] rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card">
+          <div className="absolute left-4 top-4 max-w-[16rem] rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card">
             <p className="text-sm text-se-sand">{higher.badge.label}</p>
             <p className="text-lg font-semibold leading-tight text-white">{higher.badge.value}</p>
             <p className="mt-1 text-sm leading-snug text-se-sand">{higher.badge.note}</p>
