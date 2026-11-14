@@ -119,6 +119,9 @@ export const page = {
    */
   trust: {
     label: 'Accreditations and reviews',
+    /** Sergei, Nov 14 2026: badges are shown without links for now. The hrefs
+     * below are kept for future use; set this to true to link them again. */
+    linkBadges: false,
     newTab: 'opens in a new tab',
     badges: [
       {
