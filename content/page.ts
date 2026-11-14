@@ -97,10 +97,10 @@ export const page = {
     text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy with Mental Health and Substance Use treated together, in San Jose and via Hybrid Intensive Outpatient across California, with one Psychiatry-led team. Broadly In-Network for Outpatient Levels of Care above.\nHigher Level, Residential Care step-up available on the private Palo Alto estate, for when recovery is not yet safe at home.',
     /** One line per outpatient level, then the team. Each pairs the service with its proof point. */
     features: [
+      { icon: 'shield', title: 'Board-Certified Team', proof: 'Psychiatry and Addiction Medicine, in-network with all major plans' },
       { icon: 'layers', title: 'Partial Hospitalization (PHP)' },
       { icon: 'calendar', title: 'Intensive Outpatient (IOP)' },
       { icon: 'brain', title: 'Outpatient Therapy (OP)' },
-      { icon: 'shield', title: 'Board-Certified Team', proof: 'Psychiatry and Addiction Medicine, in-network with all major plans' },
     ] satisfies { icon: FeatureIconName; title: string; proof?: string }[],
     insuranceBadge: { label: 'San Jose Outpatient Center', value: 'Broadly In-Network for Outpatient' },
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
