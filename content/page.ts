@@ -408,7 +408,7 @@ export const page = {
         eyebrow: 'Palo Alto',
         title: 'Summit Estate',
         text: "Silicon Valley's finest rehab: Detox and Residential Care on a private estate in the rolling hills.",
-        points: ['Palo Alto, CA', 'Detox & Residential'],
+        points: ['Detox & Residential'],
       },
     ] satisfies LocationCard[],
   },
