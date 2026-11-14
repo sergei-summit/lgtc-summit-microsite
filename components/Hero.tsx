@@ -28,7 +28,7 @@ export default function Hero() {
 
         <div className="mt-6">
           <p className="max-w-3xl whitespace-pre-line text-lg leading-relaxed text-se-ink">{hero.text}</p>
-          <ul className="mt-7 grid gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className={hero.features.length > 1 ? 'mt-7 grid gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-4' : 'mt-7 grid max-w-3xl'}>
             {hero.features.map((feature) => (
               <li key={feature.title} className="flex items-start gap-3">
                 {/* One title line tall, so the badge centres on the title's first line. */}
