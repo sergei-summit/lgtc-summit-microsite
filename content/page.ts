@@ -99,7 +99,7 @@ export const page = {
     features: [
       { icon: 'shield', title: 'Board-Certified Team', proof: 'Psychiatry and Addiction Medicine, in-network with all major plans' },
     ] satisfies { icon: FeatureIconName; title: string; proof?: string }[],
-    insuranceBadge: { label: 'San Jose Outpatient Center', value: 'Broadly In-Network for Outpatient' },
+    insuranceBadge: { label: 'San Jose Outpatient Center', value: 'Most major insurances' },
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
