@@ -22,9 +22,9 @@ export default function Hero() {
         <div>
         <h1
           id="hero-title"
-          className="max-w-4xl text-[2.3rem] font-semibold leading-[1.08] text-se-green-700 sm:text-[2.9rem] lg:text-[2.6rem]"
+          className="max-w-4xl text-[2.3rem] font-semibold leading-[1.08] text-se-green-700 sm:text-[2.9rem] lg:text-[3rem]"
         >
-          {hero.title} <span className="text-se-accent-700">{hero.titleAccent}</span>
+          {keepTogether(hero.title)} <span className="text-se-accent-700">{hero.titleAccent}</span>
         </h1>
 
 
@@ -82,5 +82,22 @@ export default function Hero() {
 
       </div>
     </section>
+  );
+}
+
+/**
+ * Keeps hyphenated words ("Dual-Diagnosis", "World-class") and "San Jose" on
+ * one line in the headline, so it never breaks as "Dual-" / "Diagnosis" or
+ * "San" / "Jose".
+ */
+function keepTogether(text: string) {
+  return text.split(/(San Jose|\S+-\S+)/).map((part, i) =>
+    i % 2 === 1 ? (
+      <span key={i} className="whitespace-nowrap">
+        {part}
+      </span>
+    ) : (
+      part
+    ),
   );
 }
