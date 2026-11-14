@@ -94,7 +94,7 @@ export const page = {
     /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
     title: 'World-class addiction treatment in San Jose / Silicon Valley,',
     titleAccent: 'built around your life.',
-    text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy for Mental Health and Substance Use Disorder Care, in person in San Jose, with one Psychiatry-led team.',
+    text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy for Mental Health and Substance Use Disorder Care, in person in San Jose, with one Psychiatry-led team. Broadly In-Network for Outpatient Levels of Care above.\nHigher Level, Residential Care step-up available on the private Palo Alto estate, for when recovery is not yet safe at home.',
     /** One line per outpatient level, then the team. Each pairs the service with its proof point. */
     features: [
       { icon: 'layers', title: 'Partial Hospitalization (PHP)' },
