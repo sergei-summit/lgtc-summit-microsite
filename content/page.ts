@@ -92,7 +92,7 @@ export const page = {
 
   hero: {
     /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
-    title: 'Summit Estate brings world-class Dual-Diagnosis treatment to San Jose / Silicon Valley,',
+    title: 'Summit Estate with LGTC offer World-class Dual-Diagnosis care in San Jose / Silicon Valley,',
     titleAccent: 'built around your life.',
     text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy with Mental Health and Substance Use treated together, in San Jose and via Hybrid IOP, with one Psychiatry-led team.\nNow In-Network with Most Major Insurances',
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
