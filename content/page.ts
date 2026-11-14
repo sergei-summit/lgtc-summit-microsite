@@ -94,7 +94,7 @@ export const page = {
     /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
     title: 'World-class Dual-Diagnosis treatment in San Jose / Silicon Valley,',
     titleAccent: 'built around your life.',
-    text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy with Mental Health and Substance Use treated together, in San Jose and via Hybrid IOP, with one Psychiatry-led team. Broadly In-Network for Outpatient Levels of Care above.\nIf recovery is not yet safe at home, a step-up to Detox and Residential Care is available on the private Palo Alto estate.',
+    text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy with Mental Health and Substance Use treated together, in San Jose and via Hybrid IOP, with one Psychiatry-led team. Broadly In-Network for Outpatient Levels of Care above.',
     /** Only the team line: the three program lines repeated the Levels of Care cards (Sergei, Nov 14 2026). */
     features: [
       { icon: 'shield', title: 'Board-Certified Team', proof: 'Psychiatry and Addiction Medicine, in-network with all major plans' },
