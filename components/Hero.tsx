@@ -41,7 +41,7 @@ export default function Hero() {
                 </span>
                 <span className="min-w-0">
                   <span className="block text-[0.95rem] font-semibold leading-snug text-se-ink">{feature.title}</span>
-                  {'proof' in feature && feature.proof ? (
+                  {feature.proof ? (
                     <span className="mt-0.5 block text-sm leading-snug text-se-ink-muted">{feature.proof}</span>
                   ) : null}
                 </span>
