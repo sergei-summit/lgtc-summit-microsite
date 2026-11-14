@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import { page, type Level, type LevelCard } from '@/content/page';
-import { ArrowIcon, CallButton } from './Actions';
+import { ArrowIcon } from './Actions';
 
 /**
  * The level cards (Sergei's brief, Nov 5 2026): the microsite's card format
  * with this page's headings and positions. First the San Jose card from the
  * live page (lounge photo, heading, description), then PHP, IOP, OP. Next row, under "Higher Level of Care": one
- * combined Detox + Residential card, then the estate photo with its info card. Under
- * both rows, one long "Not sure" card with LGTC's number. Each card: tag chip, name, clock line,
+ * combined Detox + Residential card, then the estate photo with its info card. The "Not
+ * sure" card was removed (Sergei, Nov 14 2026); its copy stays in page.ts. Each card: tag chip, name, clock line,
  * blurb and a "What to expect" disclosure holding the Intensity / Treatment /
  * Suitable for rows. No number circles: the order is by setting, not a path
  * through care.
@@ -60,21 +60,6 @@ export default function LevelCards() {
         </li>
       </ul>
 
-      {/* "Not sure" is about choosing a placement across every level, not about
-          Higher Level of Care, so it is one long card under both rows
-          (Sergei, Nov 14 2026): wording left, call button right from md up. */}
-      <aside
-        aria-labelledby="not-sure-title"
-        className="mt-8 flex flex-col gap-6 rounded-3xl bg-se-green-800 p-7 text-se-sand shadow-se-card md:flex-row md:items-center md:justify-between md:gap-10 md:px-10 md:py-8"
-      >
-        <div className="max-w-3xl">
-          <h3 id="not-sure-title" className="text-2xl font-semibold leading-snug text-white">
-            {cards.notSure.title}
-          </h3>
-          <p className="mt-3 text-sm leading-relaxed">{cards.notSure.text}</p>
-        </div>
-        <CallButton tone="dark" className="shrink-0 self-start md:self-center" />
-      </aside>
     </div>
   );
 }

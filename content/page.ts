@@ -336,6 +336,7 @@ export const page = {
         meta: 'Detox typically 7\u201310 days \u00b7 Residential typically 3\u20134 weeks',
         blurb: 'Medically supervised Detox and Residential Treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
       } satisfies LevelCard,
+      /** Not shown since Nov 14 2026 (Sergei removed the card); kept for later use. */
       notSure: {
         title: 'Not sure what you need?',
         text: 'The level of care is set after an assessment with a therapist and a review by our Clinical Director. One call starts it, and admissions can check what your insurance covers.',
