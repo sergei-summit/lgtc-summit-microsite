@@ -22,7 +22,7 @@ export default function Hero() {
         <div>
         <h1
           id="hero-title"
-          className="max-w-4xl text-[2.3rem] font-semibold leading-[1.08] text-se-green-700 sm:text-[2.9rem] lg:text-[3rem]"
+          className="max-w-4xl text-[2.3rem] font-semibold leading-[1.08] text-se-green-700 sm:text-[2.9rem] lg:text-[2.6rem]"
         >
           {hero.title} <span className="text-se-accent-700">{hero.titleAccent}</span>
         </h1>
