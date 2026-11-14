@@ -5,9 +5,9 @@ import { ArrowIcon, CallButton } from './Actions';
 /**
  * The level cards (Sergei's brief, Nov 5 2026): the microsite's card format
  * with this page's headings and positions. First the San Jose card from the
- * live page (lounge photo, heading, description), then PHP, IOP, OP. Bottom row, under "Higher Level of Care": the estate
- * photo with its info card, one combined Detox + Residential card and the
- * "Not sure" card with LGTC's number. Each card: tag chip, name, clock line,
+ * live page (lounge photo, heading, description), then PHP, IOP, OP. Next row, under "Higher Level of Care": the estate
+ * photo with its info card and one combined Detox + Residential card. Under
+ * both rows, one long "Not sure" card with LGTC's number. Each card: tag chip, name, clock line,
  * blurb and a "What to expect" disclosure holding the Intensity / Treatment /
  * Suitable for rows. No number circles: the order is by setting, not a path
  * through care.
@@ -72,9 +72,9 @@ export default function LevelCards() {
       </ul>
 
       <h3 className="mt-12 text-2xl font-semibold text-se-green-700">{cards.higherTitle}</h3>
-      <ul className="mt-5 grid gap-5 md:grid-cols-3">
+      <ul className="mt-5 grid gap-5 md:grid-cols-2">
         <li className="relative min-h-[16rem] overflow-hidden rounded-3xl shadow-se-card">
-          <Image src={higher.photo.src} alt={higher.photo.alt} fill sizes="(min-width: 768px) 400px, 100vw" className="object-cover" />
+          <Image src={higher.photo.src} alt={higher.photo.alt} fill sizes="(min-width: 768px) 600px, 100vw" className="object-cover" />
           <div className="absolute left-4 top-4 max-w-[16rem] rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card">
             <p className="text-sm text-se-sand">{higher.badge.label}</p>
             <p className="text-lg font-semibold leading-tight text-white">{higher.badge.value}</p>
@@ -86,12 +86,23 @@ export default function LevelCards() {
           groups={higher.items.map((level) => ({ name: level.name, rows: level.rows }))}
           expectLabel={cards.expectLabel}
         />
-        <li className="flex flex-col justify-center rounded-3xl bg-se-green-800 p-7 text-se-sand shadow-se-card">
-          <h4 className="text-2xl font-semibold leading-snug text-white">{cards.notSure.title}</h4>
-          <p className="mt-3 text-sm leading-relaxed">{cards.notSure.text}</p>
-          <CallButton tone="dark" className="mt-6 self-start" />
-        </li>
       </ul>
+
+      {/* "Not sure" is about choosing a placement across every level, not about
+          Higher Level of Care, so it is one long card under both rows
+          (Sergei, Nov 14 2026): wording left, call button right from md up. */}
+      <aside
+        aria-labelledby="not-sure-title"
+        className="mt-8 flex flex-col gap-6 rounded-3xl bg-se-green-800 p-7 text-se-sand shadow-se-card md:flex-row md:items-center md:justify-between md:gap-10 md:px-10 md:py-8"
+      >
+        <div className="max-w-3xl">
+          <h3 id="not-sure-title" className="text-2xl font-semibold leading-snug text-white">
+            {cards.notSure.title}
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed">{cards.notSure.text}</p>
+        </div>
+        <CallButton tone="dark" className="shrink-0 self-start md:self-center" />
+      </aside>
     </div>
   );
 }
