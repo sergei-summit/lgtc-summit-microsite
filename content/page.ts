@@ -95,9 +95,13 @@ export const page = {
     title: 'World-class Dual-Diagnosis treatment in San Jose / Silicon Valley,',
     titleAccent: 'built around your life.',
     text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy with Mental Health and Substance Use treated together, in San Jose and via Hybrid IOP, with one Psychiatry-led team. Broadly In-Network for Outpatient Levels of Care above.',
-    /** Only the team line: the three program lines repeated the Levels of Care cards (Sergei, Nov 14 2026). */
+    /** The team line, then three badges in the style of go.summitestate.com/outpatient
+     * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
     features: [
       { icon: 'shield', title: 'Board-Certified Team', proof: 'Psychiatry and Addiction Medicine, in-network with all major plans' },
+      { icon: 'compass', title: 'Day, Evening & Hybrid' },
+      { icon: 'briefcase', title: 'Programming built around work and family' },
+      { icon: 'heart', title: 'Individualized Care' },
     ] satisfies { icon: FeatureIconName; title: string; proof?: string }[],
     insuranceBadge: { label: 'San Jose Outpatient Center', value: 'Most major insurances' },
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
