@@ -98,10 +98,12 @@ export const page = {
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
      * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
     features: [
-      { icon: 'shield', title: 'Psychiatric Oversight, Board-Certified Teams' },
+      { icon: 'award', title: 'Psychiatric Oversight, Board-Certified Teams' },
       { icon: 'compass', title: 'Day, Evening & Hybrid' },
       { icon: 'briefcase', title: 'Programming built around work and family' },
       { icon: 'heart', title: 'Individualized Care' },
+      /** From go.summitestate.com/outpatient, with its shield icon (Sergei, Nov 14 2026). */
+      { icon: 'shield', title: 'We accept most major insurances' },
     ] as { icon: FeatureIconName; title: string; proof?: string }[],
     insuranceBadge: { label: 'San Jose Outpatient Center', value: 'Most major insurances' },
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },

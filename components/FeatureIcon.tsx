@@ -2,7 +2,7 @@
  * Thin-line icons for the hero feature list, copied from Summit-Landing-Pages
  * (Astro/src/components/ui.tsx, `Icon`) so the badges match /microsite.
  */
-export type FeatureIconName = 'brain' | 'layers' | 'home' | 'compass' | 'calendar' | 'shield' | 'briefcase' | 'heart';
+export type FeatureIconName = 'brain' | 'layers' | 'home' | 'compass' | 'calendar' | 'shield' | 'briefcase' | 'heart' | 'award';
 
 export function FeatureIcon({ name, className = 'h-4 w-4' }: { name: FeatureIconName; className?: string }) {
   const common = {
@@ -57,6 +57,13 @@ export function FeatureIcon({ name, className = 'h-4 w-4' }: { name: FeatureIcon
         <svg {...common}>
           <rect x="3" y="7" width="18" height="13" rx="2" />
           <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18" />
+        </svg>
+      );
+    case 'award':
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="9" r="6" />
+          <path d="m8.5 13.9-1.5 7.1 5-3 5 3-1.5-7.1" />
         </svg>
       );
     case 'heart':
