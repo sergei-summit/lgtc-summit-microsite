@@ -12,6 +12,9 @@ import { ArrowIcon, CallButton } from './Actions';
  * Suitable for rows. No number circles: the order is by setting, not a path
  * through care.
  */
+/** Same optical sizing as go.summitestate.com/outpatient-backup: wide logos shorter, square ones taller. */
+const LOGO_SCALE = 44;
+
 export default function LevelCards() {
   const { cards, outpatient, higher } = page.levels;
   return (
@@ -35,6 +38,31 @@ export default function LevelCards() {
             {cards.outpatientTitle}
           </h3>
           <p className="mt-3 leading-relaxed text-se-ink">{cards.outpatientCard.text}</p>
+        </div>
+        {/* Insurance block from go.summitestate.com/outpatient-backup: a full-width
+            row at the foot of the San Jose card. Logos are shown in one ink colour,
+            as on that page; each keeps its carrier name as alt text. */}
+        <div className="border-t border-se-line bg-se-paper px-6 py-6 md:col-span-2 md:px-8">
+          <h4 className="text-center text-xs font-semibold uppercase tracking-[0.14em] text-se-ink-muted">
+            {cards.insurance.title}
+          </h4>
+          <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-7 gap-y-4">
+            {cards.insurance.carriers.map((c) => (
+              <li key={c.name} className="flex h-9 items-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={c.logo.src}
+                  alt={c.name}
+                  width={c.width}
+                  height={c.height}
+                  loading="lazy"
+                  decoding="async"
+                  style={{ height: `${Math.round((LOGO_SCALE / Math.sqrt(c.width / c.height)))}px`, width: 'auto', filter: 'brightness(0)', opacity: 0.6 }}
+                  className="max-w-full object-contain"
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </article>
       <ul className="mt-5 grid gap-5 md:grid-cols-3">

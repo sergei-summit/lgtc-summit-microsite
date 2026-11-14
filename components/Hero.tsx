@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { page } from '@/content/page';
 import { settings } from '@/content/settings';
-import { PhoneIcon, SiteLink } from './Actions';
+import { PhoneIcon } from './Actions';
 import { FeatureIcon } from './FeatureIcon';
 
 /**
@@ -39,12 +39,13 @@ export default function Hero() {
                 </span>
                 <span className="min-w-0">
                   <span className="block text-[0.95rem] font-semibold leading-snug text-se-ink">{feature.title}</span>
-                  <span className="mt-0.5 block text-sm leading-snug text-se-ink-muted">{feature.proof}</span>
+                  {'proof' in feature && feature.proof ? (
+                    <span className="mt-0.5 block text-sm leading-snug text-se-ink-muted">{feature.proof}</span>
+                  ) : null}
                 </span>
               </li>
             ))}
           </ul>
-          <SiteLink className="mt-8" />
         </div>
         <div className="relative mt-10 sm:mb-8">
           <div className="relative h-[16rem] w-full overflow-hidden rounded-[2rem] shadow-se-card sm:h-[22rem] lg:h-[28rem]">

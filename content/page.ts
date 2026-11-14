@@ -41,6 +41,20 @@ import jointCommissionBadge from './images/badge-joint-commission.png';
 import carfBadge from './images/badge-carf.png';
 import dhcsBadge from './images/badge-dhcs.png';
 import legitScriptBadge from './images/badge-legitscript.png';
+import carrier0 from './images/carriers/uhc.svg';
+import carrier1 from './images/carriers/optum.svg';
+import carrier2 from './images/carriers/aetna.svg';
+import carrier3 from './images/carriers/blueshield.svg';
+import carrier4 from './images/carriers/anthem.svg';
+import carrier5 from './images/carriers/kp.svg';
+import carrier6 from './images/carriers/compsych.svg';
+import carrier7 from './images/carriers/carelon.svg';
+import carrier8 from './images/carriers/magellan.svg';
+import carrier9 from './images/carriers/healthnet.svg';
+import carrier10 from './images/carriers/alliance.png';
+import carrier11 from './images/carriers/vhp.png';
+import carrier12 from './images/carriers/cigna.svg';
+import carrier13 from './images/carriers/scfhp.png';
 
 export type Photo = { src: StaticImageData; alt: string };
 /** A labelled card: small label (kicker), heading and ticked list. */
@@ -78,17 +92,17 @@ export const page = {
 
   hero: {
     /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
-    title: 'The right level of care',
-    titleAccent: 'without putting your life on hold',
+    title: 'World-class addiction treatment in San Jose / Silicon Valley,',
+    titleAccent: 'built around your life.',
     text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy for Mental Health and Substance Use Disorder Care, in person in San Jose, with one Psychiatry-led team.',
     /** One line per outpatient level, then the team. Each pairs the service with its proof point. */
     features: [
-      { icon: 'layers', title: 'Partial Hospitalization (PHP)', proof: 'Structured Day Treatment, home every evening' },
-      { icon: 'calendar', title: 'Intensive Outpatient (IOP)', proof: 'Day, evening or Hybrid IOP (In person and telehealth), around work, school and family' },
-      { icon: 'brain', title: 'Outpatient Therapy (OP)', proof: 'Ongoing Individual Therapy and Medication Management' },
+      { icon: 'layers', title: 'Partial Hospitalization (PHP)' },
+      { icon: 'calendar', title: 'Intensive Outpatient (IOP)' },
+      { icon: 'brain', title: 'Outpatient Therapy (OP)' },
       { icon: 'shield', title: 'Board-Certified Team', proof: 'Psychiatry and Addiction Medicine, in-network with all major plans' },
-    ] satisfies { icon: FeatureIconName; title: string; proof: string }[],
-    insuranceBadge: { label: 'San Jose Outpatient Center', value: 'In-network with all major plans' },
+    ] satisfies { icon: FeatureIconName; title: string; proof?: string }[],
+    insuranceBadge: { label: 'San Jose Outpatient Center', value: 'Broadly In-Network for Outpatient' },
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
@@ -265,6 +279,28 @@ export const page = {
           src: sanJosePhoto,
           alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
         } satisfies Photo,
+      },
+      /** "We Accept Most Major Insurances" block from go.summitestate.com/outpatient-backup
+       * (Sergei, Nov 14 2026, preview comment on the San Jose card): same title,
+       * carriers, order and logo files as that page. */
+      insurance: {
+        title: 'We Accept Most Major Insurances',
+        carriers: [
+          { name: 'UnitedHealthcare', logo: carrier0, width: 564, height: 177 },
+          { name: 'Optum', logo: carrier1, width: 708, height: 205 },
+          { name: 'Aetna', logo: carrier2, width: 186, height: 36 },
+          { name: 'Blue Shield of California', logo: carrier3, width: 600, height: 232 },
+          { name: 'Anthem Blue Cross', logo: carrier4, width: 605, height: 216 },
+          { name: 'Kaiser Permanente', logo: carrier5, width: 486, height: 55 },
+          { name: 'ComPsych', logo: carrier6, width: 1184, height: 208 },
+          { name: 'Carelon Behavioral Health', logo: carrier7, width: 597, height: 154 },
+          { name: 'Magellan Health', logo: carrier8, width: 600, height: 219 },
+          { name: 'Health Net', logo: carrier9, width: 652, height: 311 },
+          { name: 'Central California Alliance for Health', logo: carrier10, width: 561, height: 561 },
+          { name: 'Valley Health Plan', logo: carrier11, width: 1203, height: 215 },
+          { name: 'Cigna', logo: carrier12, width: 750, height: 246 },
+          { name: 'Santa Clara Family Health Plan', logo: carrier13, width: 840, height: 215 },
+        ] satisfies { name: string; logo: StaticImageData; width: number; height: number }[],
       },
       higherTitle: 'Higher Level of Care \u00b7 Palo Alto',
       expectLabel: 'What to expect',
