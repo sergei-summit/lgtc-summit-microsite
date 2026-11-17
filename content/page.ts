@@ -372,6 +372,8 @@ export const page = {
   actions: {
     /** The visible label; the number follows it. */
     callPrefix: 'Call',
+    /** The sub-bar button's label on phones, as on summitestate.com (Sergei, Nov 17 2026). */
+    callNow: 'Call now',
     /** LGTC's online registration form, framed as the assessment request. Not shown since Nov 5 2026 (Sergei removed the button from the closing section); kept for the RegisterButton. */
     register: 'Request a confidential assessment',
     /** Jan's preferred click-through (Nov 5 2026): the quiet text link in the hero. */

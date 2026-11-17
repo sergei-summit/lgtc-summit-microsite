@@ -39,7 +39,7 @@ export default function SubBar() {
             </li>
           ))}
           <li>
-            <CallButton className="min-h-11 whitespace-nowrap px-4 py-2 text-sm sm:px-5" />
+            <CallButton short className="min-h-11 whitespace-nowrap px-4 py-2 text-sm sm:px-5" />
           </li>
         </ul>
       </div>

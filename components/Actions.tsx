@@ -20,11 +20,28 @@ function colours(tone: 'light' | 'dark', variant: 'solid' | 'outline') {
 
 /** Call: a tel: link whose accessible name includes the number. Solid by
  * default: the call to admissions is the primary action on this page (Nov 5 2026). */
-export function CallButton({ className = '', tone = 'light', variant = 'solid' }: ButtonProps) {
+/** `short`: on phones the label is "Call now" (the number stays for screen
+ * readers), as on summitestate.com, so the sub-bar fits a narrow screen
+ * (Sergei, Nov 17 2026). */
+export function CallButton({ className = '', tone = 'light', variant = 'solid', short = false }: ButtonProps & { short?: boolean }) {
   return (
     <a href={settings.phoneHref} className={`${base} ${colours(tone, variant)} ${className}`}>
       <PhoneIcon />
-      {page.actions.callPrefix} {settings.phone}
+      {short ? (
+        <>
+          <span className="sm:hidden">
+            {page.actions.callNow}
+            <span className="sr-only"> {settings.phone}</span>
+          </span>
+          <span className="hidden sm:inline">
+            {page.actions.callPrefix} {settings.phone}
+          </span>
+        </>
+      ) : (
+        <>
+          {page.actions.callPrefix} {settings.phone}
+        </>
+      )}
     </a>
   );
 }
