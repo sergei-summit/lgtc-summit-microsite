@@ -99,7 +99,7 @@ export const page = {
      * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
     features: [
       { icon: 'shield', title: 'Psychiatric Oversight, Board-Certified Teams' },
-      { icon: 'compass', title: 'Day, Evening & Hybrid' },
+      { icon: 'compass', title: 'Day, Evening & Hybrid formats for Outpatient' },
       { icon: 'briefcase', title: 'Programming built around work and family' },
       { icon: 'heart', title: 'Individualized Care' },
     ] as { icon: FeatureIconName; title: string; proof?: string }[],
