@@ -41,6 +41,20 @@ import jointCommissionBadge from './images/badge-joint-commission.png';
 import carfBadge from './images/badge-carf.png';
 import dhcsBadge from './images/badge-dhcs.png';
 import legitScriptBadge from './images/badge-legitscript.png';
+import carrier0 from './images/carriers/uhc.svg';
+import carrier1 from './images/carriers/optum.svg';
+import carrier2 from './images/carriers/aetna.svg';
+import carrier3 from './images/carriers/blueshield.svg';
+import carrier4 from './images/carriers/anthem.svg';
+import carrier5 from './images/carriers/kp.svg';
+import carrier6 from './images/carriers/compsych.svg';
+import carrier7 from './images/carriers/carelon.svg';
+import carrier8 from './images/carriers/magellan.svg';
+import carrier9 from './images/carriers/healthnet.svg';
+import carrier10 from './images/carriers/alliance.png';
+import carrier11 from './images/carriers/vhp.png';
+import carrier12 from './images/carriers/cigna.svg';
+import carrier13 from './images/carriers/scfhp.png';
 
 export type Photo = { src: StaticImageData; alt: string };
 /** A labelled card: small label (kicker), heading and ticked list. */
@@ -78,17 +92,18 @@ export const page = {
 
   hero: {
     /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
-    title: 'The right level of care',
-    titleAccent: 'without putting your life on hold',
-    text: 'Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy for Mental Health and Substance Use Disorder Care, in person in San Jose, with one Psychiatry-led team.',
-    /** One line per outpatient level, then the team. Each pairs the service with its proof point. */
+    title: 'World-class Dual-Diagnosis care in San Jose / Silicon Valley,',
+    titleAccent: 'built around your life',
+    text: 'Substance Use and Mental Health treated together. Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy (OP). In San Jose in person and via Hybrid IOP',
+    /** The team line, then three badges in the style of go.summitestate.com/outpatient
+     * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
     features: [
-      { icon: 'layers', title: 'Partial Hospitalization (PHP)', proof: 'Structured Day Treatment, home every evening' },
-      { icon: 'calendar', title: 'Intensive Outpatient (IOP)', proof: 'Day, evening or Hybrid IOP (In person and telehealth), around work, school and family' },
-      { icon: 'brain', title: 'Outpatient Therapy (OP)', proof: 'Ongoing Individual Therapy and Medication Management' },
-      { icon: 'shield', title: 'Board-Certified Team', proof: 'Psychiatry and Addiction Medicine, in-network with all major plans' },
-    ] satisfies { icon: FeatureIconName; title: string; proof: string }[],
-    insuranceBadge: { label: 'San Jose Outpatient Center', value: 'In-network with all major plans' },
+      { icon: 'shield', title: 'Psychiatric Oversight, Board-Certified Teams' },
+      { icon: 'compass', title: 'Day, Evening & Hybrid formats for Outpatient' },
+      { icon: 'briefcase', title: 'Programming built around work and family' },
+      { icon: 'heart', title: 'Individualized Care' },
+    ] as { icon: FeatureIconName; title: string; proof?: string }[],
+    insuranceBadge: { label: 'San Jose Outpatient Center', value: 'Most major insurances' },
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
@@ -108,6 +123,9 @@ export const page = {
    */
   trust: {
     label: 'Accreditations and reviews',
+    /** Sergei, Nov 14 2026: badges are shown without links for now. The hrefs
+     * below are kept for future use; set this to true to link them again. */
+    linkBadges: false,
     newTab: 'opens in a new tab',
     badges: [
       {
@@ -266,6 +284,28 @@ export const page = {
           alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
         } satisfies Photo,
       },
+      /** "We Accept Most Major Insurances" block from go.summitestate.com/outpatient-backup
+       * (Sergei, Nov 14 2026, preview comment on the San Jose card): same title,
+       * carriers, order and logo files as that page. */
+      insurance: {
+        title: 'We Accept Most Major Insurances',
+        carriers: [
+          { name: 'UnitedHealthcare', logo: carrier0, width: 564, height: 177 },
+          { name: 'Optum', logo: carrier1, width: 708, height: 205 },
+          { name: 'Aetna', logo: carrier2, width: 186, height: 36 },
+          { name: 'Blue Shield of California', logo: carrier3, width: 600, height: 232 },
+          { name: 'Anthem Blue Cross', logo: carrier4, width: 605, height: 216 },
+          { name: 'Kaiser Permanente', logo: carrier5, width: 486, height: 55 },
+          { name: 'ComPsych', logo: carrier6, width: 1184, height: 208 },
+          { name: 'Carelon Behavioral Health', logo: carrier7, width: 597, height: 154 },
+          { name: 'Magellan Health', logo: carrier8, width: 600, height: 219 },
+          { name: 'Health Net', logo: carrier9, width: 652, height: 311 },
+          { name: 'Central California Alliance for Health', logo: carrier10, width: 561, height: 561 },
+          { name: 'Valley Health Plan', logo: carrier11, width: 1203, height: 215 },
+          { name: 'Cigna', logo: carrier12, width: 750, height: 246 },
+          { name: 'Santa Clara Family Health Plan', logo: carrier13, width: 840, height: 215 },
+        ] satisfies { name: string; logo: StaticImageData; width: number; height: number }[],
+      },
       higherTitle: 'Higher Level of Care \u00b7 Palo Alto',
       expectLabel: 'What to expect',
       cards: {
@@ -283,17 +323,18 @@ export const page = {
         },
         outpatient: {
           tag: 'OP',
-          name: 'Outpatient Program',
+          name: 'Outpatient Therapy Program (OP)',
           meta: 'From one session a week \u00b7 for as long as it is useful',
           blurb: 'Also called Individual Therapy. Ongoing Individual Therapy and Medication Management for people who are stable and want to stay on track.',
         },
       } as Record<string, LevelCard>,
       combined: {
-        tag: 'Palo Alto',
+        tag: 'DTX / RTC',
         name: 'Detox & Residential',
         meta: 'Detox typically 7\u201310 days \u00b7 Residential typically 3\u20134 weeks',
         blurb: 'Medically supervised Detox and Residential Treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
       } satisfies LevelCard,
+      /** Not shown since Nov 14 2026 (Sergei removed the card); kept for later use. */
       notSure: {
         title: 'Not sure what you need?',
         text: 'The level of care is set after an assessment with a therapist and a review by our Clinical Director. One call starts it, and admissions can check what your insurance covers.',
@@ -359,7 +400,7 @@ export const page = {
         icon: 'pin',
         eyebrow: 'San Jose',
         title: 'Summit Estate Recovery Outpatient',
-        text: 'In San Jose, a mile from Cupertino and Saratoga.',
+        text: 'West San Jose, a mile from Cupertino and Saratoga.',
         points: ['PHP', 'IOP', 'OP', 'Hybrid IOP'],
       },
       {
@@ -368,7 +409,7 @@ export const page = {
         eyebrow: 'Palo Alto',
         title: 'Summit Estate',
         text: "Silicon Valley's finest rehab: Detox and Residential Care on a private estate in the rolling hills.",
-        points: ['Palo Alto, CA', 'Detox & Residential'],
+        points: ['Detox & Residential'],
       },
     ] satisfies LocationCard[],
   },

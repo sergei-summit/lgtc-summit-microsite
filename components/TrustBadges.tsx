@@ -1,10 +1,12 @@
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 import { page } from '@/content/page';
 
-/** Accreditation and review badges as a plain list, with no heading. Each
- * accreditation image is a link to the accreditor's own listing or lookup for
- * Summit Estate (new tab); its alt text names the credential and so names the
- * link. The Google reviews chip is not a link. */
+/** Accreditation and review badges as a plain list, with no heading. When
+ * page.trust.linkBadges is true, each accreditation image links to the
+ * accreditor's own listing or lookup for Summit Estate (new tab); its alt text
+ * names the credential and so names the link. It is false for now (Sergei,
+ * Nov 14 2026), so the badges are plain images. The Google reviews chip is
+ * never a link. */
 export default function TrustBadges() {
   const { trust } = page;
   return (
@@ -14,21 +16,19 @@ export default function TrustBadges() {
           {trust.badges.map((badge) =>
             badge.kind === 'image' ? (
               <li key={badge.alt}>
-                <a
-                  href={badge.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-se-accent-700"
-                >
-                  <Image
-                    src={badge.src}
-                    alt={badge.alt}
-                    height={56}
-                    width={Math.round((badge.src.width / badge.src.height) * 56)}
-                    className="h-14 w-auto"
-                  />
-                  <span className="sr-only">, {trust.newTab}</span>
-                </a>
+                {trust.linkBadges ? (
+                  <a
+                    href={badge.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-se-accent-700"
+                  >
+                    <BadgeImage badge={badge} />
+                    <span className="sr-only">, {trust.newTab}</span>
+                  </a>
+                ) : (
+                  <BadgeImage badge={badge} />
+                )}
               </li>
             ) : (
               <li
@@ -44,6 +44,18 @@ export default function TrustBadges() {
         </ul>
       </div>
     </section>
+  );
+}
+
+function BadgeImage({ badge }: { badge: { src: StaticImageData; alt: string } }) {
+  return (
+    <Image
+      src={badge.src}
+      alt={badge.alt}
+      height={56}
+      width={Math.round((badge.src.width / badge.src.height) * 56)}
+      className="h-14 w-auto"
+    />
   );
 }
 
