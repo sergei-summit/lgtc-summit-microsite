@@ -14,17 +14,34 @@ function colours(tone: 'light' | 'dark', variant: 'solid' | 'outline') {
       : 'border-2 border-se-sand text-se-sand hover:bg-se-green-700';
   }
   return variant === 'solid'
-    ? 'bg-se-accent-600 text-white hover:bg-se-accent-700'
+    ? 'bg-se-accent-600 text-white hover:bg-se-green-900'
     : 'border-2 border-se-accent-600 bg-se-paper text-se-green-700 hover:bg-se-accent-100';
 }
 
 /** Call: a tel: link whose accessible name includes the number. Solid by
  * default: the call to admissions is the primary action on this page (Nov 5 2026). */
-export function CallButton({ className = '', tone = 'light', variant = 'solid' }: ButtonProps) {
+/** `short`: on phones the label is "Call now" (the number stays for screen
+ * readers), as on summitestate.com, so the sub-bar fits a narrow screen
+ * (Sergei, Nov 17 2026). */
+export function CallButton({ className = '', tone = 'light', variant = 'solid', short = false }: ButtonProps & { short?: boolean }) {
   return (
     <a href={settings.phoneHref} className={`${base} ${colours(tone, variant)} ${className}`}>
       <PhoneIcon />
-      {page.actions.callPrefix} {settings.phone}
+      {short ? (
+        <>
+          <span className="sm:hidden">
+            {page.actions.callNow}
+            <span className="sr-only"> {settings.phone}</span>
+          </span>
+          <span className="hidden sm:inline">
+            {page.actions.callPrefix} {settings.phone}
+          </span>
+        </>
+      ) : (
+        <>
+          {page.actions.callPrefix} {settings.phone}
+        </>
+      )}
     </a>
   );
 }
@@ -75,7 +92,7 @@ export function SecondaryLink({ href, children, className = '' }: { href: string
   );
 }
 
-export function PhoneIcon({ className = 'h-5 w-5' }: { className?: string }) {
+export function PhoneIcon({ className = 'h-5 w-5 shrink-0' }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true" focusable="false" className={className}>
       <path

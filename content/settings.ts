@@ -47,9 +47,9 @@ export const settings = {
   robots: env('NEXT_PUBLIC_ROBOTS') ?? 'index, follow',
 
   /** Page title and meta description. */
-  metaTitle: 'Outpatient Mental Health and Substance Use Treatment in San Jose | Summit Estate Recovery Centers',
+  metaTitle: 'Outpatient mental health and substance use treatment in San Jose | Summit Estate Recovery Centers',
   metaDescription:
-    'PHP, IOP (in person or hybrid) and Outpatient Therapy for Mental Health and Substance Use in San Jose, in-network with all major plans. Medical Detox and Residential Care in Palo Alto when a higher level of care is needed.',
+    'PHP, IOP (in person or hybrid) and outpatient therapy for mental health and substance use in San Jose, in-network with all major plans. Medical detox and residential care in Palo Alto when a higher level of care is needed.',
 } as const;
 
 export type Settings = typeof settings;

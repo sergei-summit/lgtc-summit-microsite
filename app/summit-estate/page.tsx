@@ -37,11 +37,11 @@ export default function SummitEstatePage() {
       <main>
         <Hero />
         <TrustBadges />
-        <InsuranceLogos />
         <LevelsOfCare />
         <BenefitAndTeam />
         <GettingStarted />
         <WhereWeAre />
+        <InsuranceLogos />
         <PageFooterNote />
       </main>
       <MobileCallBar

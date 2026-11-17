@@ -8,7 +8,7 @@ import type { ReactNode } from 'react';
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, background: '#F7F4EF' }}>{children}</body>
+      <body style={{ margin: 0, background: '#F7F7F7' }}>{children}</body>
     </html>
   );
 }
