@@ -92,7 +92,7 @@ export const page = {
 
   hero: {
     /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
-    title: 'World-class Dual-Diagnosis care in San Jose / Silicon Valley,',
+    title: 'World-class Dual-Diagnosis care in the Heart of Silicon Valley,',
     titleAccent: 'built around your life',
     text: 'Substance Use and Mental Health treated together. Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy (OP). In San Jose in person and via Hybrid IOP',
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
