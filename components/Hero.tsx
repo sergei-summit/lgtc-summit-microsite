@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { page } from '@/content/page';
 import { settings } from '@/content/settings';
 import { PhoneIcon } from './Actions';
-import { FeatureIcon } from './FeatureIcon';
 
 /**
  * Hero: the H1, the intro and the feature line on the left, and the San Jose
@@ -32,19 +31,12 @@ export default function Hero() {
           <p className="max-w-3xl whitespace-pre-line text-lg leading-relaxed text-se-ink">{hero.text}</p>
           <ul className={hero.features.length > 1 ? 'mt-7 grid gap-x-6 gap-y-4 sm:grid-cols-2' : 'mt-7 grid max-w-3xl'}>
             {hero.features.map((feature) => (
-              <li key={feature.title} className="flex items-start gap-3">
-                {/* One title line tall, so the badge centres on the title's first line. */}
-                <span className="flex h-[1.375em] shrink-0 items-center text-[0.95rem] leading-snug">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-se-accent-100 text-se-green-600">
-                    <FeatureIcon name={feature.icon} className="h-4 w-4" />
-                  </span>
-                </span>
-                <span className="min-w-0">
-                  <span className="block text-[0.95rem] font-semibold leading-snug text-se-ink">{feature.title}</span>
-                  {feature.proof ? (
-                    <span className="mt-0.5 block text-sm leading-snug text-se-ink-muted">{feature.proof}</span>
-                  ) : null}
-                </span>
+              <li key={feature.title}>
+                {/* Text only, no icon badges (Sergei, Nov 17 2026: "no emoji"). */}
+                <span className="block text-[0.95rem] font-semibold leading-snug text-se-ink">{keepTogether(feature.title)}</span>
+                {feature.proof ? (
+                  <span className="mt-0.5 block text-sm leading-snug text-se-ink-muted">{feature.proof}</span>
+                ) : null}
               </li>
             ))}
           </ul>
