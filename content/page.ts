@@ -92,18 +92,18 @@ export const page = {
 
   hero: {
     /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
-    title: 'World-class Dual-Diagnosis care in the Heart of Silicon Valley,',
+    title: 'World-class dual-diagnosis care in the heart of Silicon Valley,',
     titleAccent: 'built around your life',
-    text: 'Substance Use and Mental Health treated together. Day Treatment (PHP), Intensive Outpatient (IOP) and Individual Therapy (OP). In San Jose in person and via Hybrid IOP',
+    text: 'Substance use and mental health treated together. Day treatment (PHP), intensive outpatient (IOP) and individual therapy (OP). In San Jose in person and via hybrid IOP',
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
      * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
     features: [
-      { icon: 'shield', title: 'Psychiatric Oversight, Board-Certified Teams' },
-      { icon: 'compass', title: 'Day, Evening & Hybrid formats for Outpatient' },
+      { icon: 'shield', title: 'Psychiatric oversight, board-certified teams' },
+      { icon: 'compass', title: 'Day, evening & hybrid formats for outpatient' },
       { icon: 'briefcase', title: 'Programming built around work and family' },
-      { icon: 'heart', title: 'Individualized Care' },
+      { icon: 'heart', title: 'Individualized care' },
     ] as { icon: FeatureIconName; title: string; proof?: string }[],
-    insuranceBadge: { label: 'San Jose Outpatient Center', value: 'Most major insurances' },
+    insuranceBadge: { label: 'San Jose outpatient center', value: 'Most major insurances' },
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
@@ -165,11 +165,11 @@ export const page = {
         title: 'A team, not a single clinician.',
         /** Sergei's five lines (Nov 5 2026) in place of the microsite's six. */
         points: [
-          'Medical supervision by Addictionologists and Psychiatric Mental Health Practitioners',
-          'Clinical Director providing clinical guidance',
-          'Individual Therapist',
-          'Group Facilitators',
-          'Case Manager',
+          'Medical supervision by addictionologists and psychiatric mental health practitioners',
+          'Clinical director providing clinical guidance',
+          'Individual therapist',
+          'Group facilitators',
+          'Case manager',
         ],
       },
       {
@@ -195,24 +195,24 @@ export const page = {
    */
   levels: {
     id: 'programs',
-    title: 'Levels of Care',
+    title: 'Levels of care',
     outpatient: {
       items: [
         {
           id: 'php',
-          name: 'Partial Hospitalization (PHP)',
+          name: 'Partial hospitalization (PHP)',
           rows: [
-            ['Intensity', 'More intensive than IOP: a structured day similar to Residential Care, without the overnight stay.'],
-            ['Treatment', 'Group and Individual Therapy, Psychiatry-guided Medication Management, skill-building and psychoeducation.'],
-            ['Suitable for', 'People who need more structure than IOP but not 24-hour medical supervision, including the step down from Residential Care.'],
+            ['Intensity', 'More intensive than IOP: a structured day similar to residential care, without the overnight stay.'],
+            ['Treatment', 'Group and individual therapy, psychiatry-guided medication management, skill-building and psychoeducation.'],
+            ['Suitable for', 'People who need more structure than IOP but not 24-hour medical supervision, including the step down from residential care.'],
           ],
         },
         {
           id: 'iop',
-          name: 'Intensive Outpatient (IOP)',
+          name: 'Intensive outpatient (IOP)',
           rows: [
             ['Intensity', 'Less intensive than PHP, more than weekly therapy. Most people keep working.'],
-            ['Treatment', 'Group Therapy is the core, with Individual Therapy and skill-building sessions. In person, or hybrid with telehealth sessions when clinically appropriate.'],
+            ['Treatment', 'Group therapy is the core, with individual therapy and skill-building sessions. In person, or hybrid with telehealth sessions when clinically appropriate.'],
             ['Suitable for', 'People with a stable home and support system who need more structure than weekly therapy.'],
           ],
         },
@@ -221,7 +221,7 @@ export const page = {
           name: 'Outpatient (OP)',
           rows: [
             ['Intensity', 'The lightest level of care: sessions that fit around a full working week.'],
-            ['Treatment', 'Individual Therapy and Psychiatry-guided Medication Management.'],
+            ['Treatment', 'Individual therapy and psychiatry-guided medication management.'],
             ['Suitable for', 'People stepping down from IOP, or whose needs are met by regular individual care.'],
           ],
         },
@@ -231,20 +231,20 @@ export const page = {
       items: [
         {
           id: 'detox',
-          name: 'Medical Detox',
+          name: 'Medical detox',
           rows: [
-            ['Intensity', 'The highest level of care: Medically supervised withdrawal when stopping is not yet safe at home.'],
-            ['Treatment', 'Withdrawal management with psychiatric evaluation and Medication Management; Mental Health and Substance Use treated together from the first day.'],
-            ['Suitable for', 'People who need medical support to stop safely before Residential or Outpatient treatment can begin.'],
+            ['Intensity', 'The highest level of care: medically supervised withdrawal when stopping is not yet safe at home.'],
+            ['Treatment', 'Withdrawal management with psychiatric evaluation and medication management; mental health and substance use treated together from the first day.'],
+            ['Suitable for', 'People who need medical support to stop safely before residential or outpatient treatment can begin.'],
           ],
         },
         {
           id: 'residential',
-          name: 'Residential Treatment',
+          name: 'Residential treatment',
           rows: [
             ['Intensity', 'Live-in treatment with structure and support around the clock, when home is not yet the right place to recover.'],
-            ['Treatment', 'Individual and Group Therapy with Psychiatry-guided Medication Management: Medically Integrated, personalized Mental Health and Substance Use Disorder Care in a private, comfortable setting.'],
-            ['Suitable for', 'People stepping down from Medical Detox, or who need more than a day program can give, before continuing in the San Jose programs with the same team.'],
+            ['Treatment', 'Individual and group therapy with psychiatry-guided medication management: medically integrated, personalized mental health and substance use disorder care in a private, comfortable setting.'],
+            ['Suitable for', 'People stepping down from medical detox, or who need more than a day program can give, before continuing in the San Jose programs with the same team.'],
           ],
         },
       ] satisfies Level[],
@@ -252,7 +252,7 @@ export const page = {
       /** Info card over the estate photo, like the hero badge over the San
        * Jose photo (Sergei, Nov 5 2026, his wording). */
       badge: {
-        label: 'Detox and Residential',
+        label: 'Detox and residential',
         value: 'Most major PPO policies accepted',
         note: 'In-network agreements are in progress and expected in 2027',
       },
@@ -273,12 +273,12 @@ export const page = {
      * line and blurb live here.
      */
     cards: {
-      outpatientTitle: 'San Jose Outpatient Center, a mile from Cupertino and Saratoga',
+      outpatientTitle: 'San Jose outpatient center, a mile from Cupertino and Saratoga',
       /** The San Jose card from the live page (go.summitestate.com/lgtc-summit-microsite),
        * placed above the three cards (Sergei, Nov 5 2026): the lounge photo,
        * the heading above as its name, and the live page's description. */
       outpatientCard: {
-        text: 'PHP, IOP and OP, Family Therapy and a Multi-Family Group, Psychiatry-guided Medication Management and Case Management. Day and evening schedules are work-compatible, with Hybrid IOP when clinically appropriate.',
+        text: 'PHP, IOP and OP, family therapy and a multi-family group, psychiatry-guided medication management and case management. Day and evening schedules are work-compatible, with hybrid IOP when clinically appropriate.',
         photo: {
           src: sanJosePhoto,
           alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
@@ -288,7 +288,7 @@ export const page = {
        * (Sergei, Nov 14 2026, preview comment on the San Jose card): same title,
        * carriers, order and logo files as that page. */
       insurance: {
-        title: 'We Accept Most Major Insurances',
+        title: 'We accept most major insurances',
         carriers: [
           { name: 'UnitedHealthcare', logo: carrier0, width: 564, height: 177 },
           { name: 'Optum', logo: carrier1, width: 708, height: 205 },
@@ -306,38 +306,38 @@ export const page = {
           { name: 'Santa Clara Family Health Plan', logo: carrier13, width: 840, height: 215 },
         ] satisfies { name: string; logo: StaticImageData; width: number; height: number }[],
       },
-      higherTitle: 'Higher Level of Care \u00b7 Palo Alto',
+      higherTitle: 'Higher level of care \u00b7 Palo Alto',
       expectLabel: 'What to expect',
       cards: {
         php: {
           tag: 'PHP',
-          name: 'Partial Hospitalization Program',
+          name: 'Partial hospitalization program',
           meta: '20+ hrs/week \u00b7 typically 4\u20136 weeks',
-          blurb: 'Also called Day Treatment. Structured treatment most weekdays, home every evening: the highest level of Outpatient Care.',
+          blurb: 'Also called day treatment. Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
         },
         iop: {
           tag: 'IOP',
-          name: 'Intensive Outpatient Program',
+          name: 'Intensive outpatient program',
           meta: '9\u201319 hrs/week \u00b7 typically 8\u201312 weeks',
-          blurb: 'Day, evening or Hybrid IOP (In person and telehealth). Structured clinical care that fits around work, school and family.',
+          blurb: 'Day, evening or hybrid IOP (in person and telehealth). Structured clinical care that fits around work, school and family.',
         },
         outpatient: {
           tag: 'OP',
-          name: 'Outpatient Therapy Program (OP)',
+          name: 'Outpatient therapy program (OP)',
           meta: 'From one session a week \u00b7 for as long as it is useful',
-          blurb: 'Also called Individual Therapy. Ongoing Individual Therapy and Medication Management for people who are stable and want to stay on track.',
+          blurb: 'Also called individual therapy. Ongoing individual therapy and medication management for people who are stable and want to stay on track.',
         },
       } as Record<string, LevelCard>,
       combined: {
         tag: 'DTX / RTC',
-        name: 'Detox & Residential',
-        meta: 'Detox typically 7\u201310 days \u00b7 Residential typically 3\u20134 weeks',
-        blurb: 'Medically supervised Detox and Residential Treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
+        name: 'Detox & residential',
+        meta: 'Detox typically 7\u201310 days \u00b7 residential typically 3\u20134 weeks',
+        blurb: 'Medically supervised detox and residential treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
       } satisfies LevelCard,
       /** Not shown since Nov 14 2026 (Sergei removed the card); kept for later use. */
       notSure: {
         title: 'Not sure what you need?',
-        text: 'The level of care is set after an assessment with a therapist and a review by our Clinical Director. One call starts it, and admissions can check what your insurance covers.',
+        text: 'The level of care is set after an assessment with a therapist and a review by our clinical director. One call starts it, and admissions can check what your insurance covers.',
       },
     },
   },
@@ -360,11 +360,11 @@ export const page = {
       {
         title: 'We verify your benefits',
         /** Two lines (Sergei, Nov 5 2026): outpatient, then Palo Alto on its own line. */
-        text: 'Outpatient Care is in-network with all major plans. Costs upfront, with no obligation.\nDetox and Residential Care in Palo Alto: PPO policies accepted, in-network agreements in progress, and single case agreement possible.',
+        text: 'Outpatient care is in-network with all major plans. Costs upfront, with no obligation.\nDetox and residential care in Palo Alto: PPO policies accepted, in-network agreements in progress, and single case agreement possible.',
       },
       {
         title: 'Assessment and consultation',
-        text: 'A confidential assessment using the ASAM criteria, reviewed by our Clinical Director, sets your level of care: PHP, IOP or therapy, with Psychiatric Evaluation in conjunction with Medication Management.',
+        text: 'A confidential assessment using the ASAM criteria, reviewed by our clinical director, sets your level of care: PHP, IOP or therapy, with psychiatric evaluation in conjunction with medication management.',
       },
     ],
   },
@@ -408,8 +408,8 @@ export const page = {
         /** The source card says "Adults 28+" here and in the text; Sergei removed both (Nov 5 2026). */
         eyebrow: 'Palo Alto',
         title: 'Summit Estate',
-        text: "Silicon Valley's finest rehab: Detox and Residential Care on a private estate in the rolling hills.",
-        points: ['Detox & Residential'],
+        text: "Silicon Valley's finest rehab: detox and residential care on a private estate in the rolling hills.",
+        points: ['Detox & residential'],
       },
     ] satisfies LocationCard[],
   },
