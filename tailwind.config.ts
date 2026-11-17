@@ -1,22 +1,26 @@
 import type { Config } from 'tailwindcss';
 
 /**
- * Summit Estate brand, taken from the Summit-Landing-Pages source
- * (go.summitestate.com): slate green, sage accent, sand and cream.
+ * Summit Estate brand, from the Summit Estate Design System
+ * (github.com/sergei-summit/Design, exported 13 Nov 2026 from the brand book's
+ * Illustrator file; Sergei, Nov 17 2026: "this is Summit Estate brand book to use").
+ * Brand book p.12/13 colours: green #445952, beige #E7D8C5, light green #769887,
+ * grey #F7F7F7; secondary charcoal #303030, slate #51636F. The green tints and
+ * shades (green-95 ... green-20) and the warm hover #DFC8AD are the design
+ * system's web additions, not brand book colours.
  *
- * Every colour sits under one `se` key (`bg-se-cream`, `text-se-green-700`)
- * so the page's classes cannot collide with LGTC's own Tailwind theme when
- * this config is added to LGTC's app as a preset (see README).
+ * Token names are kept from the earlier palette so no class changes; only the
+ * values moved to the brand. Every colour sits under one `se` key so the
+ * page's classes cannot collide with LGTC's own Tailwind theme.
  *
  * Contrast (WCAG AA, checked by `node scripts/contrast.mjs`):
- *   se-green-700 #3C4A45 on cream #F7F4EF ........ 8.5:1  headings
- *   se-ink #2E2E2E on cream .......................... 12.4:1 body
- *   se-ink-muted #4E4E4B on cream .................... 7.6:1  small print
- *   se-accent-700 #475F4F on cream ................... 6.3:1  eyebrows, aliases
- *   white on se-accent-600 #587562 ................... 5.1:1  primary buttons
- *   se-sand #E3D8C9 on se-green-800 #313D39 .......... 8.0:1  dark band
- * The canonical brand sage #86A28E is never used behind text (white on it is
- * 2.8:1); it appears only as a decorative tint.
+ *   green #445952 on grey #F7F7F7 ................ 7.0:1  headings
+ *   charcoal #303030 on grey ..................... 12.3:1 body
+ *   slate #51636F on grey ........................ 5.8:1  small print
+ *   green-40 #5A716A on white .................... 5.2:1  title accent, icons
+ *   white on green #445952 ....................... 7.5:1  buttons, dark band
+ *   beige #E7D8C5 on green ....................... 5.4:1  dark band text
+ * Light green #769887 is 3.2:1 on white, so it is never used for text.
  */
 const config: Config = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './content/**/*.ts'],
@@ -25,24 +29,24 @@ const config: Config = {
       colors: {
         se: {
           green: {
-            50: '#F1F4F2',
-            100: '#DDE4E0',
-            600: '#485852',
-            700: '#3C4A45',
-            800: '#313D39',
-            900: '#262F2C',
+            50: '#F3F5F4', // design system green-95
+            100: '#E6EBE9', // green-90
+            600: '#5A716A', // green-40
+            700: '#445952', // brand book Green (headings)
+            800: '#445952', // brand book Green (dark band, info cards)
+            900: '#2B3A35', // green-20
           },
           accent: {
-            100: '#E1EAE3',
-            400: '#86A28E',
-            600: '#587562',
-            700: '#475F4F',
+            100: '#E6EBE9', // green-90
+            400: '#769887', // brand book Light green (decorative only)
+            600: '#445952', // brand book Green (filled buttons)
+            700: '#5A716A', // green-40 (title accent, icons, focus ring)
           },
-          sand: { DEFAULT: '#E3D8C9', light: '#F1EBE2' },
-          cream: '#F7F4EF',
+          sand: { DEFAULT: '#E7D8C5', light: '#DFC8AD' }, // brand book Beige; warm hover
+          cream: '#F7F7F7', // brand book Grey
           paper: '#FFFFFF',
-          line: '#E4DED5',
-          ink: { DEFAULT: '#2E2E2E', muted: '#4E4E4B' },
+          line: '#E8E8E7', // hairline, rgba(29,29,27,0.10) on white
+          ink: { DEFAULT: '#303030', muted: '#51636F' }, // charcoal, slate
         },
       },
       fontFamily: {
@@ -50,7 +54,7 @@ const config: Config = {
       },
       maxWidth: { 'se-content': '72rem' },
       boxShadow: {
-        'se-card': '0 18px 46px -22px rgb(38 47 44 / 0.35)',
+        'se-card': '0 8px 24px rgba(29, 29, 27, 0.08)',
       },
     },
   },

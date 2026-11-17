@@ -49,7 +49,7 @@ export default function Logo({
       viewBox="-44 -43 1024 222.4"
       width={640}
       height={139}
-      fill={variant === 'light' ? '#fff' : '#000'}
+      fill={variant === 'light' ? '#fff' : '#445952'}
       focusable="false"
       role="img"
       aria-label={label}

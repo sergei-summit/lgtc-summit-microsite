@@ -14,7 +14,7 @@ function colours(tone: 'light' | 'dark', variant: 'solid' | 'outline') {
       : 'border-2 border-se-sand text-se-sand hover:bg-se-green-700';
   }
   return variant === 'solid'
-    ? 'bg-se-accent-600 text-white hover:bg-se-accent-700'
+    ? 'bg-se-accent-600 text-white hover:bg-se-green-900'
     : 'border-2 border-se-accent-600 bg-se-paper text-se-green-700 hover:bg-se-accent-100';
 }
 

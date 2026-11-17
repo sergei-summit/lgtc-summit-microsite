@@ -4,7 +4,7 @@ import { Montserrat } from 'next/font/google';
  * the page uses: 400 (body) and 600 (headings, labels, buttons). */
 export const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400', '600'],
+  weight: ['300', '400', '600'],
   display: 'swap',
   variable: '--font-se-montserrat',
 });

@@ -6,7 +6,7 @@
  */
 .se-root {
   font-family: var(--font-se-montserrat), system-ui, sans-serif;
-  color: #2e2e2e;
+  color: #303030;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -44,14 +44,14 @@
 }
 /* One focus ring everywhere, visible on light and dark sections. */
 .se-root a:focus-visible {
-  outline: 3px solid #475f4f;
+  outline: 3px solid #5a716a;
   outline-offset: 3px;
   box-shadow: 0 0 0 3px #ffffff;
 }
 .se-root section.bg-se-green-800 a:focus-visible,
 .se-root .bg-se-green-800 a:focus-visible {
-  outline-color: #e3d8c9;
-  box-shadow: 0 0 0 3px #313d39;
+  outline-color: #e7d8c5;
+  box-shadow: 0 0 0 3px #445952;
 }
 @media (prefers-reduced-motion: no-preference) {
   html:has(.se-root) {
