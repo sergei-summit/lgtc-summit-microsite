@@ -29,11 +29,12 @@ export default function Hero() {
 
         <div>
           <p className="max-w-3xl whitespace-pre-line text-lg leading-relaxed text-se-ink">{hero.text}</p>
-          <ul className={hero.features.length > 1 ? 'mt-7 grid gap-x-6 gap-y-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2' : 'mt-7 grid max-w-3xl'}>
+          <ul className={hero.features.length > 1 ? 'mt-6 grid list-disc grid-cols-2 gap-x-8 gap-y-2.5 pl-5 marker:text-se-green-700' : 'mt-7 grid max-w-3xl'}>
             {hero.features.map((feature) => (
-              <li key={feature.title}>
-                {/* Text only, no icon badges (Sergei, Nov 17 2026: "no emoji"). */}
-                <span className="block text-[0.95rem] font-semibold leading-snug text-se-ink">{keepTogether(feature.title)}</span>
+              <li key={feature.title} className="pl-1">
+                {/* A bulleted list in two columns, smaller type (Sergei, Nov 17 2026:
+                    "no emoji", then "use bullets and go back to two columns"). */}
+                <span className="text-sm font-semibold leading-snug text-se-ink">{keepTogether(feature.title)}</span>
                 {feature.proof ? (
                   <span className="mt-0.5 block text-sm leading-snug text-se-ink-muted">{feature.proof}</span>
                 ) : null}
