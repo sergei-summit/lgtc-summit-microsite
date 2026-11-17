@@ -407,7 +407,7 @@ export const page = {
         icon: 'home',
         /** The source card says "Adults 28+" here and in the text; Sergei removed both (Nov 5 2026). */
         eyebrow: 'Palo Alto',
-        title: 'Summit Estate',
+        title: 'Summit Estate Recovery \u2013 Palo Alto Residential Detox',
         text: "Silicon Valley's finest rehab: detox and residential care on a private estate in the rolling hills.",
         points: ['Detox & residential'],
       },
