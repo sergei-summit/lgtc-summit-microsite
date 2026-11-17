@@ -273,7 +273,7 @@ export const page = {
      * line and blurb live here.
      */
     cards: {
-      outpatientTitle: 'San Jose outpatient center, a mile from Cupertino and Saratoga',
+      outpatientTitle: 'Summit Estate Recovery \u2013 Outpatient',
       /** The San Jose card from the live page (go.summitestate.com/lgtc-summit-microsite),
        * placed above the three cards (Sergei, Nov 5 2026): the lounge photo,
        * the heading above as its name, and the live page's description. */
