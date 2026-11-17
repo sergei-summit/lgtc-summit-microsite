@@ -399,7 +399,7 @@ export const page = {
       {
         icon: 'pin',
         eyebrow: 'San Jose',
-        title: 'Summit Estate Recovery \u2013 Outpatient',
+        title: 'Summit Estate Recovery \u2013 San Jose Silicon Valley Outpatient',
         text: 'West San Jose, a mile from Cupertino and Saratoga.',
         points: ['PHP', 'IOP', 'OP', 'Hybrid IOP'],
       },
