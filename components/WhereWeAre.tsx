@@ -50,14 +50,20 @@ export default function WhereWeAre() {
               </ul>
               {/* Map (Sergei, Nov 18 2026): Google's own embed, loaded only when scrolled near. */}
               {item.map && (
-                <iframe
-                  src={item.map.src}
-                  title={item.map.title}
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                  className="mt-6 h-56 w-full rounded-2xl border-0 bg-se-cream"
-                />
+                <div className="relative mt-6 h-56 overflow-hidden rounded-2xl bg-se-cream">
+                  {/* Shows only where the map cannot load (the preview blocks outside frames); the map covers it. */}
+                  <p aria-hidden="true" className="absolute inset-0 flex items-center justify-center p-4 text-center text-sm text-se-ink-muted">
+                    {whereWeAre.mapFallback}
+                  </p>
+                  <iframe
+                    src={item.map.src}
+                    title={item.map.title}
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    className="relative h-full w-full border-0"
+                  />
+                </div>
               )}
               {/* Learn more button (Sergei, Nov 18 2026). */}
               {item.link && (

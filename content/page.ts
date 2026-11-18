@@ -399,6 +399,7 @@ export const page = {
   whereWeAre: {
     eyebrow: 'Where we are',
     title: 'In the heart of Silicon Valley.',
+    mapFallback: 'Google map',
     items: [
       {
         icon: 'pin',
