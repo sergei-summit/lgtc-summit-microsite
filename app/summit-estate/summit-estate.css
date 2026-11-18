@@ -42,11 +42,26 @@
 .se-root :where(p) {
   text-wrap: pretty;
 }
-/* Long words may break rather than run off the screen when a visitor uses a
-   large text size. "anywhere" also lets grid and flex columns shrink below the
-   longest word; at normal sizes every word fits, so nothing changes. */
-.se-root {
-  overflow-wrap: anywhere;
+/* On phone-width screens (or a zoomed-in desktop), long words may break
+   rather than run off the screen when a visitor uses a large text size.
+   "anywhere" also lets grid and flex columns shrink below the longest word; at
+   normal sizes every word fits, so nothing changes. Not on wider screens,
+   where card headings such as "hospitalization" sit right at the card edge. */
+@media (max-width: 40em) {
+  .se-root {
+    overflow-wrap: anywhere;
+  }
+}
+/* Hero headline: "World-class" and "dual-diagnosis" stay on one line, unless
+   a large text size makes the headline box narrower than "dual-diagnosis"
+   (about 7.2em), when they may wrap instead of running off the screen. */
+.se-hero-title-box {
+  container-type: inline-size;
+}
+@container (max-width: 7.5em) {
+  .se-root .se-keep {
+    white-space: normal;
+  }
 }
 /* One focus ring everywhere, visible on light and dark sections (links and the
    "What to expect" toggles). */
