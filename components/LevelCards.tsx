@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { page, type Level, type LevelCard } from '@/content/page';
 import { ArrowIcon } from './Actions';
+import FillPhoto from './FillPhoto';
 
 /**
  * The level cards (Sergei's brief, Nov 5 2026): the microsite's card format
@@ -20,7 +21,7 @@ export default function LevelCards() {
           photo left, the row's heading and the centre's description right. */}
       <article
         aria-labelledby="san-jose-title"
-        className="mt-8 grid overflow-hidden rounded-3xl border border-se-line bg-se-cream shadow-se-card md:grid-cols-[1fr_1.2fr]"
+        className="mt-8 grid grid-cols-1 overflow-hidden break-words rounded-3xl border border-se-line bg-se-cream shadow-se-card md:grid-cols-[1fr_1.2fr]"
       >
         <Image
           src={cards.outpatientCard.photo.src}
@@ -37,21 +38,21 @@ export default function LevelCards() {
           <p className="mt-3 leading-relaxed text-se-ink">{cards.outpatientCard.text}</p>
         </div>
       </article>
-      <ul className="mt-5 grid gap-5 md:grid-cols-3">
+      <ul className="mt-5 grid grid-cols-1 gap-5 break-words md:grid-cols-3">
         {outpatient.items.map((level) => (
           <Card key={level.id} card={cards.cards[level.id]} groups={[{ rows: level.rows }]} expectLabel={cards.expectLabel} />
         ))}
       </ul>
 
       <h3 className="mt-12 text-2xl font-semibold text-se-green-700">{cards.higherTitle}</h3>
-      <ul className="mt-5 grid gap-5 md:grid-cols-2">
+      <ul className="mt-5 grid grid-cols-1 gap-5 break-words md:grid-cols-2">
         <Card
           card={cards.combined}
           groups={higher.items.map((level) => ({ name: level.name, rows: level.rows }))}
           expectLabel={cards.expectLabel}
         />
         <li className="relative min-h-[16rem] overflow-hidden rounded-3xl shadow-se-card">
-          <Image src={higher.photo.src} alt={higher.photo.alt} fill sizes="(min-width: 768px) 600px, 100vw" className="object-cover" />
+          <FillPhoto photo={higher.photo} sizes="(min-width: 768px) 600px, 100vw" />
           <div className="absolute right-4 top-4 max-w-[16rem] rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card">
             <p className="text-sm text-se-sand">{higher.badge.label}</p>
             <p className="text-lg font-semibold leading-tight text-white">{higher.badge.value}</p>

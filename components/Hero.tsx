@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import FillPhoto from './FillPhoto';
 import { page } from '@/content/page';
 import { settings } from '@/content/settings';
 import { PhoneIcon } from './Actions';
@@ -22,14 +22,14 @@ export default function Hero() {
             2026). Stacked on phones: headline, description, photo. */}
         <h1
           id="hero-title"
-          className="max-w-5xl text-[2.3rem] font-light leading-[1.08] text-se-green-700 sm:text-[2.9rem] md:col-span-2 lg:text-[3.5rem]"
+          className="max-w-5xl [overflow-wrap:anywhere] text-[2.3rem] font-light leading-[1.08] text-se-green-700 sm:text-[2.9rem] md:col-span-2 lg:text-[3.5rem]"
         >
           {keepTogether(hero.title)} <span className="text-se-accent-700">{hero.titleAccent}</span>
         </h1>
 
         <div>
           <p className="max-w-3xl whitespace-pre-line text-lg leading-relaxed text-se-ink">{hero.text}</p>
-          <ul className={hero.features.length > 1 ? 'mt-6 grid list-disc grid-cols-2 gap-x-8 gap-y-2.5 pl-5 marker:text-se-green-700' : 'mt-7 grid max-w-3xl'}>
+          <ul className={hero.features.length > 1 ? 'mt-6 grid list-disc grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))] gap-x-8 gap-y-2.5 pl-5 marker:text-se-green-700' : 'mt-7 grid max-w-3xl'}>
             {hero.features.map((feature) => (
               <li key={feature.title} className="pl-1">
                 {/* A bulleted list in two columns, smaller type (Sergei, Nov 17 2026:
@@ -44,14 +44,7 @@ export default function Hero() {
         </div>
         <div className="relative sm:mb-8 md:mb-6">
           <div className="relative h-[16rem] w-full overflow-hidden rounded-[2rem] shadow-se-card sm:h-[22rem] md:h-[24rem]">
-            <Image
-              src={hero.photo.src}
-              alt={hero.photo.alt}
-              fill
-              sizes="(min-width: 768px) 560px, 100vw"
-              priority
-              className="object-cover"
-            />
+            <FillPhoto photo={hero.photo} sizes="(min-width: 768px) 560px, 100vw" priority />
           </div>
           <div className="absolute right-4 top-4 max-w-[16rem] rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card sm:right-6 sm:top-6">
             <p className="text-sm text-se-sand">{hero.insuranceBadge.label}</p>
@@ -80,12 +73,15 @@ export default function Hero() {
 /**
  * Keeps hyphenated words ("Dual-Diagnosis", "World-class") and "San Jose" on
  * one line in the headline, so it never breaks as "Dual-" / "Diagnosis" or
- * "San" / "Jose".
+ * "San" / "Jose". An inline-block, not nowrap: the group moves to the next
+ * line whole, but when a visitor's large text size makes it wider than the
+ * screen it may still wrap instead of running off the edge (Modern Web
+ * Guidance, respect-os-text-scale: "Do not restrict inline-axis text wrapping").
  */
 function keepTogether(text: string) {
   return text.split(/(San Jose|\S+-\S+)/).map((part, i) =>
     i % 2 === 1 ? (
-      <span key={i} className="whitespace-nowrap">
+      <span key={i} className="inline-block max-w-full">
         {part}
       </span>
     ) : (

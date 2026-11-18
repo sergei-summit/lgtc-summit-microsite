@@ -35,8 +35,10 @@ import type { FeatureIconName } from '@/components/FeatureIcon';
 import type { LocationIconName } from '@/components/WhereWeAre';
 
 import heroPhoto from './images/hero-san-jose-common-room.webp';
+import heroPhotoSmall from './images/hero-san-jose-common-room-720.webp';
 import sanJosePhoto from './images/location-san-jose.webp';
 import paloAltoPhoto from './images/hero-palo-alto-estate.webp';
+import paloAltoPhotoSmall from './images/hero-palo-alto-estate-720.webp';
 import jointCommissionBadge from './images/badge-joint-commission.png';
 import carfBadge from './images/badge-carf.png';
 import dhcsBadge from './images/badge-dhcs.png';
@@ -56,7 +58,8 @@ import carrier11 from './images/carriers/vhp.png';
 import carrier12 from './images/carriers/cigna.svg';
 import carrier13 from './images/carriers/scfhp.png';
 
-export type Photo = { src: StaticImageData; alt: string };
+/** `small`: an optional 720px-wide copy that phones download instead of the full photo. */
+export type Photo = { src: StaticImageData; alt: string; small?: StaticImageData };
 /** A labelled card: small label (kicker), heading and ticked list. */
 export type Card = { eyebrow: string; title: string; points: string[] };
 /** A card in the comparison set copied from the microsite's Levels of Care. */
@@ -107,6 +110,7 @@ export const page = {
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
+      small: heroPhotoSmall,
       alt: 'An open common area with sofas, a glass side table with a potted bromeliad, and a kitchenette behind',
     } satisfies Photo,
   },
@@ -258,6 +262,7 @@ export const page = {
       },
       photo: {
         src: paloAltoPhoto,
+        small: paloAltoPhotoSmall,
         alt: 'A two-storey Mediterranean-style house above a landscaped garden with a stone fountain and patio chairs',
       } satisfies Photo,
     },
