@@ -20,16 +20,20 @@ export default function Hero() {
         {/* The headline runs across the top; under it, the description and
             points sit left and the photo right from md up (Sergei, Nov 17
             2026). Stacked on phones: headline, description, photo. */}
-        <h1
-          id="hero-title"
-          className="max-w-5xl [overflow-wrap:anywhere] text-[2.3rem] font-light leading-[1.08] text-se-green-700 sm:text-[2.9rem] md:col-span-2 lg:text-[3.5rem]"
-        >
-          {keepTogether(hero.title)} <span className="text-se-accent-700">{hero.titleAccent}</span>
-        </h1>
+        {/* The box carries the headline size so the container query in
+            summit-estate.css can compare its width with the longest word. */}
+        <div className="se-hero-title-box text-[2.3rem] sm:text-[2.9rem] md:col-span-2 lg:text-[3.5rem]">
+          <h1
+            id="hero-title"
+            className="max-w-5xl font-light leading-[1.08] text-se-green-700"
+          >
+            {keepTogether(hero.title)} <span className="text-se-accent-700">{hero.titleAccent}</span>
+          </h1>
+        </div>
 
         <div>
           <p className="max-w-3xl whitespace-pre-line text-lg leading-relaxed text-se-ink">{hero.text}</p>
-          <ul className={hero.features.length > 1 ? 'mt-6 grid list-disc grid-cols-[repeat(auto-fit,minmax(min(100%,8.5rem),1fr))] gap-x-8 gap-y-2.5 pl-5 marker:text-se-green-700' : 'mt-7 grid max-w-3xl'}>
+          <ul className={hero.features.length > 1 ? 'mt-6 grid list-disc grid-cols-[repeat(auto-fit,minmax(min(100%,max(7rem,calc((100%-2rem)/2))),1fr))] gap-x-8 gap-y-2.5 pl-5 marker:text-se-green-700' : 'mt-7 grid max-w-3xl'}>
             {hero.features.map((feature) => (
               <li key={feature.title} className="pl-1">
                 {/* A bulleted list in two columns, smaller type (Sergei, Nov 17 2026:
@@ -73,15 +77,14 @@ export default function Hero() {
 /**
  * Keeps hyphenated words ("Dual-Diagnosis", "World-class") and "San Jose" on
  * one line in the headline, so it never breaks as "Dual-" / "Diagnosis" or
- * "San" / "Jose". An inline-block, not nowrap: the group moves to the next
- * line whole, but when a visitor's large text size makes it wider than the
- * screen it may still wrap instead of running off the edge (Modern Web
- * Guidance, respect-os-text-scale: "Do not restrict inline-axis text wrapping").
+ * "San" / "Jose". The `se-keep` class lets them wrap after all when a large
+ * text size makes the headline box narrower than its longest word (see
+ * summit-estate.css; Modern Web Guidance, respect-os-text-scale).
  */
 function keepTogether(text: string) {
   return text.split(/(San Jose|\S+-\S+)/).map((part, i) =>
     i % 2 === 1 ? (
-      <span key={i} className="inline-block max-w-full">
+      <span key={i} className="se-keep whitespace-nowrap">
         {part}
       </span>
     ) : (
