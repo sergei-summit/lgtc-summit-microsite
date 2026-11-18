@@ -42,8 +42,16 @@
 .se-root :where(p) {
   text-wrap: pretty;
 }
-/* One focus ring everywhere, visible on light and dark sections. */
-.se-root a:focus-visible {
+/* Long words may break rather than run off the screen when a visitor uses a
+   large text size. "anywhere" also lets grid and flex columns shrink below the
+   longest word; at normal sizes every word fits, so nothing changes. */
+.se-root {
+  overflow-wrap: anywhere;
+}
+/* One focus ring everywhere, visible on light and dark sections (links and the
+   "What to expect" toggles). */
+.se-root a:focus-visible,
+.se-root summary:focus-visible {
   outline: 3px solid #5a716a;
   outline-offset: 3px;
   box-shadow: 0 0 0 3px #ffffff;
