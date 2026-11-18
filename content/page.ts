@@ -331,9 +331,9 @@ export const page = {
       } as Record<string, LevelCard>,
       combined: {
         tag: 'DTX / RTC',
-        name: 'Detox & residential',
-        meta: 'Detox typically 7\u201310 days \u00b7 residential typically 3\u20134 weeks',
-        blurb: 'Medically supervised detox and residential treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
+        name: 'Detox & Residential',
+        meta: 'Detox typically 7\u201310 days \u00b7 Residential typically 3\u20134 weeks',
+        blurb: '(ASAM Levels 3.5 / 3.1)\nMedically supervised detox and residential treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
       } satisfies LevelCard,
       /** Not shown since Nov 14 2026 (Sergei removed the card); kept for later use. */
       notSure: {
