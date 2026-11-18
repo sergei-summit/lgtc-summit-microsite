@@ -73,7 +73,11 @@ function GoogleIcon() {
 /** Star rating in half steps, announced once as text. */
 function Stars({ rating }: { rating: number }) {
   return (
-    <span className="flex text-[#946B00]" role="img" aria-label={`${rating} out of 5 stars`}>
+    <span className="flex items-center gap-1.5" role="img" aria-label={`${rating} out of 5 stars`}>
+      {/* The number makes the rating readable without the stars; the stars are
+          Google's gold (Sergei, Nov 18 2026). */}
+      <span aria-hidden="true" className="text-sm font-semibold text-se-ink">{rating}</span>
+      <span className="flex text-[#FBBC04]">
       {Array.from({ length: 5 }, (_, i) => {
         const fill = Math.min(Math.max(rating - i, 0), 1);
         return (
@@ -88,6 +92,7 @@ function Stars({ rating }: { rating: number }) {
           </svg>
         );
       })}
+      </span>
     </span>
   );
 }

@@ -38,6 +38,7 @@ import heroPhoto from './images/hero-san-jose-common-room.webp';
 import heroPhotoSmall from './images/hero-san-jose-common-room-720.webp';
 import sanJosePhoto from './images/location-san-jose.webp';
 import paloAltoPhoto from './images/hero-palo-alto-estate.webp';
+import therapyPhoto from './images/therapy-office.webp';
 import paloAltoPhotoSmall from './images/hero-palo-alto-estate-720.webp';
 import jointCommissionBadge from './images/badge-joint-commission.png';
 import carfBadge from './images/badge-carf.png';
@@ -66,7 +67,7 @@ export type Card = { eyebrow: string; title: string; points: string[] };
 /** A level card: tag chip, name, clock line and blurb; its "What to expect" rows are a Level's rows. */
 export type LevelCard = { tag?: string; name: string; meta: string; blurb: string };
 /** A "Where we are" card from go.summitestate.com/outpatient: icon, small label, name, one line and chips. */
-export type LocationCard = { icon: LocationIconName; eyebrow: string; title: string; text: string; points: string[] };
+export type LocationCard = { icon: LocationIconName; eyebrow: string; title: string; text: string; points: string[]; link?: { label: string; href: string } };
 
 export type Level = {
   id: string;
@@ -95,18 +96,18 @@ export const page = {
 
   hero: {
     /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
-    title: 'World-class dual-diagnosis care in the heart of Silicon Valley,',
-    titleAccent: 'built around your life',
-    text: 'Substance use and mental health treated together. Day treatment (PHP), intensive outpatient (IOP) and individual therapy (OP). In San Jose in person and via hybrid IOP',
+    /** Sergei, Nov 18 2026 (his title case kept). */
+    title: 'Dual Diagnosis Care in San Jose,',
+    titleAccent: 'Built Around Your Life',
+    text: 'Address mental health and addiction treatment together with convenient outpatient programs offered in-person or virtually.',
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
      * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
     features: [
+      { icon: 'compass', title: 'Day, evening & hybrid formats' },
+      { icon: 'heart', title: 'Individualized treatment programs' },
       { icon: 'shield', title: 'Psychiatric oversight, board-certified teams' },
-      { icon: 'compass', title: 'Day, evening & hybrid formats for outpatient' },
-      { icon: 'briefcase', title: 'Programming built around work and family' },
-      { icon: 'heart', title: 'Individualized care' },
     ] as { icon: FeatureIconName; title: string; proof?: string }[],
-    insuranceBadge: { label: 'San Jose outpatient center', value: 'Most major insurances' },
+    insuranceBadge: { label: 'San Jose outpatient center', value: 'In-Network With Most Major Plans' },
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
@@ -176,19 +177,13 @@ export const page = {
           'Case manager',
         ],
       },
-      {
-        eyebrow: 'Who can benefit',
-        title: 'Adults who need support for both.',
-        points: [
-          'Anxiety, depression or other mood conditions alongside substance use',
-          'Active substance use, or early recovery',
-          'A history of relapse',
-          'Stress or trauma triggers',
-          'Wanting structured support to stay sober',
-          'Wanting a peer group going through the same thing',
-        ],
-      },
     ] satisfies Card[],
+    /** In place of the "Who can benefit" card (Sergei, Nov 18 2026, who asked for a therapist and client 1-on-1 photo).
+     * Stand-in until he supplies one: the San Jose therapy office from go.summitestate.com/outpatient-backup. */
+    photo: {
+      src: therapyPhoto,
+      alt: 'A therapy office at the San Jose center: a leather sofa and an armchair facing each other across a rug',
+    } satisfies Photo,
   },
 
   /**
@@ -199,7 +194,7 @@ export const page = {
    */
   levels: {
     id: 'programs',
-    title: 'Levels of care',
+    title: 'Outpatient Programs',
     outpatient: {
       items: [
         {
@@ -255,10 +250,9 @@ export const page = {
       /** Sergei's approved wording (Nov 4 2026); shown under the two tiles. */
       /** Info card over the estate photo, like the hero badge over the San
        * Jose photo (Sergei, Nov 5 2026, his wording). */
+      /** Sergei, Nov 18 2026: only the PPO line. */
       badge: {
-        label: 'Detox and residential',
         value: 'Most major PPO policies accepted',
-        note: 'In-network agreements are in progress and expected in 2027',
       },
       photo: {
         src: paloAltoPhoto,
@@ -278,12 +272,12 @@ export const page = {
      * line and blurb live here.
      */
     cards: {
-      outpatientTitle: 'Summit Estate Recovery \u2013 Outpatient',
+      outpatientTitle: 'Summit Estate Recovery',
       /** The San Jose card from the live page (go.summitestate.com/lgtc-summit-microsite),
        * placed above the three cards (Sergei, Nov 5 2026): the lounge photo,
        * the heading above as its name, and the live page's description. */
       outpatientCard: {
-        text: 'PHP, IOP and OP, family therapy and a multi-family group, psychiatry-guided medication management and case management. Day and evening schedules are work-compatible, with hybrid IOP when clinically appropriate.',
+        text: 'Choose from a variety of outpatient programs that fit your schedule: partial hospitalization, intensive outpatient, outpatient, family therapy, and multi-family groups. Receive psychiatry-guided medication management and case management at any level.',
         photo: {
           src: sanJosePhoto,
           alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
@@ -315,6 +309,8 @@ export const page = {
       },
       higherTitle: 'Higher level of care \u00b7 Palo Alto',
       expectLabel: 'What to expect',
+      closeLabel: 'Close',
+      learnMore: { label: 'Learn more', href: 'https://go.summitestate.com/outpatient' },
       /** No tag chips on the three program cards (Sergei, Nov 17 2026: "delete abbreviations here"). */
       cards: {
         php: {
@@ -389,7 +385,8 @@ export const page = {
   footerNote: {
     smallPrint: "All communication is confidential. Please don't include sensitive medical details. If you are in crisis, call or text 988.",
     text: `Summit Estate Recovery Centers. Dual-diagnosis care for adults, in a collaborative partnership under the guidance and oversight of ${settings.groupName}.`,
-    fullSiteLink: 'Explore the full Summit Estate site',
+    /** A button since Nov 18 2026 (Sergei). */
+    fullSiteLink: 'Explore Summit Estate',
   },
 
   /**
@@ -406,7 +403,8 @@ export const page = {
       {
         icon: 'pin',
         eyebrow: 'San Jose',
-        title: 'Summit Estate Recovery \u2013 San Jose Silicon Valley Outpatient',
+        title: 'Outpatient',
+        link: { label: 'Learn more', href: 'https://go.summitestate.com/outpatient' },
         text: 'West San Jose, a mile from Cupertino and Saratoga.',
         points: ['PHP', 'IOP', 'OP', 'Hybrid IOP'],
       },
@@ -414,7 +412,8 @@ export const page = {
         icon: 'home',
         /** The source card says "Adults 28+" here and in the text; Sergei removed both (Nov 5 2026). */
         eyebrow: 'Palo Alto',
-        title: 'Summit Estate Recovery \u2013 Palo Alto Residential Detox',
+        title: 'Residential Detox',
+        link: { label: 'Learn more', href: 'https://go.summitestate.com/landing' },
         text: "Silicon Valley's finest rehab: detox and residential care on a private estate in the rolling hills.",
         points: ['Detox & residential'],
       },
@@ -422,7 +421,8 @@ export const page = {
   },
 
   /** Phone bar: Call, plus Get started, which jumps to the closing section. */
-  mobileBar: { label: 'Call or get started', secondary: { href: '#verify', label: 'Get started' } },
+  /** "Getting started" was removed (Sergei, Nov 18 2026), so the second button jumps to the programs. */
+  mobileBar: { label: 'Call or see programs', secondary: { href: '#programs', label: 'Our programs' } },
 } as const;
 
 export type PageContent = typeof page;

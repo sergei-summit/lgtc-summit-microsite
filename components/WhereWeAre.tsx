@@ -1,4 +1,5 @@
 import { page } from '@/content/page';
+import { SecondaryLink } from './Actions';
 
 /**
  * "Where we are": the two location cards from go.summitestate.com/outpatient
@@ -35,6 +36,13 @@ export default function WhereWeAre() {
                   </li>
                 ))}
               </ul>
+              {/* Learn more button (Sergei, Nov 18 2026). */}
+              {item.link && (
+                <SecondaryLink href={item.link.href} className="mt-6 self-start">
+                  {item.link.label}
+                  <span className="sr-only">: {item.title}, {item.eyebrow}</span>
+                </SecondaryLink>
+              )}
             </li>
           ))}
         </ul>

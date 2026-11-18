@@ -8,7 +8,6 @@ import Hero from '@/components/Hero';
 import TrustBadges from '@/components/TrustBadges';
 import LevelsOfCare from '@/components/LevelsOfCare';
 import BenefitAndTeam from '@/components/BenefitAndTeam';
-import GettingStarted from '@/components/GettingStarted';
 import PageFooterNote from '@/components/PageFooterNote';
 import WhereWeAre from '@/components/WhereWeAre';
 import MobileCallBar from '@/components/MobileCallBar';
@@ -38,7 +37,6 @@ export default function SummitEstatePage() {
         <TrustBadges />
         <LevelsOfCare />
         <BenefitAndTeam />
-        <GettingStarted />
         <WhereWeAre />
         <PageFooterNote />
       </main>

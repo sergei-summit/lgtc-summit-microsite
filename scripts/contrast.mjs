@@ -26,7 +26,8 @@ const pairs = [
   ['dark band: white on green', '#FFFFFF', '#445952', 4.5],
   ['dark button: green-20 on beige', '#2B3A35', '#E7D8C5', 4.5],
   ['dark button hover: green-20 on warm hover', '#2B3A35', '#DFC8AD', 4.5],
-  ['stars: gold on grey (graphic)', '#946B00', '#F7F7F7', 3],
+  // Google gold since Nov 18 2026 (Sergei). Below 3:1, so the rating is also shown as a number beside the stars.
+  ['stars: Google gold, rating also shown as text', '#FBBC04', '#F7F7F7', 1],
   ['focus ring: green-40 on grey (graphic)', '#5A716A', '#F7F7F7', 3],
   ['brand light green #769887 behind white text (not used)', '#FFFFFF', '#769887', null],
 ];
