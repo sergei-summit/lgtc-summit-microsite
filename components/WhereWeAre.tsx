@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { page } from '@/content/page';
 import { SecondaryLink } from './Actions';
 import { settings } from '@/content/settings';
@@ -48,22 +49,15 @@ export default function WhereWeAre() {
                   </li>
                 ))}
               </ul>
-              {/* Map (Sergei, Nov 18 2026): Google's own embed, loaded only when scrolled near. */}
+              {/* Map (Sergei, Nov 18 2026): a picture of the Google map that opens
+                  Google Maps, not an embed, so nothing loads from Google (no cookies). */}
               {item.map && (
-                <div className="relative mt-6 h-56 overflow-hidden rounded-2xl bg-se-cream">
-                  {/* Shows only where the map cannot load (the preview blocks outside frames); the map covers it. */}
-                  <p aria-hidden="true" className="absolute inset-0 flex items-center justify-center p-4 text-center text-sm text-se-ink-muted">
-                    {whereWeAre.mapFallback}
-                  </p>
-                  <iframe
-                    src={item.map.src}
-                    title={item.map.title}
-                    loading="lazy"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                    className="relative h-full w-full border-0"
-                  />
-                </div>
+                <figure className="mt-6">
+                  <a href={item.map.href} target="_blank" rel="noopener" className="block overflow-hidden rounded-2xl border border-se-line">
+                    <Image src={item.map.image} alt={`${item.map.alt} ${whereWeAre.mapLinkSuffix}`} sizes="(min-width: 768px) 420px, 100vw" className="h-56 w-full object-cover" />
+                  </a>
+                  <figcaption className="mt-1.5 text-right text-xs text-se-ink-muted">{whereWeAre.mapCredit}</figcaption>
+                </figure>
               )}
               {/* Learn more button (Sergei, Nov 18 2026). */}
               {item.link && (
