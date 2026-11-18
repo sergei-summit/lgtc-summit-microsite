@@ -316,17 +316,17 @@ export const page = {
         php: {
           name: 'Partial hospitalization program (PHP)',
           meta: '20+ hrs/week \u00b7 typically 4\u20136 weeks',
-          blurb: '(ASAM Level 2.5 COE). Also called Day Treatment or High-Intensity Outpatient. Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
+          blurb: '(ASAM Level 2.5 COE)\nAlso called Day Treatment or High-Intensity Outpatient. Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
         },
         iop: {
           name: 'Intensive outpatient program (IOP)',
           meta: '9\u201319 hrs/week \u00b7 typically 8\u201312 weeks',
-          blurb: '(ASAM Level 2.1 COE). Day, evening or hybrid options. Structured clinical care that fits around work, school and family.',
+          blurb: '(ASAM Level 2.1 COE)\nDay, evening or hybrid options. Structured clinical care that fits around work, school and family.',
         },
         outpatient: {
           name: 'Outpatient therapy program (OP)',
           meta: 'From one session a week \u00b7 ongoing',
-          blurb: '(ASAM Level 1.5 COE). Individual therapy and medication management for people who are stable and want to stay on track.',
+          blurb: '(ASAM Level 1.5 COE)\nIndividual therapy and medication management for people who are stable and want to stay on track.',
         },
       } as Record<string, LevelCard>,
       combined: {

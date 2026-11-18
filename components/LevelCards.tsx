@@ -93,7 +93,7 @@ function Card({ card, groups, expectLabel, popup }: { card: LevelCard; groups: R
         <ClockIcon />
         <span>{card.meta}</span>
       </p>
-      <p className="mt-3 text-sm leading-relaxed text-se-ink-muted">{card.blurb}</p>
+      <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-se-ink-muted">{card.blurb}</p>
       <div className="mt-5 grow" aria-hidden="true" />
       {popup ? (
         <>
