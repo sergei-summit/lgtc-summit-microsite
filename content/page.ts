@@ -194,7 +194,7 @@ export const page = {
    */
   levels: {
     id: 'programs',
-    title: 'Outpatient Programs',
+    title: 'Outpatient Programs \u2013 Co-Occurring Enhanced (COE)',
     outpatient: {
       items: [
         {
@@ -314,19 +314,19 @@ export const page = {
       /** No tag chips on the three program cards (Sergei, Nov 17 2026: "delete abbreviations here"). */
       cards: {
         php: {
-          name: 'Partial hospitalization program',
+          name: 'Partial hospitalization program (PHP)',
           meta: '20+ hrs/week \u00b7 typically 4\u20136 weeks',
-          blurb: 'Also called day treatment. Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
+          blurb: 'Also called Day Treatment or High-Intensity Outpatient (ASAM Level 2.5 COE). Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
         },
         iop: {
-          name: 'Intensive outpatient program',
+          name: 'Intensive outpatient program (IOP)',
           meta: '9\u201319 hrs/week \u00b7 typically 8\u201312 weeks',
-          blurb: 'Day, evening or hybrid IOP (in person and telehealth). Structured clinical care that fits around work, school and family.',
+          blurb: '(ASAM Level 2.1 COE). Day, evening or hybrid options. Structured clinical care that fits around work, school and family.',
         },
         outpatient: {
-          name: 'Outpatient therapy program',
-          meta: 'From one session a week \u00b7 for as long as it is useful',
-          blurb: 'Also called individual therapy. Ongoing individual therapy and medication management for people who are stable and want to stay on track.',
+          name: 'Outpatient therapy program (OP)',
+          meta: 'From one session a week \u00b7 ongoing',
+          blurb: '(ASAM Level 1.5 COE). Individual therapy and medication management for people who are stable and want to stay on track.',
         },
       } as Record<string, LevelCard>,
       combined: {
