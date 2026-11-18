@@ -294,6 +294,8 @@ export const page = {
        * carriers, order and logo files as that page. */
       insurance: {
         title: 'We accept most major insurances',
+        /** Sergei, Nov 17 2026 (preview comment): logos removed from the page; the list stays here for later use. */
+        showLogos: false,
         carriers: [
           { name: 'UnitedHealthcare', logo: carrier0, width: 564, height: 177 },
           { name: 'Optum', logo: carrier1, width: 708, height: 205 },
