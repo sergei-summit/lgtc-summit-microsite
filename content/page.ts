@@ -67,7 +67,7 @@ export type Card = { eyebrow: string; title: string; points: string[] };
 /** A level card: tag chip, name, clock line and blurb; its "What to expect" rows are a Level's rows. */
 export type LevelCard = { tag?: string; name: string; meta: string; blurb: string };
 /** A "Where we are" card from go.summitestate.com/outpatient: icon, small label, name, one line and chips. */
-export type LocationCard = { icon: LocationIconName; eyebrow: string; title: string; text: string; points: string[]; link?: { label: string; href: string } };
+export type LocationCard = { icon: LocationIconName; eyebrow: string; title: string; text: string; points: string[]; link?: { label: string; href: string }; map?: { title: string; src: string } };
 
 export type Level = {
   id: string;
@@ -405,6 +405,8 @@ export const page = {
         eyebrow: 'San Jose',
         title: 'Outpatient',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/outpatient' },
+        /** Google Maps embed supplied by Sergei, Nov 18 2026. */
+        map: { title: 'Map: Summit Estate Recovery outpatient center, West San Jose', src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3173.6207273364485!2d-122.03386122413878!3d37.30412177210825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808e4ade24041131%3A0x61970d2992aa7ba2!2sSummit%20Estate%20Recovery%20-%20San%20Jose%20Silicon%20Valley%20Outpatient%20Program!5e0!3m2!1sen!2sus!4v1795030001984!5m2!1sen!2sus' },
         text: 'West San Jose, a mile from Cupertino and Saratoga.',
         points: ['PHP', 'IOP', 'OP', 'Hybrid IOP'],
       },
@@ -414,6 +416,7 @@ export const page = {
         eyebrow: 'Palo Alto',
         title: 'Detox & Residential',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/landing' },
+        map: { title: 'Map: Summit Estate Recovery Center, Palo Alto', src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6339.639360482638!2d-122.14129005054875!3d37.394096448809805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb1f920ec77d7%3A0xabe2576da81afa12!2sSummit%20Estate%20Recovery%20Center%20-%20Palo%20Alto%20Residential%20Detox!5e0!3m2!1sen!2sus!4v1795029892319!5m2!1sen!2sus' },
         text: "Silicon Valley's finest rehab: detox and residential care on a private estate in the rolling hills.",
         points: ['Detox & residential'],
       },
