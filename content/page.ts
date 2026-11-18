@@ -96,9 +96,9 @@ export const page = {
 
   hero: {
     /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
-    /** Sergei, Nov 18 2026 (his title case kept). */
-    title: 'Dual Diagnosis Care in San Jose,',
-    titleAccent: 'Built Around Your Life',
+    /** Sergei, Nov 18 2026; sentence case per his Nov 18 note. */
+    title: 'Dual diagnosis care in San Jose,',
+    titleAccent: 'built around your life',
     text: 'Address mental health and addiction treatment together with convenient outpatient programs offered in-person or virtually.',
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
      * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
@@ -194,7 +194,7 @@ export const page = {
    */
   levels: {
     id: 'programs',
-    title: 'Outpatient Programs \u2013 Co-Occurring Enhanced (COE)',
+    title: 'Outpatient programs \u2013 co-occurring enhanced (COE)',
     outpatient: {
       items: [
         {
@@ -316,7 +316,7 @@ export const page = {
         php: {
           name: 'Partial hospitalization program (PHP)',
           meta: '20+ hrs/week \u00b7 typically 4\u20136 weeks',
-          blurb: '(ASAM Level 2.5 COE)\nAlso called Day Treatment or High-Intensity Outpatient. Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
+          blurb: '(ASAM Level 2.5 COE)\nAlso called day treatment or high-intensity outpatient. Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
         },
         iop: {
           name: 'Intensive outpatient program (IOP)',
@@ -331,7 +331,7 @@ export const page = {
       } as Record<string, LevelCard>,
       combined: {
         tag: 'DTX / RTC',
-        name: 'Detox & Residential',
+        name: 'Detox & residential',
         meta: 'Detox typically 7\u201310 days \u00b7 Residential typically 3\u20134 weeks',
         blurb: '(ASAM Levels 3.5 / 3.1)\nMedically supervised detox and residential treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
       } satisfies LevelCard,
@@ -415,7 +415,7 @@ export const page = {
         icon: 'home',
         /** The source card says "Adults 28+" here and in the text; Sergei removed both (Nov 5 2026). */
         eyebrow: 'Palo Alto',
-        title: 'Detox & Residential',
+        title: 'Detox & residential',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/landing' },
         map: { title: 'Map: Summit Estate Recovery Center, Palo Alto', src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6339.639360482638!2d-122.14129005054875!3d37.394096448809805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb1f920ec77d7%3A0xabe2576da81afa12!2sSummit%20Estate%20Recovery%20Center%20-%20Palo%20Alto%20Residential%20Detox!5e0!3m2!1sen!2sus!4v1795029892319!5m2!1sen!2sus' },
         text: "Silicon Valley's finest rehab: detox and residential care on a private estate in the rolling hills.",
