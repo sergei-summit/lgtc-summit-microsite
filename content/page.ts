@@ -64,7 +64,7 @@ export type Photo = { src: StaticImageData; alt: string; small?: StaticImageData
 export type Card = { eyebrow: string; title: string; points: string[] };
 /** A card in the comparison set copied from the microsite's Levels of Care. */
 /** A level card: tag chip, name, clock line and blurb; its "What to expect" rows are a Level's rows. */
-export type LevelCard = { tag: string; name: string; meta: string; blurb: string };
+export type LevelCard = { tag?: string; name: string; meta: string; blurb: string };
 /** A "Where we are" card from go.summitestate.com/outpatient: icon, small label, name, one line and chips. */
 export type LocationCard = { icon: LocationIconName; eyebrow: string; title: string; text: string; points: string[] };
 
@@ -315,22 +315,20 @@ export const page = {
       },
       higherTitle: 'Higher level of care \u00b7 Palo Alto',
       expectLabel: 'What to expect',
+      /** No tag chips on the three program cards (Sergei, Nov 17 2026: "delete abbreviations here"). */
       cards: {
         php: {
-          tag: 'PHP',
           name: 'Partial hospitalization program',
           meta: '20+ hrs/week \u00b7 typically 4\u20136 weeks',
           blurb: 'Also called day treatment. Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
         },
         iop: {
-          tag: 'IOP',
           name: 'Intensive outpatient program',
           meta: '9\u201319 hrs/week \u00b7 typically 8\u201312 weeks',
           blurb: 'Day, evening or hybrid IOP (in person and telehealth). Structured clinical care that fits around work, school and family.',
         },
         outpatient: {
-          tag: 'OP',
-          name: 'Outpatient therapy program (OP)',
+          name: 'Outpatient therapy program',
           meta: 'From one session a week \u00b7 for as long as it is useful',
           blurb: 'Also called individual therapy. Ongoing individual therapy and medication management for people who are stable and want to stay on track.',
         },

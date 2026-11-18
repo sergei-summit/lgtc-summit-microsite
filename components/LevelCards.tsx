@@ -70,10 +70,12 @@ type RowGroup = { name?: string; rows: Level['rows'] };
 function Card({ card, groups, expectLabel }: { card: LevelCard; groups: RowGroup[]; expectLabel: string }) {
   return (
     <li className="flex flex-col rounded-3xl border border-se-line bg-se-cream p-7 shadow-se-card">
-      <span className="self-start rounded-full bg-se-paper px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-se-ink">
-        {card.tag}
-      </span>
-      <h4 className="mt-4 text-2xl font-semibold leading-snug text-se-green-700">{card.name}</h4>
+      {card.tag && (
+        <span className="mb-4 self-start rounded-full bg-se-paper px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-se-ink">
+          {card.tag}
+        </span>
+      )}
+      <h4 className="text-2xl font-semibold leading-snug text-se-green-700">{card.name}</h4>
       <p className="mt-2 inline-flex items-start gap-2 text-sm font-medium text-se-ink">
         <ClockIcon />
         <span>{card.meta}</span>
