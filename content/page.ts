@@ -316,7 +316,7 @@ export const page = {
         php: {
           name: 'Partial hospitalization program (PHP)',
           meta: '20+ hrs/week \u00b7 typically 4\u20136 weeks',
-          blurb: 'Also called Day Treatment or High-Intensity Outpatient (ASAM Level 2.5 COE). Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
+          blurb: '(ASAM Level 2.5 COE). Also called Day Treatment or High-Intensity Outpatient. Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
         },
         iop: {
           name: 'Intensive outpatient program (IOP)',
