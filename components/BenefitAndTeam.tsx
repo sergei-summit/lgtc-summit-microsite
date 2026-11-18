@@ -1,9 +1,10 @@
 import { page } from '@/content/page';
 import { CheckIcon } from './Actions';
+import FillPhoto from './FillPhoto';
 
 /**
- * Two cards side by side just above "Getting started is easy": "Your care
- * team", then "Who can benefit", as on the Summit Estate microsite
+ * "Your care team" card and, since Nov 18 2026 (Sergei), a photo in place of
+ * the "Who can benefit" card. Originally two cards, as on the Summit Estate microsite
  * (go.summitestate.com/microsite). Each card is an hgroup (small label as the
  * kicker, then the h2) and a ticked list. Placed here by Sergei on Nov 5 2026;
  * the care-team list is his five lines.
@@ -35,6 +36,10 @@ export default function BenefitAndTeam() {
               </ul>
             </div>
           ))}
+          {/* In place of the "Who can benefit" card (Sergei, Nov 18 2026). */}
+          <div className="relative min-h-[18rem] overflow-hidden rounded-3xl shadow-se-card">
+            <FillPhoto photo={cards.photo} sizes="(min-width: 768px) 560px, 100vw" />
+          </div>
         </div>
       </div>
     </section>

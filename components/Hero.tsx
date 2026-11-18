@@ -16,23 +16,23 @@ export default function Hero() {
   const { hero } = page;
   return (
     <section aria-labelledby="hero-title" className="bg-se-cream">
-      <div className="mx-auto grid max-w-se-content items-center gap-x-14 gap-y-8 px-4 py-12 sm:px-6 md:grid-cols-2 md:py-16">
+      <div className="mx-auto grid max-w-se-content items-center gap-x-12 gap-y-8 px-4 py-12 sm:px-6 md:grid-cols-2 md:gap-y-6 md:py-10 lg:py-12">
         {/* The headline runs across the top; under it, the description and
             points sit left and the photo right from md up (Sergei, Nov 17
             2026). Stacked on phones: headline, description, photo. */}
         {/* The box carries the headline size so the container query in
             summit-estate.css can compare its width with the longest word. */}
-        <div className="se-hero-title-box text-[2.3rem] sm:text-[2.9rem] md:col-span-2 lg:text-[3.5rem]">
+        <div className="se-hero-title-box text-[2.3rem] sm:text-[2.9rem] md:col-span-2 lg:text-[3.5rem] xl:text-[3.1rem]">
           <h1
             id="hero-title"
-            className="max-w-5xl font-light leading-[1.08] text-se-green-700"
+            className="font-light leading-[1.08] text-se-green-700"
           >
             {keepTogether(hero.title)} <span className="text-se-accent-700">{hero.titleAccent}</span>
           </h1>
         </div>
 
         <div>
-          <p className="max-w-3xl whitespace-pre-line text-lg leading-relaxed text-se-ink">{hero.text}</p>
+          <p className="max-w-3xl whitespace-pre-line text-lg leading-relaxed text-se-ink xl:text-xl">{hero.text}</p>
           <ul className={hero.features.length > 1 ? 'mt-6 grid list-disc grid-cols-[repeat(auto-fit,minmax(min(100%,max(7rem,calc((100%-2rem)/2))),1fr))] gap-x-8 gap-y-2.5 pl-5 marker:text-se-green-700' : 'mt-7 grid max-w-3xl'}>
             {hero.features.map((feature) => (
               <li key={feature.title} className="pl-1">
@@ -47,7 +47,7 @@ export default function Hero() {
           </ul>
         </div>
         <div className="relative sm:mb-8 md:mb-6">
-          <div className="relative h-[16rem] w-full overflow-hidden rounded-[2rem] shadow-se-card sm:h-[22rem] md:h-[24rem]">
+          <div className="relative h-[16rem] w-full overflow-hidden rounded-[2rem] shadow-se-card sm:h-[22rem] md:h-[19rem] lg:h-[20rem]">
             <FillPhoto photo={hero.photo} sizes="(min-width: 768px) 560px, 100vw" priority />
           </div>
           <div className="absolute right-4 top-4 max-w-[16rem] rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card sm:right-6 sm:top-6">

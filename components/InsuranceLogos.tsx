@@ -20,23 +20,25 @@ export default function InsuranceLogos() {
         >
           {insurance.title}
         </h2>
-        <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-7 gap-y-4">
-          {insurance.carriers.map((c) => (
-            <li key={c.name} className="flex h-9 items-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={c.logo.src}
-                alt={c.name}
-                width={c.width}
-                height={c.height}
-                loading="lazy"
-                decoding="async"
-                style={{ height: `${Math.round(LOGO_SCALE / Math.sqrt(c.width / c.height))}px`, width: 'auto', filter: 'brightness(0)', opacity: 0.6 }}
-                className="max-w-full object-contain"
-              />
-            </li>
-          ))}
-        </ul>
+        {insurance.showLogos && (
+          <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-7 gap-y-4">
+            {insurance.carriers.map((c) => (
+              <li key={c.name} className="flex h-9 items-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={c.logo.src}
+                  alt={c.name}
+                  width={c.width}
+                  height={c.height}
+                  loading="lazy"
+                  decoding="async"
+                  style={{ height: `${Math.round(LOGO_SCALE / Math.sqrt(c.width / c.height))}px`, width: 'auto', filter: 'brightness(0)', opacity: 0.6 }}
+                  className="max-w-full object-contain"
+                />
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </section>
   );

@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { page, type Level, type LevelCard } from '@/content/page';
-import { ArrowIcon } from './Actions';
+import { ArrowIcon, PhoneIcon } from './Actions';
+import { settings } from '@/content/settings';
+import ExpectDialog from './ExpectDialog';
 import FillPhoto from './FillPhoto';
 
 /**
@@ -40,7 +42,13 @@ export default function LevelCards() {
       </article>
       <ul className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3">
         {outpatient.items.map((level) => (
-          <Card key={level.id} card={cards.cards[level.id]} groups={[{ rows: level.rows }]} expectLabel={cards.expectLabel} />
+          <Card
+            key={level.id}
+            card={cards.cards[level.id]}
+            groups={[{ rows: level.rows }]}
+            expectLabel={cards.expectLabel}
+            popup={{ id: level.id, closeLabel: cards.closeLabel, learnMore: cards.learnMore }}
+          />
         ))}
       </ul>
 
@@ -54,9 +62,7 @@ export default function LevelCards() {
         <li className="relative min-h-[16rem] overflow-hidden rounded-3xl shadow-se-card">
           <FillPhoto photo={higher.photo} sizes="(min-width: 768px) 600px, 100vw" />
           <div className="absolute right-4 top-4 max-w-[16rem] rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card">
-            <p className="text-sm text-se-sand">{higher.badge.label}</p>
             <p className="text-lg font-semibold leading-tight text-white">{higher.badge.value}</p>
-            <p className="mt-1 text-sm leading-snug text-se-sand">{higher.badge.note}</p>
           </div>
         </li>
       </ul>
@@ -67,43 +73,82 @@ export default function LevelCards() {
 
 type RowGroup = { name?: string; rows: Level['rows'] };
 
-function Card({ card, groups, expectLabel }: { card: LevelCard; groups: RowGroup[]; expectLabel: string }) {
+/** `popup`: the San Jose program cards (Sergei, Nov 18 2026). "What to expect"
+ * opens as a popup, and the card ends with a Call button and a "Learn more"
+ * link to go.summitestate.com/outpatient. Without it (Detox & residential),
+ * "What to expect" folds open in place as before. */
+type Popup = { id: string; closeLabel: string; learnMore: { label: string; href: string } };
+
+function Card({ card, groups, expectLabel, popup }: { card: LevelCard; groups: RowGroup[]; expectLabel: string; popup?: Popup }) {
+  const rows = <Rows groups={groups} />;
   return (
     <li className="flex flex-col rounded-3xl border border-se-line bg-se-cream p-7 shadow-se-card">
-      <span className="self-start rounded-full bg-se-paper px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-se-ink">
-        {card.tag}
-      </span>
-      <h4 className="mt-4 text-2xl font-semibold leading-snug text-se-green-700">{card.name}</h4>
+      {card.tag && (
+        <span className="mb-4 self-start rounded-full bg-se-paper px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-se-ink">
+          {card.tag}
+        </span>
+      )}
+      <h4 className="text-2xl font-semibold leading-snug text-se-green-700">{card.name}</h4>
       <p className="mt-2 inline-flex items-start gap-2 text-sm font-medium text-se-ink">
         <ClockIcon />
         <span>{card.meta}</span>
       </p>
-      <p className="mt-3 text-sm leading-relaxed text-se-ink-muted">{card.blurb}</p>
+      <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-se-ink-muted">{card.blurb}</p>
       <div className="mt-5 grow" aria-hidden="true" />
-      <details className="group mt-auto border-t border-se-line pt-4">
-        <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-se-green-800 [&::-webkit-details-marker]:hidden">
-          {expectLabel}
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-se-line text-se-green-700 transition-transform group-open:rotate-90">
-            <ArrowIcon />
-          </span>
-        </summary>
-        <div className="mt-4 grid gap-5">
-          {groups.map((group, i) => (
-            <div key={group.name ?? i}>
-              {group.name && <h5 className="mb-2 font-semibold text-se-green-700">{group.name}</h5>}
-              <dl className="grid gap-2.5 text-sm leading-relaxed text-se-ink">
-                {group.rows.map(([label, text]) => (
-                  <div key={label}>
-                    <dt className="inline font-semibold text-se-green-800">{label}: </dt>
-                    <dd className="ml-0 inline">{text}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          ))}
-        </div>
-      </details>
+      {popup ? (
+        <>
+          <div className="mt-auto border-t border-se-line pt-3">
+            <ExpectDialog id={popup.id} label={expectLabel} title={card.name} closeLabel={popup.closeLabel}>
+              {rows}
+            </ExpectDialog>
+          </div>
+          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+            <a
+              href={settings.phoneHref}
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-se-accent-600 px-5 py-2 text-sm font-semibold text-white no-underline hover:bg-se-green-900"
+            >
+              <PhoneIcon />
+              {page.actions.callNow}
+              <span className="sr-only"> {settings.phone}</span>
+            </a>
+            <a href={popup.learnMore.href} className="inline-flex min-h-11 items-center gap-1.5 font-semibold text-se-green-700 underline underline-offset-4">
+              {popup.learnMore.label}
+              <span className="sr-only">: {card.name}</span>
+            </a>
+          </div>
+        </>
+      ) : (
+        <details className="group mt-auto border-t border-se-line pt-4">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-se-green-800 [&::-webkit-details-marker]:hidden">
+            {expectLabel}
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-se-line text-se-green-700 transition-transform group-open:rotate-90">
+              <ArrowIcon />
+            </span>
+          </summary>
+          <div className="mt-4">{rows}</div>
+        </details>
+      )}
     </li>
+  );
+}
+
+function Rows({ groups }: { groups: RowGroup[] }) {
+  return (
+    <div className="grid gap-5">
+      {groups.map((group, i) => (
+        <div key={group.name ?? i}>
+          {group.name && <h5 className="mb-2 font-semibold text-se-green-700">{group.name}</h5>}
+          <dl className="grid gap-2.5 text-sm leading-relaxed text-se-ink">
+            {group.rows.map(([label, text]) => (
+              <div key={label}>
+                <dt className="inline font-semibold text-se-green-800">{label}: </dt>
+                <dd className="ml-0 inline">{text}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      ))}
+    </div>
   );
 }
 

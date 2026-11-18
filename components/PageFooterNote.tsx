@@ -15,7 +15,10 @@ export default function PageFooterNote() {
         {settings.showFullSiteLink && (
           <p>
             {/* At least 24px tall so it is easy to tap (WCAG 2.2 target size). */}
-            <a href={settings.fullSiteUrl} className="inline-flex min-h-6 items-center py-1 font-semibold text-se-green-700 underline">
+            <a
+              href={settings.fullSiteUrl}
+              className="mt-2 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-6 py-3 text-base font-semibold text-white no-underline transition-colors hover:bg-se-green-900"
+            >
               {footerNote.fullSiteLink}
             </a>
           </p>

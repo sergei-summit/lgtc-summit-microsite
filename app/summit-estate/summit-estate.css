@@ -84,3 +84,8 @@
 
 @tailwind components;
 @tailwind utilities;
+
+/* "What to expect" popups on the program cards (Sergei, Nov 18 2026). */
+.se-popup::backdrop {
+  background: rgb(0 0 0 / 0.4);
+}
