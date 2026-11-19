@@ -46,13 +46,14 @@ export default function Hero() {
             ))}
           </ul>
         </div>
-        <div className="relative sm:mb-8 md:mb-6">
+        {/* Call card at the photo's top right (Sergei, Nov 18 2026). */}
+        <div className="relative">
           <div className="relative h-[16rem] w-full overflow-hidden rounded-[2rem] shadow-se-card sm:h-[22rem] md:h-[19rem] lg:h-[20rem]">
             <FillPhoto photo={hero.photo} sizes="(min-width: 768px) 560px, 100vw" priority />
           </div>
           <a
             href={settings.phoneHref}
-            className="absolute -bottom-8 left-4 hidden max-w-[21rem] rounded-2xl bg-se-paper p-5 no-underline shadow-se-card sm:left-6 sm:block md:-bottom-6"
+            className="absolute right-4 top-4 hidden max-w-[21rem] rounded-2xl bg-se-paper p-5 no-underline shadow-se-card sm:right-6 sm:top-6 sm:block"
           >
             <span className="flex items-center gap-2 text-lg font-semibold leading-snug text-se-green-700">
               <PhoneIcon className="h-4 w-4 text-se-accent-700" />
