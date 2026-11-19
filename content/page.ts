@@ -32,7 +32,6 @@
 import type { StaticImageData } from 'next/image';
 import { settings } from './settings';
 import type { FeatureIconName } from '@/components/FeatureIcon';
-import type { LocationIconName } from '@/components/WhereWeAre';
 
 import heroPhoto from './images/hero-san-jose-common-room.webp';
 import heroPhotoSmall from './images/hero-san-jose-common-room-720.webp';
@@ -40,8 +39,8 @@ import sanJosePhoto from './images/location-san-jose.webp';
 import paloAltoPhoto from './images/hero-palo-alto-estate.webp';
 import therapyPhoto from './images/therapy-office.webp';
 import paloAltoPhotoSmall from './images/hero-palo-alto-estate-720.webp';
-import mapSanJose from './images/map-san-jose.webp';
-import mapPaloAlto from './images/map-palo-alto.webp';
+import paloAltoLocationPhoto from './images/location-palo-alto.webp';
+import sanJoseLocationPhoto from './images/location-san-jose-iop.webp';
 import jointCommissionBadge from './images/badge-joint-commission.png';
 import carfBadge from './images/badge-carf.png';
 import dhcsBadge from './images/badge-dhcs.png';
@@ -64,12 +63,12 @@ import carrier13 from './images/carriers/scfhp.png';
 /** `small`: an optional 720px-wide copy that phones download instead of the full photo. */
 export type Photo = { src: StaticImageData; alt: string; small?: StaticImageData };
 /** A labelled card: small label (kicker), heading and ticked list. */
-export type Card = { eyebrow: string; title: string; points: string[] };
+export type Card = { eyebrow?: string; title: string; points: string[] };
 /** A card in the comparison set copied from the microsite's Levels of Care. */
 /** A level card: tag chip, name, clock line and blurb; its "What to expect" rows are a Level's rows. */
 export type LevelCard = { tag?: string; name: string; meta: string; blurb: string };
 /** A "Where we are" card from go.summitestate.com/outpatient: icon, small label, name, one line and chips. */
-export type LocationCard = { icon: LocationIconName; eyebrow: string; title: string; text: string; points: string[]; link?: { label: string; href: string }; map?: { alt: string; image: StaticImageData; href: string; position?: string } };
+export type LocationCard = { title: string; photo: { src: StaticImageData; alt: string }; address: string; mapHref: string; link: { label: string; href: string } };
 
 export type Level = {
   id: string;
@@ -101,14 +100,16 @@ export const page = {
     /** Sergei, Nov 18 2026; sentence case per his Nov 18 note. */
     title: 'Dual diagnosis care in San Jose,',
     titleAccent: 'built around your life',
-    text: 'Address mental health and addiction treatment together with convenient outpatient programs offered in-person or virtually.',
+    text: 'Address mental health and addiction treatment together with convenient outpatient programs offered in-person or virtually',
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
      * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
     features: [
+      /** Sergei's six lines, in his order (Nov 18 2026). */
       { icon: 'compass', title: 'Day, evening & hybrid formats' },
       { icon: 'heart', title: 'Individualized treatment programs' },
       { icon: 'shield', title: 'Psychiatric oversight, board-certified teams' },
-      /** Moved here from the badge on the hero photo (Sergei, Nov 18 2026). */
+      { icon: 'layers', title: 'Intensity matched to your needs' },
+      { icon: 'calendar', title: 'Curated curriculum with family involvement' },
       { icon: 'award', title: 'In-network with most major plans' },
     ] as { icon: FeatureIconName; title: string; proof?: string }[],
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
@@ -169,7 +170,6 @@ export const page = {
     label: 'Who can benefit and your care team',
     items: [
       {
-        eyebrow: 'Your care team',
         title: 'A team, not a single clinician.',
         /** Sergei's five lines (Nov 5 2026) in place of the microsite's six. */
         points: [
@@ -280,7 +280,7 @@ export const page = {
        * placed above the three cards (Sergei, Nov 5 2026): the lounge photo,
        * the heading above as its name, and the live page's description. */
       outpatientCard: {
-        text: 'Choose from a variety of outpatient programs that fit your schedule: partial hospitalization, intensive outpatient, outpatient, family therapy, and multi-family groups. Receive psychiatry-guided medication management and case management at any level.',
+        text: 'Choose from a variety of outpatient programs that fit your schedule: partial hospitalization, intensive outpatient, outpatient, family therapy, and multi-family groups. Receive psychiatry-guided medication management and case management at any level',
         photo: {
           src: sanJosePhoto,
           alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
@@ -333,10 +333,10 @@ export const page = {
         },
       } as Record<string, LevelCard>,
       combined: {
-        tag: 'DTX / RTC',
-        name: 'Detox & residential',
+        /** Sergei, Nov 18 2026: no tag chip; his capitals kept. */
+        name: 'Detox & Residential (DTX/RTC)',
         meta: 'Detox typically 7\u201310 days \u00b7 Residential typically 3\u20134 weeks',
-        blurb: '(ASAM Levels 3.5 / 3.1)\nMedically supervised detox and residential treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
+        blurb: '(ASAM Levels 3.5 / 3.1)\nMedically supervised Detoxification and Residential treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
       } satisfies LevelCard,
       /** Not shown since Nov 14 2026 (Sergei removed the card); kept for later use. */
       notSure: {
@@ -402,28 +402,23 @@ export const page = {
   whereWeAre: {
     eyebrow: 'Where we are',
     title: 'In the heart of Silicon Valley.',
-    mapCredit: 'Map data \u00a92026 Google',
-    mapLinkSuffix: '(opens Google Maps)',
+    /** Directory style after lgtcgroup.com/locations (Sergei, Nov 18 2026):
+     * photo, name, address, phone, Call now and Learn more. No text line, chips or map. */
     items: [
       {
-        icon: 'pin',
-        eyebrow: 'San Jose',
-        title: 'Outpatient',
+        /** One line, same style for both (Sergei, Nov 18 2026). */
+        title: 'San Jose \u00b7 Summit Outpatient Clinic',
+        photo: { src: sanJoseLocationPhoto, alt: 'Lounge at the Summit Estate outpatient center in San Jose' },
+        address: '7280 Blue Hill Dr, San Jose, CA 95129',
+        mapHref: 'https://maps.google.com/?cid=7032103815367785378',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/outpatient' },
-        /** Google Maps embed supplied by Sergei, Nov 18 2026. */
-        map: { alt: 'Map: Summit Estate Recovery outpatient center, 7280 Blue Hill Dr, San Jose', image: mapSanJose, position: '50% 62%', href: 'https://maps.google.com/?cid=7032103815367785378' },
-        text: 'West San Jose, a mile from Cupertino and Saratoga.',
-        points: ['PHP', 'IOP', 'OP', 'Hybrid IOP'],
       },
       {
-        icon: 'home',
-        /** The source card says "Adults 28+" here and in the text; Sergei removed both (Nov 5 2026). */
-        eyebrow: 'Palo Alto',
-        title: 'Detox & residential',
+        title: 'Palo Alto \u00b7 Detox & Residential',
+        photo: { src: paloAltoLocationPhoto, alt: 'Entrance of the Summit Estate residential estate in Palo Alto' },
+        address: '4145 Old Adobe Rd, Palo Alto, CA 94306',
+        mapHref: 'https://maps.google.com/?cid=12385558053705677330',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/landing' },
-        map: { alt: 'Map: Summit Estate Recovery Center, 4145 Old Adobe Rd, Palo Alto', image: mapPaloAlto, position: '50% 50%', href: 'https://maps.google.com/?cid=12385558053705677330' },
-        text: "Silicon Valley's finest rehab: detox and residential care on a private estate in the rolling hills.",
-        points: ['Detox & residential'],
       },
     ] satisfies LocationCard[],
   },
