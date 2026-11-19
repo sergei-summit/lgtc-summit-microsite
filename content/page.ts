@@ -107,8 +107,8 @@ export const page = {
       /** Sergei's six lines, in his order (Nov 18 2026). */
       { icon: 'compass', title: 'Day, evening & hybrid formats' },
       { icon: 'heart', title: 'Individualized treatment programs' },
-      { icon: 'layers', title: 'Intensity matched to your needs' },
       { icon: 'shield', title: 'Psychiatric oversight, board-certified teams' },
+      { icon: 'layers', title: 'Intensity matched to your needs' },
       { icon: 'calendar', title: 'Curated curriculum with family involvement' },
       { icon: 'award', title: 'In-network with most major plans' },
     ] as { icon: FeatureIconName; title: string; proof?: string }[],
