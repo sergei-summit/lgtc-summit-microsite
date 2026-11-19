@@ -98,7 +98,8 @@ export const page = {
   hero: {
     /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
     /** Sergei, Nov 18 2026; sentence case per his Nov 18 note. */
-    title: 'Dual diagnosis care in San Jose,',
+    titleLead: 'Summit Estate Recovery Centers',
+    title: 'Dual Diagnosis care in San Jose,',
     titleAccent: 'built around your life',
     text: 'Address mental health and addiction treatment together with convenient outpatient programs offered in-person or virtually',
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
@@ -275,7 +276,7 @@ export const page = {
      * line and blurb live here.
      */
     cards: {
-      outpatientTitle: 'Summit Estate Recovery',
+      outpatientTitle: 'San Jose \u00b7 Summit Outpatient Clinic',
       /** The San Jose card from the live page (go.summitestate.com/lgtc-summit-microsite),
        * placed above the three cards (Sergei, Nov 5 2026): the lounge photo,
        * the heading above as its name, and the live page's description. */
@@ -414,7 +415,7 @@ export const page = {
         link: { label: 'Learn more', href: 'https://go.summitestate.com/outpatient' },
       },
       {
-        title: 'Palo Alto \u00b7 Detox & Residential',
+        title: 'Palo Alto \u00b7 Summit Detox & Residential',
         photo: { src: paloAltoLocationPhoto, alt: 'Entrance of the Summit Estate residential estate in Palo Alto' },
         address: '4145 Old Adobe Rd, Palo Alto, CA 94306',
         mapHref: 'https://maps.google.com/?cid=12385558053705677330',

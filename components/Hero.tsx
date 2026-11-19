@@ -27,7 +27,7 @@ export default function Hero() {
             id="hero-title"
             className="font-light leading-[1.08] text-se-green-700"
           >
-            {keepTogether(hero.title)} <span className="text-se-accent-700">{hero.titleAccent}</span>
+            <span className="mb-[0.42em] block">{hero.titleLead}</span>{keepTogether(hero.title)} <span className="text-se-accent-700">{hero.titleAccent}</span>
           </h1>
         </div>
 
