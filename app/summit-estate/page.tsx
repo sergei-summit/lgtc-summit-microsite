@@ -7,7 +7,6 @@ import SubBar from '@/components/SubBar';
 import Hero from '@/components/Hero';
 import TrustBadges from '@/components/TrustBadges';
 import LevelsOfCare from '@/components/LevelsOfCare';
-import BenefitAndTeam from '@/components/BenefitAndTeam';
 import PageFooterNote from '@/components/PageFooterNote';
 import WhereWeAre from '@/components/WhereWeAre';
 import MobileCallBar from '@/components/MobileCallBar';
@@ -36,7 +35,7 @@ export default function SummitEstatePage() {
         <Hero />
         <TrustBadges />
         <LevelsOfCare />
-        <BenefitAndTeam />
+        {/* Care team section removed (Sergei, Nov 18 2026); BenefitAndTeam.tsx kept for later use. */}
         <WhereWeAre />
         <PageFooterNote />
       </main>
