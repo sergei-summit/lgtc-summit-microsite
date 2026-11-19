@@ -36,7 +36,8 @@ export default function TrustBadges() {
                 className="inline-flex items-center gap-2 rounded-full border border-se-line bg-se-cream px-4 py-2"
               >
                 <GoogleIcon />
-                <span className="text-sm font-semibold text-se-ink">{badge.label}</span>
+                {/* Words hidden on phones, where they overflowed (Sergei, Nov 18 2026); screen readers still get them. */}
+                <span className="sr-only text-sm font-semibold text-se-ink sm:not-sr-only">{badge.label}</span>
                 <Stars rating={badge.rating} />
               </li>
             ),
