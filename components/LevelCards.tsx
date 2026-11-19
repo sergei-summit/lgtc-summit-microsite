@@ -37,7 +37,7 @@ export default function LevelCards() {
           <h3 id="san-jose-title" className="text-2xl font-semibold leading-snug text-se-green-700">
             {cards.outpatientTitle}
           </h3>
-          <p className="mt-3 leading-relaxed text-se-ink">{cards.outpatientCard.text}</p>
+          <p className="mt-3 whitespace-pre-line leading-relaxed text-se-ink">{cards.outpatientCard.text}</p>
         </div>
       </article>
       <ul className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3">

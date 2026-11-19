@@ -282,7 +282,7 @@ export const page = {
        * the heading above as its name, and the live page's description. */
       outpatientCard: {
         /** Sergei's text, Nov 18 2026 (no final period, as he wrote it). */
-        text: 'Outpatient programs designed around your clinical needs, with flexible scheduling. Day, evening, in-person and hybrid. Intensity and curriculum are matched to what you need',
+        text: 'Outpatient programs designed around your clinical needs, with flexible scheduling.\nDay, evening, in-person and hybrid. Intensity and curriculum are matched to what you need',
         photo: {
           src: sanJosePhoto,
           alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
