@@ -104,10 +104,12 @@ export const page = {
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
      * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
     features: [
+      /** Sergei's six lines, in his order (Nov 18 2026). */
       { icon: 'compass', title: 'Day, evening & hybrid formats' },
       { icon: 'heart', title: 'Individualized treatment programs' },
+      { icon: 'layers', title: 'Intensity matched to your needs' },
       { icon: 'shield', title: 'Psychiatric oversight, board-certified teams' },
-      /** Moved here from the badge on the hero photo (Sergei, Nov 18 2026). */
+      { icon: 'calendar', title: 'Curated curriculum with family involvement' },
       { icon: 'award', title: 'In-network with most major plans' },
     ] as { icon: FeatureIconName; title: string; proof?: string }[],
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
