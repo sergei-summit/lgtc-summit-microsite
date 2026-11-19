@@ -67,7 +67,7 @@ export type Card = { eyebrow?: string; title: string; points: string[] };
 /** A level card: tag chip, name, clock line and blurb; its "What to expect" rows are a Level's rows. */
 export type LevelCard = { tag?: string; name: string; meta: string; blurb: string };
 /** A "Where we are" card from go.summitestate.com/outpatient: icon, small label, name, one line and chips. */
-export type LocationCard = { eyebrow: string; title: string; photo: { src: StaticImageData; alt: string }; address: string; mapHref: string; link: { label: string; href: string } };
+export type LocationCard = { title: string; photo: { src: StaticImageData; alt: string }; address: string; mapHref: string; link: { label: string; href: string } };
 
 export type Level = {
   id: string;
@@ -403,16 +403,15 @@ export const page = {
      * photo, name, address, phone, Call now and Learn more. No text line, chips or map. */
     items: [
       {
-        eyebrow: 'San Jose',
-        title: 'Summit Outpatient',
+        /** One line, same style for both (Sergei, Nov 18 2026). */
+        title: 'San Jose \u00b7 Summit Outpatient Clinic',
         photo: { src: sanJosePhoto, alt: 'Lounge at the Summit Estate outpatient center in San Jose' },
         address: '7280 Blue Hill Dr, San Jose, CA 95129',
         mapHref: 'https://maps.google.com/?cid=7032103815367785378',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/outpatient' },
       },
       {
-        eyebrow: 'Palo Alto',
-        title: 'Detox & Residential (DTX/RTC)',
+        title: 'Palo Alto \u00b7 Detox & Residential',
         photo: { src: paloAltoLocationPhoto, alt: 'Garden of the Summit Estate residential estate in Palo Alto' },
         address: '4145 Old Adobe Rd, Palo Alto, CA 94306',
         mapHref: 'https://maps.google.com/?cid=12385558053705677330',

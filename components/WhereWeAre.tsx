@@ -37,10 +37,7 @@ export default function WhereWeAre() {
             <li key={item.title} className="flex flex-col overflow-hidden rounded-3xl border border-se-line bg-se-paper">
               <Image src={item.photo.src} alt={item.photo.alt} sizes="(min-width: 768px) 560px, 100vw" className="aspect-[3/2] h-auto w-full object-cover" />
               <div className="flex flex-1 flex-col p-7">
-                <hgroup>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-se-green-700">{item.eyebrow}</p>
-                  <h3 className="mt-2 text-2xl font-semibold leading-snug text-se-green-700">{item.title}</h3>
-                </hgroup>
+                <h3 className="text-2xl font-semibold leading-snug text-se-green-700">{item.title}</h3>
                 <address className="mt-4 space-y-1 not-italic leading-relaxed text-se-ink">
                   <a href={item.mapHref} target="_blank" rel="noopener" className="block no-underline underline-offset-4 hover:underline">
                     {item.address}
@@ -57,7 +54,7 @@ export default function WhereWeAre() {
                   </a>
                   <SecondaryLink href={item.link.href}>
                     {item.link.label}
-                    <span className="sr-only">: {item.eyebrow}, {item.title}</span>
+                    <span className="sr-only">: {item.title}</span>
                   </SecondaryLink>
                 </div>
               </div>
