@@ -40,6 +40,7 @@ import paloAltoPhoto from './images/hero-palo-alto-estate.webp';
 import therapyPhoto from './images/therapy-office.webp';
 import paloAltoPhotoSmall from './images/hero-palo-alto-estate-720.webp';
 import paloAltoLocationPhoto from './images/location-palo-alto.webp';
+import sanJoseLocationPhoto from './images/location-san-jose-iop.webp';
 import jointCommissionBadge from './images/badge-joint-commission.png';
 import carfBadge from './images/badge-carf.png';
 import dhcsBadge from './images/badge-dhcs.png';
@@ -405,14 +406,14 @@ export const page = {
       {
         /** One line, same style for both (Sergei, Nov 18 2026). */
         title: 'San Jose \u00b7 Summit Outpatient Clinic',
-        photo: { src: sanJosePhoto, alt: 'Lounge at the Summit Estate outpatient center in San Jose' },
+        photo: { src: sanJoseLocationPhoto, alt: 'Lounge at the Summit Estate outpatient center in San Jose' },
         address: '7280 Blue Hill Dr, San Jose, CA 95129',
         mapHref: 'https://maps.google.com/?cid=7032103815367785378',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/outpatient' },
       },
       {
         title: 'Palo Alto \u00b7 Detox & Residential',
-        photo: { src: paloAltoLocationPhoto, alt: 'Garden of the Summit Estate residential estate in Palo Alto' },
+        photo: { src: paloAltoLocationPhoto, alt: 'Entrance of the Summit Estate residential estate in Palo Alto' },
         address: '4145 Old Adobe Rd, Palo Alto, CA 94306',
         mapHref: 'https://maps.google.com/?cid=12385558053705677330',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/landing' },
