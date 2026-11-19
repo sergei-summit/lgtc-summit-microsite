@@ -40,6 +40,8 @@ import sanJosePhoto from './images/location-san-jose.webp';
 import paloAltoPhoto from './images/hero-palo-alto-estate.webp';
 import therapyPhoto from './images/therapy-office.webp';
 import paloAltoPhotoSmall from './images/hero-palo-alto-estate-720.webp';
+import mapSanJose from './images/map-san-jose.webp';
+import mapPaloAlto from './images/map-palo-alto.webp';
 import jointCommissionBadge from './images/badge-joint-commission.png';
 import carfBadge from './images/badge-carf.png';
 import dhcsBadge from './images/badge-dhcs.png';
@@ -67,7 +69,7 @@ export type Card = { eyebrow: string; title: string; points: string[] };
 /** A level card: tag chip, name, clock line and blurb; its "What to expect" rows are a Level's rows. */
 export type LevelCard = { tag?: string; name: string; meta: string; blurb: string };
 /** A "Where we are" card from go.summitestate.com/outpatient: icon, small label, name, one line and chips. */
-export type LocationCard = { icon: LocationIconName; eyebrow: string; title: string; text: string; points: string[]; link?: { label: string; href: string } };
+export type LocationCard = { icon: LocationIconName; eyebrow: string; title: string; text: string; points: string[]; link?: { label: string; href: string }; map?: { alt: string; image: StaticImageData; href: string; position?: string } };
 
 export type Level = {
   id: string;
@@ -96,9 +98,9 @@ export const page = {
 
   hero: {
     /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
-    /** Sergei, Nov 18 2026 (his title case kept). */
-    title: 'Dual Diagnosis Care in San Jose,',
-    titleAccent: 'Built Around Your Life',
+    /** Sergei, Nov 18 2026; sentence case per his Nov 18 note. */
+    title: 'Dual diagnosis care in San Jose,',
+    titleAccent: 'built around your life',
     text: 'Address mental health and addiction treatment together with convenient outpatient programs offered in-person or virtually.',
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
      * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
@@ -106,8 +108,9 @@ export const page = {
       { icon: 'compass', title: 'Day, evening & hybrid formats' },
       { icon: 'heart', title: 'Individualized treatment programs' },
       { icon: 'shield', title: 'Psychiatric oversight, board-certified teams' },
+      /** Moved here from the badge on the hero photo (Sergei, Nov 18 2026). */
+      { icon: 'award', title: 'In-network with most major plans' },
     ] as { icon: FeatureIconName; title: string; proof?: string }[],
-    insuranceBadge: { label: 'San Jose outpatient center', value: 'In-Network With Most Major Plans' },
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
@@ -194,7 +197,7 @@ export const page = {
    */
   levels: {
     id: 'programs',
-    title: 'Outpatient Programs \u2013 Co-Occurring Enhanced (COE)',
+    title: 'Outpatient programs \u2013 co-occurring enhanced (COE)',
     outpatient: {
       items: [
         {
@@ -316,7 +319,7 @@ export const page = {
         php: {
           name: 'Partial hospitalization program (PHP)',
           meta: '20+ hrs/week \u00b7 typically 4\u20136 weeks',
-          blurb: '(ASAM Level 2.5 COE)\nAlso called Day Treatment or High-Intensity Outpatient. Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
+          blurb: '(ASAM Level 2.5 COE)\nAlso called day treatment or high-intensity outpatient. Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
         },
         iop: {
           name: 'Intensive outpatient program (IOP)',
@@ -331,7 +334,7 @@ export const page = {
       } as Record<string, LevelCard>,
       combined: {
         tag: 'DTX / RTC',
-        name: 'Detox & Residential',
+        name: 'Detox & residential',
         meta: 'Detox typically 7\u201310 days \u00b7 Residential typically 3\u20134 weeks',
         blurb: '(ASAM Levels 3.5 / 3.1)\nMedically supervised detox and residential treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
       } satisfies LevelCard,
@@ -399,12 +402,16 @@ export const page = {
   whereWeAre: {
     eyebrow: 'Where we are',
     title: 'In the heart of Silicon Valley.',
+    mapCredit: 'Map data \u00a92026 Google',
+    mapLinkSuffix: '(opens Google Maps)',
     items: [
       {
         icon: 'pin',
         eyebrow: 'San Jose',
         title: 'Outpatient',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/outpatient' },
+        /** Google Maps embed supplied by Sergei, Nov 18 2026. */
+        map: { alt: 'Map: Summit Estate Recovery outpatient center, 7280 Blue Hill Dr, San Jose', image: mapSanJose, position: '50% 62%', href: 'https://maps.google.com/?cid=7032103815367785378' },
         text: 'West San Jose, a mile from Cupertino and Saratoga.',
         points: ['PHP', 'IOP', 'OP', 'Hybrid IOP'],
       },
@@ -412,8 +419,9 @@ export const page = {
         icon: 'home',
         /** The source card says "Adults 28+" here and in the text; Sergei removed both (Nov 5 2026). */
         eyebrow: 'Palo Alto',
-        title: 'Detox & Residential',
+        title: 'Detox & residential',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/landing' },
+        map: { alt: 'Map: Summit Estate Recovery Center, 4145 Old Adobe Rd, Palo Alto', image: mapPaloAlto, position: '50% 50%', href: 'https://maps.google.com/?cid=12385558053705677330' },
         text: "Silicon Valley's finest rehab: detox and residential care on a private estate in the rolling hills.",
         points: ['Detox & residential'],
       },

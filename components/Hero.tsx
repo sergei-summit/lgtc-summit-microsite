@@ -50,10 +50,6 @@ export default function Hero() {
           <div className="relative h-[16rem] w-full overflow-hidden rounded-[2rem] shadow-se-card sm:h-[22rem] md:h-[19rem] lg:h-[20rem]">
             <FillPhoto photo={hero.photo} sizes="(min-width: 768px) 560px, 100vw" priority />
           </div>
-          <div className="absolute right-4 top-4 max-w-[16rem] rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card sm:right-6 sm:top-6">
-            <p className="text-sm text-se-sand">{hero.insuranceBadge.label}</p>
-            <p className="text-lg font-semibold leading-tight text-white">{hero.insuranceBadge.value}</p>
-          </div>
           <a
             href={settings.phoneHref}
             className="absolute -bottom-8 left-4 hidden max-w-[21rem] rounded-2xl bg-se-paper p-5 no-underline shadow-se-card sm:left-6 sm:block md:-bottom-6"
