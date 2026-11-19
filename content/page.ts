@@ -198,7 +198,7 @@ export const page = {
    */
   levels: {
     id: 'programs',
-    title: 'Outpatient programs \u2013 co-occurring enhanced (COE)',
+    title: 'Outpatient programs \u2013 Co-Occurring Enhanced Care (COE)',
     outpatient: {
       items: [
         {
