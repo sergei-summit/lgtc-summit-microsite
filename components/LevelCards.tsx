@@ -99,7 +99,7 @@ function Card({ card, groups, expectLabel, popup }: { card: LevelCard; groups: R
   return (
     <li className="flex flex-col rounded-3xl border border-se-line bg-se-cream p-7 shadow-se-card">
       {card.tag && (
-        <span className="mb-4 self-start rounded-full bg-se-paper px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-se-ink">
+        <span className="mb-4 self-start rounded-full bg-se-paper px-2.5 py-1 text-base font-semibold uppercase tracking-[0.14em] text-se-ink">
           {card.tag}
         </span>
       )}

@@ -26,6 +26,8 @@ const config: Config = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './content/**/*.ts'],
   theme: {
     extend: {
+      /** Minimum text size 16px (Sergei, Nov 18 2026): the small sizes render at 16px. */
+      fontSize: { xs: ['1rem', '1.5rem'], sm: ['1rem', '1.5rem'] },
       colors: {
         se: {
           green: {

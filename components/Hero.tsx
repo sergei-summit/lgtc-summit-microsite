@@ -33,7 +33,7 @@ export default function Hero() {
 
         <div>
           <p className="max-w-3xl whitespace-pre-line text-lg leading-relaxed text-se-ink xl:text-xl">{hero.text}</p>
-          <ul className={hero.features.length > 1 ? 'mt-6 grid list-disc grid-cols-[repeat(auto-fit,minmax(min(100%,max(7rem,calc((100%-2rem)/2))),1fr))] gap-x-8 gap-y-2.5 pl-5 marker:text-se-green-700' : 'mt-7 grid max-w-3xl'}>
+          <ul className={hero.features.length > 1 ? 'mt-6 grid list-disc grid-cols-[repeat(auto-fit,minmax(min(100%,max(11rem,calc((100%-2rem)/2))),1fr))] gap-x-8 gap-y-2.5 pl-5 marker:text-se-green-700' : 'mt-7 grid max-w-3xl'}>
             {hero.features.map((feature) => (
               <li key={feature.title} className="pl-1">
                 {/* A bulleted list in two columns, smaller type (Sergei, Nov 17 2026:
