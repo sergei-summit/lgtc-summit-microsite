@@ -100,7 +100,7 @@ export const page = {
     /** Sergei, Nov 18 2026; sentence case per his Nov 18 note. */
     title: 'Dual diagnosis care in San Jose,',
     titleAccent: 'built around your life',
-    text: 'Address mental health and addiction treatment together with convenient outpatient programs offered in-person or virtually.',
+    text: 'Address mental health and addiction treatment together with convenient outpatient programs offered in-person or virtually',
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
      * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
     features: [
@@ -280,7 +280,7 @@ export const page = {
        * placed above the three cards (Sergei, Nov 5 2026): the lounge photo,
        * the heading above as its name, and the live page's description. */
       outpatientCard: {
-        text: 'Choose from a variety of outpatient programs that fit your schedule: partial hospitalization, intensive outpatient, outpatient, family therapy, and multi-family groups. Receive psychiatry-guided medication management and case management at any level.',
+        text: 'Choose from a variety of outpatient programs that fit your schedule: partial hospitalization, intensive outpatient, outpatient, family therapy, and multi-family groups. Receive psychiatry-guided medication management and case management at any level',
         photo: {
           src: sanJosePhoto,
           alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
