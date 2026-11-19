@@ -64,7 +64,7 @@ import carrier13 from './images/carriers/scfhp.png';
 /** `small`: an optional 720px-wide copy that phones download instead of the full photo. */
 export type Photo = { src: StaticImageData; alt: string; small?: StaticImageData };
 /** A labelled card: small label (kicker), heading and ticked list. */
-export type Card = { eyebrow: string; title: string; points: string[] };
+export type Card = { eyebrow?: string; title: string; points: string[] };
 /** A card in the comparison set copied from the microsite's Levels of Care. */
 /** A level card: tag chip, name, clock line and blurb; its "What to expect" rows are a Level's rows. */
 export type LevelCard = { tag?: string; name: string; meta: string; blurb: string };
@@ -169,7 +169,6 @@ export const page = {
     label: 'Who can benefit and your care team',
     items: [
       {
-        eyebrow: 'Your care team',
         title: 'A team, not a single clinician.',
         /** Sergei's five lines (Nov 5 2026) in place of the microsite's six. */
         points: [
@@ -333,10 +332,10 @@ export const page = {
         },
       } as Record<string, LevelCard>,
       combined: {
-        tag: 'DTX / RTC',
-        name: 'Detox & residential',
+        /** Sergei, Nov 18 2026: no tag chip; his capitals kept. */
+        name: 'Detox & Residential (DTX/RTC)',
         meta: 'Detox typically 7\u201310 days \u00b7 Residential typically 3\u20134 weeks',
-        blurb: '(ASAM Levels 3.5 / 3.1)\nMedically supervised detox and residential treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
+        blurb: '(ASAM Levels 3.5 / 3.1)\nMedically supervised Detoxification and Residential treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
       } satisfies LevelCard,
       /** Not shown since Nov 14 2026 (Sergei removed the card); kept for later use. */
       notSure: {

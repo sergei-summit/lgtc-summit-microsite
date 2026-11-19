@@ -16,13 +16,10 @@ export default function BenefitAndTeam() {
       <div className="mx-auto max-w-se-content px-4 py-12 sm:px-6 md:py-16">
         <div className="grid gap-6 md:grid-cols-2">
           {cards.items.map((card) => (
-            <div key={card.eyebrow} className="rounded-3xl border border-se-line bg-se-paper p-7 sm:p-8">
+            <div key={card.title} className="rounded-3xl border border-se-line bg-se-paper p-7 sm:p-8">
               <hgroup>
-                <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-se-green-700">
-                  <span aria-hidden="true" className="h-px w-8 bg-se-green-700" />
-                  {card.eyebrow}
-                </p>
-                <h2 className="mt-4 text-3xl font-semibold leading-tight text-se-green-700 sm:text-4xl">{card.title}</h2>
+                {/* No eyebrow above "Your care team" card's heading since Nov 18 2026 (Sergei). */}
+                <h2 className="text-3xl font-semibold leading-tight text-se-green-700 sm:text-4xl">{card.title}</h2>
               </hgroup>
               <ul className="mt-6 space-y-3">
                 {card.points.map((point) => (

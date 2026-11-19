@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { page, type Level, type LevelCard } from '@/content/page';
-import { ArrowIcon, PhoneIcon } from './Actions';
+import { ArrowIcon, PhoneIcon, SecondaryLink } from './Actions';
 import { settings } from '@/content/settings';
 import ExpectDialog from './ExpectDialog';
 import FillPhoto from './FillPhoto';
@@ -47,10 +47,25 @@ export default function LevelCards() {
             card={cards.cards[level.id]}
             groups={[{ rows: level.rows }]}
             expectLabel={cards.expectLabel}
-            popup={{ id: level.id, closeLabel: cards.closeLabel, learnMore: cards.learnMore }}
+            popup={{ id: level.id, closeLabel: cards.closeLabel }}
           />
         ))}
       </ul>
+      {/* One call-to-action bar under the three program cards (Sergei, Nov 18 2026). */}
+      <div className="mt-5 flex flex-wrap items-center justify-center gap-3 rounded-3xl border border-se-line bg-se-cream p-5 shadow-se-card">
+        <a
+          href={settings.phoneHref}
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-6 py-3 text-base font-semibold text-white no-underline transition-colors hover:bg-se-green-900"
+        >
+          <PhoneIcon />
+          {page.actions.callNow}
+          <span className="sr-only"> {settings.phone}</span>
+        </a>
+        <SecondaryLink href={cards.learnMore.href}>
+          {cards.learnMore.label}
+          <span className="sr-only">: {cards.outpatientTitle}</span>
+        </SecondaryLink>
+      </div>
 
       <h3 className="mt-12 text-2xl font-semibold text-se-green-700">{cards.higherTitle}</h3>
       <ul className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -74,10 +89,10 @@ export default function LevelCards() {
 type RowGroup = { name?: string; rows: Level['rows'] };
 
 /** `popup`: the San Jose program cards (Sergei, Nov 18 2026). "What to expect"
- * opens as a popup, and the card ends with a Call button and a "Learn more"
- * link to go.summitestate.com/outpatient. Without it (Detox & residential),
+ * opens as a popup. Call now / Learn more sit once in a bar under the three
+ * cards (Sergei, Nov 18 2026), not on each card. Without it (Detox & residential),
  * "What to expect" folds open in place as before. */
-type Popup = { id: string; closeLabel: string; learnMore: { label: string; href: string } };
+type Popup = { id: string; closeLabel: string };
 
 function Card({ card, groups, expectLabel, popup }: { card: LevelCard; groups: RowGroup[]; expectLabel: string; popup?: Popup }) {
   const rows = <Rows groups={groups} />;
@@ -101,20 +116,6 @@ function Card({ card, groups, expectLabel, popup }: { card: LevelCard; groups: R
             <ExpectDialog id={popup.id} label={expectLabel} title={card.name} closeLabel={popup.closeLabel}>
               {rows}
             </ExpectDialog>
-          </div>
-          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
-            <a
-              href={settings.phoneHref}
-              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-se-accent-600 px-5 py-2 text-sm font-semibold text-white no-underline hover:bg-se-green-900"
-            >
-              <PhoneIcon />
-              {page.actions.callNow}
-              <span className="sr-only"> {settings.phone}</span>
-            </a>
-            <a href={popup.learnMore.href} className="inline-flex min-h-11 items-center gap-1.5 font-semibold text-se-green-700 underline underline-offset-4">
-              {popup.learnMore.label}
-              <span className="sr-only">: {card.name}</span>
-            </a>
           </div>
         </>
       ) : (
