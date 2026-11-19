@@ -281,7 +281,8 @@ export const page = {
        * placed above the three cards (Sergei, Nov 5 2026): the lounge photo,
        * the heading above as its name, and the live page's description. */
       outpatientCard: {
-        text: 'Choose from a variety of outpatient programs that fit your schedule: partial hospitalization, intensive outpatient, outpatient, family therapy, and multi-family groups. Receive psychiatry-guided medication management and case management at any level',
+        /** Sergei's text, Nov 18 2026 (no final period, as he wrote it). */
+        text: 'Outpatient programs designed around your clinical needs, with flexible scheduling. Day, evening, in-person and hybrid. Intensity and curriculum are matched to what you need',
         photo: {
           src: sanJosePhoto,
           alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
