@@ -32,7 +32,6 @@
 import type { StaticImageData } from 'next/image';
 import { settings } from './settings';
 import type { FeatureIconName } from '@/components/FeatureIcon';
-import type { LocationIconName } from '@/components/WhereWeAre';
 
 import heroPhoto from './images/hero-san-jose-common-room.webp';
 import heroPhotoSmall from './images/hero-san-jose-common-room-720.webp';
@@ -40,8 +39,7 @@ import sanJosePhoto from './images/location-san-jose.webp';
 import paloAltoPhoto from './images/hero-palo-alto-estate.webp';
 import therapyPhoto from './images/therapy-office.webp';
 import paloAltoPhotoSmall from './images/hero-palo-alto-estate-720.webp';
-import mapSanJose from './images/map-san-jose.webp';
-import mapPaloAlto from './images/map-palo-alto.webp';
+import paloAltoLocationPhoto from './images/location-palo-alto.webp';
 import jointCommissionBadge from './images/badge-joint-commission.png';
 import carfBadge from './images/badge-carf.png';
 import dhcsBadge from './images/badge-dhcs.png';
@@ -69,7 +67,7 @@ export type Card = { eyebrow?: string; title: string; points: string[] };
 /** A level card: tag chip, name, clock line and blurb; its "What to expect" rows are a Level's rows. */
 export type LevelCard = { tag?: string; name: string; meta: string; blurb: string };
 /** A "Where we are" card from go.summitestate.com/outpatient: icon, small label, name, one line and chips. */
-export type LocationCard = { icon: LocationIconName; eyebrow: string; title: string; text: string; points: string[]; link?: { label: string; href: string }; map?: { alt: string; image: StaticImageData; href: string; position?: string } };
+export type LocationCard = { eyebrow: string; title: string; photo: { src: StaticImageData; alt: string }; address: string; mapHref: string; link: { label: string; href: string } };
 
 export type Level = {
   id: string;
@@ -401,28 +399,24 @@ export const page = {
   whereWeAre: {
     eyebrow: 'Where we are',
     title: 'In the heart of Silicon Valley.',
-    mapCredit: 'Map data \u00a92026 Google',
-    mapLinkSuffix: '(opens Google Maps)',
+    /** Directory style after lgtcgroup.com/locations (Sergei, Nov 18 2026):
+     * photo, name, address, phone, Call now and Learn more. No text line, chips or map. */
     items: [
       {
-        icon: 'pin',
         eyebrow: 'San Jose',
-        title: 'Outpatient',
+        title: 'Summit Outpatient',
+        photo: { src: sanJosePhoto, alt: 'Lounge at the Summit Estate outpatient center in San Jose' },
+        address: '7280 Blue Hill Dr, San Jose, CA 95129',
+        mapHref: 'https://maps.google.com/?cid=7032103815367785378',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/outpatient' },
-        /** Google Maps embed supplied by Sergei, Nov 18 2026. */
-        map: { alt: 'Map: Summit Estate Recovery outpatient center, 7280 Blue Hill Dr, San Jose', image: mapSanJose, position: '50% 62%', href: 'https://maps.google.com/?cid=7032103815367785378' },
-        text: 'West San Jose, a mile from Cupertino and Saratoga.',
-        points: ['PHP', 'IOP', 'OP', 'Hybrid IOP'],
       },
       {
-        icon: 'home',
-        /** The source card says "Adults 28+" here and in the text; Sergei removed both (Nov 5 2026). */
         eyebrow: 'Palo Alto',
-        title: 'Detox & residential',
+        title: 'Detox & Residential (DTX/RTC)',
+        photo: { src: paloAltoLocationPhoto, alt: 'Garden of the Summit Estate residential estate in Palo Alto' },
+        address: '4145 Old Adobe Rd, Palo Alto, CA 94306',
+        mapHref: 'https://maps.google.com/?cid=12385558053705677330',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/landing' },
-        map: { alt: 'Map: Summit Estate Recovery Center, 4145 Old Adobe Rd, Palo Alto', image: mapPaloAlto, position: '50% 50%', href: 'https://maps.google.com/?cid=12385558053705677330' },
-        text: "Silicon Valley's finest rehab: detox and residential care on a private estate in the rolling hills.",
-        points: ['Detox & residential'],
       },
     ] satisfies LocationCard[],
   },
