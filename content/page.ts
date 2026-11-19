@@ -69,7 +69,7 @@ export type Card = { eyebrow: string; title: string; points: string[] };
 /** A level card: tag chip, name, clock line and blurb; its "What to expect" rows are a Level's rows. */
 export type LevelCard = { tag?: string; name: string; meta: string; blurb: string };
 /** A "Where we are" card from go.summitestate.com/outpatient: icon, small label, name, one line and chips. */
-export type LocationCard = { icon: LocationIconName; eyebrow: string; title: string; text: string; points: string[]; link?: { label: string; href: string }; map?: { alt: string; image: StaticImageData; href: string } };
+export type LocationCard = { icon: LocationIconName; eyebrow: string; title: string; text: string; points: string[]; link?: { label: string; href: string }; map?: { alt: string; image: StaticImageData; href: string; position?: string } };
 
 export type Level = {
   id: string;
@@ -411,7 +411,7 @@ export const page = {
         title: 'Outpatient',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/outpatient' },
         /** Google Maps embed supplied by Sergei, Nov 18 2026. */
-        map: { alt: 'Map: Summit Estate Recovery outpatient center, 7280 Blue Hill Dr, San Jose', image: mapSanJose, href: 'https://maps.google.com/?cid=7032103815367785378' },
+        map: { alt: 'Map: Summit Estate Recovery outpatient center, 7280 Blue Hill Dr, San Jose', image: mapSanJose, position: '50% 62%', href: 'https://maps.google.com/?cid=7032103815367785378' },
         text: 'West San Jose, a mile from Cupertino and Saratoga.',
         points: ['PHP', 'IOP', 'OP', 'Hybrid IOP'],
       },
@@ -421,7 +421,7 @@ export const page = {
         eyebrow: 'Palo Alto',
         title: 'Detox & residential',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/landing' },
-        map: { alt: 'Map: Summit Estate Recovery Center, 4145 Old Adobe Rd, Palo Alto', image: mapPaloAlto, href: 'https://maps.google.com/?cid=12385558053705677330' },
+        map: { alt: 'Map: Summit Estate Recovery Center, 4145 Old Adobe Rd, Palo Alto', image: mapPaloAlto, position: '50% 50%', href: 'https://maps.google.com/?cid=12385558053705677330' },
         text: "Silicon Valley's finest rehab: detox and residential care on a private estate in the rolling hills.",
         points: ['Detox & residential'],
       },

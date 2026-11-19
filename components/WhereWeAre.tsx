@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { page } from '@/content/page';
-import { SecondaryLink } from './Actions';
+import { PhoneIcon, SecondaryLink } from './Actions';
 import { settings } from '@/content/settings';
 
 /**
@@ -34,10 +34,8 @@ export default function WhereWeAre() {
         <ul className="mx-auto mt-10 grid max-w-4xl gap-5 md:grid-cols-2">
           {whereWeAre.items.map((item) => (
             <li key={item.title} className="flex flex-col rounded-3xl border border-se-line bg-se-paper p-7 shadow-se-card">
-              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-se-accent-100 text-se-green-700">
-                <LocationIcon name={item.icon} className="h-5 w-5" />
-              </span>
-              <hgroup className="mt-5">
+              {/* No icon tile above the place name (Sergei, Nov 18 2026). */}
+              <hgroup>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-se-green-700">{item.eyebrow}</p>
                 <h3 className="mt-2 text-2xl font-semibold leading-snug text-se-green-700">{item.title}</h3>
               </hgroup>
@@ -54,18 +52,25 @@ export default function WhereWeAre() {
               {item.map && (
                 <figure className="mt-6">
                   <a href={item.map.href} target="_blank" rel="noopener" className="block overflow-hidden rounded-2xl border border-se-line">
-                    <Image src={item.map.image} alt={`${item.map.alt} ${whereWeAre.mapLinkSuffix}`} sizes="(min-width: 768px) 420px, 100vw" className="h-56 w-full object-cover" />
+                    <Image src={item.map.image} alt={`${item.map.alt} ${whereWeAre.mapLinkSuffix}`} sizes="(min-width: 768px) 420px, 100vw" className="h-72 w-full object-cover" style={{ objectPosition: item.map.position }} />
                   </a>
                   <figcaption className="mt-1.5 text-right text-xs text-se-ink-muted">{whereWeAre.mapCredit}</figcaption>
                 </figure>
               )}
-              {/* Learn more button (Sergei, Nov 18 2026). */}
-              {item.link && (
-                <SecondaryLink href={item.link.href} className="mt-6 self-start">
-                  {item.link.label}
-                  <span className="sr-only">: {item.title}, {item.eyebrow}</span>
-                </SecondaryLink>
-              )}
+              {/* Call now left of Learn more (Sergei, Nov 18 2026). */}
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a href={settings.phoneHref} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-6 py-3 text-base font-semibold text-white no-underline transition-colors hover:bg-se-green-900">
+                  <PhoneIcon />
+                  {page.actions.callNow}
+                  <span className="sr-only"> {settings.phone}</span>
+                </a>
+                {item.link && (
+                  <SecondaryLink href={item.link.href}>
+                    {item.link.label}
+                    <span className="sr-only">: {item.title}, {item.eyebrow}</span>
+                  </SecondaryLink>
+                )}
+              </div>
             </li>
           ))}
         </ul>
@@ -75,32 +80,3 @@ export default function WhereWeAre() {
 }
 
 export type LocationIconName = 'pin' | 'home';
-
-/** Thin-line icons copied from Summit-Landing-Pages (Astro/src/components/ui.tsx, `Icon`). */
-function LocationIcon({ name, className = 'h-5 w-5' }: { name: LocationIconName; className?: string }) {
-  const common = {
-    className,
-    fill: 'none',
-    stroke: 'currentColor',
-    strokeWidth: 1.8,
-    strokeLinecap: 'round' as const,
-    strokeLinejoin: 'round' as const,
-    viewBox: '0 0 24 24',
-    'aria-hidden': true,
-    focusable: 'false' as const,
-  };
-  if (name === 'home') {
-    return (
-      <svg {...common}>
-        <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9.5z" />
-        <path d="M9.5 21v-6h5v6" />
-      </svg>
-    );
-  }
-  return (
-    <svg {...common}>
-      <path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z" />
-      <circle cx="12" cy="11" r="2.2" />
-    </svg>
-  );
-}
