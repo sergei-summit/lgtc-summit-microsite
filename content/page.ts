@@ -101,7 +101,7 @@ export const page = {
     /** Lead line removed from the H1 (Sergei, Nov 23 2026); empty hides it. */
     titleLead: '',
     /** Sergei, Nov 23 2026 (round 9), his capitals. */
-    title: 'World Class Dual Diagnosis care',
+    title: 'Integrated Dual Diagnosis care',
     titleAccent: 'built around your life',
     /** Shortened (Sergei, Nov 23 2026): the first bullet now carries the in-person / remote point. */
     text: 'Address mental health and addiction treatment together with convenient outpatient programs',
