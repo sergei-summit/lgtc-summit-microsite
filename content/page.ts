@@ -321,17 +321,17 @@ export const page = {
       cards: {
         php: {
           name: 'Partial hospitalization program (PHP)',
-          meta: '5 Days / Week \u2022 4-6 Hrs / Day',
+          meta: '5 Days / Wk \u2022 4-6 Hrs / Day',
           blurb: 'Also called day treatment or high-intensity outpatient. Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
         },
         iop: {
           name: 'Intensive outpatient program (IOP)',
-          meta: '3-5 Days / Week \u2022 3 Hrs / Day',
+          meta: '3-5 Days / Wk \u2022 3 Hrs / Day',
           blurb: 'Day, evening or hybrid options. Structured clinical care that fits around work, school and family.',
         },
         outpatient: {
           name: 'Outpatient therapy program (OP)',
-          meta: '1+ hrs/week \u2022 ongoing',
+          meta: '1+ hrs/wk \u2022 ongoing',
           blurb: 'Individual therapy and medication management for people who are stable and want to stay on track.',
         },
       } as Record<string, LevelCard>,
