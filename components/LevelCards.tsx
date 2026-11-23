@@ -104,10 +104,8 @@ function Card({ card, groups, expectLabel, popup }: { card: LevelCard; groups: R
         </span>
       )}
       <h4 className="text-2xl font-semibold leading-snug text-se-green-700">{card.name}</h4>
-      <p className="mt-2 inline-flex items-start gap-2 text-sm font-medium text-se-ink">
-        <ClockIcon />
-        <span>{card.meta}</span>
-      </p>
+      {/* Hours line: shaded band instead of the clock icon, to set it apart from the name and blurb (Sergei, Nov 23 2026). */}
+      <p className="mt-3 rounded-xl bg-se-green-100 px-3 py-2 text-sm font-medium text-se-ink">{card.meta}</p>
       <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-se-ink-muted">{card.blurb}</p>
       <div className="mt-5 grow" aria-hidden="true" />
       {popup ? (
@@ -150,14 +148,5 @@ function Rows({ groups }: { groups: RowGroup[] }) {
         </div>
       ))}
     </div>
-  );
-}
-
-function ClockIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true" focusable="false" className="mt-0.5 h-4 w-4 shrink-0 text-se-green-700">
-      <circle cx="12" cy="12" r="9" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 7v5l3 2" />
-    </svg>
   );
 }
