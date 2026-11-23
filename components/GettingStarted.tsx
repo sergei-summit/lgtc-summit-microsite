@@ -14,10 +14,9 @@ export default function GettingStarted() {
   const { gettingStarted: start } = page;
   return (
     <section id={start.id} aria-labelledby="start-title" className="scroll-mt-20 border-t border-se-line bg-se-paper">
-      <div className="mx-auto max-w-se-content px-4 py-10 sm:px-6 md:py-14">
+      <div className="mx-auto max-w-se-content px-4 pb-10 pt-8 sm:px-6 md:pb-14 md:pt-10">
         <hgroup className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-se-green-700">{start.eyebrow}</p>
-          <h2 id="start-title" className="mt-3 text-3xl font-semibold text-se-green-700 sm:text-4xl">
+          <h2 id="start-title" className="text-3xl font-semibold text-se-green-700 sm:text-4xl">
             {start.title}
           </h2>
           <p className="mt-4 leading-relaxed text-se-ink">{start.intro}</p>
