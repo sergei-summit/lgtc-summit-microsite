@@ -48,6 +48,7 @@ export default function LevelCards() {
             groups={[{ rows: level.rows }]}
             expectLabel={cards.expectLabel}
             popup={{ id: level.id, closeLabel: cards.closeLabel }}
+            alignTitles
           />
         ))}
       </ul>
@@ -94,12 +95,12 @@ type RowGroup = { name?: string; rows: Level['rows'] };
  * "What to expect" folds open in place as before. */
 type Popup = { id: string; closeLabel: string };
 
-function Card({ card, groups, expectLabel, popup }: { card: LevelCard; groups: RowGroup[]; expectLabel: string; popup?: Popup }) {
+function Card({ card, groups, expectLabel, popup, alignTitles = false }: { card: LevelCard; groups: RowGroup[]; expectLabel: string; popup?: Popup; alignTitles?: boolean }) {
   const rows = <Rows groups={groups} />;
   return (
-    /* Title row aligned across the cards in a row (Sergei, Nov 23 2026): on wide screens each card is
+    /* Title row aligned across the cards in a row (Sergei, Nov 23 2026): on wide screens each outpatient card is
        a two-row subgrid (title, then the rest), so a 2-line title takes the same space as a 3-line one. */
-    <li className="flex flex-col rounded-3xl border border-se-line bg-se-cream p-7 shadow-se-card lg:row-span-2 lg:grid lg:grid-rows-subgrid lg:gap-0">
+    <li className={`flex flex-col rounded-3xl border border-se-line bg-se-cream p-7 shadow-se-card ${alignTitles ? 'lg:row-span-2 lg:grid lg:grid-rows-subgrid lg:gap-0' : ''}`}>
       <div>
       {card.tag && (
         <span className="mb-4 self-start rounded-full bg-se-paper px-2.5 py-1 text-base font-semibold uppercase tracking-[0.14em] text-se-ink">

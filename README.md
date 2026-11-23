@@ -168,3 +168,7 @@ hand-over, on a separate Cloudflare Worker, `lgtc-summit-microsite-staging`.
   see more than one account).
 - `npm run preview:staging` runs the staging Worker locally with `wrangler dev`
   at `http://localhost:8787/lgtc-summit-microsite/`.
+
+## Callback form ("Getting started is easy")
+
+Since Nov 23 2026 the "Getting started is easy" section carries the callback form from go.summitestate.com/outpatient (components/CallbackForm.tsx, lib/lead.ts): name, phone, "yourself or a loved one", then insurance-card fields (required for "Myself", optional for "Loved one"). The browser posts JSON to `settings.leadEndpoint`; a server route relays it to CallTrackingMetrics FormReactor, so the FormReactor key never reaches the browser. Summit's staging copy uses go.summitestate.com's own `/api/ctm-lead` (Summit's FormReactor). LGTC is on CTM too, under a BAA: for lgtcgroup.com, set `NEXT_PUBLIC_LEAD_ENDPOINT` to a route on LGTC's side that relays to LGTC's own FormReactor (the field mapping is in Summit-Landing-Pages `Astro/src/lib/ctm-form.ts`: help_for, date_of_birth, insurance_provider, member_id, loved_ones_*). Loading CTM's t.js on the host page adds the visitor session (visitor_sid).

@@ -9,6 +9,7 @@ import TrustBadges from '@/components/TrustBadges';
 import LevelsOfCare from '@/components/LevelsOfCare';
 import PageFooterNote from '@/components/PageFooterNote';
 import WhereWeAre from '@/components/WhereWeAre';
+import GettingStarted from '@/components/GettingStarted';
 
 export const metadata: Metadata = {
   title: settings.metaTitle,
@@ -35,6 +36,8 @@ export default function SummitEstatePage() {
         <TrustBadges />
         <LevelsOfCare />
         {/* Care team section removed (Sergei, Nov 18 2026); BenefitAndTeam.tsx kept for later use. */}
+        {/* Getting started is easy, with the callback form (Sergei, Nov 23 2026). */}
+        <GettingStarted />
         <WhereWeAre />
         <PageFooterNote />
       </main>

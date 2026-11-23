@@ -355,26 +355,60 @@ export const page = {
    * primary pair of buttons, one quiet line for detox and residential, and
    * the small print. #verify is where "Get started" jumps.
    */
+  /** Rebuilt after lgtcgroup.com/services/psychotherapy ("Process pathway", three
+   * numbered steps, then a text + form split), with the callback form from
+   * go.summitestate.com/outpatient (Sergei, Nov 23 2026). */
   gettingStarted: {
-    id: 'verify',
+    id: 'get-started',
+    eyebrow: 'Process pathway',
     title: 'Getting started is easy',
-    lead: 'One registration and one team for the right level of care',
+    intro: 'We guide you through a structured, predictable onboarding process so you know what happens at every step.',
     steps: [
       {
-        title: 'Call or register',
-        text: 'Call admissions, or request a confidential assessment online in a few minutes. Either way the same team handles every level of care on this page.',
+        icon: 'callback',
+        title: 'Request a callback',
+        text: 'Send the short form below, or call us. It takes about a minute.',
       },
       {
-        title: 'We verify your benefits',
-        /** Two lines (Sergei, Nov 5 2026): outpatient, then Palo Alto on its own line. */
-        text: 'Outpatient care is in-network with all major plans. Costs upfront, with no obligation.\nDetox and residential care in Palo Alto: PPO policies accepted, in-network agreements in progress, and single case agreement possible.',
+        icon: 'phone',
+        title: 'Phone intake',
+        text: 'Our admissions coordinator calls you to verify your insurance coverage and schedule your initial consultation.',
       },
       {
-        title: 'Assessment and consultation',
-        text: 'A confidential assessment using the ASAM criteria, reviewed by our clinical director, sets your level of care: PHP, IOP or therapy, with psychiatric evaluation in conjunction with medication management.',
+        icon: 'calendar',
+        title: 'Initial consultation',
+        text: 'Meet our integrated clinical team to build your customized treatment roadmap.',
       },
     ],
+    cta: 'Request a callback',
+    formId: 'callback',
+    formTitle: 'We can help you assess if one of these programs is a good option for you.',
+    formTextBefore: 'Call us at',
+    formTextAfter: 'or complete the short form, and admissions will call you back.',
+    crisis: "Please don't include sensitive medical details beyond your insurance card. If you are in crisis, call or text 988.",
+    form: {
+      name: 'Name',
+      phone: 'Phone',
+      helpForLegend: 'Are you looking for yourself or a loved one?',
+      myself: 'Myself',
+      lovedOne: 'Loved one',
+      myselfNote: 'A few details off your insurance card and we can verify the benefits before we call you back.',
+      lovedOneNote: 'If you have their insurance card handy, these help us check their benefits. All three are optional, so skip any you don\u2019t know.',
+      dob: 'Your date of birth',
+      provider: 'Insurance provider',
+      memberId: 'Policy / member ID',
+      lovedOneDob: 'Their date of birth',
+      lovedOneProvider: 'Their insurance provider',
+      lovedOnePolicyId: 'Their policy ID',
+      submitVerify: 'Verify my insurance',
+      submitCallback: 'Request a confidential callback',
+      smallPrint: 'All communication is confidential. Submitting this does not commit you to treatment.',
+      successTitle: 'That is all we need.',
+      successTextBefore: 'Someone from admissions will call you back shortly. If you would rather not wait, call',
+      again: 'Submit another response',
+    },
   },
+
 
   actions: {
     /** The visible label; the number follows it. */

@@ -34,6 +34,16 @@ export const settings = {
   showFullSiteLink: true,
 
   /**
+   * Where the callback form ("Getting started is easy") posts its lead as JSON.
+   * A server route relays it to CallTrackingMetrics (FormReactor); the key stays
+   * server-side. Default: go.summitestate.com's own route, which serves Summit's
+   * staging copy (same origin). LGTC is on CTM too, under a BAA (Sergei, Nov 23
+   * 2026): for lgtcgroup.com, set NEXT_PUBLIC_LEAD_ENDPOINT to LGTC's route for
+   * its own CTM account (README, "Callback form").
+   */
+  leadEndpoint: env('NEXT_PUBLIC_LEAD_ENDPOINT') ?? '/api/ctm-lead',
+
+  /**
    * TODO (open): the final URL path. Empty when the page is mounted as a route
    * inside LGTC's app or hosted at a domain root. Summit's staging build sets
    * NEXT_PUBLIC_BASE_PATH=/lgtc-summit-microsite. No trailing slash.
