@@ -39,7 +39,8 @@ export const settings = {
    * server-side. Default: go.summitestate.com's own route, which serves Summit's
    * staging copy (same origin). LGTC is on CTM too, under a BAA (Sergei, Nov 23
    * 2026): for lgtcgroup.com, set NEXT_PUBLIC_LEAD_ENDPOINT to LGTC's route for
-   * its own CTM account (README, "Callback form").
+   * its own CTM account, 561831 (under the Summit Estate agency account 6102;
+   * README, "Callback form").
    */
   leadEndpoint: env('NEXT_PUBLIC_LEAD_ENDPOINT') ?? '/api/ctm-lead',
 
