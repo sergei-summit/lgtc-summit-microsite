@@ -13,7 +13,7 @@ export default function WhereWeAre() {
   const { whereWeAre } = page;
   return (
     <section aria-labelledby="where-title" className="border-t border-se-line bg-se-cream">
-      <div className="mx-auto max-w-se-content px-4 py-14 sm:px-6 md:py-20">
+      <div className="mx-auto max-w-se-content px-4 py-10 sm:px-6 md:py-14">
         {/* "Explore Summit Estate" sits above this section's heading since Nov 18 2026 (Sergei; it was at the very bottom). */}
         {settings.showFullSiteLink && (
           <p className="mb-12 flex justify-center">
