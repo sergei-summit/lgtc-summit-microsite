@@ -36,9 +36,9 @@ export default function SummitEstatePage() {
         <TrustBadges />
         <LevelsOfCare />
         {/* Care team section removed (Sergei, Nov 18 2026); BenefitAndTeam.tsx kept for later use. */}
-        {/* Getting started is easy, with the callback form (Sergei, Nov 23 2026). */}
-        <GettingStarted />
         <WhereWeAre />
+        {/* Getting started is easy, with the callback form (Sergei, Nov 23 2026); below the location cards. */}
+        <GettingStarted />
         <PageFooterNote />
       </main>
       {/* No bottom call bar on phones; the top bar's Call now is enough (Sergei, Nov 18 2026). MobileCallBar.tsx kept for later use. */}
