@@ -10,7 +10,7 @@ export default function PageFooterNote() {
   return (
     <div className="border-t border-se-line bg-se-paper">
       <div className="mx-auto flex max-w-se-content flex-col items-center gap-3 px-4 py-8 text-center text-sm text-se-ink-muted sm:px-6">
-        <p className="max-w-2xl leading-relaxed">{footerNote.smallPrint}</p>
+        {/* Confidentiality / 988 line removed Nov 23 2026 (Sergei): the callback form above carries it. */}
         <p className="max-w-2xl leading-relaxed">{footerNote.text}</p>
       </div>
     </div>

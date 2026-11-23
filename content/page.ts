@@ -98,10 +98,11 @@ export const page = {
   hero: {
     /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
     /** Sergei, Nov 18 2026; sentence case per his Nov 18 note. */
-    titleLead: 'Summit Estate Recovery Centers',
+    /** Lead line removed from the H1 (Sergei, Nov 23 2026); empty hides it. */
+    titleLead: '',
     title: 'Dual Diagnosis care in San Jose,',
     titleAccent: 'built around your life',
-    text: 'Address mental health and addiction treatment together with convenient outpatient programs offered in-person or virtually',
+    text: 'Address mental health and addiction treatment together at Summit Estate Recovery Center with convenient outpatient programs offered in-person or virtually',
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
      * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
     features: [
@@ -198,7 +199,7 @@ export const page = {
    */
   levels: {
     id: 'programs',
-    title: 'Outpatient programs \u2013 co-occurring enhanced (COE)',
+    title: 'Outpatient programs \u2013 Co-Occurring Enhanced Care (COE)',
     outpatient: {
       items: [
         {
@@ -281,7 +282,8 @@ export const page = {
        * placed above the three cards (Sergei, Nov 5 2026): the lounge photo,
        * the heading above as its name, and the live page's description. */
       outpatientCard: {
-        text: 'Choose from a variety of outpatient programs that fit your schedule: partial hospitalization, intensive outpatient, outpatient, family therapy, and multi-family groups. Receive psychiatry-guided medication management and case management at any level',
+        /** Sergei's text, Nov 18 2026 (no final period, as he wrote it). */
+        text: 'Outpatient programs designed around your clinical needs, with flexible scheduling.\nDay, evening, in-person and hybrid. Intensity and curriculum are matched to what you need',
         photo: {
           src: sanJosePhoto,
           alt: 'The San Jose outpatient lounge: leather sofas and armchairs around a wooden coffee table',
@@ -319,25 +321,25 @@ export const page = {
       cards: {
         php: {
           name: 'Partial hospitalization program (PHP)',
-          meta: '20+ hrs/week \u00b7 typically 4\u20136 weeks',
-          blurb: '(ASAM Level 2.5 COE)\nAlso called day treatment or high-intensity outpatient. Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
+          meta: '5 Days / Wk \u2022 4-6 Hrs / Day',
+          blurb: 'Also called day treatment or high-intensity outpatient. Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
         },
         iop: {
           name: 'Intensive outpatient program (IOP)',
-          meta: '9\u201319 hrs/week \u00b7 typically 8\u201312 weeks',
-          blurb: '(ASAM Level 2.1 COE)\nDay, evening or hybrid options. Structured clinical care that fits around work, school and family.',
+          meta: '3-5 Days / Wk \u2022 3 Hrs / Day',
+          blurb: 'Day, evening or hybrid options. Structured clinical care that fits around work, school and family.',
         },
         outpatient: {
           name: 'Outpatient therapy program (OP)',
-          meta: 'From one session a week \u00b7 ongoing',
-          blurb: '(ASAM Level 1.5 COE)\nIndividual therapy and medication management for people who are stable and want to stay on track.',
+          meta: '1+ hrs/wk \u2022 ongoing',
+          blurb: 'Individual therapy and medication management for people who are stable and want to stay on track.',
         },
       } as Record<string, LevelCard>,
       combined: {
         /** Sergei, Nov 18 2026: no tag chip; his capitals kept. */
         name: 'Detox & Residential (DTX/RTC)',
-        meta: 'Detox typically 7\u201310 days \u00b7 Residential typically 3\u20134 weeks',
-        blurb: '(ASAM Levels 3.5 / 3.1)\nMedically supervised Detoxification and Residential treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
+        meta: 'Detox typically 7\u201310 days\nResidential typically 3\u20134 weeks',
+        blurb: 'Medically supervised Detoxification and Residential treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
       } satisfies LevelCard,
       /** Not shown since Nov 14 2026 (Sergei removed the card); kept for later use. */
       notSure: {
@@ -353,26 +355,60 @@ export const page = {
    * primary pair of buttons, one quiet line for detox and residential, and
    * the small print. #verify is where "Get started" jumps.
    */
+  /** Rebuilt after lgtcgroup.com/services/psychotherapy ("Process pathway", three
+   * numbered steps, then a text + form split), with the callback form from
+   * go.summitestate.com/outpatient (Sergei, Nov 23 2026). */
   gettingStarted: {
-    id: 'verify',
+    id: 'get-started',
+    eyebrow: 'Process pathway',
     title: 'Getting started is easy',
-    lead: 'One registration and one team for the right level of care',
+    intro: 'We guide you through a structured, predictable onboarding process so you know what happens at every step.',
     steps: [
       {
-        title: 'Call or register',
-        text: 'Call admissions, or request a confidential assessment online in a few minutes. Either way the same team handles every level of care on this page.',
+        icon: 'callback',
+        title: 'Request a callback',
+        text: 'Send the short form below, or call us. It takes about a minute.',
       },
       {
-        title: 'We verify your benefits',
-        /** Two lines (Sergei, Nov 5 2026): outpatient, then Palo Alto on its own line. */
-        text: 'Outpatient care is in-network with all major plans. Costs upfront, with no obligation.\nDetox and residential care in Palo Alto: PPO policies accepted, in-network agreements in progress, and single case agreement possible.',
+        icon: 'phone',
+        title: 'Phone intake',
+        text: 'Our admissions coordinator calls you to verify your insurance coverage and schedule your initial consultation.',
       },
       {
-        title: 'Assessment and consultation',
-        text: 'A confidential assessment using the ASAM criteria, reviewed by our clinical director, sets your level of care: PHP, IOP or therapy, with psychiatric evaluation in conjunction with medication management.',
+        icon: 'calendar',
+        title: 'Initial consultation',
+        text: 'Meet our integrated clinical team to build your customized treatment roadmap.',
       },
     ],
+    cta: 'Request a callback',
+    formId: 'callback',
+    formTitle: 'We can help you assess if one of these programs is a good option for you.',
+    formTextBefore: 'Call us at',
+    formTextAfter: 'or complete the short form, and admissions will call you back.',
+    crisis: "Please don't include sensitive medical details beyond your insurance card. If you are in crisis, call or text 988.",
+    form: {
+      name: 'Name',
+      phone: 'Phone',
+      helpForLegend: 'Are you looking for yourself or a loved one?',
+      myself: 'Myself',
+      lovedOne: 'Loved one',
+      myselfNote: 'A few details off your insurance card and we can verify the benefits before we call you back.',
+      lovedOneNote: 'If you have their insurance card handy, these help us check their benefits. All three are optional, so skip any you don\u2019t know.',
+      dob: 'Your date of birth',
+      provider: 'Insurance provider',
+      memberId: 'Policy / member ID',
+      lovedOneDob: 'Their date of birth',
+      lovedOneProvider: 'Their insurance provider',
+      lovedOnePolicyId: 'Their policy ID',
+      submitVerify: 'Verify my insurance',
+      submitCallback: 'Request a confidential callback',
+      smallPrint: 'All communication is confidential. Submitting this does not commit you to treatment.',
+      successTitle: 'That is all we need.',
+      successTextBefore: 'Someone from admissions will call you back shortly. If you would rather not wait, call',
+      again: 'Submit another response',
+    },
   },
+
 
   actions: {
     /** The visible label; the number follows it. */
@@ -387,7 +423,6 @@ export const page = {
 
   /** The very bottom of the page, under "Where we are" (Sergei, Nov 5 2026): the confidentiality line, the note and the link. */
   footerNote: {
-    smallPrint: "All communication is confidential. Please don't include sensitive medical details. If you are in crisis, call or text 988.",
     text: `Summit Estate Recovery Centers. Dual-diagnosis care for adults, in a collaborative partnership under the guidance and oversight of ${settings.groupName}.`,
     /** A button since Nov 18 2026 (Sergei). */
     fullSiteLink: 'Explore Summit Estate',

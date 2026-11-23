@@ -9,6 +9,7 @@ import TrustBadges from '@/components/TrustBadges';
 import LevelsOfCare from '@/components/LevelsOfCare';
 import PageFooterNote from '@/components/PageFooterNote';
 import WhereWeAre from '@/components/WhereWeAre';
+import GettingStarted from '@/components/GettingStarted';
 
 export const metadata: Metadata = {
   title: settings.metaTitle,
@@ -36,6 +37,8 @@ export default function SummitEstatePage() {
         <LevelsOfCare />
         {/* Care team section removed (Sergei, Nov 18 2026); BenefitAndTeam.tsx kept for later use. */}
         <WhereWeAre />
+        {/* Getting started is easy, with the callback form (Sergei, Nov 23 2026); below the location cards. */}
+        <GettingStarted />
         <PageFooterNote />
       </main>
       {/* No bottom call bar on phones; the top bar's Call now is enough (Sergei, Nov 18 2026). MobileCallBar.tsx kept for later use. */}
