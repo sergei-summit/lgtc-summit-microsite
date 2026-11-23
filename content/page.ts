@@ -318,7 +318,7 @@ export const page = {
           { name: 'Santa Clara Family Health Plan', logo: carrier13, width: 840, height: 215 },
         ] satisfies { name: string; logo: StaticImageData; width: number; height: number }[],
       },
-      higherTitle: 'Higher level of care \u00b7 Palo Alto',
+      higherTitle: 'Higher level of care',
       expectLabel: 'What to expect',
       closeLabel: 'Close',
       learnMore: { label: 'Learn more', href: 'https://go.summitestate.com/outpatient' },
@@ -342,7 +342,7 @@ export const page = {
       } as Record<string, LevelCard>,
       combined: {
         /** Sergei, Nov 18 2026: no tag chip; his capitals kept. */
-        name: 'Detox & Residential (DTX/RTC)',
+        name: 'Palo Alto \u00b7 Detox & Residential (DTX/RTC)',
         meta: 'Detox typically 7\u201310 days\nResidential typically 3\u20134 weeks',
         blurb: 'Medically supervised Detoxification and Residential treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
       } satisfies LevelCard,
