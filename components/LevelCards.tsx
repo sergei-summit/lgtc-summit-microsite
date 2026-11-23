@@ -105,7 +105,7 @@ function Card({ card, groups, expectLabel, popup }: { card: LevelCard; groups: R
       )}
       <h4 className="text-2xl font-semibold leading-snug text-se-green-700">{card.name}</h4>
       {/* Hours line: shaded band instead of the clock icon, to set it apart from the name and blurb (Sergei, Nov 23 2026). */}
-      <p className="mt-3 rounded-xl bg-se-green-100 px-3 py-2 text-sm font-medium text-se-ink">{card.meta}</p>
+      <p className="mt-3 whitespace-pre-line rounded-xl bg-se-green-100 px-3 py-2 text-sm font-medium text-se-ink">{card.meta}</p>
       <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-se-ink-muted">{card.blurb}</p>
       <div className="mt-5 grow" aria-hidden="true" />
       {popup ? (

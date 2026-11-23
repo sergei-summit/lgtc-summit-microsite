@@ -321,24 +321,24 @@ export const page = {
       cards: {
         php: {
           name: 'Partial hospitalization program (PHP)',
-          meta: '20+ hrs/week \u00b7 typically 4\u20136 weeks',
+          meta: '5 Days / Week \u2022 4-6 Hrs / Day',
           blurb: 'Also called day treatment or high-intensity outpatient. Structured treatment most weekdays, home every evening: the highest level of outpatient care.',
         },
         iop: {
           name: 'Intensive outpatient program (IOP)',
-          meta: '9\u201319 hrs/week \u00b7 typically 8\u201312 weeks',
+          meta: '3-5 Days / Week \u2022 3 Hrs / Day',
           blurb: 'Day, evening or hybrid options. Structured clinical care that fits around work, school and family.',
         },
         outpatient: {
           name: 'Outpatient therapy program (OP)',
-          meta: 'From one session a week \u00b7 ongoing',
+          meta: '1+ hrs/week \u2022 ongoing',
           blurb: 'Individual therapy and medication management for people who are stable and want to stay on track.',
         },
       } as Record<string, LevelCard>,
       combined: {
         /** Sergei, Nov 18 2026: no tag chip; his capitals kept. */
         name: 'Detox & Residential (DTX/RTC)',
-        meta: 'Detox typically 7\u201310 days \u00b7 Residential typically 3\u20134 weeks',
+        meta: 'Detox typically 7\u201310 days\nResidential typically 3\u20134 weeks',
         blurb: 'Medically supervised Detoxification and Residential treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
       } satisfies LevelCard,
       /** Not shown since Nov 14 2026 (Sergei removed the card); kept for later use. */
