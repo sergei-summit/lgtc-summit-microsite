@@ -15,7 +15,7 @@ import { PhoneIcon, SecondaryLink } from './Actions';
 export default function Hero() {
   const { hero } = page;
   return (
-    <section aria-labelledby="hero-title" className="bg-se-sand">
+    <section aria-labelledby="hero-title" className="bg-se-cream">
       <div className="mx-auto grid max-w-se-content items-center gap-x-12 gap-y-8 px-4 py-12 sm:px-6 md:grid-cols-2 md:gap-y-6 md:py-10 lg:py-12">
         {/* The headline runs across the top; under it, the description and
             points sit left and the photo right from md up (Sergei, Nov 17

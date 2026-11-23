@@ -24,7 +24,7 @@ export const metadata: Metadata = {
  */
 export default function SummitEstatePage() {
   return (
-    <div className={`se-root ${montserrat.variable} bg-se-sand pb-[4.75rem] md:pb-0`}>
+    <div className={`se-root ${montserrat.variable} bg-se-cream pb-[4.75rem] md:pb-0`}>
       <a
         href="#programs"
         className="sr-only z-50 rounded-full bg-se-green-800 px-5 py-3 font-semibold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
