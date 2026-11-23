@@ -100,20 +100,25 @@ export const page = {
     /** Sergei, Nov 18 2026; sentence case per his Nov 18 note. */
     /** Lead line removed from the H1 (Sergei, Nov 23 2026); empty hides it. */
     titleLead: '',
-    title: 'Dual Diagnosis care in San Jose,',
+    /** Sergei, Nov 23 2026 (round 9), his capitals. */
+    title: 'World Class Dual Diagnosis care',
     titleAccent: 'built around your life',
-    text: 'Address mental health and addiction treatment together at Summit Estate Recovery Center with convenient outpatient programs offered in-person or virtually',
+    /** Shortened (Sergei, Nov 23 2026): the first bullet now carries the in-person / remote point. */
+    text: 'Address mental health and addiction treatment together with convenient outpatient programs',
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
      * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
     features: [
       /** Sergei's six lines, in his order (Nov 18 2026). */
-      { icon: 'compass', title: 'Day, evening & hybrid formats' },
-      { icon: 'heart', title: 'Individualized treatment programs' },
+      /** `phone`: the three shown on phones, in that order (Sergei, Nov 23 2026); the rest show from sm up. */
+      { icon: 'compass', title: 'Day, evening & remote hybrid formats', phone: 1 },
+      { icon: 'heart', title: 'Individualized treatment programs', phone: 3 },
       { icon: 'shield', title: 'Psychiatric oversight, board-certified teams' },
       { icon: 'layers', title: 'Intensity matched to your needs' },
       { icon: 'calendar', title: 'Curated curriculum with family involvement' },
-      { icon: 'award', title: 'In-network with most major plans' },
-    ] as { icon: FeatureIconName; title: string; proof?: string }[],
+      { icon: 'award', title: 'In-network with most major plans', phone: 2 },
+    ] as { icon: FeatureIconName; title: string; proof?: string; phone?: 1 | 2 | 3 }[],
+    /** Jump to the callback form, under the bullets (Sergei, Nov 23 2026). */
+    callback: 'Request a callback',
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
@@ -199,7 +204,7 @@ export const page = {
    */
   levels: {
     id: 'programs',
-    title: 'Outpatient programs \u2013 Co-Occurring Enhanced Care (COE)',
+    title: 'Outpatient programs \u2013 Co-Occurring Enhanced',
     outpatient: {
       items: [
         {
@@ -360,9 +365,9 @@ export const page = {
    * go.summitestate.com/outpatient (Sergei, Nov 23 2026). */
   gettingStarted: {
     id: 'get-started',
-    eyebrow: 'Process pathway',
+    eyebrow: 'How it works',
     title: 'Getting started is easy',
-    intro: 'We guide you through a structured, predictable onboarding process so you know what happens at every step.',
+    intro: 'What happens after you reach out',
     steps: [
       {
         icon: 'callback',
@@ -377,7 +382,7 @@ export const page = {
       {
         icon: 'calendar',
         title: 'Initial consultation',
-        text: 'Meet our integrated clinical team to build your customized treatment roadmap.',
+        text: 'Meet our integrated clinical team to plan your treatment together.',
       },
     ],
     cta: 'Request a callback',
@@ -401,7 +406,7 @@ export const page = {
       lovedOneProvider: 'Their insurance provider',
       lovedOnePolicyId: 'Their policy ID',
       submitVerify: 'Verify my insurance',
-      submitCallback: 'Request a confidential callback',
+      submitCallback: 'Request a callback',
       smallPrint: 'All communication is confidential. Submitting this does not commit you to treatment.',
       successTitle: 'That is all we need.',
       successTextBefore: 'Someone from admissions will call you back shortly. If you would rather not wait, call',

@@ -1,7 +1,7 @@
 import FillPhoto from './FillPhoto';
 import { page } from '@/content/page';
 import { settings } from '@/content/settings';
-import { PhoneIcon } from './Actions';
+import { PhoneIcon, SecondaryLink } from './Actions';
 
 /**
  * Hero: the H1 across the full width, then the intro and the feature points on
@@ -15,7 +15,7 @@ import { PhoneIcon } from './Actions';
 export default function Hero() {
   const { hero } = page;
   return (
-    <section aria-labelledby="hero-title" className="bg-se-cream">
+    <section aria-labelledby="hero-title" className="bg-se-sand">
       <div className="mx-auto grid max-w-se-content items-center gap-x-12 gap-y-8 px-4 py-12 sm:px-6 md:grid-cols-2 md:gap-y-6 md:py-10 lg:py-12">
         {/* The headline runs across the top; under it, the description and
             points sit left and the photo right from md up (Sergei, Nov 17
@@ -25,7 +25,7 @@ export default function Hero() {
         <div className="se-hero-title-box text-[2.3rem] sm:text-[2.9rem] md:col-span-2 lg:text-[3.5rem] xl:text-[3.1rem]">
           <h1
             id="hero-title"
-            className="font-light leading-[1.08] text-se-green-700"
+            className="font-semibold leading-[1.08] text-se-green-700"
           >
             {hero.titleLead && <span className="mb-[0.42em] block">{hero.titleLead}</span>}{keepTogether(hero.title)} <span className="text-se-accent-700">{hero.titleAccent}</span>
           </h1>
@@ -35,7 +35,7 @@ export default function Hero() {
           <p className="max-w-3xl whitespace-pre-line text-lg leading-relaxed text-se-ink xl:text-xl">{hero.text}</p>
           <ul className={hero.features.length > 1 ? 'mt-6 grid list-disc grid-cols-[repeat(auto-fit,minmax(min(100%,max(11rem,calc((100%-2rem)/2))),1fr))] gap-x-8 gap-y-2.5 pl-5 marker:text-se-green-700' : 'mt-7 grid max-w-3xl'}>
             {hero.features.map((feature) => (
-              <li key={feature.title} className="pl-1">
+              <li key={feature.title} className={`pl-1 ${feature.phone ? ['', 'max-sm:order-1', 'max-sm:order-2', 'max-sm:order-3'][feature.phone] : 'max-sm:hidden'}`}>
                 {/* A bulleted list in two columns, smaller type (Sergei, Nov 17 2026:
                     "no emoji", then "use bullets and go back to two columns"). */}
                 <span className="text-sm font-semibold leading-snug text-se-ink">{keepTogether(feature.title)}</span>
@@ -45,15 +45,19 @@ export default function Hero() {
               </li>
             ))}
           </ul>
+          {/* The way to the form from the first screen (Sergei, Nov 23 2026). */}
+          <p className="mt-7">
+            <SecondaryLink href={`#${page.gettingStarted.formId}`}>{hero.callback}</SecondaryLink>
+          </p>
         </div>
-        {/* Call card at the photo's top right (Sergei, Nov 18 2026). */}
+        {/* Call card at the photo's lower right corner (Sergei, Nov 23 2026; top right before). */}
         <div className="relative">
           <div className="relative h-[16rem] w-full overflow-hidden rounded-[2rem] shadow-se-card sm:h-[22rem] md:h-[19rem] lg:h-[20rem]">
             <FillPhoto photo={hero.photo} sizes="(min-width: 768px) 560px, 100vw" priority />
           </div>
           <a
             href={settings.phoneHref}
-            className="absolute right-4 top-4 hidden max-w-[21rem] rounded-2xl bg-se-paper p-5 no-underline shadow-se-card sm:right-6 sm:top-6 sm:block"
+            className="absolute bottom-4 right-4 hidden max-w-[21rem] rounded-2xl bg-se-paper p-5 no-underline shadow-se-card sm:bottom-6 sm:right-6 sm:block"
           >
             <span className="flex items-center gap-2 text-lg font-semibold leading-snug text-se-green-700">
               <PhoneIcon className="h-4 w-4 text-se-accent-700" />

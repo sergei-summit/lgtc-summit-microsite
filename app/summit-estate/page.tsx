@@ -10,6 +10,7 @@ import LevelsOfCare from '@/components/LevelsOfCare';
 import PageFooterNote from '@/components/PageFooterNote';
 import WhereWeAre from '@/components/WhereWeAre';
 import GettingStarted from '@/components/GettingStarted';
+import MobileCallBar from '@/components/MobileCallBar';
 
 export const metadata: Metadata = {
   title: settings.metaTitle,
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
  */
 export default function SummitEstatePage() {
   return (
-    <div className={`se-root ${montserrat.variable} bg-se-cream`}>
+    <div className={`se-root ${montserrat.variable} bg-se-sand pb-[4.75rem] md:pb-0`}>
       <a
         href="#programs"
         className="sr-only z-50 rounded-full bg-se-green-800 px-5 py-3 font-semibold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
@@ -41,7 +42,15 @@ export default function SummitEstatePage() {
         <GettingStarted />
         <PageFooterNote />
       </main>
-      {/* No bottom call bar on phones; the top bar's Call now is enough (Sergei, Nov 18 2026). MobileCallBar.tsx kept for later use. */}
+      {/* Two-button bar pinned to the bottom on phones again (Sergei, Nov 23 2026; removed Nov 18). It hides while the form is on screen. */}
+      <MobileCallBar
+        label={page.actions.callNow}
+        phone={settings.phone}
+        phoneHref={settings.phoneHref}
+        callPrefix={page.actions.callNow}
+        secondaryLabel={page.hero.callback}
+        secondaryHref={`#${page.gettingStarted.formId}`}
+      />
     </div>
   );
 }

@@ -12,7 +12,7 @@ import { settings } from '@/content/settings';
 export default function WhereWeAre() {
   const { whereWeAre } = page;
   return (
-    <section aria-labelledby="where-title" className="border-t border-se-line bg-se-cream">
+    <section aria-labelledby="where-title" className="border-t border-se-line bg-se-sand">
       <div className="mx-auto max-w-se-content px-4 py-10 sm:px-6 md:py-14">
         {/* "Explore Summit Estate" sits above this section's heading since Nov 18 2026 (Sergei; it was at the very bottom). */}
         {settings.showFullSiteLink && (
@@ -42,16 +42,14 @@ export default function WhereWeAre() {
                   <a href={item.mapHref} target="_blank" rel="noopener" className="block no-underline underline-offset-4 hover:underline">
                     {item.address}
                   </a>
-                  <a href={settings.phoneHref} className="block no-underline underline-offset-4 hover:underline">
+                  {/* The printed number is the call link; no separate Call now button (Sergei, Nov 23 2026). */}
+                  <a href={settings.phoneHref} className="flex min-h-11 items-center gap-2 font-semibold text-se-green-700 underline underline-offset-4">
+                    <PhoneIcon className="h-4 w-4 shrink-0" />
+                    <span className="sr-only">{page.actions.callPrefix} </span>
                     {settings.phone}
                   </a>
                 </address>
-                <div className="mt-6 flex flex-wrap gap-3 pt-1">
-                  <a href={settings.phoneHref} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-6 py-3 text-base font-semibold text-white no-underline transition-colors hover:bg-se-green-900">
-                    <PhoneIcon />
-                    {page.actions.callNow}
-                    <span className="sr-only"> {settings.phone}</span>
-                  </a>
+                <div className="mt-5 flex flex-wrap gap-3 pt-1">
                   <SecondaryLink href={item.link.href}>
                     {item.link.label}
                     <span className="sr-only">: {item.title}</span>

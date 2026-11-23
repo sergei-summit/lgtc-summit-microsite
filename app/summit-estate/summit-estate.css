@@ -39,6 +39,10 @@
 .se-root :where(a) {
   color: inherit;
 }
+/* Form fields and buttons use the page font, not the browser's Arial (Nov 23 2026). */
+.se-root :where(input, button, select, textarea) {
+  font-family: inherit;
+}
 .se-root :where(p) {
   text-wrap: pretty;
 }

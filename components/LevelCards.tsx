@@ -38,6 +38,21 @@ export default function LevelCards() {
             {cards.outpatientTitle}
           </h3>
           <p className="mt-3 whitespace-pre-line leading-relaxed text-se-ink">{cards.outpatientCard.text}</p>
+          {/* Call now / Learn more live in this card (Sergei, Nov 23 2026; a separate bar under the program cards before). */}
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <a
+              href={settings.phoneHref}
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-6 py-3 text-base font-semibold text-white no-underline transition-colors hover:bg-se-green-900"
+            >
+              <PhoneIcon />
+              {page.actions.callNow}
+              <span className="sr-only"> {settings.phone}</span>
+            </a>
+            <SecondaryLink href={cards.learnMore.href}>
+              {cards.learnMore.label}
+              <span className="sr-only">: {cards.outpatientTitle}</span>
+            </SecondaryLink>
+          </div>
         </div>
       </article>
       <ul className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-3">
@@ -52,21 +67,6 @@ export default function LevelCards() {
           />
         ))}
       </ul>
-      {/* One call-to-action bar under the three program cards (Sergei, Nov 18 2026). */}
-      <div className="mt-5 flex flex-wrap items-center justify-center gap-3 rounded-3xl border border-se-line bg-se-cream p-5 shadow-se-card">
-        <a
-          href={settings.phoneHref}
-          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-6 py-3 text-base font-semibold text-white no-underline transition-colors hover:bg-se-green-900"
-        >
-          <PhoneIcon />
-          {page.actions.callNow}
-          <span className="sr-only"> {settings.phone}</span>
-        </a>
-        <SecondaryLink href={cards.learnMore.href}>
-          {cards.learnMore.label}
-          <span className="sr-only">: {cards.outpatientTitle}</span>
-        </SecondaryLink>
-      </div>
 
       <h3 className="mt-12 text-2xl font-semibold text-se-green-700">{cards.higherTitle}</h3>
       <ul className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
