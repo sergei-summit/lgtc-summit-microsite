@@ -336,8 +336,8 @@ export const page = {
         },
         outpatient: {
           name: 'Outpatient therapy program (OP)',
-          meta: '1+ hrs/wk \u2022 ongoing',
-          blurb: 'Individual therapy and medication management for people who are stable and want to stay on track.',
+          meta: '1+ Days / Wk \u2022 1+ Hr / Day \u2022 ongoing',
+          blurb: 'Individual therapy, curated groups and medication management for people who are stable and want to stay on track.',
         },
       } as Record<string, LevelCard>,
       combined: {

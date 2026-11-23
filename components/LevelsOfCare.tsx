@@ -10,7 +10,7 @@ export default function LevelsOfCare() {
   const { levels } = page;
   return (
     <section id={levels.id} aria-labelledby="programs-title" className="scroll-mt-20 bg-se-paper">
-      <div className="mx-auto max-w-se-content px-4 py-10 sm:px-6 md:py-14">
+      <div className="mx-auto max-w-se-content px-4 pb-10 pt-6 sm:px-6 md:pb-14 md:pt-8">
         <h2 id="programs-title" className="text-3xl font-semibold text-se-green-700 sm:text-4xl">
           {levels.title}
         </h2>
