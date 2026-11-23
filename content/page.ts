@@ -423,7 +423,6 @@ export const page = {
 
   /** The very bottom of the page, under "Where we are" (Sergei, Nov 5 2026): the confidentiality line, the note and the link. */
   footerNote: {
-    smallPrint: "All communication is confidential. Please don't include sensitive medical details. If you are in crisis, call or text 988.",
     text: `Summit Estate Recovery Centers. Dual-diagnosis care for adults, in a collaborative partnership under the guidance and oversight of ${settings.groupName}.`,
     /** A button since Nov 18 2026 (Sergei). */
     fullSiteLink: 'Explore Summit Estate',
