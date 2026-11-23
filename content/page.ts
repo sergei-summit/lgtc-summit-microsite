@@ -104,7 +104,7 @@ export const page = {
     title: 'Integrated Dual Diagnosis care',
     titleAccent: 'built around your life',
     /** Shortened (Sergei, Nov 23 2026): the first bullet now carries the in-person / remote point. */
-    text: 'Address mental health and addiction treatment together with convenient outpatient programs',
+    text: 'Address mental health and addiction treatment together with convenient outpatient programs at Summit Estate',
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
      * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
     features: [

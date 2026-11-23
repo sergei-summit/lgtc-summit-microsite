@@ -32,7 +32,7 @@ export default function Hero() {
         </div>
 
         <div>
-          <p className="max-w-3xl whitespace-pre-line text-lg leading-relaxed text-se-ink xl:text-xl">{hero.text}</p>
+          <p className="max-w-3xl whitespace-pre-line text-lg leading-relaxed text-se-ink lg:text-base lg:leading-relaxed min-[1152px]:text-lg min-[1152px]:leading-relaxed">{hero.text}</p>
           <ul className={hero.features.length > 1 ? 'mt-6 grid list-disc grid-cols-[repeat(auto-fit,minmax(min(100%,max(11rem,calc((100%-2rem)/2))),1fr))] gap-x-8 gap-y-2.5 pl-5 marker:text-se-green-700' : 'mt-7 grid max-w-3xl'}>
             {hero.features.map((feature) => (
               <li key={feature.title} className={`pl-1 ${feature.phone ? ['', 'max-sm:order-1', 'max-sm:order-2', 'max-sm:order-3'][feature.phone] : 'max-sm:hidden'}`}>
