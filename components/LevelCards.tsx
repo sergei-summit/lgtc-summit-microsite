@@ -74,6 +74,7 @@ export default function LevelCards() {
           card={cards.combined}
           groups={higher.items.map((level) => ({ name: level.name, rows: level.rows }))}
           expectLabel={cards.expectLabel}
+          popup={{ id: 'detox-residential', closeLabel: cards.closeLabel }}
         />
         <li className="relative min-h-[16rem] overflow-hidden rounded-3xl shadow-se-card">
           <FillPhoto photo={higher.photo} sizes="(min-width: 768px) 600px, 100vw" />
@@ -91,8 +92,8 @@ type RowGroup = { name?: string; rows: Level['rows'] };
 
 /** `popup`: the San Jose program cards (Sergei, Nov 18 2026). "What to expect"
  * opens as a popup. Call now / Learn more sit once in a bar under the three
- * cards (Sergei, Nov 18 2026), not on each card. Without it (Detox & residential),
- * "What to expect" folds open in place as before. */
+ * cards (Sergei, Nov 18 2026), not on each card. Detox & residential uses the popup too since Nov 23 2026
+ * (Sergei: one pattern for every card); without `popup` it folds open in place. */
 type Popup = { id: string; closeLabel: string };
 
 function Card({ card, groups, expectLabel, popup, alignTitles = false }: { card: LevelCard; groups: RowGroup[]; expectLabel: string; popup?: Popup; alignTitles?: boolean }) {
