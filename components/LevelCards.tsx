@@ -97,13 +97,18 @@ type Popup = { id: string; closeLabel: string };
 function Card({ card, groups, expectLabel, popup }: { card: LevelCard; groups: RowGroup[]; expectLabel: string; popup?: Popup }) {
   const rows = <Rows groups={groups} />;
   return (
-    <li className="flex flex-col rounded-3xl border border-se-line bg-se-cream p-7 shadow-se-card">
+    /* Title row aligned across the cards in a row (Sergei, Nov 23 2026): on wide screens each card is
+       a two-row subgrid (title, then the rest), so a 2-line title takes the same space as a 3-line one. */
+    <li className="flex flex-col rounded-3xl border border-se-line bg-se-cream p-7 shadow-se-card lg:row-span-2 lg:grid lg:grid-rows-subgrid lg:gap-0">
+      <div>
       {card.tag && (
         <span className="mb-4 self-start rounded-full bg-se-paper px-2.5 py-1 text-base font-semibold uppercase tracking-[0.14em] text-se-ink">
           {card.tag}
         </span>
       )}
       <h4 className="text-2xl font-semibold leading-snug text-se-green-700">{card.name}</h4>
+      </div>
+      <div className="flex flex-1 flex-col">
       {/* Hours line: shaded band instead of the clock icon, to set it apart from the name and blurb (Sergei, Nov 23 2026). */}
       <p className="mt-3 whitespace-pre-line rounded-xl bg-se-green-100 px-3 py-2 text-sm font-medium text-se-ink">{card.meta}</p>
       <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-se-ink-muted">{card.blurb}</p>
@@ -127,6 +132,7 @@ function Card({ card, groups, expectLabel, popup }: { card: LevelCard; groups: R
           <div className="mt-4">{rows}</div>
         </details>
       )}
+      </div>
     </li>
   );
 }
