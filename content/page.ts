@@ -102,7 +102,7 @@ export const page = {
     titleLead: '',
     title: 'Dual Diagnosis care in San Jose,',
     titleAccent: 'built around your life',
-    text: 'Address mental health and addiction treatment together with convenient outpatient programs offered in-person or virtually',
+    text: 'Address mental health and addiction treatment together at Summit Estate Recovery Center with convenient outpatient programs offered in-person or virtually',
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
      * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
     features: [
