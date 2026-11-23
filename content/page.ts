@@ -98,7 +98,8 @@ export const page = {
   hero: {
     /** No punctuation inside or at the end of the H1 (Sergei, Nov 5 2026). */
     /** Sergei, Nov 18 2026; sentence case per his Nov 18 note. */
-    titleLead: 'Summit Estate Recovery Centers',
+    /** Lead line removed from the H1 (Sergei, Nov 23 2026); empty hides it. */
+    titleLead: '',
     title: 'Dual Diagnosis care in San Jose,',
     titleAccent: 'built around your life',
     text: 'Address mental health and addiction treatment together with convenient outpatient programs offered in-person or virtually',
