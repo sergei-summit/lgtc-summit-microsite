@@ -75,6 +75,7 @@ export default function LevelCards() {
           groups={higher.items.map((level) => ({ name: level.name, rows: level.rows }))}
           expectLabel={cards.expectLabel}
           popup={{ id: 'detox-residential', closeLabel: cards.closeLabel }}
+          oneLineTitle
         />
         <li className="relative min-h-[16rem] overflow-hidden rounded-3xl shadow-se-card">
           <FillPhoto photo={higher.photo} sizes="(min-width: 768px) 600px, 100vw" />
@@ -96,7 +97,7 @@ type RowGroup = { name?: string; rows: Level['rows'] };
  * (Sergei: one pattern for every card); without `popup` it folds open in place. */
 type Popup = { id: string; closeLabel: string };
 
-function Card({ card, groups, expectLabel, popup, alignTitles = false }: { card: LevelCard; groups: RowGroup[]; expectLabel: string; popup?: Popup; alignTitles?: boolean }) {
+function Card({ card, groups, expectLabel, popup, alignTitles = false, oneLineTitle = false }: { card: LevelCard; groups: RowGroup[]; expectLabel: string; popup?: Popup; alignTitles?: boolean; oneLineTitle?: boolean }) {
   const rows = <Rows groups={groups} />;
   return (
     /* Title row aligned across the cards in a row (Sergei, Nov 23 2026): on wide screens each outpatient card is
@@ -108,7 +109,8 @@ function Card({ card, groups, expectLabel, popup, alignTitles = false }: { card:
           {card.tag}
         </span>
       )}
-      <h4 className="text-2xl font-semibold leading-snug text-se-green-700">{card.name}</h4>
+      {/* oneLineTitle: the long Palo Alto title is set a touch smaller on desktop so it fits one line (Sergei, Nov 23 2026). */}
+      <h4 className={`text-2xl font-semibold leading-snug text-se-green-700 ${oneLineTitle ? 'lg:text-xl lg:leading-snug min-[1152px]:text-[1.4375rem] min-[1152px]:leading-snug' : ''}`}>{card.name}</h4>
       </div>
       <div className="flex flex-1 flex-col">
       {/* Hours line: shaded band instead of the clock icon, to set it apart from the name and blurb (Sergei, Nov 23 2026). */}
