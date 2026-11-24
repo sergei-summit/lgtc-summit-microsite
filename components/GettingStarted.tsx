@@ -19,7 +19,6 @@ export default function GettingStarted() {
           <h2 id="start-title" className="text-3xl font-semibold text-se-green-700 sm:text-4xl">
             {start.title}
           </h2>
-          <p className="mt-4 leading-relaxed text-se-ink">{start.intro}</p>
         </hgroup>
 
         <ol className="mt-10 grid gap-5 lg:grid-cols-3">

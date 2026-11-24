@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Logo from './Logo';
+import Logo, { StackedLogo } from './Logo';
 import { page } from '@/content/page';
 import { CallbackIcon, PhoneIcon } from './Actions';
 import { settings } from '@/content/settings';
@@ -50,7 +50,9 @@ export default function SubBar() {
         {/* The logo shrinks on narrow screens so the call button always fits
             (Sergei, Nov 17 2026); full size from md up. */}
         <div className="min-w-[4.5rem] flex-1">
-          <Logo label={subBar.logoLabel} className="block h-auto w-full max-w-[184px] md:h-12 md:w-auto md:max-w-none" />
+          {/* Phones: the stacked lockup, which keeps its size beside the two buttons (Sergei, Nov 23 2026). */}
+          <StackedLogo label={subBar.logoLabel} className="block h-12 w-auto sm:hidden" />
+          <Logo label={subBar.logoLabel} className="hidden h-auto w-full max-w-[184px] sm:block md:h-12 md:w-auto md:max-w-none" />
         </div>
         <ul className="flex max-w-full shrink-0 flex-wrap items-center justify-end gap-x-2 gap-y-2 text-sm font-semibold text-se-green-700 sm:gap-x-5">
           {subBar.links.map((link) => (
@@ -66,8 +68,8 @@ export default function SubBar() {
               className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-3 py-2 text-sm font-semibold text-white no-underline transition-colors hover:bg-se-green-900 sm:px-5"
             >
               <CallbackIcon />
-              <span className="min-[380px]:hidden">{actions.callbackShort}</span>
-              <span className="max-[379px]:hidden">{actions.callback}</span>
+              <span className="min-[360px]:hidden">{actions.callbackShort}</span>
+              <span className="max-[359px]:hidden">{actions.callback}</span>
             </a>
           </li>
           <li>
