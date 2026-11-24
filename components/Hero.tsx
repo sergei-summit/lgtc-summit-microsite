@@ -38,7 +38,16 @@ export default function Hero() {
               <li key={feature.title} className={`pl-1 ${feature.phone ? ['', 'max-sm:order-1', 'max-sm:order-2', 'max-sm:order-3'][feature.phone] : 'max-sm:hidden'}`}>
                 {/* A bulleted list in two columns, smaller type (Sergei, Nov 17 2026:
                     "no emoji", then "use bullets and go back to two columns"). */}
-                <span className="text-sm font-semibold leading-snug text-se-ink">{keepTogether(feature.title)}</span>
+                <span className="text-sm font-semibold leading-snug text-se-ink">
+                  {feature.phoneTitle ? (
+                    <>
+                      <span className="sm:hidden">{feature.phoneTitle}</span>
+                      <span className="max-sm:hidden">{keepTogether(feature.title)}</span>
+                    </>
+                  ) : (
+                    keepTogether(feature.title)
+                  )}
+                </span>
                 {feature.proof ? (
                   <span className="mt-0.5 block text-sm leading-snug text-se-ink-muted">{feature.proof}</span>
                 ) : null}

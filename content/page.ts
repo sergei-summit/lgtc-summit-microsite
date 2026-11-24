@@ -111,12 +111,13 @@ export const page = {
       /** Sergei's six lines, in his order (Nov 18 2026). */
       /** `phone`: the three shown on phones, in that order (Sergei, Nov 23 2026); the rest show from sm up. */
       { icon: 'compass', title: 'Day, evening & remote hybrid formats', phone: 1 },
-      { icon: 'heart', title: 'Individualized treatment programs', phone: 3 },
+      /** phoneTitle: on phones the psychiatric-oversight bullet is hidden, so this line carries it there (Sergei, Nov 23 2026). */
+      { icon: 'heart', title: 'Individualized treatment programs', phone: 3, phoneTitle: 'Psychiatrically guided, individualized treatment programs' },
       { icon: 'shield', title: 'Psychiatric oversight, board-certified teams' },
       { icon: 'layers', title: 'Intensity matched to your needs' },
       { icon: 'calendar', title: 'Curated curriculum with family involvement' },
       { icon: 'award', title: 'In-network with most major plans', phone: 2 },
-    ] as { icon: FeatureIconName; title: string; proof?: string; phone?: 1 | 2 | 3 }[],
+    ] as { icon: FeatureIconName; title: string; proof?: string; phone?: 1 | 2 | 3; phoneTitle?: string }[],
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
