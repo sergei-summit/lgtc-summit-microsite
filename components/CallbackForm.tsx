@@ -160,7 +160,7 @@ export default function CallbackForm({
             return (
               <label
                 key={option}
-                className={`flex min-h-12 cursor-pointer min-w-0 items-center justify-center gap-2 rounded-xl border px-2 py-3 text-left font-semibold leading-tight transition-colors ${
+                className={`flex min-h-12 cursor-pointer min-w-0 items-center justify-center gap-1.5 rounded-xl border px-1.5 py-3 text-left font-semibold leading-tight transition-colors min-[400px]:gap-2 min-[400px]:px-2 ${
                   active
                     ? 'border-se-accent-600 bg-se-accent-600 text-white'
                     : 'border-se-field bg-se-paper text-se-ink hover:border-se-green-600'
