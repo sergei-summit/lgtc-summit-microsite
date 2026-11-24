@@ -126,7 +126,7 @@ export default function CallbackForm({
   }
 
   return (
-    <form onSubmit={onSubmit} className="rounded-3xl border border-se-line bg-se-paper p-6 shadow-se-card sm:p-8">
+    <form onSubmit={onSubmit} className="rounded-3xl border border-se-line bg-se-paper p-5 shadow-se-card sm:p-8">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <Label htmlFor="cb-name">{copy.name}</Label>
@@ -160,7 +160,7 @@ export default function CallbackForm({
             return (
               <label
                 key={option}
-                className={`flex min-h-12 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-xl border px-2 py-3 font-semibold transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-se-accent-700 has-[:focus-visible]:ring-offset-2 ${
+                className={`flex min-h-12 cursor-pointer min-w-0 items-center justify-center gap-2 rounded-xl border px-2 py-3 text-left font-semibold leading-tight transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-se-accent-700 has-[:focus-visible]:ring-offset-2 ${
                   active
                     ? 'border-se-accent-600 bg-se-accent-600 text-white'
                     : 'border-se-line bg-se-paper text-se-ink hover:border-se-green-600'
