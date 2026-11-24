@@ -40,7 +40,9 @@ import paloAltoPhoto from './images/hero-palo-alto-estate.webp';
 import therapyPhoto from './images/therapy-office.webp';
 import paloAltoPhotoSmall from './images/hero-palo-alto-estate-720.webp';
 import paloAltoLocationPhoto from './images/location-palo-alto.webp';
+import paloAltoLocationPhotoSmall from './images/location-palo-alto-720.webp';
 import sanJoseLocationPhoto from './images/location-san-jose-iop.webp';
+import sanJoseLocationPhotoSmall from './images/location-san-jose-iop-720.webp';
 import jointCommissionBadge from './images/badge-joint-commission.png';
 import carfBadge from './images/badge-carf.png';
 import dhcsBadge from './images/badge-dhcs.png';
@@ -68,7 +70,7 @@ export type Card = { eyebrow?: string; title: string; points: string[] };
 /** A level card: tag chip, name, clock line and blurb; its "What to expect" rows are a Level's rows. */
 export type LevelCard = { tag?: string; name: string; meta: string; blurb: string };
 /** A "Where we are" card from go.summitestate.com/outpatient: icon, small label, name, one line and chips. */
-export type LocationCard = { title: string; photo: { src: StaticImageData; alt: string }; address: string; mapHref: string; link: { label: string; href: string } };
+export type LocationCard = { title: string; photo: Photo; address: string; mapHref: string; link: { label: string; href: string } };
 
 export type Level = {
   id: string;
@@ -456,14 +458,14 @@ export const page = {
       {
         /** One line, same style for both (Sergei, Nov 18 2026). */
         title: 'San Jose \u00b7 Summit Outpatient Clinic',
-        photo: { src: sanJoseLocationPhoto, alt: 'Lounge at the Summit Estate outpatient center in San Jose' },
+        photo: { src: sanJoseLocationPhoto, small: sanJoseLocationPhotoSmall, alt: 'Lounge at the Summit Estate outpatient center in San Jose' },
         address: '7280 Blue Hill Dr, San Jose, CA 95129',
         mapHref: 'https://maps.google.com/?cid=7032103815367785378',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/outpatient' },
       },
       {
         title: 'Palo Alto \u00b7 Summit Detox & Residential',
-        photo: { src: paloAltoLocationPhoto, alt: 'Entrance of the Summit Estate residential estate in Palo Alto' },
+        photo: { src: paloAltoLocationPhoto, small: paloAltoLocationPhotoSmall, alt: 'Entrance of the Summit Estate residential estate in Palo Alto' },
         address: '4145 Old Adobe Rd, Palo Alto, CA 94306',
         mapHref: 'https://maps.google.com/?cid=12385558053705677330',
         link: { label: 'Learn more', href: 'https://go.summitestate.com/landing' },

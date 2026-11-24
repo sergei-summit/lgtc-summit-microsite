@@ -67,10 +67,17 @@
     white-space: normal;
   }
 }
-/* One focus ring everywhere, visible on light and dark sections (links and the
-   "What to expect" toggles). */
+/* One focus ring everywhere, visible on light and dark sections: design system
+   green-40 (#5a716a) and beige (#e7d8c5) from the brand book repo. Links,
+   buttons (the "What to expect" popup buttons, the form's submit), form fields
+   and the form's Myself / Loved one choice, whose radio is visually hidden so
+   the ring goes on its label. (The design system's own --shadow-focus, 35%
+   light green, is 1.42:1, too faint to see.) */
 .se-root a:focus-visible,
-.se-root summary:focus-visible {
+.se-root summary:focus-visible,
+.se-root button:focus-visible,
+.se-root :where(input, select, textarea):focus-visible,
+.se-root label:has(input.sr-only:focus-visible) {
   outline: 3px solid #5a716a;
   outline-offset: 3px;
   box-shadow: 0 0 0 3px #ffffff;

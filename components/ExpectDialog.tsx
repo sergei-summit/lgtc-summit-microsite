@@ -5,7 +5,9 @@ import { ArrowIcon } from './Actions';
  * "What to expect" as a popup (Sergei, Nov 18 2026): a button on the card
  * opens a panel with the same rows the card used to fold open. Built on the
  * HTML popover attribute, so it needs no script: the browser opens and closes
- * it, and Esc or a click outside closes it too.
+ * it, and Esc or a click outside closes it too. The panel is a native
+ * <dialog popover> (Modern Web Guidance, dialog: "use <dialog popover> for a
+ * top-layer panel"), so screen readers get dialog semantics without a role.
  */
 export default function ExpectDialog({
   id,
@@ -35,10 +37,9 @@ export default function ExpectDialog({
           <ArrowIcon />
         </span>
       </button>
-      <div
+      <dialog
         id={panelId}
         popover="auto"
-        role="dialog"
         aria-labelledby={titleId}
         className="se-popup m-auto max-h-[calc(100dvh-2rem)] w-[min(36rem,calc(100vw-2rem))] overflow-y-auto rounded-3xl border border-se-line bg-se-paper p-0 text-se-ink shadow-se-card"
       >
@@ -64,7 +65,7 @@ export default function ExpectDialog({
           </div>
           <div className="mt-5">{children}</div>
         </div>
-      </div>
+      </dialog>
     </>
   );
 }

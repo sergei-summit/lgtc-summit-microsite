@@ -65,7 +65,7 @@ export default function Hero() {
         {/* Call card at the photo's lower right corner (Sergei, Nov 23 2026; top right before). */}
         <div className="relative">
           <div className="relative h-[16rem] w-full overflow-hidden rounded-[2rem] shadow-se-card sm:h-[22rem] md:h-[19rem] lg:h-[20rem]">
-            <FillPhoto photo={hero.photo} sizes="(min-width: 768px) 560px, 100vw" priority />
+            <FillPhoto photo={hero.photo} sizes="(min-width: 768px) 560px, calc(100vw - 2rem)" priority />
           </div>
           <a
             href={settings.phoneHref}

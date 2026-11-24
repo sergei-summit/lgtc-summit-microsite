@@ -70,7 +70,7 @@ export default function LevelCards() {
           oneLineTitle
         />
         <li className="relative min-h-[16rem] overflow-hidden rounded-3xl shadow-se-card">
-          <FillPhoto photo={higher.photo} sizes="(min-width: 768px) 600px, 100vw" />
+          <FillPhoto photo={higher.photo} sizes="(min-width: 768px) 600px, calc(100vw - 2rem)" />
           <div className="absolute right-4 top-4 max-w-[16rem] rounded-2xl bg-se-green-800 px-4 py-3 shadow-se-card">
             <p className="text-lg font-semibold leading-tight text-white">{higher.badge.value}</p>
           </div>

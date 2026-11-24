@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { page } from '@/content/page';
 import { PhoneIcon, SecondaryLink } from './Actions';
 import { settings } from '@/content/settings';
@@ -25,7 +24,19 @@ export default function WhereWeAre() {
         <ul className="mt-10 grid gap-6 md:grid-cols-2">
           {whereWeAre.items.map((item) => (
             <li key={item.title} className="flex flex-col overflow-hidden rounded-3xl border border-se-line bg-se-paper">
-              <Image src={item.photo.src} alt={item.photo.alt} sizes="(min-width: 768px) 560px, 100vw" className="aspect-[3/2] h-auto w-full object-cover" />
+              {/* Phones and 1x laptops get the 720px copy (Modern Web Guidance re-check, Nov 23 2026). */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={item.photo.src.src}
+                srcSet={item.photo.small ? `${item.photo.small.src} ${item.photo.small.width}w, ${item.photo.src.src} ${item.photo.src.width}w` : undefined}
+                sizes={item.photo.small ? '(min-width: 768px) 560px, calc(100vw - 2rem)' : undefined}
+                alt={item.photo.alt}
+                width={item.photo.src.width}
+                height={item.photo.src.height}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[3/2] h-auto w-full object-cover"
+              />
               <div className="flex flex-1 flex-col p-7">
                 <h3 className="text-2xl font-semibold leading-snug text-se-green-700">{item.title}</h3>
                 <address className="mt-4 space-y-1 not-italic leading-relaxed text-se-ink">
