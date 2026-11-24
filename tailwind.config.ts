@@ -48,6 +48,7 @@ const config: Config = {
           cream: '#F7F7F7', // brand book Grey
           paper: '#FFFFFF',
           line: '#E8E8E7', // hairline, rgba(29,29,27,0.10) on white
+          field: '#8E8E8D', // form field outline, rgba(29,29,27,0.50) on white: 3.3:1 (WCAG 1.4.11 asks 3:1)
           ink: { DEFAULT: '#303030', muted: '#51636F' }, // charcoal, slate
         },
       },

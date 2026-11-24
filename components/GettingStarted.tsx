@@ -44,8 +44,9 @@ export default function GettingStarted() {
           ))}
         </ol>
 
-        {/* The form block sits on the brand green so it reads as the destination (Sergei, Nov 23 2026). */}
-        <div id={start.formId} data-verify-actions className="mt-12 grid scroll-mt-24 items-start gap-10 rounded-3xl bg-se-green-800 p-6 sm:p-10 lg:grid-cols-2 lg:gap-14">
+        {/* The form block sits on the brand green so it reads as the destination (Sergei, Nov 23 2026). On phones the
+            green runs edge to edge, as on /outpatient, so the form card gets the full width (Sergei, Nov 23 2026). */}
+        <div id={start.formId} data-verify-actions className="mt-12 grid scroll-mt-24 items-start gap-10 -mx-4 bg-se-green-800 px-4 py-8 sm:mx-0 sm:rounded-3xl sm:p-10 lg:grid-cols-2 lg:gap-14">
           <div>
             <h3 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">{start.formTitle}</h3>
             <p className="mt-5 text-lg leading-relaxed text-white">{start.formLead}</p>
