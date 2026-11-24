@@ -49,7 +49,7 @@ export default function SubBar() {
       <div className="mx-auto flex min-h-16 max-w-se-content flex-wrap items-center justify-between gap-x-3 gap-y-2 px-4 py-2 sm:px-6">
         {/* The logo shrinks on narrow screens so the call button always fits
             (Sergei, Nov 17 2026); full size from md up. */}
-        <div className="min-w-[4.5rem] flex-1">
+        <div className="min-w-14 flex-1 sm:min-w-[4.5rem]">
           {/* Phones: the stacked lockup, which keeps its size beside the two buttons (Sergei, Nov 23 2026). */}
           <StackedLogo label={subBar.logoLabel} className="block h-12 w-auto sm:hidden" />
           <Logo label={subBar.logoLabel} className="hidden h-auto w-full max-w-[184px] sm:block md:h-12 md:w-auto md:max-w-none" />
