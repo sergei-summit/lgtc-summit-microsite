@@ -100,20 +100,24 @@ export const page = {
     /** Sergei, Nov 18 2026; sentence case per his Nov 18 note. */
     /** Lead line removed from the H1 (Sergei, Nov 23 2026); empty hides it. */
     titleLead: '',
-    title: 'Dual Diagnosis care in San Jose,',
+    /** Sergei, Nov 23 2026 (round 9), his capitals. */
+    title: 'Integrated Dual Diagnosis care',
     titleAccent: 'built around your life',
-    text: 'Address mental health and addiction treatment together at Summit Estate Recovery Center with convenient outpatient programs offered in-person or virtually',
+    /** Shortened (Sergei, Nov 23 2026): the first bullet now carries the in-person / remote point. */
+    text: 'Address mental health and addiction treatment together with convenient outpatient programs at Summit Estate',
     /** The team line, then three badges in the style of go.summitestate.com/outpatient
      * (Sergei, Nov 14 2026). The earlier PHP/IOP/OP lines repeated the Levels of Care cards and are gone. */
     features: [
       /** Sergei's six lines, in his order (Nov 18 2026). */
-      { icon: 'compass', title: 'Day, evening & hybrid formats' },
-      { icon: 'heart', title: 'Individualized treatment programs' },
+      /** `phone`: the three shown on phones, in that order (Sergei, Nov 23 2026); the rest show from sm up. */
+      { icon: 'compass', title: 'Day, evening & remote hybrid formats', phone: 1 },
+      /** phoneTitle: on phones the psychiatric-oversight bullet is hidden, so this line carries it there (Sergei, Nov 23 2026). */
+      { icon: 'heart', title: 'Individualized treatment programs', phone: 3, phoneTitle: 'Psychiatrically guided, individualized treatment programs' },
       { icon: 'shield', title: 'Psychiatric oversight, board-certified teams' },
       { icon: 'layers', title: 'Intensity matched to your needs' },
       { icon: 'calendar', title: 'Curated curriculum with family involvement' },
-      { icon: 'award', title: 'In-network with most major plans' },
-    ] as { icon: FeatureIconName; title: string; proof?: string }[],
+      { icon: 'award', title: 'In-network with most major plans', phone: 2 },
+    ] as { icon: FeatureIconName; title: string; proof?: string; phone?: 1 | 2 | 3; phoneTitle?: string }[],
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
@@ -199,7 +203,7 @@ export const page = {
    */
   levels: {
     id: 'programs',
-    title: 'Outpatient programs \u2013 Co-Occurring Enhanced Care (COE)',
+    title: 'Outpatient programs \u2013 Co-Occurring Enhanced',
     outpatient: {
       items: [
         {
@@ -313,7 +317,7 @@ export const page = {
           { name: 'Santa Clara Family Health Plan', logo: carrier13, width: 840, height: 215 },
         ] satisfies { name: string; logo: StaticImageData; width: number; height: number }[],
       },
-      higherTitle: 'Higher level of care \u00b7 Palo Alto',
+      higherTitle: 'Higher level of care',
       expectLabel: 'What to expect',
       closeLabel: 'Close',
       learnMore: { label: 'Learn more', href: 'https://go.summitestate.com/outpatient' },
@@ -331,13 +335,13 @@ export const page = {
         },
         outpatient: {
           name: 'Outpatient therapy program (OP)',
-          meta: '1+ hrs/wk \u2022 ongoing',
-          blurb: 'Individual therapy and medication management for people who are stable and want to stay on track.',
+          meta: '1+ Days / Wk \u2022 1+ Hr / Day \u2022 ongoing',
+          blurb: 'Individual therapy, curated groups and medication management for people who are stable and want to stay on track.',
         },
       } as Record<string, LevelCard>,
       combined: {
         /** Sergei, Nov 18 2026: no tag chip; his capitals kept. */
-        name: 'Detox & Residential (DTX/RTC)',
+        name: 'Palo Alto \u00b7 Detox & Residential (DTX/RTC)',
         meta: 'Detox typically 7\u201310 days\nResidential typically 3\u20134 weeks',
         blurb: 'Medically supervised Detoxification and Residential treatment on the private Palo Alto estate, for when recovery is not yet safe at home.',
       } satisfies LevelCard,
@@ -360,9 +364,9 @@ export const page = {
    * go.summitestate.com/outpatient (Sergei, Nov 23 2026). */
   gettingStarted: {
     id: 'get-started',
-    eyebrow: 'Process pathway',
+    eyebrow: 'How it works',
     title: 'Getting started is easy',
-    intro: 'We guide you through a structured, predictable onboarding process so you know what happens at every step.',
+    intro: 'What happens after you reach out',
     steps: [
       {
         icon: 'callback',
@@ -377,12 +381,14 @@ export const page = {
       {
         icon: 'calendar',
         title: 'Initial consultation',
-        text: 'Meet our integrated clinical team to build your customized treatment roadmap.',
+        text: 'Meet our integrated clinical team to plan your treatment together.',
       },
     ],
     cta: 'Request a callback',
     formId: 'callback',
-    formTitle: 'We can help you assess if one of these programs is a good option for you.',
+    /** The block every "Request a callback" button lands on carries the same words (Sergei, Nov 23 2026). */
+    formTitle: 'Request a callback',
+    formLead: 'We can help you assess if one of these programs is a good option for you.',
     formTextBefore: 'Call us at',
     formTextAfter: 'or complete the short form, and admissions will call you back.',
     crisis: "Please don't include sensitive medical details beyond your insurance card. If you are in crisis, call or text 988.",
@@ -401,7 +407,7 @@ export const page = {
       lovedOneProvider: 'Their insurance provider',
       lovedOnePolicyId: 'Their policy ID',
       submitVerify: 'Verify my insurance',
-      submitCallback: 'Request a confidential callback',
+      submitCallback: 'Request a callback',
       smallPrint: 'All communication is confidential. Submitting this does not commit you to treatment.',
       successTitle: 'That is all we need.',
       successTextBefore: 'Someone from admissions will call you back shortly. If you would rather not wait, call',
@@ -413,6 +419,12 @@ export const page = {
   actions: {
     /** The visible label; the number follows it. */
     callPrefix: 'Call',
+    /** The second contact action; every one of these buttons jumps to the form block (Sergei, Nov 23 2026). */
+    callback: 'Request a callback',
+    /** Its label in the top bar on very narrow phones. */
+    callbackShort: 'Callback',
+    /** Its label in the top bar on phones, beside "Call now" (Sergei, Nov 23 2026). */
+    callbackBar: 'Request callback',
     /** The sub-bar button's label on phones, as on summitestate.com (Sergei, Nov 17 2026). */
     callNow: 'Call now',
     /** LGTC's online registration form, framed as the assessment request. Not shown since Nov 5 2026 (Sergei removed the button from the closing section); kept for the RegisterButton. */

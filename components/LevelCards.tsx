@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { page, type Level, type LevelCard } from '@/content/page';
-import { ArrowIcon, PhoneIcon, SecondaryLink } from './Actions';
-import { settings } from '@/content/settings';
+import { ArrowIcon, CallbackButton, SecondaryLink } from './Actions';
 import ExpectDialog from './ExpectDialog';
 import FillPhoto from './FillPhoto';
 
@@ -38,6 +37,14 @@ export default function LevelCards() {
             {cards.outpatientTitle}
           </h3>
           <p className="mt-3 whitespace-pre-line leading-relaxed text-se-ink">{cards.outpatientCard.text}</p>
+          {/* Request a callback + Learn more (Sergei, Nov 23 2026): the call itself is always in the top bar. */}
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <CallbackButton />
+            <SecondaryLink href={cards.learnMore.href}>
+              {cards.learnMore.label}
+              <span className="sr-only">: {cards.outpatientTitle}</span>
+            </SecondaryLink>
+          </div>
         </div>
       </article>
       <ul className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-3">
@@ -52,21 +59,6 @@ export default function LevelCards() {
           />
         ))}
       </ul>
-      {/* One call-to-action bar under the three program cards (Sergei, Nov 18 2026). */}
-      <div className="mt-5 flex flex-wrap items-center justify-center gap-3 rounded-3xl border border-se-line bg-se-cream p-5 shadow-se-card">
-        <a
-          href={settings.phoneHref}
-          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-6 py-3 text-base font-semibold text-white no-underline transition-colors hover:bg-se-green-900"
-        >
-          <PhoneIcon />
-          {page.actions.callNow}
-          <span className="sr-only"> {settings.phone}</span>
-        </a>
-        <SecondaryLink href={cards.learnMore.href}>
-          {cards.learnMore.label}
-          <span className="sr-only">: {cards.outpatientTitle}</span>
-        </SecondaryLink>
-      </div>
 
       <h3 className="mt-12 text-2xl font-semibold text-se-green-700">{cards.higherTitle}</h3>
       <ul className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -75,6 +67,7 @@ export default function LevelCards() {
           groups={higher.items.map((level) => ({ name: level.name, rows: level.rows }))}
           expectLabel={cards.expectLabel}
           popup={{ id: 'detox-residential', closeLabel: cards.closeLabel }}
+          oneLineTitle
         />
         <li className="relative min-h-[16rem] overflow-hidden rounded-3xl shadow-se-card">
           <FillPhoto photo={higher.photo} sizes="(min-width: 768px) 600px, 100vw" />
@@ -96,7 +89,7 @@ type RowGroup = { name?: string; rows: Level['rows'] };
  * (Sergei: one pattern for every card); without `popup` it folds open in place. */
 type Popup = { id: string; closeLabel: string };
 
-function Card({ card, groups, expectLabel, popup, alignTitles = false }: { card: LevelCard; groups: RowGroup[]; expectLabel: string; popup?: Popup; alignTitles?: boolean }) {
+function Card({ card, groups, expectLabel, popup, alignTitles = false, oneLineTitle = false }: { card: LevelCard; groups: RowGroup[]; expectLabel: string; popup?: Popup; alignTitles?: boolean; oneLineTitle?: boolean }) {
   const rows = <Rows groups={groups} />;
   return (
     /* Title row aligned across the cards in a row (Sergei, Nov 23 2026): on wide screens each outpatient card is
@@ -108,11 +101,12 @@ function Card({ card, groups, expectLabel, popup, alignTitles = false }: { card:
           {card.tag}
         </span>
       )}
-      <h4 className="text-2xl font-semibold leading-snug text-se-green-700">{card.name}</h4>
+      {/* oneLineTitle: the long Palo Alto title is set a touch smaller on desktop so it fits one line (Sergei, Nov 23 2026). */}
+      <h4 className={`text-2xl font-semibold leading-snug text-se-green-700 ${oneLineTitle ? 'lg:text-xl lg:leading-snug min-[1152px]:text-[1.4375rem] min-[1152px]:leading-snug' : ''}`}>{card.name}</h4>
       </div>
       <div className="flex flex-1 flex-col">
       {/* Hours line: shaded band instead of the clock icon, to set it apart from the name and blurb (Sergei, Nov 23 2026). */}
-      <p className="mt-3 whitespace-pre-line rounded-xl bg-se-green-100 px-3 py-2 text-sm font-medium text-se-ink">{card.meta}</p>
+      <p className="mt-3 whitespace-pre-line rounded-xl bg-se-green-100 px-2 py-2 text-sm font-medium tracking-[-0.01em] text-se-ink">{card.meta}</p>
       <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-se-ink-muted">{card.blurb}</p>
       <div className="mt-5 grow" aria-hidden="true" />
       {popup ? (

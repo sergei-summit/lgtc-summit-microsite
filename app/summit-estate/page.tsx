@@ -41,7 +41,7 @@ export default function SummitEstatePage() {
         <GettingStarted />
         <PageFooterNote />
       </main>
-      {/* No bottom call bar on phones; the top bar's Call now is enough (Sergei, Nov 18 2026). MobileCallBar.tsx kept for later use. */}
+      {/* No bottom bar on phones: once the hero button has scrolled away, the top bar carries Call and Request a callback (Sergei, Nov 23 2026). MobileCallBar.tsx kept for later use. */}
     </div>
   );
 }

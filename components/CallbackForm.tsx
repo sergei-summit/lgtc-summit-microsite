@@ -35,7 +35,7 @@ export type CallbackFormCopy = {
 };
 
 const fieldClass =
-  'w-full rounded-xl border border-se-line bg-se-paper px-4 py-3 text-base text-se-ink placeholder:text-se-ink-muted focus:border-se-green-700';
+  'w-full rounded-xl border border-se-line bg-se-paper px-4 py-3 text-base text-se-ink placeholder:text-[#9aa19f] focus:border-se-green-700';
 const labelClass = 'mb-1.5 block font-medium text-se-ink';
 
 function Label({ htmlFor, children, optional = false }: { htmlFor: string; children: ReactNode; optional?: boolean }) {
@@ -160,7 +160,7 @@ export default function CallbackForm({
             return (
               <label
                 key={option}
-                className={`flex min-h-12 cursor-pointer items-center justify-center rounded-xl border px-4 py-3 font-semibold transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-se-accent-700 has-[:focus-visible]:ring-offset-2 ${
+                className={`flex min-h-12 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-xl border px-2 py-3 font-semibold transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-se-accent-700 has-[:focus-visible]:ring-offset-2 ${
                   active
                     ? 'border-se-accent-600 bg-se-accent-600 text-white'
                     : 'border-se-line bg-se-paper text-se-ink hover:border-se-green-600'
@@ -175,6 +175,7 @@ export default function CallbackForm({
                   onChange={() => setHelpFor(option)}
                   className="sr-only"
                 />
+                <ChoiceIcon pair={option === 'Loved one'} />
                 {option === 'Myself' ? copy.myself : copy.lovedOne}
               </label>
             );
@@ -253,5 +254,18 @@ export default function CallbackForm({
       </button>
       <p className="mt-4 text-center leading-relaxed text-se-ink-muted">{copy.smallPrint}</p>
     </form>
+  );
+}
+
+/** The two icons from the outpatient page's form: one person, or two people. */
+function ChoiceIcon({ pair }: { pair: boolean }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false" className="h-5 w-5 shrink-0">
+      {pair ? (
+        <path d="M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2.5 20a6.5 6.5 0 0 1 13 0M16 4.3a3.5 3.5 0 0 1 0 6.4M18 14.2a6.5 6.5 0 0 1 3.5 5.8" />
+      ) : (
+        <path d="M12 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM5.5 20a6.5 6.5 0 0 1 13 0" />
+      )}
+    </svg>
   );
 }

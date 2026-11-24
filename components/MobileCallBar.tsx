@@ -55,7 +55,7 @@ export default function MobileCallBar({
         </a>
         <a
           href={secondaryHref}
-          className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-se-accent-600 px-4 text-base font-semibold text-se-green-700 no-underline"
+          className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-se-accent-600 px-2 text-center text-base font-semibold leading-tight text-se-green-700 no-underline"
         >
           {secondaryLabel}
         </a>

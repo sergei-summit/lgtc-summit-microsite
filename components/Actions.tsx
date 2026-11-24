@@ -79,7 +79,21 @@ export function SiteLink({ className = '', tone = 'light' }: { className?: strin
   );
 }
 
-/** Outline link for an in-page jump such as "Get started". */
+/**
+ * "Request a callback": the page's second contact action (Sergei, Nov 23 2026).
+ * Always the same solid button with the callback icon, always a jump to the
+ * form block, whose heading carries the same words.
+ */
+export function CallbackButton({ className = '' }: { className?: string }) {
+  return (
+    <a href={`#${page.gettingStarted.formId}`} className={`${base} ${colours('light', 'solid')} ${className}`}>
+      <CallbackIcon />
+      {page.actions.callback}
+    </a>
+  );
+}
+
+/** Outline link that leaves the page, such as "Learn more". */
 export function SecondaryLink({ href, children, className = '' }: { href: string; children: ReactNode; className?: string }) {
   return (
     <a
@@ -100,6 +114,15 @@ export function PhoneIcon({ className = 'h-5 w-5 shrink-0' }: { className?: stri
         strokeLinejoin="round"
         d="M3 5.5A2.5 2.5 0 015.5 3h1.6a1 1 0 01.95.68l1.2 3.6a1 1 0 01-.5 1.2l-1.5.76a11 11 0 005.5 5.5l.76-1.5a1 1 0 011.2-.5l3.6 1.2a1 1 0 01.69.95v1.6A2.5 2.5 0 0118.5 21h-.5C9.7 21 3 14.3 3 6v-.5z"
       />
+    </svg>
+  );
+}
+
+/** A handset with an arrow coming in: "we call you". */
+export function CallbackIcon({ className = 'h-5 w-5 shrink-0' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false" className={className}>
+      <path d="M16 8V3M16 8h5M16 8l5.5-5.5M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" />
     </svg>
   );
 }
