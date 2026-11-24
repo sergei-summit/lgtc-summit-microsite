@@ -423,6 +423,8 @@ export const page = {
     callback: 'Request a callback',
     /** Its label in the top bar on very narrow phones. */
     callbackShort: 'Callback',
+    /** Its label in the top bar on phones, beside "Call now" (Sergei, Nov 23 2026). */
+    callbackBar: 'Request callback',
     /** The sub-bar button's label on phones, as on summitestate.com (Sergei, Nov 17 2026). */
     callNow: 'Call now',
     /** LGTC's online registration form, framed as the assessment request. Not shown since Nov 5 2026 (Sergei removed the button from the closing section); kept for the RegisterButton. */

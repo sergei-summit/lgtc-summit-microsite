@@ -63,23 +63,25 @@ export default function SubBar() {
             </li>
           ))}
           <li className="hidden group-data-[past=true]:block">
+            {/* Phones: text only ("Request callback"), so both buttons keep their words beside the logo (Sergei, Nov 23 2026). */}
             <a
               href={`#${page.gettingStarted.formId}`}
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-3 py-2 text-sm font-semibold text-white no-underline transition-colors hover:bg-se-green-900 sm:px-5"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-2.5 py-2 text-sm font-semibold text-white no-underline transition-colors hover:bg-se-green-900 sm:px-5"
             >
-              <CallbackIcon />
+              <CallbackIcon className="h-5 w-5 shrink-0 max-sm:hidden" />
               <span className="min-[360px]:hidden">{actions.callbackShort}</span>
-              <span className="max-[359px]:hidden">{actions.callback}</span>
+              <span className="max-[359px]:hidden sm:hidden">{actions.callbackBar}</span>
+              <span className="max-sm:hidden">{actions.callback}</span>
             </a>
           </li>
           <li>
-            {/* Phones: "Call now", shrinking to the icon alone once the callback button joins it. From sm up the number always shows. */}
+            {/* Phones: "Call now" keeps its words; once the callback button joins it, the icon goes to make room. From sm up the number always shows. */}
             <a
               href={settings.phoneHref}
-              className="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-3.5 py-2 text-sm font-semibold text-white no-underline transition-colors hover:bg-se-green-900 group-data-[past=true]:max-sm:px-0 min-[360px]:px-4 sm:px-5"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-3.5 py-2 text-sm font-semibold text-white no-underline transition-colors hover:bg-se-green-900 group-data-[past=true]:max-sm:px-2.5 min-[360px]:px-4 sm:px-5"
             >
-              <PhoneIcon />
-              <span className="sm:hidden group-data-[past=true]:max-sm:sr-only">
+              <PhoneIcon className="h-5 w-5 shrink-0 group-data-[past=true]:max-sm:hidden" />
+              <span className="sm:hidden">
                 {actions.callNow}
                 <span className="sr-only"> {settings.phone}</span>
               </span>
