@@ -49,7 +49,8 @@ export default function GettingStarted() {
         <div id={start.formId} data-verify-actions className="mt-12 grid scroll-mt-24 items-start gap-10 rounded-3xl bg-se-green-800 p-6 sm:p-10 lg:grid-cols-2 lg:gap-14">
           <div>
             <h3 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">{start.formTitle}</h3>
-            <p className="mt-6 leading-relaxed text-white">
+            <p className="mt-5 text-lg leading-relaxed text-white">{start.formLead}</p>
+            <p className="mt-4 leading-relaxed text-white">
               {start.formTextBefore}{' '}
               <a href={settings.phoneHref} className="inline-flex items-center gap-1.5 font-semibold text-se-sand">
                 <PhoneIcon className="h-4 w-4 shrink-0" />

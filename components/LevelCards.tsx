@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { page, type Level, type LevelCard } from '@/content/page';
-import { ArrowIcon, PhoneIcon, SecondaryLink } from './Actions';
-import { settings } from '@/content/settings';
+import { ArrowIcon, CallbackButton, SecondaryLink } from './Actions';
 import ExpectDialog from './ExpectDialog';
 import FillPhoto from './FillPhoto';
 
@@ -38,16 +37,9 @@ export default function LevelCards() {
             {cards.outpatientTitle}
           </h3>
           <p className="mt-3 whitespace-pre-line leading-relaxed text-se-ink">{cards.outpatientCard.text}</p>
-          {/* Call now / Learn more live in this card (Sergei, Nov 23 2026; a separate bar under the program cards before). */}
+          {/* Request a callback + Learn more (Sergei, Nov 23 2026): the call itself is always in the top bar. */}
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <a
-              href={settings.phoneHref}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-6 py-3 text-base font-semibold text-white no-underline transition-colors hover:bg-se-green-900"
-            >
-              <PhoneIcon />
-              {page.actions.callNow}
-              <span className="sr-only"> {settings.phone}</span>
-            </a>
+            <CallbackButton />
             <SecondaryLink href={cards.learnMore.href}>
               {cards.learnMore.label}
               <span className="sr-only">: {cards.outpatientTitle}</span>

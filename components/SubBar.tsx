@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import Logo from './Logo';
 import { page } from '@/content/page';
-import { CallButton } from './Actions';
+import { CallbackIcon, PhoneIcon } from './Actions';
+import { settings } from '@/content/settings';
 
 /**
  * Summit sub-bar under LGTC's own site header: logo, the in-page link and the
@@ -20,11 +21,26 @@ export default function SubBar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const { subBar } = page;
+  /* Once the hero's "Request a callback" button has scrolled out of view, the bar
+     offers it too; on phones the call button then shrinks to its icon to make
+     room (Sergei, Nov 23 2026). Both states are in the markup and data-past
+     switches them, so a script-free preview can set the attribute itself. */
+  const [past, setPast] = useState(false);
+  useEffect(() => {
+    const target = document.querySelector('[data-hero-callback]');
+    if (!target || !('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver(([entry]) => setPast(!entry.isIntersecting && entry.boundingClientRect.top < 80), { rootMargin: '-64px 0px 0px 0px' });
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
+  const { subBar, actions } = page;
   return (
     <nav
       aria-label={subBar.navLabel}
-      className={`sticky top-0 z-40 border-b border-se-line bg-se-cream/95 backdrop-blur transition-shadow ${
+      data-se-bar
+      data-past={past}
+      className={`group sticky top-0 z-40 border-b border-se-line bg-se-cream/95 backdrop-blur transition-shadow ${
         scrolled ? 'shadow-se-card' : ''
       }`}
     >
@@ -36,16 +52,39 @@ export default function SubBar() {
         <div className="min-w-[4.5rem] flex-1">
           <Logo label={subBar.logoLabel} className="block h-auto w-full max-w-[184px] md:h-12 md:w-auto md:max-w-none" />
         </div>
-        <ul className="flex max-w-full shrink-0 flex-wrap items-center justify-end gap-x-5 gap-y-2 text-sm font-semibold text-se-green-700">
+        <ul className="flex max-w-full shrink-0 flex-wrap items-center justify-end gap-x-2 gap-y-2 text-sm font-semibold text-se-green-700 sm:gap-x-5">
           {subBar.links.map((link) => (
-            <li key={link.href} className="hidden sm:block">
+            <li key={link.href} className="hidden sm:block group-data-[past=true]:max-md:hidden">
               <a href={link.href} className="rounded no-underline hover:underline">
                 {link.label}
               </a>
             </li>
           ))}
+          <li className="hidden group-data-[past=true]:block">
+            <a
+              href={`#${page.gettingStarted.formId}`}
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-3 py-2 text-sm font-semibold text-white no-underline transition-colors hover:bg-se-green-900 sm:px-5"
+            >
+              <CallbackIcon />
+              <span className="min-[380px]:hidden">{actions.callbackShort}</span>
+              <span className="max-[379px]:hidden">{actions.callback}</span>
+            </a>
+          </li>
           <li>
-            <CallButton short className="min-h-11 px-3.5 py-2 text-sm min-[360px]:px-4 sm:px-5" />
+            {/* Phones: "Call now", shrinking to the icon alone once the callback button joins it. From sm up the number always shows. */}
+            <a
+              href={settings.phoneHref}
+              className="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-3.5 py-2 text-sm font-semibold text-white no-underline transition-colors hover:bg-se-green-900 group-data-[past=true]:max-sm:px-0 min-[360px]:px-4 sm:px-5"
+            >
+              <PhoneIcon />
+              <span className="sm:hidden group-data-[past=true]:max-sm:sr-only">
+                {actions.callNow}
+                <span className="sr-only"> {settings.phone}</span>
+              </span>
+              <span className="hidden sm:inline">
+                {actions.callPrefix} {settings.phone}
+              </span>
+            </a>
           </li>
         </ul>
       </div>

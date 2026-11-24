@@ -1,7 +1,7 @@
 import FillPhoto from './FillPhoto';
 import { page } from '@/content/page';
 import { settings } from '@/content/settings';
-import { PhoneIcon, SecondaryLink } from './Actions';
+import { CallbackButton, PhoneIcon } from './Actions';
 
 /**
  * Hero: the H1 across the full width, then the intro and the feature points on
@@ -47,7 +47,10 @@ export default function Hero() {
           </ul>
           {/* The way to the form from the first screen (Sergei, Nov 23 2026). */}
           <p className="mt-7">
-            <SecondaryLink href={`#${page.gettingStarted.formId}`}>{hero.callback}</SecondaryLink>
+            {/* data-hero-callback: once this button has scrolled away, the top bar offers the same action. */}
+            <span data-hero-callback className="inline-block">
+              <CallbackButton />
+            </span>
           </p>
         </div>
         {/* Call card at the photo's lower right corner (Sergei, Nov 23 2026; top right before). */}

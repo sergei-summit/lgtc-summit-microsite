@@ -117,8 +117,6 @@ export const page = {
       { icon: 'calendar', title: 'Curated curriculum with family involvement' },
       { icon: 'award', title: 'In-network with most major plans', phone: 2 },
     ] as { icon: FeatureIconName; title: string; proof?: string; phone?: 1 | 2 | 3 }[],
-    /** Jump to the callback form, under the bullets (Sergei, Nov 23 2026). */
-    callback: 'Request a callback',
     callCard: { title: 'Confidential', note: 'Obligation-free insurance check' },
     photo: {
       src: heroPhoto,
@@ -387,7 +385,9 @@ export const page = {
     ],
     cta: 'Request a callback',
     formId: 'callback',
-    formTitle: 'We can help you assess if one of these programs is a good option for you.',
+    /** The block every "Request a callback" button lands on carries the same words (Sergei, Nov 23 2026). */
+    formTitle: 'Request a callback',
+    formLead: 'We can help you assess if one of these programs is a good option for you.',
     formTextBefore: 'Call us at',
     formTextAfter: 'or complete the short form, and admissions will call you back.',
     crisis: "Please don't include sensitive medical details beyond your insurance card. If you are in crisis, call or text 988.",
@@ -418,6 +418,10 @@ export const page = {
   actions: {
     /** The visible label; the number follows it. */
     callPrefix: 'Call',
+    /** The second contact action; every one of these buttons jumps to the form block (Sergei, Nov 23 2026). */
+    callback: 'Request a callback',
+    /** Its label in the top bar on very narrow phones. */
+    callbackShort: 'Callback',
     /** The sub-bar button's label on phones, as on summitestate.com (Sergei, Nov 17 2026). */
     callNow: 'Call now',
     /** LGTC's online registration form, framed as the assessment request. Not shown since Nov 5 2026 (Sergei removed the button from the closing section); kept for the RegisterButton. */

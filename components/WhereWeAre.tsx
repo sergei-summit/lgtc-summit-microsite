@@ -14,17 +14,7 @@ export default function WhereWeAre() {
   return (
     <section aria-labelledby="where-title" className="border-t border-se-line bg-se-cream">
       <div className="mx-auto max-w-se-content px-4 py-10 sm:px-6 md:py-14">
-        {/* "Explore Summit Estate" sits above this section's heading since Nov 18 2026 (Sergei; it was at the very bottom). */}
-        {settings.showFullSiteLink && (
-          <p className="mb-12 flex justify-center">
-            <a
-              href={settings.fullSiteUrl}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-se-accent-600 px-6 py-3 text-base font-semibold text-white no-underline transition-colors hover:bg-se-green-900"
-            >
-              {page.footerNote.fullSiteLink}
-            </a>
-          </p>
-        )}
+        {/* The "Explore Summit Estate" button above this heading was removed (Sergei, Nov 23 2026). */}
         <hgroup>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-se-green-700">{whereWeAre.eyebrow}</p>
           <h2 id="where-title" className="mt-3 text-3xl font-semibold text-se-green-700 sm:text-4xl">
