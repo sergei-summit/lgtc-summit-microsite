@@ -366,33 +366,28 @@ export const page = {
    * go.summitestate.com/outpatient (Sergei, Nov 23 2026). */
   gettingStarted: {
     id: 'get-started',
-    eyebrow: 'How it works',
     title: 'Getting started is easy',
-    intro: 'What happens after you reach out',
+    /** One block (Sergei, Nov 23 2026: the steps and the "Request a callback" block sat next to each other and
+     * repeated): the three steps on the left of the green block, the form on the right. Step 1 carries the phone
+     * number, so the separate "Call us at … or complete the short form" sentence is gone. `{phone}` is replaced
+     * by the call link. */
+    lead: 'We can help you assess if one of these programs is a good option for you.',
     steps: [
       {
-        icon: 'callback',
         title: 'Request a callback',
-        text: 'Send the short form below, or call us. It takes about a minute.',
+        text: 'Send the short form, or call {phone}. It takes about a minute.',
       },
       {
-        icon: 'phone',
         title: 'Phone intake',
         text: 'Our admissions coordinator calls you to verify your insurance coverage and schedule your initial consultation.',
       },
       {
-        icon: 'calendar',
         title: 'Initial consultation',
         text: 'Meet our integrated clinical team to plan your treatment together.',
       },
     ],
-    cta: 'Request a callback',
+    /** Every "Request a callback" button lands on the form itself. */
     formId: 'callback',
-    /** The block every "Request a callback" button lands on carries the same words (Sergei, Nov 23 2026). */
-    formTitle: 'Request a callback',
-    formLead: 'We can help you assess if one of these programs is a good option for you.',
-    formTextBefore: 'Call us at',
-    formTextAfter: 'or complete the short form, and admissions will call you back.',
     crisis: "Please don't include sensitive medical details beyond your insurance card. If you are in crisis, call or text 988.",
     form: {
       name: 'Name',
